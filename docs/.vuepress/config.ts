@@ -1,26 +1,23 @@
-import { defineUserConfig } from 'vuepress'
-import { defaultTheme } from '@vuepress/theme-default'
+import { defineUserConfig } from "vuepress";
+import { defaultTheme } from "@vuepress/theme-default";
 
 export default defineUserConfig({
-
-  // base URL 
-  base: '/',
+  // base URL
+  base: "/",
 
   //language and other basic information of the website
-  lang: 'en-US',
-  title: 'Stakater App Agility Platform Documentation',
-  description: 'Stakater App Agility Platform Documentation', //TODO: Add user/search friendly description. abaziz
-  
+  lang: "en-US",
+  title: "Stakater App Agility Platform Documentation",
+  description: "Stakater App Agility Platform Documentation", //TODO: Add user/search friendly description. abaziz
 
   theme: defaultTheme({
-
     sidebar: [
       {
         text: "Introduction",
         children: [
           {
-            text:"SAAP Introduction",
-            link:"/sre/introduction/introduction.md"
+            text: "SAAP Introduction",
+            link: "/sre/introduction/introduction.md",
           },
           "/sre/introduction/why-sro.md",
           "/sre/introduction/sro-overview.md",
@@ -59,7 +56,7 @@ export default defineUserConfig({
           "/sre/gitops/bot-account.md",
           "/sre/gitops/structure.md",
           "/sre/gitops/environments.md",
-          "/sre/gitops/faqs.md"
+          "/sre/gitops/faqs.md",
         ],
       },
       {
@@ -70,7 +67,7 @@ export default defineUserConfig({
           "/sre/onboarding/environment-onboarding.md",
           "/sre/onboarding/cluster-onboarding.md",
           "/sre/onboarding/quota-onboarding.md",
-          "/sre/onboarding/developer-training.md"
+          "/sre/onboarding/developer-training.md",
         ],
       },
       {
@@ -81,28 +78,20 @@ export default defineUserConfig({
           "/sre/authentication-authorization/keycloak-idp.md",
           "/sre/authentication-authorization/saml-idp.md",
           "/sre/authentication-authorization/saap-authorization-roles.md",
-          "/sre/authentication-authorization/curated-list-operators.md"
+          "/sre/authentication-authorization/curated-list-operators.md",
         ],
       },
       {
         text: "Continuous Integration & Deployment (CI&CD)",
-        children: [
-          "/sre/pipelines/introduction.md"
-        ],
+        children: ["/sre/pipelines/introduction.md"],
       },
       {
         text: "ArgoCD",
-        children: [
-          "/sre/argocd/01-introduction.md"
-        ],
+        children: ["/sre/argocd/01-introduction.md"],
       },
-  
-       { text: "Tekton",
-       children: [
-        "/sre/tekton/cluster-tasks.md"
-      ],
-      },
-  
+
+      { text: "Tekton", children: ["/sre/tekton/cluster-tasks.md"] },
+
       {
         text: "Artifacts Management",
         children: [
@@ -111,14 +100,14 @@ export default defineUserConfig({
           "/sre/repository/03-permissions.md",
           "/sre/repository/04-routes.md",
           "/sre/repository/08-grant-nexus-admin-keycloak.md",
-          "/sre/repository/05-FAQ.md"
+          "/sre/repository/05-FAQ.md",
         ],
       },
       {
         text: "Code Quality",
         children: [
           "/sre/code-quality/01-introduction.md",
-          "/sre/code-quality/sonarqube-upgrade.md"
+          "/sre/code-quality/sonarqube-upgrade.md",
         ],
       },
       {
@@ -146,7 +135,7 @@ export default defineUserConfig({
           "/sre/alerting/downtime-notifications-uptimerobot.md",
           "/sre/alerting/workload-application-alerts.md",
           "/sre/alerting/log-alerts.md",
-          "/sre/alerting/predefined-prometheusrules.md"
+          "/sre/alerting/predefined-prometheusrules.md",
         ],
       },
       {
@@ -167,7 +156,7 @@ export default defineUserConfig({
           "content/sre/backup-restore/cleanup.md",
           "/sre/backup-restore/stateful-app-example.md",
           "/sre/backup-restore/restore-with-gitops.md",
-          "/sre/backup-restore/02-limitations.md"
+          "/sre/backup-restore/02-limitations.md",
         ],
       },
       {
@@ -191,9 +180,7 @@ export default defineUserConfig({
       },
       {
         text: "Certificate Management",
-        children: [
-          "/sre/certificates/cert-manager.md",
-        ],
+        children: ["/sre/certificates/cert-manager.md"],
       },
       {
         text: "Local Development",
@@ -229,17 +216,17 @@ export default defineUserConfig({
         ],
       },
       {
-         text:"Tronador",
-         children: [
-            "/sre/tronador/overview.md",
-            "/sre/tronador/environment_provisioner.md",
-            "/sre/tronador/tronador_config.md",
-            "/sre/tronador/config_file.md",
-            "/sre/tronador/cluster_task.md",
-            "/sre/tronador/workflow.md",
-            "/sre/tronador/troubleshooting.md",
-            "/sre/tronador/changelog.md",
-         ]
+        text: "Tronador",
+        children: [
+          "/sre/tronador/overview.md",
+          "/sre/tronador/environment_provisioner.md",
+          "/sre/tronador/tronador_config.md",
+          "/sre/tronador/config_file.md",
+          "/sre/tronador/cluster_task.md",
+          "/sre/tronador/workflow.md",
+          "/sre/tronador/troubleshooting.md",
+          "/sre/tronador/changelog.md",
+        ],
       },
       {
         text: "Frequently Asked Questions",
@@ -258,57 +245,54 @@ export default defineUserConfig({
       {
         text: "Support",
         children: ["/sre/support/support.md"],
-      }
+      },
     ],
     //sidebar: 'auto',
     navbar: [
       {
-        text: 'Docs Home',
-        link: '/sre/introduction/introduction.html',
+        text: "Docs Home",
+        link: "/sre/introduction/introduction.html",
       },
 
       {
-        text: 'Stakater Home',
-        link: 'https://www.google.com',
-      }
-      ,
+        text: "Stakater Home",
+        link: "https://www.google.com",
+      },
       {
-        text: 'Offerings',
+        text: "Offerings",
         children: [
-            {
-                text: 'Test 1.1',
-                link: 'https://www.google.com',
-            },
-            {
-                text: 'Test 1.1',
-                link: '/reference/cli.html',
-            },
+          {
+            text: "Test 1.1",
+            link: "https://www.google.com",
+          },
+          {
+            text: "Test 1.1",
+            link: "/reference/cli.html",
+          },
         ],
       },
       {
-        text: 'Learnings',
+        text: "Learnings",
         children: [
-            {
-                text: 'Test 1.1',
-                link: 'https://www.google.com',
-            },
+          {
+            text: "Test 1.1",
+            link: "https://www.google.com",
+          },
         ],
       },
       {
-        text: 'Platform Assessment',
-        link: 'https://www.google.com',
-      }
-      ,
+        text: "Platform Assessment",
+        link: "https://www.google.com",
+      },
       {
-        text: 'More',
+        text: "More",
         children: [
-            {
-                text: 'Test 1.1',
-                link: 'https://www.google.com',
-            },
+          {
+            text: "Test 1.1",
+            link: "https://www.google.com",
+          },
         ],
-      }
-],
+      },
+    ],
   }),
-
-})
+});
