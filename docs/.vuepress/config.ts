@@ -262,12 +262,12 @@ export default defineUserConfig({
         text: "Offerings",
         children: [
           {
-            text: "Test 1.1",
-            link: "https://www.google.com",
+            text: "SAAP",
+            link: "https://www.stakater.com/saap-kubernetes-openshift",
           },
           {
-            text: "Test 1.1",
-            link: "/reference/cli.html",
+            text: "Consultancy",
+            link: "https://www.stakater.com/kubernetes-consultancy",
           },
         ],
       },
@@ -275,21 +275,29 @@ export default defineUserConfig({
         text: "Learnings",
         children: [
           {
-            text: "Test 1.1",
-            link: "https://www.google.com",
+            text: "Events",
+            link: "https://www.stakater.com/events",
+          },
+          {
+            text: "Recordings",
+            link: "https://www.stakater.com/events",
           },
         ],
       },
       {
         text: "Platform Assessment",
-        link: "https://www.google.com",
+        link: "https://www.stakater.com/kubernetes-platform-assessment",
       },
       {
         text: "More",
         children: [
           {
-            text: "Test 1.1",
-            link: "https://www.google.com",
+            text: "Careers",
+            link: "https://www.stakater.com/kubernetes-platform-assessment",
+          },
+          {
+            text: "FAQs",
+            link: "https://www.stakater.com/faqs",
           },
         ],
       },
