@@ -236,23 +236,6 @@ export default defineUserConfig({
           "/sre/tenant-operator/integration-config.md",
           "/sre/tenant-operator/customresources.md",
           "/sre/tenant-operator/tenant-roles.md",
-          "/sre/tenant-operator/usecases/use-cases.md",
-          "/sre/tenant-operator/argocd-multitenancy.md",
-          "/sre/tenant-operator/vault-multitenancy.md",
-          "/sre/tenant-operator/changelog.md",
-          "/sre/tenant-operator/faq.md",
-        ],
-      },
-      {
-        text: "Tenant-Operator-Alt",
-        collapsible: true,
-        children: [
-          "/sre/tenant-operator/overview.md",
-          "/sre/tenant-operator/features.md",
-          "/sre/tenant-operator/installation.md",
-          "/sre/tenant-operator/integration-config.md",
-          "/sre/tenant-operator/customresources.md",
-          "/sre/tenant-operator/tenant-roles.md",
           {
             text: "Use Cases",
             children: [
