@@ -216,6 +216,63 @@ export default defineUserConfig({
         ],
       },
       {
+        text: "Tenant-Operator-Alt",
+        collapsible: true,
+        children: [
+          "/sre/tenant-operator/overview.md",
+          "/sre/tenant-operator/features.md",
+          "/sre/tenant-operator/installation.md",
+          "/sre/tenant-operator/integration-config.md",
+          "/sre/tenant-operator/customresources.md",
+          "/sre/tenant-operator/tenant-roles.md",
+          {
+            text: "Use Cases",
+            children: [
+              {
+                text: "Creating Quotas",
+                link: "/sre/tenant-operator/usecases/quota.md",
+              },
+              {
+                text: "Creating Tenant",
+                link: "/sre/tenant-operator/usecases/tenant.md",
+              },
+              {
+                text: "Creating Namespace",
+                link: "/sre/tenant-operator/usecases/namespace.md",
+              },
+              {
+                text: "Creating Template",
+                link: "/sre/tenant-operator/usecases/template.md",
+              },
+              {
+                text: "Deploying Template to Namespace",
+                link: "/sre/tenant-operator/usecases/deploying-templates.md",
+              },
+              {
+                text: "Configuring Multi-Tenant Isolation with Network Policy Template",
+                link: "/sre/tenant-operator/usecases/configuring-multitenant-network-isolation.md",
+              },
+              {
+                text: "Configuring IntegrationConfig",
+                link: "/sre/tenant-operator/usecases/integrationconfig.md",
+              },
+              {
+                text: "Creating ArgoCD AppProject",
+                link: "/sre/tenant-operator/usecases/argocd.md",
+              },
+              {
+                text: "Extending Manager ClusterRole",
+                link: "/sre/tenant-operator/usecases/manager-clusterrole",
+              },
+            ],
+          },
+          "/sre/tenant-operator/argocd-multitenancy.md",
+          "/sre/tenant-operator/vault-multitenancy.md",
+          "/sre/tenant-operator/changelog.md",
+          "/sre/tenant-operator/faq.md",
+        ],
+      },
+      {
         text: "Tronador",
         children: [
           "/sre/tronador/overview.md",
