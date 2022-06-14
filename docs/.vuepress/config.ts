@@ -14,6 +14,7 @@ export default defineUserConfig({
     sidebar: [
       {
         text: "Introduction",
+        collapsible: true,
         children: [
           {
             text: "SAAP Introduction",
@@ -27,10 +28,12 @@ export default defineUserConfig({
       },
       {
         text: "Managed AddOns",
+        collapsible: true,
         children: ["/sre/addons/introduction.md"],
       },
       {
         text: "Cloud Provider",
+        collapsible: true,
         children: [
           "/sre/cloud-provider/introduction.md",
           "/sre/cloud-provider/azure.md",
@@ -41,6 +44,7 @@ export default defineUserConfig({
       },
       {
         text: "Applications",
+        collapsible: true,
         children: [
           "/sre/applications/cloud-native-app.md",
           "/sre/applications/helm.md",
@@ -49,6 +53,7 @@ export default defineUserConfig({
       },
       {
         text: "GitOps",
+        collapsible: true,
         children: [
           "/sre/gitops/introduction.md",
           "/sre/gitops/github.md",
@@ -61,6 +66,7 @@ export default defineUserConfig({
       },
       {
         text: "Onboarding",
+        collapsible: true,
         children: [
           "/sre/onboarding/tenant-onboarding.md",
           "/sre/onboarding/application-onboarding.md",
@@ -72,6 +78,7 @@ export default defineUserConfig({
       },
       {
         text: "Authentication and Authorization",
+        collapsible: true,
         children: [
           "/sre/authentication-authorization/google-idp.md",
           "/sre/authentication-authorization/azure-idp.md",
@@ -83,17 +90,24 @@ export default defineUserConfig({
       },
       {
         text: "Continuous Integration & Deployment (CI&CD)",
+        collapsible: true,
         children: ["/sre/pipelines/introduction.md"],
       },
       {
         text: "ArgoCD",
+        collapsible: true,
         children: ["/sre/argocd/01-introduction.md"],
       },
 
-      { text: "Tekton", children: ["/sre/tekton/cluster-tasks.md"] },
+      {
+        text: "Tekton",
+        collapsible: true,
+        children: ["/sre/tekton/cluster-tasks.md"],
+      },
 
       {
         text: "Artifacts Management",
+        collapsible: true,
         children: [
           "/sre/repository/01-introduction.md",
           "/sre/repository/06-accessing-repository.md",
@@ -105,6 +119,7 @@ export default defineUserConfig({
       },
       {
         text: "Code Quality",
+        collapsible: true,
         children: [
           "/sre/code-quality/01-introduction.md",
           "/sre/code-quality/sonarqube-upgrade.md",
@@ -112,6 +127,7 @@ export default defineUserConfig({
       },
       {
         text: "Logging",
+        collapsible: true,
         children: [
           "/sre/logging/logging.md",
           "/sre/logging/kibana-view-logs.md",
@@ -119,6 +135,7 @@ export default defineUserConfig({
       },
       {
         text: "Monitoring",
+        collapsible: true,
         children: [
           "/sre/monitoring/01-introduction.md",
           "/sre/monitoring/02-maturity-model.md",
@@ -131,6 +148,7 @@ export default defineUserConfig({
       },
       {
         text: "Alerting",
+        collapsible: true,
         children: [
           "/sre/alerting/downtime-notifications-uptimerobot.md",
           "/sre/alerting/workload-application-alerts.md",
@@ -140,14 +158,17 @@ export default defineUserConfig({
       },
       {
         text: "Autoscaling",
+        collapsible: true,
         children: ["/sre/autoscaling/autoscaling.md"],
       },
       {
         text: "Storage",
+        collapsible: true,
         children: ["/sre/storage/volume-expander.md"],
       },
       {
         text: "Backup & Restore",
+        collapsible: true,
         children: [
           "/sre/backup-restore/01-introduction.md",
           "/sre/backup-restore/velero-cli.md",
@@ -161,6 +182,7 @@ export default defineUserConfig({
       },
       {
         text: "Networking",
+        collapsible: true,
         children: [
           "/sre/networking/routes.md",
           "/sre/networking/hosting-dns.md",
@@ -169,6 +191,7 @@ export default defineUserConfig({
       },
       {
         text: "Secrets Management",
+        collapsible: true,
         children: [
           "/sre/secrets/introduction.md",
           "/sre/secrets/sealed-secrets.md",
@@ -180,10 +203,12 @@ export default defineUserConfig({
       },
       {
         text: "Certificate Management",
+        collapsible: true,
         children: ["/sre/certificates/cert-manager.md"],
       },
       {
         text: "Local Development",
+        collapsible: true,
         children: [
           "/sre/local-development/inner-loop.md",
           "/sre/local-development/inner-vs-outer-loop.md",
@@ -193,14 +218,17 @@ export default defineUserConfig({
       },
       {
         text: "Security",
+        collapsible: true,
         children: ["/sre/security/policies/policies.md"],
       },
       {
         text: "Cluster Configuration",
+        collapsible: true,
         children: ["/sre/cluster-configuration/node-configuration.md"],
       },
       {
         text: "Tenant-Operator",
+        collapsible: true,
         children: [
           "/sre/tenant-operator/overview.md",
           "/sre/tenant-operator/features.md",
@@ -274,6 +302,7 @@ export default defineUserConfig({
       },
       {
         text: "Tronador",
+        collapsible: true,
         children: [
           "/sre/tronador/overview.md",
           "/sre/tronador/environment_provisioner.md",
@@ -287,6 +316,7 @@ export default defineUserConfig({
       },
       {
         text: "Frequently Asked Questions",
+        collapsible: true,
         children: [
           "/sre/faq/product.md",
           "/sre/faq/operations.md",
@@ -297,10 +327,12 @@ export default defineUserConfig({
       },
       {
         text: "Release Notes",
+        collapsible: true,
         children: ["/sre/release-notes/release-notes.md"],
       },
       {
         text: "Support",
+        collapsible: true,
         children: ["/sre/support/support.md"],
       },
     ],
