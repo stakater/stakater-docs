@@ -2,6 +2,7 @@ import { defineUserConfig } from "vuepress";
 import { defaultTheme } from "@vuepress/theme-default";
 import { sidebarEn } from "./configs";
 import { navbarEn } from "./configs";
+import { searchPlugin } from "@vuepress/plugin-search";
 
 export default defineUserConfig({
   // base URL
@@ -17,4 +18,6 @@ export default defineUserConfig({
     sidebar: sidebarEn,
     navbar: navbarEn,
   }),
+
+  //plugins: [searchPlugin()],
 });
