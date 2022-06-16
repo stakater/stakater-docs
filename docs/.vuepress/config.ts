@@ -7,6 +7,7 @@ export default defineUserConfig({
 
   //language and other basic information of the website
   lang: "en-US",
+  head: [["link", { rel: "icon", href: "/favicon.png" }]],
   title: "Stakater App Agility Platform Documentation",
   description: "Stakater App Agility Platform Documentation", //TODO: Add user/search friendly description. abaziz
 
