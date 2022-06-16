@@ -8,7 +8,7 @@ export const navbarEn: NavbarConfig = [
 
   {
     text: "Stakater Home",
-    link: "https://www.google.com",
+    link: "https://www.stakater.com/",
   },
   {
     text: "Offerings",
