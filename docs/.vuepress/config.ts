@@ -19,5 +19,5 @@ export default defineUserConfig({
     navbar: navbarEn,
   }),
 
-  //plugins: [searchPlugin()],
+  plugins: [searchPlugin()],
 });
