@@ -15,8 +15,11 @@ export default defineUserConfig({
   description: "Stakater App Agility Platform Documentation", //TODO: Add user/search friendly description. abaziz
 
   theme: defaultTheme({
+    lastUpdated: false,
+    contributors: false,
     sidebar: sidebarEn,
     navbar: navbarEn,
+    colorModeSwitch: false,
   }),
 
   plugins: [searchPlugin()],
