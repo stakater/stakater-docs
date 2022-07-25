@@ -30,10 +30,6 @@ export const navbarEn: NavbarConfig = [
         text: "Events",
         link: "https://www.stakater.com/events",
       },
-      {
-        text: "Recordings",
-        link: "https://www.stakater.com/events",
-      },
     ],
   },
   {
