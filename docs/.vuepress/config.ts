@@ -1,6 +1,7 @@
 import { defineUserConfig } from '@vuepress/cli' 
 import { defaultTheme } from '@vuepress/theme-default'
 import { searchPlugin } from '@vuepress/plugin-search';
+import { googleAnalyticsPlugin } from '@vuepress/plugin-google-analytics'
 import { head, navbarEn, sidebarEn } from './configs'
 
 const isProd = process.env.NODE_ENV === 'production'
@@ -50,6 +51,9 @@ export default defineUserConfig({
   plugins: [
     searchPlugin({
       maxSuggestions: 10,
+    }),
+    googleAnalyticsPlugin({
+      id: 'G-TTH1YYW5TX',
     })
   ],
 })
