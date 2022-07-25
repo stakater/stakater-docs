@@ -1,4 +1,4 @@
-## Introduction
+# Introduction
 
 We use GitOps to continuously deliver application changes
 
