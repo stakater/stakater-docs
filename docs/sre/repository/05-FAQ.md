@@ -1,4 +1,4 @@
-## FAQ
+# FAQ
 
 ### How to upload shared library from local machine?
 

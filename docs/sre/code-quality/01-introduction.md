@@ -1,4 +1,4 @@
-## Introduction
+# Introduction
 
 [SonarQube](https://www.sonarqube.org/) 
 

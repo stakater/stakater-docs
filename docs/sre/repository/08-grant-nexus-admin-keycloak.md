@@ -1,4 +1,4 @@
-## Granting Admin privilege to user for nexus on Keycloak
+# Granting Admin privilege to user for nexus on Keycloak
 
 - Goto routes in `stakater-auth` namespace , open keycloak route , following screen will show up 
 

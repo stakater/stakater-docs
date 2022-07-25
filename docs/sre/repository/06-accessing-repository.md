@@ -1,4 +1,4 @@
-## Accessing repository
+# Accessing repository
 
 - You can find the nexus link on forcastle
 - For the first time it will ask you for `username` and `email`. Please note that you should use the correct email address there, the one registered with stakater. If you happen to register with wrong `email` address and get locked out. Please contact stakater support for resolution.

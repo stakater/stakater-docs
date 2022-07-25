@@ -1,4 +1,4 @@
-## Routes
+# Routes
 
 Following routes are available:
 

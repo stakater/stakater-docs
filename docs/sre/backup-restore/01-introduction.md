@@ -1,4 +1,4 @@
-## Introduction
+# Introduction
 
 [Velero](https://velero.io/) is a solution for supporting Kubernetes cluster disaster recovery, data migration and data protection by backing up Kubernetes cluster resources and persistent volumes to externally supported storage backend on-demand or by schedule.
 
