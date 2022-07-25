@@ -1,26 +1,55 @@
-import { defineUserConfig } from "vuepress";
-import { defaultTheme } from "@vuepress/theme-default";
-import { sidebarEn } from "./configs";
-import { navbarEn } from "./configs";
-import { searchPlugin } from "@vuepress/plugin-search";
+import { defineUserConfig } from '@vuepress/cli' 
+import { defaultTheme } from '@vuepress/theme-default'
+import { searchPlugin } from '@vuepress/plugin-search';
+import { head, navbarEn, sidebarEn } from './configs'
+
+const isProd = process.env.NODE_ENV === 'production'
 
 export default defineUserConfig({
-  // base URL
-  base: "/",
+  // set site base to default value
+  base: '/',
 
-  //language and other basic information of the website
-  lang: "en-US",
-  head: [["link", { rel: "icon", href: "/favicon.png" }]],
-  title: "Stakater App Agility Platform Documentation",
-  description: "Stakater App Agility Platform Documentation", //TODO: Add user/search friendly description. abaziz
+  // extra tags in `<head>`
+  head,
 
+  // site-level locales config
+  locales: {
+    '/': {
+      lang: 'en-US',
+      title: 'Stakater App Agility Platform',
+      description: 'SAAP Documentation',
+    },
+  },
+
+  // configure default theme
   theme: defaultTheme({
-    lastUpdated: false,
-    contributors: false,
-    sidebar: sidebarEn,
-    navbar: navbarEn,
+    logo: '/favicon.png',
+    docsDir: 'docs',
+
+    lastUpdated: !isProd,
+    contributors: !isProd,
     colorModeSwitch: false,
+    colorMode: "light",
+
+    // theme-level locales config
+    locales: {
+      '/': {
+        // navbar
+        navbar: navbarEn,
+        // sidebar
+        sidebar: sidebarEn,
+      },
+    },
+
+    themePlugins: {
+      // only enable git plugin in production mode
+      git: !isProd,
+    },
   }),
 
-  plugins: [searchPlugin()],
-});
+  plugins: [
+    searchPlugin({
+      maxSuggestions: 10,
+    })
+  ],
+})
