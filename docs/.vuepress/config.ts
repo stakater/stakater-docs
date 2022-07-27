@@ -50,7 +50,7 @@ export default defineUserConfig({
       maxSuggestions: 10,
     }),
     googleAnalyticsPlugin({
-      id: 'G-49F1QHVV15',
+      id: 'G-TTH1YYW5TX',
     })
   ],
 })
