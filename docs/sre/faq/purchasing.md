@@ -7,7 +7,7 @@ Stakater Agility Platform is available for purchase in all countries where Azure
 
 ### How can I purchase Stakater Agility Platform?
 
-Stakater Agility Platform can be purchased by sending an email to sales@stakater.com and someone from our sales team will contact you.
+Stakater Agility Platform can be purchased by sending an email to <sales@stakater.com> and someone from our sales team will contact you.
 
 ### Can I try Stakater Agility Platform before I buy?
 

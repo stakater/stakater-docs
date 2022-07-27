@@ -143,7 +143,7 @@ The idea is to avoid having different pipelines for different applications and i
 
 Customers can do the way they like; as we ship few generic tekton pipelines just for the sake of jump start.
 
-We do have a separate offering `Pipeline as a Service`; in which we completely manage all sorts (generic and specific) of tekton pipelines; reach out to sales@stakater.com for more information.
+We do have a separate offering `Pipeline as a Service`; in which we completely manage all sorts (generic and specific) of tekton pipelines; reach out to <sales@stakater.com> for more information.
 
 ## 3. Add webhook to application repository
 

@@ -2,7 +2,7 @@
 
 Stakater App Agility Platform uses EFK Stack (Elasticseatch Fluentd Kibana) to provide logging for applications. Flunetd daemonsets pick up the logs and send these to elasticsearch. Kibana dashboards can be used to view/analyze logs
 
-![Logging](./images/logging.png)
+![Logging](./images/logging.jpg)
 
 
 ## Parse JSON Application Logs

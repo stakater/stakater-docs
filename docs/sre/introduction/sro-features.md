@@ -28,4 +28,4 @@
 - Performance and capacity management
 - Image and registry management
 
-![Stakater App Agility Platform Matrix](./images/image-1.png)
+![Stakater App Agility Platform Matrix](./images/image-1.jpg)

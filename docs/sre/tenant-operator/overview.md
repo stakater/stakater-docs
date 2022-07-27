@@ -12,8 +12,8 @@ The idea of Tenant Operator is to use namespaces as independent sandboxes, where
 
 Tenant Operator is also [OpenShift certified](https://catalog.redhat.com/software/operators/detail/618fa05e3adfdfc43f73b126)
 
-![image](./images/tenant-operator-arch.png)
+![image](./images/tenant-operator-arch.jpg)
 fig 1.1 Overview of Tenant Operator architecture
 
-![image](./images/tenant-operator-basic-overview.png)
+![image](./images/tenant-operator-basic-overview.jpg)
 fig 1.2 Overview of Tenant Operator

@@ -8,7 +8,7 @@ Tenant Operator tenant members can have one of following 3 roles:
 
 ## 1. Owner
 
-![image](./images/tenant-operator-owner-overview.png)
+![image](./images/tenant-operator-owner-overview.jpg)
 fig 2. Shows how tenant owners manage there tenant using Tenant Operator
 
 Owner is an admin of a tenant with some restrictions. It has privilege to see all resources in there Tenant with some additional privileges. They can also create new `namespaces`.
@@ -58,7 +58,7 @@ Owner is an admin of a tenant with some restrictions. It has privilege to see al
 
 ## 2. Editor
 
-![image](./images/tenant-operator-edit-overview.png)
+![image](./images/tenant-operator-edit-overview.jpg)
 fig 3. Shows editors role in a tenant using Tenant Operator
 
 Edit role will have edit access on there `Projects`, but they wont have access on `Roles` or `RoleBindings`.
@@ -165,7 +165,7 @@ Edit role will have edit access on there `Projects`, but they wont have access o
 
 ## 3. Viewer
 
-![image](./images/tenant-operator-view-overview.png)
+![image](./images/tenant-operator-view-overview.jpg)
 fig 4. Shows viewers role in a tenant using Tenant Operator
 
 Viewer role will only have view access on there `Project`.
