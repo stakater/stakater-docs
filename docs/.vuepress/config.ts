@@ -3,6 +3,9 @@ import { defaultTheme } from '@vuepress/theme-default'
 import { searchPlugin } from '@vuepress/plugin-search';
 import { googleAnalyticsPlugin } from '@vuepress/plugin-google-analytics'
 import { head, navbarEn, sidebarEn } from './configs'
+import { photoSwipePlugin } from "vuepress-plugin-photo-swipe";
+import { pwaPlugin } from "vuepress-plugin-pwa2";
+import { clipboardPlugin } from 'vuepress-plugin-clipboard'
 
 export default defineUserConfig({
   // set site base to default value
@@ -11,6 +14,8 @@ export default defineUserConfig({
   // extra tags in `<head>`
   head,
 
+  shouldPrefetch: false,
+  
   // site-level locales config
   locales: {
     '/': {
@@ -42,6 +47,7 @@ export default defineUserConfig({
 
     themePlugins: {
       git: false,
+      mediumZoom: false,
     },
   }),
 
@@ -51,6 +57,26 @@ export default defineUserConfig({
     }),
     googleAnalyticsPlugin({
       id: 'G-TTH1YYW5TX',
+    }),
+    photoSwipePlugin({
+      delay: 0,
+      options: {
+        loop: false,
+        preload: [3,3],
+        preloaderDelay: 0,
+      }
+    }),
+    pwaPlugin({
+      cacheHTML: true,
+      cachePic: true,
+      update: 'hint',
+      maxPicSize: 1200,
+    
+    }),
+    clipboardPlugin({
+      staticIcon: true,
+      delay: 0,
+      backgroundTransitionColor: "var(#000000)"
     })
   ],
 })
