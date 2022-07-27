@@ -1,6 +1,46 @@
 # Changelog
 
+## v0.5.x
+
+**v0.5.2**
+
+- fix: Add service name prefix for webhooks
+
+**v0.5.1**
+
+- fix: ResourceSupervisor CR no longer requires a field for the Tenant name
+
+**v0.5.0**
+
+- feat: Add support for tenant namespaces off-boarding. For more details check out [onDelete](./customresources.html#_2-tenant)
+- feat: Add tenant webhook for spec validation
+
+- fix: TemplateGroupInstance now cleans up leftover Template resources from namespaces that are no longer part of TGI namespace selector
+- fix: Fixed hibernation sync issue
+
+- enhance: Update tenant spec for applying common/specific namespace labels/annotations. For more details check out [commonMetadata & SpecificMetadata](./customresources.html#_2-tenant)
+- enhance: Add support for multi-pod architecture for Operator-Hub
+
+- chore: Remove conversion webhook for Quota and Tenant
+
 ## v0.4.x
+
+**v0.4.7**
+
+- feat: Add hibernation of StatefulSets and Deployments based on a timer
+- feat: [New custom resource](./customresources.html#_6-resourcesupervisor) that handles hibernation
+
+**v0.4.6**
+
+- fix: Revert v0.4.4
+
+**v0.4.5**
+
+- feat: Add support for applying labels/annotation on specific namespaces
+
+**v0.4.4**
+
+- fix: Update `privilegedNamespaces` regex
 
 **v0.4.3**
 

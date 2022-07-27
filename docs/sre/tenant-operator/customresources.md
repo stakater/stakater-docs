@@ -7,6 +7,7 @@ Tenant Operator defines following 5 custom resources:
 3. Template
 4. TemplateInstance
 5. TemplateGroupInstance
+6. ResourceSupervisor
 
 ## 1. Quota
 
@@ -82,19 +83,32 @@ spec:
   viewers:
     users:
       - jose@stakater.com
-  sandbox: false
   quota: medium
+  sandbox: true
+  onDelete:
+    cleanNamespaces: true
   argocd:
     sourceRepos:
       - https://github.com/stakater/gitops-config
+  hibernation:
+    sleepSchedule: 23 * * * *
+    wakeSchedule: 26 * * * *
   namespaces:
   - dev
   - build
   - preview
-  namespaceLabels:
-    app.kubernetes.io/managed-by: tenant-operator
-  namespaceAnnotations:
-    openshift.io/node-selector: node-role.kubernetes.io/infra=
+  commonMetadata:
+    labels:
+      stakater.com/team: alpha
+    annotations:
+      openshift.io/node-selector: node-role.kubernetes.io/infra=
+  specificMetadata:
+    - annotations:
+        stakater.com/user: haseeb
+      labels:
+        stakater.com/sandbox: true
+      namespaces:
+        - alpha-haseeb-stakater-sandbox
   templateInstances:
   - spec:
       template: networkpolicy
@@ -118,27 +132,37 @@ spec:
 
 * Tenant will have a `Quota` to limit resource consumption.
 
-* `argocd` can be used to list `sourceRepos` that point to your gitops repositories. The field is required if you want to create an ArgoCD AppProject for the tenant.
-
-* `namespaceLabels` can be used to distribute common labels among tenant namespaces.
-
-* `namespaceAnnotations` can be used to distribute common annotations among tenant namespaces.
-
 * Tenant will have an option to create *sandbox namespaces* for owners and editors, when `sandbox` is set to *true*.
   * Sandbox will follow the following naming convention **{TenantName}**-**{UserName}**-*sandbox*.
   * In case of groups, the sandbox namespaces will be created for each member of the group.
+
+* `onDelete` is used to tell Tenant-Operator what to do when a Tenant is deleted.
+  * `cleanNamespaces` if the value is set to **true** *Tenant-Operator* deletes all *tenant namespaces* when a `Tenant` is deleted. Default value is **false**.
+
+* `argocd` can be used to list `sourceRepos` that point to your gitops repositories. The field is required if you want to create an ArgoCD AppProject for the tenant.
+
+* `hibernation` can be used to create a schedule during which the namespaces belonging to the tenant will be put to sleep. The values of the `sleepSchedule` and `wakeSchedule` fields must be a string in a cron format.
 
 * Namespaces can also be created via tenant CR by *specifying names* in `namespaces`.
   * Tenant-Operator will append *tenant name* prefix while creating namespaces, so the format will be **{TenantName}**-**{Name}**.
   * `stakater.com/kind: {Name}` label will also be added to the namespaces.
 
+* `commonMetadata` can be used to distribute common labels and annotations among tenant namespaces.
+  * `labels` distributes provided labels among all tenant namespaces
+  * `annotations` distributes provided annotations among all tenant namespaces
+
+* `specificMetadata` can be used to distribute specific labels and annotations among specific tenant namespaces.
+  * `labels` distributes given labels among specific tenant namespaces
+  * `annotations` distributes given annotations among specific tenant namespaces
+  * `namespaces` consists a list of specific tenant namespaces across which the labels and annotations will be distributed
+
 * Tenant automatically deploys `template` resource mentioned in `templateInstances` to matching tenant namespaces.
   * `Template` resources are created in those `namespaces` which belong to a `tenant` and contain `matching labels`.
   * `Template` resources are created in all `namespaces` of a `tenant` if `selector` field is empty.
 
-::: warning Warning:
+::: warning Note:
 
-* If tenant is deleted, then all namespaces created by tenant will also be deleted(spec.namespaces and sandbox namespaces).  
+If same label or annotation key is being applied using different methods provided, then the highest precedence will be given to `specificMetadata` followed by `commonMetadata` and in the end would be the ones applied from `openshift.project.labels`/`openshift.project.annotations` in `IntegrationConfig`
 
 :::
 
@@ -262,6 +286,27 @@ spec:
 ```
 
 TemplateGroupInstance distributes a template across multiple namespaces which are selected by labelSelector.
+
+## 6. ResourceSupervisor
+
+**Cluster scoped resource**
+
+```yaml
+apiVersion: tenantoperator.stakater.com/v1beta1
+kind: ResourceSupervisor
+metadata:
+  name: tenant-sample
+spec:
+  hibernation:
+    sleepSchedule: 23 * * * *
+    wakeSchedule: 26 * * * *
+  tenant: alpha
+status:
+  currentStatus: running
+  nextReconcileTime: '2022-07-07T11:23:00Z'
+```
+
+The `ResourceSupervisor` is a resource created by Tenant Operator in case the [Hibernation](./hibernation.html) feature is enabled. The Resource manages the sleep/wake schedule of the namespaces owned by the tenant, and manages the previous state of any sleeping application. Currently, only StatefulSets and Deployments are put to sleep.
 
 ## Namespace
 

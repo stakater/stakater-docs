@@ -5,10 +5,7 @@ export const sidebarEn: SidebarConfig = [
     text: "Introduction",
     collapsible: true,
     children: [
-      {
-        text: "SAAP Introduction",
-        link: "/sre/introduction/introduction.md",
-      },
+      "/sre/introduction/introduction.md",
       "/sre/introduction/why-sro.md",
       "/sre/introduction/sro-overview.md",
       "/sre/introduction/sro-features.md",
@@ -93,7 +90,6 @@ export const sidebarEn: SidebarConfig = [
     collapsible: true,
     children: ["/sre/tekton/cluster-tasks.md"],
   },
-
   {
     text: "Artifacts Management",
     collapsible: true,
@@ -205,7 +201,12 @@ export const sidebarEn: SidebarConfig = [
   {
     text: "Security",
     collapsible: true,
-    children: ["/sre/security/policies/policies.md"],
+    children: [
+      "/sre/security/policies/policies.md",
+      "/sre/security/rhacs/01-introduction.md",
+      "/sre/security/rhacs/02-permissions.md",
+      "/sre/security/rhacs/03-accessing-rhacs.md",
+    ],
   },
   {
     text: "Cluster Configuration",
@@ -263,9 +264,11 @@ export const sidebarEn: SidebarConfig = [
           },
         ],
       },
+      "/sre/tenant-operator/hibernation.md",
       "/sre/tenant-operator/argocd-multitenancy.md",
       "/sre/tenant-operator/vault-multitenancy.md",
       "/sre/tenant-operator/changelog.md",
+      "/sre/tenant-operator/troubleshooting.md",
       "/sre/tenant-operator/faq.md",
     ],
   },
@@ -275,6 +278,7 @@ export const sidebarEn: SidebarConfig = [
     children: [
       "/sre/tronador/overview.md",
       "/sre/tronador/environment_provisioner.md",
+      "/sre/tronador/environment.md",
       "/sre/tronador/tronador_config.md",
       "/sre/tronador/config_file.md",
       "/sre/tronador/cluster_task.md",

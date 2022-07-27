@@ -4,8 +4,6 @@ import { searchPlugin } from '@vuepress/plugin-search';
 import { googleAnalyticsPlugin } from '@vuepress/plugin-google-analytics'
 import { head, navbarEn, sidebarEn } from './configs'
 
-const isProd = process.env.NODE_ENV === 'production'
-
 export default defineUserConfig({
   // set site base to default value
   base: '/',
@@ -27,8 +25,8 @@ export default defineUserConfig({
     logo: '/favicon.png',
     docsDir: 'docs',
 
-    lastUpdated: !isProd,
-    contributors: !isProd,
+    lastUpdated: false,
+    contributors: false,
     colorModeSwitch: false,
     colorMode: "light",
 
@@ -43,8 +41,7 @@ export default defineUserConfig({
     },
 
     themePlugins: {
-      // only enable git plugin in production mode
-      git: !isProd,
+      git: false,
     },
   }),
 
@@ -53,7 +50,7 @@ export default defineUserConfig({
       maxSuggestions: 10,
     }),
     googleAnalyticsPlugin({
-      id: 'G-TTH1YYW5TX',
+      id: 'G-49F1QHVV15',
     })
   ],
 })
