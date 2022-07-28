@@ -6,9 +6,9 @@ keywords:
   - stakater
   - cloud
   - openshift
-home: https://github.com/stakater/stakaterclouddocs
+home: https://github.com/stakater/stakater-cloud-docs-2.0
 maintainers:
   - name: Stakater
     email: hello@stakater.com
-  - name: Waleed Malik
-    email: waleed@stakater.com
+  - name: Hussnain Ahmad
+    email: hussnain@stakater.com

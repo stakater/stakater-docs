@@ -1,10 +1,10 @@
-stakaterclouddocs:
+stakaterclouddocs-2.0:
   labels:
     group: com.stakater.platform
     provider: stakater
     version: 1.0.0    
   service:
-    name: "stakaterclouddocs"
+    name: "stakaterclouddocs-2.0"
     annotations:
       xposer.stakater.com/annotations: |-
         kubernetes.io/ingress.class: external-ingress
@@ -28,7 +28,7 @@ stakaterclouddocs:
     replicas: 1
     podLabels:      
       app: stakater-cloud-docs-2.0
-    containerName: stakaterclouddocs
+    containerName: stakaterclouddocs-2.0
     imagePullSecrets: docker-registry-secret 
     
     image:

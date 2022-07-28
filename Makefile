@@ -1,4 +1,4 @@
-CHART_NAME ?= stakaterclouddocs
+CHART_NAME ?= stakaterclouddocs-2.0
 NAMESPACE_NAME ?= global
 RELEASE_NAME ?= $(NAMESPACE_NAME)-$(CHART_NAME)
 

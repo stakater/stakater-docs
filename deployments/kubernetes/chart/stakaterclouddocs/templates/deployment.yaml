@@ -5,25 +5,25 @@ metadata:
 {{ include "stakater-cloud-docs-2.0.labels.stakater" . | indent 4 }}
 {{ include "stakater-cloud-docs-2.0.labels.chart" . | indent 4 }}
   name: {{ template "stakater-cloud-docs-2.0.name" . }}
-{{ if .Values.stakaterclouddocs.deployment.annotations }}
+{{ if .Values.stakaterclouddocs-2.0.deployment.annotations }}
   annotations:
-{{ toYaml .Values.stakaterclouddocs.deployment.annotations | indent 4 }}
+{{ toYaml .Values.stakaterclouddocs-2.0.deployment.annotations | indent 4 }}
 {{ end }}
 spec:
-  replicas: {{ .Values.stakaterclouddocs.deployment.replicas }}
+  replicas: {{ .Values.stakaterclouddocs-2.0.deployment.replicas }}
   template:
     metadata:
       labels:
-{{ toYaml .Values.stakaterclouddocs.deployment.podLabels | indent 8 }}
+{{ toYaml .Values.stakaterclouddocs-2.0.deployment.podLabels | indent 8 }}
     spec:
-      {{- if .Values.stakaterclouddocs.deployment.tolerations }}
+      {{- if .Values.stakaterclouddocs-2.0.deployment.tolerations }}
       tolerations:
-{{ toYaml .Values.stakaterclouddocs.deployment.tolerations | indent 8 -}}
+{{ toYaml .Values.stakaterclouddocs-2.0.deployment.tolerations | indent 8 -}}
       {{- end }}
       imagePullSecrets:
-      - name: {{ .Values.stakaterclouddocs.deployment.imagePullSecrets }}
+      - name: {{ .Values.stakaterclouddocs-2.0.deployment.imagePullSecrets }}
       containers:
-      - name: {{ .Values.stakaterclouddocs.deployment.containerName }}
-        image: "{{ .Values.stakaterclouddocs.deployment.image.name }}:{{ .Values.stakaterclouddocs.deployment.image.tag }}"
+      - name: {{ .Values.stakaterclouddocs-2.0.deployment.containerName }}
+        image: "{{ .Values.stakaterclouddocs-2.0.deployment.image.name }}:{{ .Values.stakaterclouddocs-2.0.deployment.image.tag }}"
         ports:
         - containerPort: 8080

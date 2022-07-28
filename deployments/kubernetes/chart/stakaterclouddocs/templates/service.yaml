@@ -4,15 +4,15 @@ metadata:
   labels:
 {{ include "stakater-cloud-docs-2.0.labels.stakater" . | indent 4 }}
 {{ include "stakater-cloud-docs-2.0.labels.chart" . | indent 4 }}
-    expose: {{ .Values.stakaterclouddocs.service.labels.expose | quote }}
-  name: {{ .Values.stakaterclouddocs.service.name | quote }}
-{{ if .Values.stakaterclouddocs.service.annotations }}
+    expose: {{ .Values.stakaterclouddocs-2.0.service.labels.expose | quote }}
+  name: {{ .Values.stakaterclouddocs-2.0.service.name | quote }}
+{{ if .Values.stakaterclouddocs-2.0.service.annotations }}
   annotations:
-{{ toYaml .Values.stakaterclouddocs.service.annotations | indent 4 }}
+{{ toYaml .Values.stakaterclouddocs-2.0.service.annotations | indent 4 }}
 {{ end }}
 spec:
   selector:
-{{ toYaml .Values.stakaterclouddocs.deployment.podLabels | indent 4 }}
+{{ toYaml .Values.stakaterclouddocs-2.0.deployment.podLabels | indent 4 }}
   ports:
   - name: web
     port: 8080
