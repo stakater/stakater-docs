@@ -36,8 +36,8 @@ export default defineUserConfig({
 
     lastUpdated: false,
     contributors: false,
-    colorModeSwitch: true,
-    colorMode: "auto",
+    colorModeSwitch: false,
+    colorMode: "light",
 
     // theme-level locales config
     locales: {
@@ -79,6 +79,8 @@ export default defineUserConfig({
     }),
     pwaPlugin({
       skipWaiting: true,
+      cleanupOutdatedCaches: true,
+      offlineGoogleAnalytics: true,
     })
   ],
 })
