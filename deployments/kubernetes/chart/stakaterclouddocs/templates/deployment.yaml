@@ -2,9 +2,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-{{ include "stakater-cloud-docs.labels.stakater" . | indent 4 }}
-{{ include "stakater-cloud-docs.labels.chart" . | indent 4 }}
-  name: {{ template "stakater-cloud-docs.name" . }}
+{{ include "stakater-cloud-docs-2.0.labels.stakater" . | indent 4 }}
+{{ include "stakater-cloud-docs-2.0.labels.chart" . | indent 4 }}
+  name: {{ template "stakater-cloud-docs-2.0.name" . }}
 {{ if .Values.stakaterclouddocs.deployment.annotations }}
   annotations:
 {{ toYaml .Values.stakaterclouddocs.deployment.annotations | indent 4 }}
