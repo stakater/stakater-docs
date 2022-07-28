@@ -10,16 +10,18 @@ LABEL name="Stakater Cloud Documentation" \
 RUN mkdir -p $HOME/application
 WORKDIR $HOME/application
 
-# set non-root user
-USER 1001
-
 # copy the entire application
 COPY . .
 
 # download the application dependencies
 RUN npm ci
 
+RUN npm config set unsafe-perm true
+
 # build the application
 RUN npm run docs:build
+
+# set non-root user
+USER 1001
 
 ENTRYPOINT ["npm", "run", "docs:serve"]
