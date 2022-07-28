@@ -11,7 +11,7 @@ RUN mkdir -p $HOME/application
 WORKDIR $HOME/application
 
 # copy the entire application
-COPY . .
+COPY --chown=1001:root . .
 
 # download the application dependencies
 RUN npm ci
