@@ -22,4 +22,4 @@ RUN npm run docs:build
 # set non-root user
 USER 1001
 
-ENTRYPOINT ["npm", "run", "docs:dev"]
+ENTRYPOINT ["npm", "run", "docs:serve"]

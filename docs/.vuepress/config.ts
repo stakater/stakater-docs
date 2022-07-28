@@ -4,7 +4,7 @@ import { searchPlugin } from '@vuepress/plugin-search';
 import { googleAnalyticsPlugin } from '@vuepress/plugin-google-analytics'
 import { head, navbarEn, sidebarEn } from './configs'
 import { photoSwipePlugin } from "vuepress-plugin-photo-swipe";
-import { pwaPlugin } from "vuepress-plugin-pwa2";
+import { pwaPlugin } from '@vuepress/plugin-pwa';
 import { clipboardPlugin } from 'vuepress-plugin-clipboard'
 
 export default defineUserConfig({
@@ -30,6 +30,10 @@ export default defineUserConfig({
     logo: '/favicon.png',
     docsDir: 'docs',
 
+    repo: "stakater/stakater-cloud-docs-2.0",
+    editLink: true,
+    editLinkText: "Help us improve this page!",
+
     lastUpdated: false,
     contributors: false,
     colorModeSwitch: true,
@@ -48,6 +52,8 @@ export default defineUserConfig({
     themePlugins: {
       git: false,
       mediumZoom: false,
+      activeHeaderLinks: true,
+      backToTop: true,
     },
   }),
 
@@ -66,17 +72,13 @@ export default defineUserConfig({
         preloaderDelay: 0,
       }
     }),
-    pwaPlugin({
-      cacheHTML: true,
-      cachePic: true,
-      update: 'hint',
-      maxPicSize: 1200,
-    
-    }),
     clipboardPlugin({
       staticIcon: true,
       delay: 0,
       backgroundTransitionColor: "var(#000000)"
+    }),
+    pwaPlugin({
+      skipWaiting: true,
     })
   ],
 })
