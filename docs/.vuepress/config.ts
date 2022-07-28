@@ -6,6 +6,7 @@ import { head, navbarEn, sidebarEn } from './configs'
 import { photoSwipePlugin } from "vuepress-plugin-photo-swipe";
 import { pwaPlugin } from '@vuepress/plugin-pwa';
 import { clipboardPlugin } from 'vuepress-plugin-clipboard'
+import { pwaPopupPlugin } from '@vuepress/plugin-pwa-popup';
 
 export default defineUserConfig({
   // set site base to default value
@@ -78,9 +79,17 @@ export default defineUserConfig({
       backgroundTransitionColor: "var(#000000)"
     }),
     pwaPlugin({
-      skipWaiting: true,
+      skipWaiting: false,
       cleanupOutdatedCaches: true,
       offlineGoogleAnalytics: true,
+    }),
+    pwaPopupPlugin({
+      locales: {
+        '/': {
+          message: 'New content is available.',
+          buttonText: 'Refresh',
+        },
+      }
     })
   ],
 })

@@ -2,6 +2,17 @@
     // brand colors
     --c-brand: #6F0D43;
     --c-brand-light: #ad3778;
+
+    --pwa-popup-z-index: 10;
+
+    --pwa-popup-text-color: #6F0D43;
+    --pwa-popup-bg-color: #ffffff;
+    --pwa-popup-border-color: #6F0D43;
+    --pwa-popup-shadow: 0 4px 16px var(--pwa-popup-border-color);
+
+    --pwa-popup-btn-text-color: #ffffff;
+    --pwa-popup-btn-bg-color: #6F0D43;
+    --pwa-popup-btn-hover-bg-color: #ad3778;
 }
 
 html.dark {
