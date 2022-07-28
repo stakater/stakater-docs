@@ -16,8 +16,6 @@ COPY --chown=1001:root . .
 # download the application dependencies
 RUN npm ci
 
-RUN npm config set unsafe-perm true
-
 # build the application
 RUN npm run docs:build
 
