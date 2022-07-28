@@ -2,28 +2,28 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-{{ include "stakater-cloud-docs-2.0.labels.stakater" . | indent 4 }}
-{{ include "stakater-cloud-docs-2.0.labels.chart" . | indent 4 }}
-  name: {{ template "stakater-cloud-docs-2.0.name" . }}
-{{ if .Values.stakaterclouddocs-2.0.deployment.annotations }}
+{{ include "stakater-cloud-docs-v2.labels.stakater" . | indent 4 }}
+{{ include "stakater-cloud-docs-v2.labels.chart" . | indent 4 }}
+  name: {{ template "stakater-cloud-docs-v2.name" . }}
+{{ if .Values.stakaterclouddocs-v2.deployment.annotations }}
   annotations:
-{{ toYaml .Values.stakaterclouddocs-2.0.deployment.annotations | indent 4 }}
+{{ toYaml .Values.stakaterclouddocs-v2.deployment.annotations | indent 4 }}
 {{ end }}
 spec:
-  replicas: {{ .Values.stakaterclouddocs-2.0.deployment.replicas }}
+  replicas: {{ .Values.stakaterclouddocs-v2.deployment.replicas }}
   template:
     metadata:
       labels:
-{{ toYaml .Values.stakaterclouddocs-2.0.deployment.podLabels | indent 8 }}
+{{ toYaml .Values.stakaterclouddocs-v2.deployment.podLabels | indent 8 }}
     spec:
-      {{- if .Values.stakaterclouddocs-2.0.deployment.tolerations }}
+      {{- if .Values.stakaterclouddocs-v2.deployment.tolerations }}
       tolerations:
-{{ toYaml .Values.stakaterclouddocs-2.0.deployment.tolerations | indent 8 -}}
+{{ toYaml .Values.stakaterclouddocs-v2.deployment.tolerations | indent 8 -}}
       {{- end }}
       imagePullSecrets:
-      - name: {{ .Values.stakaterclouddocs-2.0.deployment.imagePullSecrets }}
+      - name: {{ .Values.stakaterclouddocs-v2.deployment.imagePullSecrets }}
       containers:
-      - name: {{ .Values.stakaterclouddocs-2.0.deployment.containerName }}
-        image: "{{ .Values.stakaterclouddocs-2.0.deployment.image.name }}:{{ .Values.stakaterclouddocs-2.0.deployment.image.tag }}"
+      - name: {{ .Values.stakaterclouddocs-v2.deployment.containerName }}
+        image: "{{ .Values.stakaterclouddocs-v2.deployment.image.name }}:{{ .Values.stakaterclouddocs-v2.deployment.image.tag }}"
         ports:
         - containerPort: 8080

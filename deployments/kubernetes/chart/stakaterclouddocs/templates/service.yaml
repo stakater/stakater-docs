@@ -2,17 +2,17 @@ kind: Service
 apiVersion: v1
 metadata:
   labels:
-{{ include "stakater-cloud-docs-2.0.labels.stakater" . | indent 4 }}
-{{ include "stakater-cloud-docs-2.0.labels.chart" . | indent 4 }}
-    expose: {{ .Values.stakaterclouddocs-2.0.service.labels.expose | quote }}
-  name: {{ .Values.stakaterclouddocs-2.0.service.name | quote }}
-{{ if .Values.stakaterclouddocs-2.0.service.annotations }}
+{{ include "stakater-cloud-docs-v2.labels.stakater" . | indent 4 }}
+{{ include "stakater-cloud-docs-v2.labels.chart" . | indent 4 }}
+    expose: {{ .Values.stakaterclouddocs-v2.service.labels.expose | quote }}
+  name: {{ .Values.stakaterclouddocs-v2.service.name | quote }}
+{{ if .Values.stakaterclouddocs-v2.service.annotations }}
   annotations:
-{{ toYaml .Values.stakaterclouddocs-2.0.service.annotations | indent 4 }}
+{{ toYaml .Values.stakaterclouddocs-v2.service.annotations | indent 4 }}
 {{ end }}
 spec:
   selector:
-{{ toYaml .Values.stakaterclouddocs-2.0.deployment.podLabels | indent 4 }}
+{{ toYaml .Values.stakaterclouddocs-v2.deployment.podLabels | indent 4 }}
   ports:
   - name: web
     port: 8080
