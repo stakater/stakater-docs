@@ -37,8 +37,8 @@ export default defineUserConfig({
 
     lastUpdated: false,
     contributors: false,
-    colorModeSwitch: false,
-    colorMode: "light",
+    colorModeSwitch: true,
+    colorMode: "auto",
 
     // theme-level locales config
     locales: {
