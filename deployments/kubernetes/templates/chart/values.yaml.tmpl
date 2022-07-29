@@ -1,13 +1,13 @@
 kubernetes:
   host: https://kubernetes.default
 
-stakaterclouddocs:
+stakaterclouddocs-v2:
   labels:
     group: com.stakater.platform
     provider: stakater
     version: {{ getenv "VERSION" }}
   service:
-    name: "stakaterclouddocs"
+    name: "stakaterclouddocs-v2"
     annotations:
       xposer.stakater.com/annotations: |-
         kubernetes.io/ingress.class: external-ingress
@@ -32,7 +32,7 @@ stakaterclouddocs:
     replicas: 1
     podLabels:      
       app: stakater-cloud-docs-v2
-    containerName: stakaterclouddocs
+    containerName: stakaterclouddocs-v2
     imagePullSecrets: docker-registry-secret       
     image:
       name: {{ getenv "DOCKER_IMAGE" }}
