@@ -3,7 +3,7 @@ import type { NavbarConfig } from "@vuepress/theme-default";
 export const navbarEn: NavbarConfig = [
   {
     text: "Docs Home",
-    link: "/sre/introduction/introduction.html",
+    link: "/content/sre/introduction/introduction.html",
   },
 
   {
