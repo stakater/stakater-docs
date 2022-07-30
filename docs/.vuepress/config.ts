@@ -7,6 +7,7 @@ import { photoSwipePlugin } from "vuepress-plugin-photo-swipe";
 import { pwaPlugin } from '@vuepress/plugin-pwa';
 import { clipboardPlugin } from 'vuepress-plugin-clipboard'
 import { pwaPopupPlugin } from '@vuepress/plugin-pwa-popup';
+import { seoPlugin } from "vuepress-plugin-seo2";
 
 export default defineUserConfig({
   // set site base to default value
@@ -90,6 +91,10 @@ export default defineUserConfig({
           buttonText: 'Refresh',
         },
       }
+    }),
+    seoPlugin({
+      hostname: 'stakater',
+      fallBackImage: '/stakater.png',
     })
   ],
 })
