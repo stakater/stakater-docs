@@ -59,7 +59,7 @@ This document describes the following facets of kubernetes-native applications:
 
 ## 1. One codebase, one application
 
-### What?
+**What?**
 
 When managing myriad aspects of a development team, the organization of code, artifacts, and other apparent minutia is often considered a minor detail or outright neglected. However, proper application of discipline and organization can mean the difference between a one-month production lead time and a one-day lead time.
 
@@ -83,23 +83,23 @@ In other words, one codebase, one application does not mean you’re not allowed
 
 This also doesn’t mean that all shared code needs to be a microservice. Rather, you should evaluate whether the shared code should be considered a separately released product that can then be vendored into your application as a dependency.
 
-### Why?
+**Why?**
 
 Makes it nearly impossible to automate the build and deploy phases of your application’s life cycle.
 
-### How?
+**How?**
 
 One Application == One Microserivce == One Git/SCM Repository
 
 ## 2. Dependency management
 
-### What?
+**What?**
 
 Management of application dependencies: how, where, and when they are managed.
 
 A cloud-native application never relies on implicit existence of system-wide packages. For Java, this means that your applications cannot assume that a container will be managing the classpath on the server. For .NET, this means that your application cannot rely on facilities like the Global Assembly Cache. Ruby developers cannot rely on gems existing in a central location. Regardless of language, your code cannot rely on the pre-existence of dependencies on a deployment target.
 
-### Why?
+**Why?**
 
 Not properly isolating dependencies can cause untold problems. In some of the most common dependency-related problems, you could have a developer working on version X of some dependent library on his workstation, but version X+1 of that library has been installed in a central location in production. This can cause everything from runtime failures all the way up to insidious and difficult to diagnose subtle failures. If left untreated, these types of failures can bring down an entire server or cost a company millions through undiagnosed data corruption.
 
@@ -109,7 +109,7 @@ However, for some enterprises, it just isn’t practical (or possible, even) to 
 
 Applying discipline to dependency management will bring your applications one step closer to being able to thrive in cloud environments.
 
-### How?
+**How?**
 
 Most contemporary programming languages have some facility for managing application dependencies. Maven and Gradle are two of the most popular tools in the Java world, while NuGet is popular for .NET developers, Bundler is popular for Ruby, and godeps is available for Go programmers. Regardless of the tool, these utilities all provide one set of common functionality: they allow developers to declare dependencies and let the tool be responsible for ensuring that those dependencies are satisfied.
 
@@ -117,11 +117,11 @@ Many of these tools also have the ability to isolate dependencies. This is done 
 
 ## 3. Contract first, API first
 
-### What?
+**What?**
 
 Recognize your API as a first-class artifact of the development process, API first gives teams the ability to work against each other’s public contracts without interfering with internal development processes.
 
-### Why?
+**Why?**
 
 Even if you’re not planning on building a service as part of a larger ecosystem, the discipline of starting all of your development at the API level still pays enough dividends to make it worth your time.
 
@@ -135,7 +135,7 @@ This pattern is an extension of the contract-first development pattern, where de
 
 API first frees organizations from the waterfall, deliberately engineered system that follows a preplanned orchestration pattern, and allows products to evolve into organic, self-organizing ecosystems that can grow to handle new and unforeseen demands.
 
-### How?
+**How?**
 
 Live, eat, and breathe the API-first lifestyle, and your investment will pay off exponentially.
 
@@ -143,7 +143,7 @@ Stakater App Agility Platform offers a fully managed 3Scale API Gateway add-on t
 
 ## 4. Design, build, release, and run
 
-### What?
+**What?**
 
 #### Desgin
 
@@ -185,13 +185,13 @@ When an application is running, the cloud runtime is then responsible for keepin
 
 Ultimately, the goal of this guidance is to maximize your delivery speed while keeping high confidence through automated testing and deployment. We get some agility and speed benefits out of the box when working on the cloud; but if we follow the guidelines in this chapter, we can squeeze every ounce of speed and agility out of our product release pipeline without sacrificing our confidence in our application’s ability to do its job.
 
-### Why?
+**Why?**
 
 Strictly separate build and run stages.
 
 The key to Design, Build, Release, and Run is that the process is completely ephemeral. Should anything in the pipeline be destroyed, all artifacts and environments can be reconstituted from scratch using assets stored in the source code repository.
 
-### How?
+**How?**
 
 - Add Dockerfile for building the application
 - Add Dockerfile for running the application
@@ -205,7 +205,7 @@ Stakater App Agility Platform includes managed Tekton and ArgoCD to support all 
 
 ## 5. Configuration, credentials, and code
 
-### What?
+**What?**
 
 Treat configuration, credentials, and code as volatile substances that explode when combined.
 
@@ -220,7 +220,7 @@ In order to be able to keep configuration separate from code and credentials, we
 
 Configuration does not include internal information that is part of the application itself. Again, if the value remains the same across all deployments (it is intentionally part of your immutable build artifact), then it isn’t configuration.
 
-### Why?
+**Why?**
 
 Credentials are extremely sensitive information and have absolutely no business in a codebase. Oftentimes, developers will extract credentials from the compiled source code and put them in properties files or XML configuration, but this hasn’t actually solved the problem. Bundled resources, including XML and properties files, are still part of the codebase. This means credentials bundled in resource files that ship with your application are still violating this rule.
 
@@ -230,7 +230,7 @@ If you can open source your codebase without exposing sensitive or environment-s
 
 It should be immediately obvious why we don’t want to expose credentials, but the need for external configuration is often not as obvious. External configuration supports our ability to deploy immutable builds to multiple environments automatically via CD pipelines and helps us maintain development/production environment parity.
 
-### How?
+**How?**
 
 While application configuration can be baked into container images, it's best to make your components configurable at runtime to support deployment in multiple contexts and allow more flexible administration. To manage runtime configuration parameters, Kubernetes offers two objects called ConfigMaps and Secrets.
 
@@ -244,7 +244,7 @@ Stakater App Agility Platform includes fully managed Vault for secrets managemen
 
 ## 6. Liveness and readiness probes
 
-### What?
+**What?**
 
 Kubernetes includes a great deal of out-of-the-box functionality for managing component life cycles and ensuring that your applications are always healthy and available. However, to take advantage of these features, Kubernetes has to understand how it should monitor and interpret your application's health. To do so, Kubernetes allows you to define liveness and readiness probes.
 
@@ -254,7 +254,7 @@ Readiness probes are a similar tool used to determine whether a pod is ready to 
 
 By combining liveness and readiness probes, you can instruct Kubernetes to automatically restart pods or remove them from backend groups. Configuring your infrastructure to take advantage of these capabilities allows Kubernetes to manage the availability and health of your applications without additional operations work.
 
-### Why?
+**Why?**
 
 Readiness probes allow your application to report when it should start receiving traffic. This is always what marks a pod ‘Ready’ in the cluster.
 
@@ -262,13 +262,13 @@ Health checks (often custom HTTP endpoints) help orchestrators, like Kubernetes,
 
 If the health check function is not configured, a pod cannot detect service exceptions or automatically restart the service to restore it. This results in a situation where the pod status is normal but the service in the pod is abnormal.
 
-### How?
+**How?**
 
 Add `health` endpoint to your application; which can be used for liveness and readiness probes; they could be separate endpoints as well based on the need.
 
 ## 7. Logging
 
-### What?
+**What?**
 
 Logs should be treated as event streams, that is, logs are a sequence of events emitted from an application in time-ordered sequence. The key point about dealing with logs in a cloud-native fashion is, as the original 12 factors indicate, a truly cloud-native application never concerns itself with routing or storage of its output stream.
 
@@ -280,7 +280,7 @@ You should consider the aggregation, processing, and storage of logs as a nonfun
 
 Embracing the notion that your application has less work to do in the cloud than it does in the enterprise can be a liberating experience.
 
-### Why?
+**Why?**
 
 When your applications are decoupled from the knowledge of log storage, processing, and analysis, your code becomes simpler, and you can rely on industry-standard tools and stacks to deal with logs. Moreover, if you need to change the way in which you store and process logs, you can do so without modifying the application.
 
@@ -288,7 +288,7 @@ One of the many reasons your application should not be controlling the ultimate 
 
 Simplifying your application’s log emission process allows you to reduce your codebase and focus more on your application’s core business value.
 
-### How?
+**How?**
 
 Output logs in a machine readable format to facilitate searching & indexing. Trace what went wrong when something does.
 
@@ -302,11 +302,11 @@ Stakater App Agility Platform includes fully managed logging stack based on Elas
 
 ## 8. Backing services
 
-### What?
+**What?**
 
 A backing service is any service on which your application relies for its functionality. This is a fairly broad definition, and its wide scope is intentional. Some of the most common types of backing services include data stores, messaging systems, caching systems, and any number of other types of service, including services that perform line-of-business functionality or security.
 
-### Why?
+**Why?**
 
 When building applications designed to run in a cloud environment where the filesystem must be considered ephemeral, you also need to treat file storage or disk as a backing service. You shouldn’t be reading to or writing from files on disk like you might with regular enterprise applications. Instead, file storage should be a backing service that is bound to your application as a resource.
 
@@ -334,7 +334,7 @@ A cloud-native application that has embraced the bound-resource aspect of backin
 
 This kind of flexibility, resilience, and loose coupling with backing services is one of the hallmarks of a truly modern, cloud-native application.
 
-### How?
+**How?**
 
 Externalize all configurations (URLs, username, pwds, etc.) as Kubernetes configmaps or secrets for the backing services.
 
@@ -345,7 +345,7 @@ Externalize all configurations (URLs, username, pwds, etc.) as Kubernetes config
 
 ## 9. Telemetry / Metric instrumentation
 
-### What?
+**What?**
 
 When it comes to monitoring your application, there are generally a few different categories of data:
 
@@ -362,7 +362,7 @@ minutes.
 
 Finally, health and system logs are something that should be provided by your cloud provider. They make up a stream of events, such as application start, shutdown, scaling, web request tracing, and the results of periodic health checks. (this is covered thoroughly under logging section)
 
-### Why?
+**Why?**
 
 The cloud makes many things easy, but monitoring and telemetry are still difficult, probably even more difficult than traditional, enterprise application monitoring. When you are staring down the firehose at a stream that contains regular health checks, request audits, business-level events, and tracking data, and performance metrics, that is an incredible amount of data.
 
@@ -374,7 +374,7 @@ Getting telemetry done right can mean the difference between success and failure
 
 Allows measuring operation of application and enables many more advanced use cases.
 
-### How?
+**How?**
 
 Use code and libraries your code to expose metrics.
 
@@ -382,7 +382,7 @@ Stakater App Agility Platform includes fully managed Istio for tracing and instr
 
 ## 10. Graceful Shutdown
 
-### What?
+**What?**
 
 For apps that run on cloud infrastructure, you should treat them and the underlying infrastructure as disposable resources. Your apps should be able to handle the temporary loss of underlying infrastructure and should be able to gracefully shut down and restart.
 
@@ -408,11 +408,11 @@ You can be notified when the Pod is about to be terminated by capturing the SIGT
 
 You should also pay attention to [forwarding the signal to the right process in your container](https://pracucci.com/graceful-shutdown-of-kubernetes-pods.html).
 
-### Why?
+**Why?**
 
 This is how Kubernetes will tell your application to end.
 
-### How?
+**How?**
 
 Use the SIGTERM signal (when it's available) to initiate a clean shutdown.
 
@@ -437,7 +437,7 @@ process.on('SIGTERM', () => {
 
 ## 11. Port binding
 
-### What?
+**What?**
 
 In non-cloud environments, web apps are often written to run in app containers such as GlassFish, Apache Tomcat, and Apache HTTP Server. In contrast, twelve-factor apps don't rely on external app containers. Instead, they bundle the webserver library as a part of the app itself.
 
@@ -453,13 +453,13 @@ Because Kubernetes has built-in service discovery, in Kubernetes you can abstrac
 
 Instead of hard-coding the port that the webserver listens on, the configuration uses an environment variable. The following code snippet from an App Engine app shows how to accept a port value that's passed in an environment variable.
 
-### Why?
+**Why?**
 
 This makes your apps portable when you run them on App Agility Platform.
 
 An application developed to allow externalized, runtime port binding can act as a backing service for another application. This type of flexibility, coupled with all the other benefits of running on a cloud, is extremely powerful.
 
-### How?
+**How?**
 
 ```
 const express = require('express')
@@ -481,7 +481,7 @@ app.listen(PORT, () => {
 
 ## 12. Single stateless processes
 
-### What?
+**What?**
 
 Applications should execute as a single, stateless process. We have a strong opinion about the use of administrative and secondary processes, and modern cloud-native applications should each consist of a single, stateless process.
 
@@ -515,17 +515,17 @@ There are dozens of third-party caching products, including Gemfire and Redis, a
 
 The principle of Processes, which can be more accurately termed stateless processes, asserts that an application developed under The 12 Factor App structure will run as a collection of stateless processes. This means that no single process keeps track of the state of another process and that no process keeps track of information such as session or workflow status.
 
-### Why?
+**Why?**
 
 A stateless process makes scaling easier. When a process is stateless, instances can be added and removed to address a particular load burden at a given point in time. Since each process operates independently, statelessness prevents unintended side effects.
 
-### How?
+**How?**
 
 Run each process as a pod or deployment.
 
 ## 13. Concurrency
 
-### What?
+**What?**
 
 Concurrency, advises us that cloud-native applications should scale out using the process model. There was a time when, if an application reached the limit of its capacity, the solution was to increase its size. If an application could only handle some number of requests per minute, then the preferred solution was to simply make the application bigger.
 
@@ -533,7 +533,7 @@ Adding CPUs, RAM, and other resources (virtual or physical) to a single monolith
 
 A much more modern approach, one ideal for the kind of elastic scalability that the cloud supports, is to scale out, or horizontally. Rather than making a single big process even larger, you create multiple processes, and then distribute the load of your application among those processes.
 
-### Why?
+**Why?**
 
 Most cloud providers have perfected this capability to the point where you can even configure rules that will dynamically scale the number of instances of your application based on load or other runtime telemetry available in a system.
 
@@ -543,13 +543,13 @@ The principle of Concurrency recommends organizing processes according to their 
 
 Supporting concurrency means that different parts of an application can be scaled up to meet the need at hand. Otherwise, when concurrency is not supported, architectures have little choice but to scale up the application in its entirety.
 
-### How?
+**How?**
 
 Have multiple replicas of your application
 
 ## 14. Environment (Dev/Prod) parity
 
-### What?
+**What?**
 
 Keep development, staging, and production as similar as possible
 
@@ -565,7 +565,7 @@ Environment parity is a feature that most developers consider a given. Nonethele
 
 Maintaining environment parity has become easier in the last few years because developers have embraced source control, configuration management, and templated configuration files. This makes it easier to deploy an app to multiple environments consistently. As an example, using Docker and Docker Compose, you can ensure that the app stack retains its shape and instrumentation across environments.
 
-### Why?
+**Why?**
 
 The Environment Parity principle means all deployment paths are similar yet independent and that no deployment "leapfrogs" into another deployment target.
 
@@ -575,13 +575,13 @@ Developers sometimes find great appeal in using a lightweight backing service in
 
 The cloud-native developer resists the urge to use different backing services between development and production, even when adapters theoretically abstract away any differences in backing services. Differences between backing services mean that tiny incompatibilities crop up, causing code that worked and passed tests in development or staging to fail in production. These types of errors create friction that disincentivizes continuous deployment. The cost of this friction and the subsequent dampening of continuous deployment is extremely high when considered in aggregate over the lifetime of an application.
 
-### How?
+**How?**
 
 Use kubernetes namespaces to represent different environments and then deploy applications in similiar way with approaches like GitOps
 
 ## 15. Security (Authentication and authorization)
 
-### What?
+**What?**
 
 Security is a vital part of any application and cloud environment. Security should never be an afterthought. All too often, we are so focused on getting the functional requirements of an application out the door that we neglect one of the most important aspects of delivering any application, regardless of whether that app is destined for an enterprise, a mobile device, or the cloud.
 
@@ -589,13 +589,13 @@ The realm of security is wide, and includes operating systems, networks and fire
 
 From an app's point of view, APIs provide access to the apps in your enterprise ecosystem. You should therefore ensure that these building blocks address security considerations during the app design and build process.
 
-### Why?
+**Why?**
 
 A cloud-native application is a secure application. Your code, whether compiled or raw, is transported across many data centers, executed within multiple containers, and accessed by countless clients some legitimate, most nefarious. Even if the only reason you implement security in your application is so you have an audit trail of which user made which data change, that alone is benefit enough to justify the relatively small amount of time and effort it takes to secure your application’s endpoints.
 
 In an ideal world, all cloud-native applications would secure all of their endpoints with RBAC (role-based access control). Every request for an application’s resources should know who is making the request, and the roles to which that consumer belongs. These roles dictate whether the calling client has sufficient permission for the application to honor the request.
 
-### How?
+**How?**
 
 Considerations for helping to protect access to your app include the following:
 
@@ -609,15 +609,15 @@ Stakater App Agility Platform offers KeyCloak as fully managed IAM solution to c
 
 ## 16. Dependencies initialization
 
-### What?
+**What?**
 
 The problem is very common—the new version of your app uses a slightly different database schema to the previous version. When you deploy your app, you need to also update the database. Theses are commonly called database migrations, and are a reality for any evolving application.
 
-### Why?
+**Why?**
 
 Zero-downtime deployments, and ensures that the new application code doesn't have to work against old versions of the database.
 
-### How?
+**How?**
 
 The database migration solution with Kubernetes Jobs and init containers.
 
@@ -625,17 +625,17 @@ _This does still require you to be thoughtful with your database migrations so a
 
 ## 17. Disposability
 
-### What?
+**What?**
 
 The principle of Disposability asserts that applications should start and stop gracefully. This means doing all the required "housekeeping" before an application is made accessible to consumers. For example, a graceful startup will ensure that all database connections and access to other network resources are operational. Also, any other configuration work that needs to take place has taken place.
 
 In terms of shutdown, disposability advocates ensuring that all database connections and other network resources are terminated properly and that all shutdown activity is logged, as shown in the code example shown above.
 
-### Why?
+**Why?**
 
 Maximize robustness with fast startup and graceful shutdown
 
-### How?
+**How?**
 
 e.g.
 
@@ -664,63 +664,63 @@ const shutdown = async (signal) => {
 
 ## 18. Declarative Syntax to Manage Kubernetes State
 
-### What?
+**What?**
 
 Use GitOps based approach to deploy applications.
 
-### Why?
+**Why?**
 
 For reproducibility and auditability.
 
-### How?
+**How?**
 
 Stakater team has helm [application chart](https://github.com/stakater-charts/application) which can be used for application deployment.
 
 ## 19. Secrets handling
 
-### What?
+**What?**
 
 The secrets must be handled with care.
 
-### Why?
+**Why?**
 
 Vanilla kubernetes secrets are only base64 encoded so, they can't be pused to SCM as they are readable.
 
-### How?
+**How?**
 
 Stakater App Agility Platform has secrets handling support with Sealed Secrets and Vault.
 
 ## 20. Tracing instrumentation
 
-### What?
+**What?**
 
 Consider using Distributed Tracing in complex multi-service architectures. It can help with detection of cascading failures in service calls, optimization of Database requests, latency problems etc.
 
 Instrumentation to send request processing details to a collection service.
 
-### Why?
+**Why?**
 
 Sometimes the only way of figuring out where latency is coming from
 
-### How?
+**How?**
 
 Stakater App Agility Platform has built in managed Istio to support instrumentation.
 
 ## 21. Administrative processes
 
-### What?
+**What?**
 
 Administrative processes usually consist of one-off tasks or timed, repeatable tasks such as generating reports, executing batch scripts, starting database backups, and migrating schemas. The admin processes factor in the twelve-factor manifesto was written with one-off tasks in mind. For cloud-native apps, this factor becomes more relevant when you're creating repeatable tasks, and the guidance in this section is oriented towards tasks like those.
 
 Timed triggers are often built as cron jobs and handled inherently by the apps themselves. This model works, but it introduces logic that's tightly coupled to the app and that requires maintenance and coordination, especially if your apps are distributed across time zones.
 
-### Why?
+**Why?**
 
 Run admin/management tasks as one-off processes
 
 The principle of Admin Processes states that admin processes are first-class citizens in the software development lifecycle and need to be treated as such.
 
-### How?
+**How?**
 
 Within Kubernetes, the Job controller allows you to create Pods that are run once or on a schedule to perform various activities. A Job might implement business logic, but because Kubernetes mounts API tokens into the Pod, you can also use them for interacting with the Kubernetes orchestrator as well.
 
@@ -728,91 +728,91 @@ For running apps on Kubernetes, start separate containers for admin tasks. You c
 
 ## 22. Requests & limits
 
-### What?
+**What?**
 
 Explicit resource allocation for pods. Applications should claim the CPU, memory, and other resources they require.
 
-### Why?
+**Why?**
 
 Allows Kubernetes to make good scheduling decisions. This allows the scheduler to know the best place to run the application based on resources available. 
 
 When multiple applications are deployed on the same node, if the upper and lower resource limits are not set for an application, resource leakage occurs. As a result, resources cannot be allocated to other applications, and the application monitoring information will be inaccurate.
 
-### How?
+**How?**
 
 Stakater application helm chart always sets default requests and limits: https://github.com/stakater-charts/application/blob/master/application/values.yaml#L142 but ofcourse each application can individually override them
 
 ## 23. Alerts
 
-### What?
+**What?**
 
 Automated notifications on defined trigger. Alerts should be raised
 
 - on application downtime
 - on error in logs
 
-### Why?
+**Why?**
 
 You need to know when your service degrades.
 
-### How?
+**How?**
 
 - Stakater App Agility Platform includes a managed Prometheus; just define a PrometheusRule.
 - Stakater App Agility Platform also includes [IngressMonitorController](https://github.com/stakater/IngressMonitorController) which can send downtime alerts when application degrades.
 
 ## 24. Backup & restore (optional)
 
-### What?
+**What?**
 
 Schedule regular backups of data.
 
-### Why?
+**Why?**
 
 To restore operations in case on disaster.
 
-### How?
+**How?**
 
 Stakater App Agility Platform has built in backup and restore available with Velero; which can be configured on stateful applications.
 
 ## 25. Certificates (optional)
 
-### What?
+**What?**
 
 Certificates handling can be quite cumbersome including rotation etc.
 
-### Why?
+**Why?**
 
 Ease of management for certificates handling for mTLS communication between services/applications.
 
-### How?
+**How?**
 
 Stakater App Agility Platform includes managed cert-manager for certificates management and also it includes managed istio which can be used as well.
 
 ## 26. Easily discoverable URLs (optional)
 
-### What?
+**What?**
 
 Single plane of glass to find endpoints of deployed applications.
 
-### Why?
+**Why?**
 
 It should be simple and ease to find the endpoints of the deployed applications.
 
-### How?
+**How?**
 
 Stakater App Agility Platform includes managed [Forecastle](https://github.com/stakater/Forecastle) which can dynamically discover and list endpoints.
 
 ## 27. Grafana Dashboard (optional)
 
-### What?
+**What?**
 
 View metrics.
 
-### Why?
+**Why?**
 
 You need to make sense out of the data.	
 
-### How?
+**How?**
 
 Add grafana dashboard as code.
 
@@ -820,31 +820,31 @@ Stakater App Agility Platform includes fully managed customer workload monitorin
 
 ## 28. Multiple replicas
 
-### What?
+**What?**
 
 Always have at-least 2 replicas (instances) of every service you deploy.
 
-### Why?
+**Why?**
 
 In a Kubernetes environment, workloads are moved around based on needs of the platform. This means a workload could be deleted and recreated from time to time. With this and general HA practices in mind, your workload should be able to run with more than one replica.
 
 For example, if the number of replicas of a single pod is set, the service will be abnormal when the node or pod is abnormal. To ensure that your pods can be successfully scheduled, ensure that the node has idle resources for container scheduling after you set the scheduling rule.
 
-### How?
+**How?**
 
 Set replicas > 1
 
 ## 29. Important state does not persist in container filesystem
 
-### What?
+**What?**
 
 If you need data persistence for your application, work with your platform team to understand how to request a persistent volume.
 
-### Why?
+**Why?**
 
 Your application’s container filesystem is considered ephemeral. Meaning it will not move with the workload. This ephemeral storage is typically resource constrained and should not be used for anything more than small write needs, where loss of data is not a concern. 
 
-### How?
+**How?**
 
 Use persistent volumes.
 
