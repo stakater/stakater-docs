@@ -23,7 +23,8 @@ export default defineUserConfig({
     '/': {
       lang: 'en-US',
       title: 'Stakater App Agility Platform',
-      description: 'SAAP Documentation',
+      // Added empty string to override the default value
+      description: ' ',
     },
   },
 

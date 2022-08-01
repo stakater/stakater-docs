@@ -17,8 +17,17 @@
 
 html.dark {
     // brand colors
-    --c-brand: #FF7500;
-    --c-brand-light: #F7B107;
+    --c-brand: #F7B107;
+    --c-brand-light: #f79a30;
+
+    --pwa-popup-text-color: #F7B107;
+    --pwa-popup-bg-color: #ffffff;
+    --pwa-popup-border-color: #F7B107;
+    --pwa-popup-shadow: 0 4px 16px var(--pwa-popup-border-color);
+
+    --pwa-popup-btn-text-color: #ffffff;
+    --pwa-popup-btn-bg-color: #F7B107;
+    --pwa-popup-btn-hover-bg-color: #ffa600;
     
 }
 
