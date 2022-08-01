@@ -1,8 +1,8 @@
 ---
-title: Tenant Operator
-author: Stakater
-category:
-  - Multi tenancy
+head:
+  - - meta
+    - name: keywords
+      content: SEO plugin
 ---
 
 # Overview
