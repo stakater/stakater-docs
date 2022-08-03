@@ -95,7 +95,7 @@ export default defineUserConfig({
     }),
     seoPlugin({
       hostname: 'stakater',
-      fallBackImage: '/stakater.png',
+      fallBackImage: '/stakater.svg',
       autoDescription: true,
     })
   ],

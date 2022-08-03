@@ -1,7 +1,7 @@
 ---
 home: true
 title: Home
-heroImage: /stakater.png
+heroImage: /stakater.svg
 actions:
   - text: Docs Home
     link: /content/sre/introduction/introduction.md
