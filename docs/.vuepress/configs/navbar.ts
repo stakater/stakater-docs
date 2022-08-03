@@ -3,7 +3,7 @@ import type { NavbarConfig } from "@vuepress/theme-default";
 export const navbarEn: NavbarConfig = [
   {
     text: "Docs Home",
-    link: "/sre/introduction/introduction.html",
+    link: "/content/sre/introduction/introduction.html",
   },
 
   {
@@ -28,10 +28,6 @@ export const navbarEn: NavbarConfig = [
     children: [
       {
         text: "Events",
-        link: "https://www.stakater.com/events",
-      },
-      {
-        text: "Recordings",
         link: "https://www.stakater.com/events",
       },
     ],
