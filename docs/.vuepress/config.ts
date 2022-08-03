@@ -30,7 +30,7 @@ export default defineUserConfig({
 
   // configure default theme
   theme: defaultTheme({
-    logo: '/favicon.png',
+    logo: '/favicon.svg',
     docsDir: 'docs',
 
     repo: "stakater/stakater-cloud-docs-2.0",
@@ -95,7 +95,7 @@ export default defineUserConfig({
     }),
     seoPlugin({
       hostname: 'stakater',
-      fallBackImage: '/stakater.png',
+      fallBackImage: '/stakater.svg',
       autoDescription: true,
     })
   ],
