@@ -33,7 +33,7 @@ export default defineUserConfig({
     logo: '/favicon.svg',
     docsDir: 'docs',
 
-    repo: "stakater/stakater-cloud-docs-2.0",
+    repo: "stakater/StakaterCloudDocs",
     editLink: true,
     editLinkText: "Help us improve this page!",
 

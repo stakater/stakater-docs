@@ -41,7 +41,7 @@ export const navbarEn: NavbarConfig = [
     children: [
       {
         text: "Careers",
-        link: "https://www.stakater.com/kubernetes-platform-assessment",
+        link: "https://www.stakater.com/careers",
       },
       {
         text: "FAQs",
