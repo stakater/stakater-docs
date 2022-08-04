@@ -13,11 +13,13 @@ WORKDIR $HOME/application
 # copy the entire application
 COPY --chown=1001:root . .
 
+RUN npm install -g yarn
+
 # download the application dependencies
-RUN npm ci
+RUN yarn install
 
 # build the application
-RUN npm run docs:build
+RUN yarn run docs:build
 
 # set non-root user
 USER 1001
