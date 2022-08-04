@@ -32,6 +32,6 @@ stakaterclouddocs-v2:
     imagePullSecrets: docker-registry-secret 
     
     image:
-      name: stakater/stakater-cloud-docs-v2
+      name: stakater/StakaterCloudDocs
       tag: 1.0.0
 
