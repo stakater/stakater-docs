@@ -2,6 +2,10 @@
 
 ## v0.5.x
 
+**v0.5.3**
+
+- fix: Add support for parameters in helm chartRepository
+
 **v0.5.2**
 
 - fix: Add service name prefix for webhooks
