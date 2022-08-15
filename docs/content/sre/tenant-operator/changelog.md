@@ -4,6 +4,10 @@
 
 **v0.5.3**
 
+- fix: Update helm dependency to v3.8.2
+
+**v0.5.3**
+
 - fix: Add support for parameters in helm chartRepository in templates
 
 **v0.5.2**
