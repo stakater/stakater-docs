@@ -3,7 +3,7 @@
 ## Overview
 There are 2 types of monitoring:
 
-1. InfraStructure monitoring (comes default with openshift installation)
+1. Infrastructure monitoring (comes default with openshift installation)
 2. Workload monitoring ( deployed by stakater to monitor application workloads)
 
 
@@ -17,13 +17,13 @@ There are 2 types of monitoring:
 ## Workload Monitoring
 1. Prometheus
 2. Grafana
-3. (No Alertmanager. Alerts forwarded to Infrastructure's AlertManager)
+3. AlertManager
 
 ## Creating Application Alerts to Monitor Application workloads
 In order to define Prometheus rules to monitor applications on the basis of exposed metrics. You need 3 things:
 
 1. Metrics Exposed by Application endpoints
-2. Metrics endpoints are scraped via ServiceMonitor
+2. Metrics endpoints are scraped via ServiceMonitor by Prometheus
 3. Defining PrometheusRule CustomResource
 
 ### Metrics Exposed by the Application
