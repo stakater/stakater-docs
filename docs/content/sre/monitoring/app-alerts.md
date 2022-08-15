@@ -30,9 +30,9 @@ In order to define Prometheus rules to monitor applications on the basis of expo
 
 Prometheus metrics can be exposed on any endpoint from the application (usually `/metrics`)
 
-### Metrics endpoints are scraped via ServiceMonitor
+### Metrics endpoints are scraped via ServiceMonitor by Prometheus
 
-Metrics endpoints are then scraped via ServiceMonitors and sent to workload Prometheus
+The Prometheus Operator includes a Custom Resource Definition that allows the definition of the ServiceMonitor. The ServiceMonitor is used to define an application you wish to scrape metrics from, the controller will action the ServiceMonitors we define and automatically build the required Prometheus configuration.
 
 Example ServiceMonitor:
 
@@ -72,14 +72,15 @@ spec:
   - name: <GROUP_NAME> 
     rules:
     - alert: <ALERT_NAME>
-        Message: >-
+      annotations:
+        message: >-
           <MESSAGE_TO_BE_DISPLAYED>
-        expr: >-
+      expr: | 
           <EXPRESSION_TO_BE_EVALUATED_FOR_ALERT>
-        for: <TIME_FOR_WHICH_THE_EXPRESSION_IS_TRUE>
-        labels:
-          severity: <SEVERITY>
-```
+      labels:
+        severity: <SEVERITY>
+        namespace: < NAME_OF_NAMESPACE >
+```    
 
 Following Example shows Alerts for PersistentVolumes on the metrics scraped from Kubelets
 
