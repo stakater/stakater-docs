@@ -2,7 +2,7 @@
 
 ## v0.5.x
 
-**v0.5.3**
+**v0.5.4**
 
 - fix: Update helm dependency to v3.8.2
 
