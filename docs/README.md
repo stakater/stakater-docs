@@ -15,5 +15,5 @@ actions:
 </h1>
 
 <p style="text-align: center;">
-  Stakater's App Agility Platform (SAAP) is a group of practices and tools that lets developers take control of and configure the entire cloud development loop. SAAP helps ship and scale containerized software faster and stay online 24x7  across Hybrid
+  Stakater's App Agility Platform (SAAP) is a group of practices and tools that lets developers take control of and configure the entire cloud development loop. SAAP helps ship and scale containerized software faster and stay online 24x7  across Hybrid Cloud
 </p>
