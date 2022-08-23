@@ -1,8 +1,14 @@
 # Changelog
 
+## v0.1.x
+
 **v0.1.6**
 
-- Add support for default Secrets (orgLevelSecrets) in TronadorConfig CR
+- feat: add support for default Secrets (orgLevelSecrets) in TronadorConfig CR
+
+**v0.1.5**
+
+- fix: remove empty secret being added to GitRepository CR for public repo
 
 **v0.1.4**
 
