@@ -2,6 +2,14 @@
 
 ## v0.1.x
 
+**v0.1.6**
+
+- feat: add support for default Secrets (orgLevelSecrets) in TronadorConfig CR
+
+**v0.1.5**
+
+- fix: remove empty secret being added to GitRepository CR for public repo
+
 **v0.1.4**
 
 - fix: fix name of GitRepository resource referenced in HelmRelease object created by Tronador
