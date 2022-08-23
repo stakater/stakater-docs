@@ -1,6 +1,8 @@
 # Changelog
 
-## v0.1.x
+**v0.1.6**
+
+- Add support for default Secrets (orgLevelSecrets) in TronadorConfig CR
 
 **v0.1.4**
 
