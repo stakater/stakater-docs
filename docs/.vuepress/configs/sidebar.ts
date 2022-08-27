@@ -10,6 +10,7 @@ export const sidebarEn: SidebarConfig = [
       "/content/sre/introduction/sro-overview.md",
       "/content/sre/introduction/sro-features.md",
       "/content/sre/introduction/sro-key-differentiators.md",
+      "/content/sre/introduction/saap-vs-k8s.md"
     ],
   },
   {
