@@ -21,11 +21,11 @@ a perspective of security and certification, as well as having to develop everyt
 were to list out all the tasks of building and maintaining this custom Kubernetes platform—that is, Kubernetes—with all the extra components needed to run
 containers successfully, they would be grouped up as follows:
 
-● **Cluster management:** This includes installing OSes, patching the OS, installing Kubernetes, configuring CNI networking, authentication integration, 
+- **Cluster management:** This includes installing OSes, patching the OS, installing Kubernetes, configuring CNI networking, authentication integration, 
 Ingress and Egress setup, persistent storage setup, hardening nodes, security patching, and configuring the underlying cloud/multicloud.
-● **Application services:** These include log aggregation, health checks, performance monitoring, security patching, container registry, and setting up 
+- **Application services:** These include log aggregation, health checks, performance monitoring, security patching, container registry, and setting up 
 the application staging process.
-● **Developer integration:** This includes CI/CD integration, developer tooling/IDE integration, framework integration, middleware compatibility, providing 
+- **Developer integration:** This includes CI/CD integration, developer tooling/IDE integration, framework integration, middleware compatibility, providing 
 application performance dashboards, and RBAC.
 
 While there are many more actions and technologies that could be added to the list—most of those activities are essential for any organization to seriously
