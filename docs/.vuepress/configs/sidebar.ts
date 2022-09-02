@@ -252,6 +252,10 @@ export const sidebarEn: SidebarConfig = [
             link: "/content/sre/tenant-operator/usecases/configuring-multitenant-network-isolation.md",
           },
           {
+            text: "Distributing Secrets Using Sealed Secrets Template",
+            link: "/content/sre/tenant-operator/usecases/distributing-secrets-using-sealed-secret-template.md",
+          },
+          {
             text: "Configuring IntegrationConfig",
             link: "/content/sre/tenant-operator/usecases/integrationconfig.md",
           },
