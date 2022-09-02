@@ -85,4 +85,4 @@ spec:
   sync: true
 ```
 
-Tenant-Operator will now deploy the sealed secrets mentioned in `Template` to all tenant projects. The rest of the work to deploy secret from a sealed secret has to be done by Sealed Secrets Controller.
+Tenant-Operator will now deploy the sealed secrets mentioned in `Template` to namespaces which have the mentioned label. The rest of the work to deploy secret from a sealed secret has to be done by Sealed Secrets Controller.
