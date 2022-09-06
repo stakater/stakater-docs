@@ -1,18 +1,44 @@
-# Hibernation
+# Hibernating Namespaces with Tenant Operator
 
-Hibernation of resources is a feature of Tenant Operator that simply downsizes running Deployments and StatefulSets based on a schedule. The hibernation feature can enabled on a tenant level, and certain namespaces belonging to a tenant can be whitelisted so they are not put to sleep. To enable hibernation on a tenant, add the following fields to the spec of the [relevant Tenant CR](./customresources.html#_2-tenant):
 
-```yaml
+You can manage workloads in your cluster with Tenant Operator by implementing a hibernation schedule for your tenants.
+Hibernation downsizes running Deployments and StatefulSets in a tenant’s namespace according to a defined cron schedule. You can set a hibernation schedule for your tenants by adding the ‘spec.hibernation’ field to their respective Custom Resource.
+
+```YAML
 hibernation:
   sleepSchedule: 23 * * * *
   wakeSchedule: 26 * * * *
 ```
+`spec.hibernation.sleepSchedule` accepts a cron expression indicating the time to put the workloads in your tenant’s namespaces to sleep.
 
-The `sleepSchedule` field will set the time period on which the namespaces will go to sleep, while the `wakeSchedule` field will do the opposite. Both fields are required if you want to use the hibernation feature, and they must have a valid cron format for their values.
+`spec.hibernation.wakeSchedule` accepts a cron expression indicating the time to wake the workloads in your tenant’s namespaces up.
 
-Adding the above fields will create a [ResourceSupervisor custom resource](customresources.html#_6-resourcesupervisor) for the tenant. The custom resource will store the above schedules, and manage the current and previous states of the applications, whether they are sleeping or awake. When the sleep timer is hit, the controller for the resource will reconcile and find all Deployments and StatefulSets in the namespaces owned by the tenant, store their details and the number of replicas, and scale them down to zero. When the wake timer is hit, the controller will wake up the resources by using their stored details.
-
-
-## Namespace exclusion
-
-You can exclude a namespace from being put to sleep by simply adding the following annotation to the namespace: `hibernation.stakater.com/exclude: 'true'`. Note that this wont wake up an already sleeping namespace before the wake schedule is hit.
+> Note: both sleep and wake schedules must be specified for your Hibernation schedule to be valid.<aside> 
+  
+Additionally, adding the following annotation `hibernation.stakater.com/exclude: 'true'` to a namespace, excludes that namespace from hibernating.
+> Note that this won't wake up an already sleeping namespace before the wake schedule.
+  
+## Resource Supervisor
+  
+Adding a Hibernation Schedule to a Tenant creates an accompanying ResourceSupervisor custom resource.
+The Resource Supervisor stores the Hibernation schedules and manages the current and previous states of all the applications, whether they are sleeping or awake.
+  
+When the sleep timer is activated, the controller for the resource stores the details of your applications; including the number of replicas, configurations, etc., in the namespaces owned by the tenant and will then put your applications to sleep. When the wake timer is activated, the controller wakes up the applications using their stored details.
+  
+Enabling ArgoCD support for Tenants will also hibernate applications in the tenants appProjects. 
+  
+```yaml
+apiVersion: tenantoperator.stakater.com/v1beta1
+kind: ResourceSupervisor
+metadata:
+ name: sigma
+spec:
+ argocd:
+   appProjects:
+     - sigma
+   namespace: openshift-gitops
+ hibernation:
+   sleepSchedule: 42 * * * *
+   wakeSchedule: 45 * * * *
+```
+> Currently, Hibernation is available for only StatefulSets and Deployments
