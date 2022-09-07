@@ -1,0 +1,47 @@
+# Hibernating your Cluster
+
+For clusters running non critical workloads, e.g test, development or those only utilized during business hours, it is possible to schedule Cluster Hibernation to save on cloud costs.
+
+Cluster Hibernation automatically powers your cluster nodes up or down according to your defined cron schedule.
+
+It takes around 1-3 minutes to take your cluster offline and about 3-5 minutes to power back up depending on your cloud provider.
+
+## Schedule Hibernation for your cluster
+
+You can schedule a hibernation window for non-critical workload clusters using cron jobs from your web console.
+
+To configure a Hibernation Schedule, log in to your console by first entering your enterprise domain name.
+
+![login1](cluster-management/imgs/Saap-login1.png)
+
+Next, Input your username/email and password.
+
+![login2](cluster-management/imgs/SAAP-login22.png)
+
+You will be brought to the Cluster Management page where you can view all your managed clusters.
+
+![clusters](cluster-management/imgs/Saap-clusters.png)
+
+Click on the menu button beside the cluster for which you wish to set a hibernation window and select Manage Power State.
+
+
+![manage_powerstate_1](cluster-management/imgs/manage-powerstate-1.png)
+
+**Hibernating Schedule** accepts a cron expression which specifies when to power your cluster down. E.g a cron expression of “0 20 * * *” will power your cluster down at 8pm everyday.
+
+**Running Schedule** accepts a cron expression which specifies when to power  your cluster up. E.g a cron expression of “0 8 * * *” will power your cluster up at 8am everyday.
+
+**Cron Schedule** allows you to enable or disable a cron schedule.
+
+**Power State** allows you to manually select a Power State for your cluster. You can set it to Running or Hibernation.
+
+Setting your Power State to Hibernation will immediately power your cluster down, while Running will bring back your cluster online.
+
+![manage_poerstate2](cluster-management/imgs/manage-powerstate2.png)
+
+
+Now that you have implemented your hibernation schedule, your cluster will be offline during cluster hibernation, helping you save on cloud costs for your cluster nodes.
+
+
+
+
