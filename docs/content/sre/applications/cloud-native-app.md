@@ -173,7 +173,7 @@ Let’s say that your CI system has just built your application and labeled that
 
 If something goes wrong, you want the ability to audit what you have released to a given environment and, if necessary, to roll back to the previous release. This is another key reason for keeping releases both immutable and uniquely identified.
 
-There are a million different types of problems that arise from an organization’s inability to reproduce a release as it appeared at one point in the past. By having separate build and release phases, and storing those artifacts, rollback and historical auditing is a piece of cake.
+There are a million different types of problems that arise from an organization’s inability to reproduce a release as it appeared at one point in the past. By having separate build and release phases, and storing those artifacts, rollback and historical auditing is possible.
 
 #### Run
 
