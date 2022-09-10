@@ -8,4 +8,4 @@
 - `Restic` data is stored under a prefix/subdirectory of the main Velero bucket and will go into the bucket corresponding backup storage location selected by the user at backup creation time.
 - When performing cluster migration, the new cluster number of nodes should be equal or greater than the original cluster.
 
-For more information about storage and snapshot locations, refer to link:https://velero.io/docs/v1.4/locations/[Velero: Backup Storage Locations and Volume Snapshot Locations]
+For more information about storage and snapshot locations, refer to [Velero: Backup Storage Locations and Volume Snapshot Locations](https://velero.io/docs/v1.4/locations/).

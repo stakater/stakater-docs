@@ -46,7 +46,7 @@ provide a terminology that is consistent across CI/CD solutions:
 
 For Continuous Integration/Delivery we can use triggers and webhooks:
 
-1. Webhook: Send payload to event-listener whenever a push event or a pull request is created. [More on webhooks](https://developer.github.com/webhooks/)
+1. Webhook: Send payload to event-listener whenever a push event or a pull request is created. [More on webhooks](https://docs.github.com/en/developers/webhooks-and-events/webhooks/about-webhooks)
 2. Triggers: 
     - Event Listeners: Listen to events over a route
     - Trigger Templates: Templatized PipelineResources & PipelineRun based on event

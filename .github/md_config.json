@@ -2,6 +2,15 @@
   "ignorePatterns": [
     {
       "pattern": "^(?!http).+"
+    },
+    {
+      "pattern": "^(?!https://stakater).+"
+    },
+    {
+      "pattern": "^(?!http://nexus).+"
+    },
+    {
+      "pattern": "^(?!https://nexus).+"
     }
   ]
 }

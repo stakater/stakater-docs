@@ -81,7 +81,7 @@ When your hpa will try to increase the number of pods, at the same time your git
 Update your gitOps tool to ignore the difference for replica count, so that whenever hpa scales up the number of pods and increases the replica count, the gitOps tool doesn't try to sync the replica count and doesn't terminate the new pods.
 
 **Example (argoCD):**
-Argo CD allows [ignoring differences](https://argoproj.github.io/argo-cd/user-guide/diffing/#application-level-configuration) at a specific JSON path, using JSON patches. The following sample application is configured to ignore differences in spec.replicas for all deployments
+Argo CD allows [ignoring differences](https://argo-cd.readthedocs.io/en/stable/user-guide/diffing/#application-level-configuration) at a specific JSON path, using JSON patches. The following sample application is configured to ignore differences in spec.replicas for all deployments
 
 ```yaml
 spec:

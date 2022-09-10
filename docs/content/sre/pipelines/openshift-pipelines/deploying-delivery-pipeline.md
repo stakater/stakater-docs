@@ -44,7 +44,7 @@ Save the manifest, will be used going forward, and deploy inventory microservice
 
 ::: details 1.3.1 Download Manifest
 
-[Inventory Manifest](https://raw.githubusercontent.com/stakater-lab/stakater-nordmart-inventory/master/deployment/manifests/application/inventory.yaml) 
+[Inventory Manifest]()
 ```bash
 oc apply -f https://raw.githubusercontent.com/stakater-lab/stakater-nordmart-inventory/master/deployment/manifests/application/inventory.yaml -n NAMESPACE_NAME
 ```
