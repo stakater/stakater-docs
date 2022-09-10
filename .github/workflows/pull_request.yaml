@@ -9,6 +9,23 @@ env:
   DOCKER_FILE_PATH: Dockerfile
 
 jobs:
+  link_check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Link check
+        uses: gaurav-nelson/github-action-markdown-link-check@v1
+  spell_check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Spell check
+        uses: errata-ai/vale-action@v2.0.1
+        with:
+          styles: https://github.com/errata-ai/write-good/releases/latest/download/write-good.zip
+          files: docs/content/sre
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
   build:
     runs-on: ubuntu-latest
     if: "! contains(toJSON(github.event.commits.*.message), '[skip-ci]')"

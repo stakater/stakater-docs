@@ -145,7 +145,7 @@ Stakater App Agility Platform offers a fully managed 3Scale API Gateway add-on t
 
 **What?**
 
-#### Desgin
+#### Design
 
 In the world of waterfall application development, we spend an inordinate amount of time designing an application before a single line of code is written. This type of software development life cycle is not well suited to the demands of modern applications that need to be released as frequently as possible.
 
