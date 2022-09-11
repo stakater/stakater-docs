@@ -26,4 +26,4 @@ On first login you automatically get `Analyst`.
 
 Machine user interacts with roxctl using API or CLI and we are using `rox_api_token` authentication for machines users.
 
-The `rox_api_token` is created automatically in build namespaces to run rhacs steps in tekton pipelines.
+The `rox_api_token` is created automatically in build namespaces to run rhacs steps in Tekton pipelines.

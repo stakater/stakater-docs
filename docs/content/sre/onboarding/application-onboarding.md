@@ -105,7 +105,7 @@ application:
 
 ## 2. Add dockerfile to application repository
 
-SAAP ships with few generic tekton pipelines for quick jump start; all those pipelines expect to have Dockerfile in the root of the repository. Dockerfile should handle both build and package part; we typically use mutli-stage Dockerfiles with 2 steps; one for build and another for run e.g.
+SAAP ships with few generic Tekton pipelines for quick jump start; all those pipelines expect to have Dockerfile in the root of the repository. Dockerfile should handle both build and package part; we typically use mutli-stage Dockerfiles with 2 steps; one for build and another for run e.g.
 
 ```
 ## BUILD
@@ -141,9 +141,9 @@ ENTRYPOINT exec java $JAVA_OPTS -jar artifacts/app.jar
 
 The idea is to avoid having different pipelines for different applications and if possible do stuff in dockerfiles but there can b cases where one might need to language specific pipelines.
 
-Customers can do the way they like; as we ship few generic tekton pipelines just for the sake of jump start.
+Customers can do the way they like; as we ship few generic Tekton pipelines just for the sake of jump start.
 
-We do have a separate offering `Pipeline as a Service`; in which we completely manage all sorts (generic and specific) of tekton pipelines; reach out to <sales@stakater.com> for more information.
+We do have a separate offering `Pipeline as a Service`; in which we completely manage all sorts (generic and specific) of Tekton pipelines; reach out to <sales@stakater.com> for more information.
 
 ## 3. Add webhook to application repository
 
