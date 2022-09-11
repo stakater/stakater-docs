@@ -3,7 +3,7 @@
 Back up and restore applications on Stakater App Agility Platform (AAP)
 
 ## Prerequisite
-You need velero CLI setup, follow the velero-cli [doc](./velero-cli.md)
+You need Velero CLI setup, follow the `velero-cli` [doc](./velero-cli.md)
 
 ## Service viewpoint
 
@@ -17,7 +17,7 @@ Stakater App Agility Platforms divides backups into two:
 These Backups are stored on the Cloud Provider under your account.
 #### Customer Backups
 
-There are 3 default backup schedules for customers that are deployed with offered velero tool
+There are 3 default backup schedules for customers that are deployed with offered Velero tool
 
 | Schedule                       | Backup Frequency |   Backup Retention   | Backup Scope |
 | -------------------------- | ---------------- | -------------------- | ---------------- |
@@ -36,9 +36,9 @@ Stakater only takes backups of the managed applications:
 | Promehteus (Applications)  |    Every 24 hrs   |   Last 3 Backup(s)   |
 | Elasticsearch              |    Every 24 hrs   |   Last 3 Backup(s)   |
 | Vault                      |    Every 24 hrs   |   Last 3 Backup(s)   | 
-| Sonarqube                  |    Every 24 hrs   |   Last 3 Backup(s)   | 
+| SonarQube                  |    Every 24 hrs   |   Last 3 Backup(s)   | 
 | CodeReadyWorkspaces        |    Every 24 hrs   |   Last 3 Backup(s)   | 
-| RHSSO (KeyCloak)           |    Every 24 hrs   |   Last 3 Backup(s)   | 
+| RHSSO (Keycloak)           |    Every 24 hrs   |   Last 3 Backup(s)   | 
 | ArgoCD                     |    Every 24 hrs   |   Last 3 Backup(s)   | 
 
 If you want to change backup frequency/retention times for your specific needs, contact support.
@@ -56,7 +56,7 @@ Resources can be restored on demand. Please contact support and specify the foll
 
 ## Technical viewpoint
 
-Stakater App Agility Platform uses managed velero operator to provision the velero server. This backup and restore process can be used for both disaster recovery and cluster migration.
+Stakater App Agility Platform uses managed Velero operator to provision the Velero server. This backup and restore process can be used for both disaster recovery and cluster migration.
 
 ### Backup
 
@@ -143,10 +143,10 @@ spec:
 ##### Different Schedule Definitons and their meanings
 Changing some parameters in Schedule CR, changes the backup behavior
 - snapshotVolumes: (boolean)
-  - true (makes velero to take native volume snapshots)
-  - false (no native velero snapshots taken)
-  - Not Specify (Defaults to auto behavior define within velero)
-  Note: You don't specify this parameter with velero CSI plugin
+  - true (makes Velero to take native volume snapshots)
+  - false (no native Velero snapshots taken)
+  - Not Specify (Defaults to auto behavior define within Velero)
+  Note: You don't specify this parameter with Velero CSI plugin
 
 - includeClusterResources: (boolea)
   - true (includes all cluster level resource, snapshotVolumes needs to be true to take PV snapshots)

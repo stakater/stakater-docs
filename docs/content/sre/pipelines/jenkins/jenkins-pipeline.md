@@ -7,7 +7,7 @@ Jenkins supports two types of pipelines:
 
 ## Declarative Pipeline
 
-Declarative Pipeline provide a simplified and opinionated syntax on top of jenkins pipeline sub-systems. It supports the
+Declarative Pipeline provide a simplified and opinionated syntax on top of Jenkins pipeline sub-systems. It supports the
  pipeline as code concept and makes the pipeline declarative hence easier to read, write and re-use.
  
 ### Example
@@ -58,7 +58,7 @@ node {
 
 ## Stakater Pipeline Library
 
-We have been using jenkins at Stakater for a long time and one issue that we continuously face is how to make those pipelines
+We have been using Jenkins at Stakater for a long time and one issue that we continuously face is how to make those pipelines
 re-usable ? Since, most of the pipelines have same action items to perform. 
 
 ### Problem 

@@ -1,6 +1,6 @@
 # Create Grafana Dashboard Guide
 
-This document explains how to create Grafana Dashboard via GrafanaDashboard CR powered by grafana operator. In this way there is no need to configure/import it via web UI. Now, developers can ship new dashboards in any namespace and deploy them via gitops. If Dashboard definition/json is invalid, the dashboard will not appear in grafana web UI.
+This document explains how to create Grafana Dashboard via GrafanaDashboard CR powered by grafana operator. In this way there is no need to configure/import it via web UI. Now, developers can ship new dashboards in any namespace and deploy them via GitOps. If Dashboard definition/json is invalid, the dashboard will not appear in grafana web UI.
 
 ## Prerequisite 
 

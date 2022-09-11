@@ -2,7 +2,7 @@
 
 ## Overview
 
-[SealedSecrets](https://github.com/bitnami-labs/sealed-secrets) controller solves the problem of storing kubernetes secret data securely by encrypting the configurations. It can only be decrypted by sealed secret controller running in cluster.
+[SealedSecrets](https://github.com/bitnami-labs/sealed-secrets) controller solves the problem of storing Kubernetes secret data securely by encrypting the configurations. It can only be decrypted by sealed secret controller running in cluster.
 
 ## Architecutre
 
@@ -35,7 +35,7 @@ data:
 
 save it in a file named `secret-mysql.yaml`. This file should not be pushed to git as it is easily decodable.
 
-Now install kubeseal and your kubeconfig should be pointing to Openshift cluster.
+Now install kubeseal and your kubeconfig should be pointing to OpenShift cluster.
 
 As sealed secrets controller is running in `stakater-sealed-secrets` namespace and sealed secrets service name is `sealed-secrets`, so you need to run
 
@@ -122,7 +122,7 @@ spec:
       namespace: gabbar-dev
 ```
 
-you need to add sealedsecret block in helm values present in `<tenant>/<application>/<env>/values.yaml` in gitops-config repository and copy paste key values from generated output
+you need to add sealedsecret block in helm values present in `<tenant>/<application>/<env>/values.yaml` in GitOps-config repository and copy paste key values from generated output
 
 ```yaml
   sealedSecret:

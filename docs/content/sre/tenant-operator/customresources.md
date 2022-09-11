@@ -121,9 +121,9 @@ spec:
 ```
 
 * Tenant has 3 kinds of `Members`:
-  * `Owners:` Users who will be owners of a tenant. They will have openshift admin-role assigned to their users, with additional access to create namespaces as well.
-  * `Editors:` Users who will be editors of a tenant. They will have openshift edit-role assigned to their users.
-  * `Viewers:` Users who will be viewers of a tenant. They will have openshift view-role assigned to their users.
+  * `Owners:` Users who will be owners of a tenant. They will have OpenShift admin-role assigned to their users, with additional access to create namespaces as well.
+  * `Editors:` Users who will be editors of a tenant. They will have OpenShift edit-role assigned to their users.
+  * `Viewers:` Users who will be viewers of a tenant. They will have OpenShift view-role assigned to their users.
   * For more [details](https://docs.cloud.stakater.com/content/sre/tenant-operator/tenant-roles.html).
 
 * `Users` can be linked to the tenant by specifying there username in `owners.users`, `editors.users` and `viewers.users` respectively.
@@ -139,7 +139,7 @@ spec:
 * `onDelete` is used to tell Tenant-Operator what to do when a Tenant is deleted.
   * `cleanNamespaces` if the value is set to **true** *Tenant-Operator* deletes all *tenant namespaces* when a `Tenant` is deleted. Default value is **false**.
 
-* `argocd` can be used to list `sourceRepos` that point to your gitops repositories. The field is required if you want to create an ArgoCD AppProject for the tenant.
+* `argocd` can be used to list `sourceRepos` that point to your GitOps repositories. The field is required if you want to create an ArgoCD AppProject for the tenant.
 
 * `hibernation` can be used to create a schedule during which the namespaces belonging to the tenant will be put to sleep. The values of the `sleepSchedule` and `wakeSchedule` fields must be a string in a cron format.
 
@@ -319,7 +319,7 @@ metadata:
   name: build
 ```
 
-* Namespace should have label `stakater.com/tenant` which contains the name of tenant to which it belongs to. The labels and annotationos specified in the operator config,  `ocp.labels.project` and `ocp.annotations.project` are inserted in the namespace by the controller.
+* Namespace should have label `stakater.com/tenant` which contains the name of tenant to which it belongs to. The labels and annotations specified in the operator config,  `ocp.labels.project` and `ocp.annotations.project` are inserted in the namespace by the controller.
 
 ## Notes
 

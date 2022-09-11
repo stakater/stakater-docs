@@ -14,7 +14,7 @@ Main goals:
 3. Reproducible
 4. Cloud Native
 
-## Openshift Pipeline Benefits
+## OpenShift Pipeline Benefits
 
 1. Kubernetes native pipelines
 2. Runs pipelines in containers
@@ -30,7 +30,7 @@ Main goals:
 Tekton defines a number of Kubernetes custom resources as building blocks in order to standardize pipeline concepts and 
 provide a terminology that is consistent across CI/CD solutions:
 
-- Step: Smallest unit of execution that defines kubernetes container spec
+- Step: Smallest unit of execution that defines Kubernetes container spec
 - Task: Run commands within container
 - Task Run: Runtime representation of an execution of a task
 - Pipeline Resources: Acts as input or output to tasks and pipelines. Example, source code, container image, pull request etc.
@@ -58,18 +58,18 @@ For Continuous Integration/Delivery we can use triggers and webhooks:
 ![trigger-workflow](./images/trigger-workflow.png)
 
 
-## Openshift Pipelines Catalog - Reusable Tasks
+## OpenShift Pipelines Catalog - Reusable Tasks
 
 - [Official](https://github.com/tektoncd/catalog)
 - [Kabanero-io](https://github.com/kabanero-io/kabanero-pipelines/tree/master/pipelines)
-- [Openshift](https://github.com/openshift/pipelines-catalog)
+- [OpenShift](https://github.com/openshift/pipelines-catalog)
 - [Open-toolchain](https://github.com/open-toolchain/tekton-catalog)
 - [Redhat-developer-demos](https://github.com/redhat-developer-demos/pipelines-catalog)
 
 ## Useful Resources
 
 - [Tektoncd](https://github.com/tektoncd)
-- [Openshift Pipelines](https://github.com/openshift-pipelines)
+- [OpenShift Pipelines](https://github.com/openshift-pipelines)
 - [Pipeline Examples](https://github.com/tektoncd/pipeline/tree/master/examples)
 - [Katacoda Course](https://www.katacoda.com/openshift/courses/middleware/pipelines)
 - [Visual Studio Code Tekton Pipelines Extension](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-tekton-pipelines)

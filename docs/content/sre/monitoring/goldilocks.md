@@ -36,4 +36,4 @@ In order to exclude containers from the `app deployment`, simply add the label w
 
 ## Useful Links
 
-- [Github Repo](https://github.com/FairwindsOps/goldilocks)
+- [GitHub Repo](https://github.com/FairwindsOps/goldilocks)

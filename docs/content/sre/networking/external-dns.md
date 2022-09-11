@@ -163,6 +163,6 @@ spec:
 ```
 
 
-NOTE: In it's current state external-dns is not completely functional on openshift. Will add an update here as soon as the issue is resolved.
+NOTE: In it's current state external-dns is not completely functional on OpenShift. Will add an update here as soon as the issue is resolved.
 
 For further details and configuration related to other clouds: [External-dns Tutorials](https://github.com/kubernetes-sigs/external-dns/tree/master/docs/tutorials)

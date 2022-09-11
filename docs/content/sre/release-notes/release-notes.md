@@ -24,4 +24,4 @@ Following updates required to be done on workflows
 - Re-seal dockerconfigjson secret with updated repository url
 - Respective helm and docker urls were to be updated in pipelines and code repositories
 - nexus-docker-config-forked fqdns were updated
-- managed-addons/nexus/docker secret updated in vault
+- managed-addons/nexus/docker secret updated in Vault

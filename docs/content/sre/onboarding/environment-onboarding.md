@@ -1,8 +1,8 @@
 # Add new environment
 
-To add new environment in cluster do following steps in gitops directory
+To add new environment in cluster do following steps in GitOps directory
 
-- Add environment folder inside cluster's argocd folder located in sre tenant directory.
+- Add environment folder inside cluster's ArgoCD folder located in sre tenant directory.
   **\<sre-tenant>/\<cluster>/argocd/\<env>**
 
 - Add environment folder inside config folder located in application tenants directory

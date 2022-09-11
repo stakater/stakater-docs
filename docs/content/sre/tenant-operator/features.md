@@ -18,11 +18,11 @@ Also by leveraging Tenant-Operators templating mechanism, namespaces can be prov
 
 ## HashiCorp Vault Multitenancy
 
-Tenant-Operator is not only providing strong Multi Tenanacy for the OpenShift internals but also extends the tenants permission model to HashiCorp Vault where it can create vault paths and greatly ease the overhead of managing RBAC in Vault.
+Tenant-Operator is not only providing strong Multi Tenancy for the OpenShift internals but also extends the tenants permission model to HashiCorp Vault where it can create Vault paths and greatly ease the overhead of managing RBAC in Vault.
 
 ## ArgoCD Multitenancy 
 
-Tenant-Operator is not only providing strong Multi Tenanacy for the OpenShift internals but also extends the tenants permission model to ArgoCD were it can provision AppProjects and Allowed Repositories for your tenants greatly ease the overhead of managing RBAC in ArgoCD.
+Tenant-Operator is not only providing strong Multi Tenancy for the OpenShift internals but also extends the tenants permission model to ArgoCD were it can provision AppProjects and Allowed Repositories for your tenants greatly ease the overhead of managing RBAC in ArgoCD.
 
 ## Cost/Resource Optimization 
 
@@ -30,7 +30,7 @@ Tenant-Operator provides a mechanism for defining Resource Quotas at the tenant 
 
 ## Remote Dev Namespaces
 
-Tenant-Operator can be configured to automatically provision a namespace in the cluster for every member of the specific tenant, that will also be pre loaded with any selected templates and consume the same pool of resources from the tenants quota creating safe remote dev namespaces that teams can use as scratch namespace for rapid prototyping and development. So, every developer gets a kubernetes-based cloud development environment that feel like working on localhost.
+Tenant-Operator can be configured to automatically provision a namespace in the cluster for every member of the specific tenant, that will also be pre loaded with any selected templates and consume the same pool of resources from the tenants quota creating safe remote dev namespaces that teams can use as scratch namespace for rapid prototyping and development. So, every developer gets a Kubernetes-based cloud development environment that feel like working on localhost.
 
 ## Templates and Template distribution
 

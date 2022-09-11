@@ -12,7 +12,7 @@ It's part of the SRE offerings from Stakater Cloud, is deployed by default and c
 
 We will be having multiple routes/ingresses and we want to automate it so that whenever a new route/ingress is added, we add it in Uptime. So IMC automates it.
 
-NOTE: Currently IMC is not working for Openshift, so we have added a manual entry in Uptime, but we are working to add support for Openshift.
+NOTE: Currently IMC is not working for OpenShift, so we have added a manual entry in Uptime, but we are working to add support for OpenShift.
 
 ### Sample Configuration
 

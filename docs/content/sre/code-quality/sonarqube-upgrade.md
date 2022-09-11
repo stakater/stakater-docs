@@ -16,7 +16,7 @@ Please refer to the [Link](https://docs.sonarqube.org/8.9/setup/upgrade-notes/) 
 
 ## SonarQube Upgrade from 7.9.1 to 8.9.7 LTS
 
-- After upgrade configurations applied on openshift-cluster, pod will restart and once the pod status came back to running, SonarQube route will direct us to installation of plugins page.
+- After upgrade configurations applied on OpenShift-cluster, pod will restart and once the pod status came back to running, SonarQube route will direct us to installation of plugins page.
 
 ![installation-of-plugins](./images/installation-of-plugins.png)
 

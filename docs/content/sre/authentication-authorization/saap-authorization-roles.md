@@ -15,7 +15,7 @@ SAAP Cluster Admin (SCA):
 - can view OperatorHub in console
 - can create/view/delete CRs for [curated operators](https://docs.cloud.stakater.com/content/sre/authentication-authorization/curated-list-operators.html) e.g.
   - AMQ Certificate Manager Operator
-  - Openshift Pipelines Operator
+  - OpenShift Pipelines Operator
 - can install cluster-wide operators from a [curated list](https://docs.cloud.stakater.com/content/sre/authentication-authorization/curated-list-operators.html) provided by the OperatorHub. This makes the operator available to all developers on your cluster to create Custom Resources and applications using that Operator.
 - can view installed operators by using the web console/CLI
 - can install operators in customer owned namespace
@@ -62,7 +62,7 @@ SAAP Cluster Admin (SCA):
 
 ###  Velero Backups & Restores
 - can view/edit/create/delete Backup and Restores
-- can view/edit/create/delete Schedules for Velero in openshift-velero namespace
+- can view/edit/create/delete Schedules for Velero in `openshift-velero` namespace
 
 ### Administration:
 - can create/edit/delete resource quotas and limits on the cluster

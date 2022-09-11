@@ -48,7 +48,7 @@ These Certificates are generated and can be rotated automatically via Certmanage
 Consider using the cluster's default domain i.e. `*.kubeapp.cloud` for CI/staging envionment which are all secured by SAAP by default
 :::
 
-If you you are doing gitops with ArgoCD then you need to create an ArgoCD app like following that will watch cert-manager CRs and deploy them to the cluster:
+If you you are doing GitOps with ArgoCD then you need to create an ArgoCD app like following that will watch cert-manager CRs and deploy them to the cluster:
 
 ```
 apiVersion: argoproj.io/v1alpha1

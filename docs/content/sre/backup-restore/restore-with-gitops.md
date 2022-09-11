@@ -1,14 +1,14 @@
 # Restore PVC data with GitOps
 
-Restore PVC data when its managed in gitops by Argocd.
+Restore PVC data when its managed in GitOps by Argocd.
 
 ## 1. Prerequisite
 
-Setup velero-cli [doc](./velero-cli.md)
+Setup `velero-cli` [doc](./velero-cli.md)
 
 ## 2. Take backup
 
-To take backup with velero you have two options:
+To take backup with Velero you have two options:
 
 ### 2.1: Option # 1 - Via Cli
 
@@ -35,7 +35,7 @@ spec:
 
 ## 3. Disable self heal in Argocd:
 
-Disalbe self heal in argocd application that is managing PVC so it does not recreate resources from gitops.
+Disable self heal in ArgoCD application that is managing PVC so it does not recreate resources from GitOps.
 
 ```
   syncPolicy:
@@ -52,7 +52,7 @@ Scale down statefulset pod so PVC can be deleted
 oc scale statefulsets <NAME> --replicas 0
 ```
 
-Delete the PVC which you want to restore data so that its created again by velero.
+Delete the PVC which you want to restore data so that its created again by Velero.
 
 ``` 
 oc delete pvc <PVC-NAME> -n <NAMESPACE> 
@@ -60,7 +60,7 @@ oc delete pvc <PVC-NAME> -n <NAMESPACE>
 
 ## 5. Restore Velero Backup
 
-To restore backup with velero you have two options:
+To restore backup with Velero you have two options:
 
 ### 5.1: Option # 1 - Via Cli
 
@@ -105,7 +105,7 @@ Validate the data exists in the database.
 
 ## 8. Enable self heal again
 
-Enable self heal so argocd start managing resources again. 
+Enable self heal so ArgoCD start managing resources again. 
 
 ```
   syncPolicy:

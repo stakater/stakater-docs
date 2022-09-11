@@ -27,7 +27,7 @@ Once the PR is merged; the dynamic test environment is automatically deleted and
 
 ### 2. Other Environments
 
-Other than CI/CD environment there are applications environments like *qa,staging,pre-prod,prod etc*. Application promotion in other environments is done manually by creating a PR to the gitops repo which includes the:
+Other than CI/CD environment there are applications environments like *qa,staging,pre-prod,prod etc*. Application promotion in other environments is done manually by creating a PR to the GitOps repo which includes the:
 
 - bumping of the chart version and 
 - bumping image version in helm values

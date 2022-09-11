@@ -84,14 +84,14 @@ oc apply -f tekton-create-webhook-rbac.yaml -n <NAMESPACE_NAME>
 
 These secrets will be required to access github and container registry during the pipeline
 
-::: details 3.2.1 Provide Github Credentials
+::: details 3.2.1 Provide GitHub Credentials
 
 Configure Tekton pipeline to access GitHub by the secret: `secret-github-credentials.yaml`
 ```bash
 vi secrets/secret-github-credentials.yaml
 ```
 
-Provide base64 encoded `username`, `email` and `password` of Github account in the given fields respectively.
+Provide base64 encoded `username`, `email` and `password` of GitHub account in the given fields respectively.
 
 ::: tip TIP: Convert text to base64
 ```bash

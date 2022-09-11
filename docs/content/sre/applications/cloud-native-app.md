@@ -24,7 +24,7 @@ At a high level, there are multiple abstraction levels in a cloud-native applica
 
 - Containers were very quickly adopted as the standard way of packaging and running distributed applications. Creating modular, reusable containers that are good cloud-native citizens is another fundamental prerequisite. With a growing number of containers in every organization comes the need to manage them using more effective methods and tools. Cloud native is a relatively new term used to describe principles, patterns, and tools to automate containerized microservices at scale. We use cloud native interchangeably with Kubernetes, which is the most popular open source cloud-native platform available today.
 
-This document describes the following facets of kubernetes-native applications:
+This document describes the following facets of Kubernetes-native applications:
 
 1. One codebase, one application
 2. Dependency management
@@ -69,7 +69,7 @@ The single codebase for an application is used to produce any number of immutabl
 
 The simplest example of violating this guideline is where your application is actually made of up a dozen or more source code repositories. This makes it nearly impossible to automate the build and deploy phases of your application’s life cycle.
 
-Another way this rule is often broken is when there is a main application and a tightly coupled worker (or an en-queuer and dequeuer, etc.) that collaborate on the same units of work. In scenarios like this, there are actually multiple codebases supporting a single application, even if they share the same source repository root. This is why I think it is important to note that the concept of a codebase needs to imply a more cohesive unit than just a repository in your version control system.
+Another way this rule is often broken is when there is a main application and a tightly coupled worker (or an en-queuer and de-queuer, etc.) that collaborate on the same units of work. In scenarios like this, there are actually multiple codebases supporting a single application, even if they share the same source repository root. This is why I think it is important to note that the concept of a codebase needs to imply a more cohesive unit than just a repository in your version control system.
 
 Conversely, this rule can be broken when one codebase is used to produce multiple applications. For example, a single codebase with multiple launch scripts or even multiple points of execution within a single wrapper module. In the Java world, EAR files are a gateway drug to violating the one codebase rule. In the interpreted language world (e.g., Ruby), you might have multiple launch scripts within the same codebase, each performing an entirely different task.
 
@@ -89,7 +89,7 @@ Makes it nearly impossible to automate the build and deploy phases of your appli
 
 **How?**
 
-One Application == One Microserivce == One Git/SCM Repository
+One Application == One Microservice == One Git/SCM Repository
 
 ## 2. Dependency management
 
@@ -129,7 +129,7 @@ Built into every decision you make and every line of code you write is the notio
 
 By designing your API first, you are able to facilitate discussion with your stakeholders (your internal team, customers, or possibly other teams within your organization who want to consume your API) well before you might have coded yourself past the point of no return. This collaboration then allows you to build user stories, mock your API, and generate documentation that can be used to further socialize the intent and functionality of the service you’re building.
 
-There is absolutely no excuse for claiming that API first is a difficult or unsupported path. This is a pattern that can be applied to noncloud software development, but it is particularly well suited to cloud development in its ability to allow rapid prototyping, support a services ecosystem, and facilitate the automated deployment testing and continuous delivery pipelines that are some of the hallmarks of modern cloud-native application development.
+There is absolutely no excuse for claiming that API first is a difficult or unsupported path. This is a pattern that can be applied to non-cloud software development, but it is particularly well suited to cloud development in its ability to allow rapid prototyping, support a services ecosystem, and facilitate the automated deployment testing and continuous delivery pipelines that are some of the hallmarks of modern cloud-native application development.
 
 This pattern is an extension of the contract-first development pattern, where developers concentrate on building the edges or seams of their application first. With the integration points tested continuously via CI servers, teams can work on their own services and still maintain reasonable assurance that everything will work together properly.
 
@@ -161,15 +161,15 @@ Builds are ideally created by a Continuous Integration server, and there is a 1:
 
 If you ever find yourself troubleshooting “works on my machine” problems, that is a clear sign that the four stages of this process are likely not as separate as they should be. Forcing your team to use a CI server may often seem like a lot of upfront work, but once running, you’ll see that the “one build, many deploys” pattern works.
 
-Once you have confidence that your codebase will work anywhere it should, and you no longer fear production releases, you will start to see some of the truly amazing benefits of adopting the cloud-native philosophy, like continuous deployment and releases that happen hours after a checkin rather than months.
+Once you have confidence that your codebase will work anywhere it should, and you no longer fear production releases, you will start to see some of the truly amazing benefits of adopting the cloud-native philosophy, like continuous deployment and releases that happen hours after a commit rather than months.
 
 #### Release
 
 In the cloud-native world, the release is typically done by pushing to your cloud environment. The output of the build stage is combined with environment- and app-specific configuration information to produce another immutable artifact, a release.
 
-Releases need to be unique, and every release should ideally be tagged with some kind of unique ID, such as a timestamp or an autoincrementing number. Thinking back to the 1:many relationship between builds and releases, it makes sense that releases should not be tagged with the build ID.
+Releases need to be unique, and every release should ideally be tagged with some kind of unique ID, such as a timestamp or an auto-incremented number. Thinking back to the 1:many relationship between builds and releases, it makes sense that releases should not be tagged with the build ID.
 
-Let’s say that your CI system has just built your application and labeled that artifact build-1234. The CI system might then release that application to the dev, staging, and production environments. The scheme is up to you, but each of those releases should be unique because each one combined the original build with environmentspecific configuration settings.
+Let’s say that your CI system has just built your application and labeled that artifact build-1234. The CI system might then release that application to the dev, staging, and production environments. The scheme is up to you, but each of those releases should be unique because each one combined the original build with environment specific configuration settings.
 
 If something goes wrong, you want the ability to audit what you have released to a given environment and, if necessary, to roll back to the previous release. This is another key reason for keeping releases both immutable and uniquely identified.
 
@@ -274,7 +274,7 @@ Logs should be treated as event streams, that is, logs are a sequence of events 
 
 Sometimes this concept takes a little bit of getting used to. Application developers, especially those working in large enterprises, are often accustomed to rigidly controlling the shape and destination of their logs. Configuration files or config-related code set up the location on disk where the log files go, log rotation and rollover policies to deal with log file size and countless other minutiae.
 
-Cloud applications can make no assumptions about the file system on which they run, other than the fact that it is ephemeral. A cloudnative application writes all of its log entries to stdout and stderr. This might scare a lot of people, fearing the loss of control that this implies.
+Cloud applications can make no assumptions about the file system on which they run, other than the fact that it is ephemeral. A cloud native application writes all of its log entries to stdout and stderr. This might scare a lot of people, fearing the loss of control that this implies.
 
 You should consider the aggregation, processing, and storage of logs as a nonfunctional requirement that is satisfied not by your application, but by your cloud provider or some other tool suite running in cooperation with your platform. You can use tools like the ELK stack (ElasticSearch, Logstash, and Kibana), Splunk, Sumologic, or any number of other tools to capture and analyze your log emissions.
 
@@ -328,7 +328,7 @@ Let’s say one of the databases on which your application relies is not respond
 
 #### Circuit Breakers
 
-_There is a pattern supported by libraries and cloud offerings called the circuit breaker that will allow your code to simply stop communicating with misbehaving backing services, providing a fallback or failsafe path. Since a circuit breaker often resides in the binding area between an application and its backing services, you must first embrace backing services before you can take advantage of circuit breakers._
+_There is a pattern supported by libraries and cloud offerings called the circuit breaker that will allow your code to simply stop communicating with misbehaving backing services, providing a fallback or fail-safe path. Since a circuit breaker often resides in the binding area between an application and its backing services, you must first embrace backing services before you can take advantage of circuit breakers._
 
 A cloud-native application that has embraced the bound-resource aspect of backing services has options. An administrator who notices that the database is in its death throes can bring up a fresh instance of that database and then change the binding of your application to point to this new database.
 
@@ -336,7 +336,7 @@ This kind of flexibility, resilience, and loose coupling with backing services i
 
 **How?**
 
-Externalize all configurations (URLs, username, pwds, etc.) as Kubernetes configmaps or secrets for the backing services.
+Externalize all configurations (URLs, username, passwords, etc.) as Kubernetes configmaps or secrets for the backing services.
 
 - Use object storage where files are needed (not local storage)
 - Use external databases (e.g. Postgres, MySQL, Redis, etc) to persist state
@@ -357,14 +357,13 @@ The first of these, APM, consists of a stream of events that can be used by tool
 
 The second, domain-specific telemetry, is also up to you. This refers to the stream of events and data that makes sense to your business that you can use for your own analytics and reporting. This type of event stream is often fed into a “big data” system for warehousing, analysis, and forecasting.
 
-The difference between APM and domain-specific telemetry may not be immediately obvious. Think of it this way: APM might provide you the average number of HTTP requests per second an application is processing, while domain-specific telemetry might tell you the number of widgets sold to people on iPads within the last 20
-minutes.
+The difference between APM and domain-specific telemetry may not be immediately obvious. Think of it this way: APM might provide you the average number of HTTP requests per second an application is processing, while domain-specific telemetry might tell you the number of widgets sold to people on iPads within the last 20 minutes.
 
 Finally, health and system logs are something that should be provided by your cloud provider. They make up a stream of events, such as application start, shutdown, scaling, web request tracing, and the results of periodic health checks. (this is covered thoroughly under logging section)
 
 **Why?**
 
-The cloud makes many things easy, but monitoring and telemetry are still difficult, probably even more difficult than traditional, enterprise application monitoring. When you are staring down the firehose at a stream that contains regular health checks, request audits, business-level events, and tracking data, and performance metrics, that is an incredible amount of data.
+The cloud makes many things easy, but monitoring and telemetry are still difficult, probably even more difficult than traditional, enterprise application monitoring. When you are facing a stream that contains regular health checks, request audits, business-level events, and tracking data, and performance metrics, that is an incredible amount of data.
 
 When planning your monitoring strategy, you need to take into account how much information you’ll be aggregating, the rate at which it comes in, and how much of it you’re going to store. If your application dynamically scales from 1 instance to 100, that can also result in a hundredfold increase in your log traffic.
 
@@ -400,7 +399,7 @@ If you need a refresher on how endpoints are propagated in your cluster, [read t
 
 #### 2. The app still processes incoming requests in the grace period
 
-You might want to consider using the container lifecycle events such as the preStop handler to customize what happened before a Pod is deleted.
+You might want to consider using the container lifecycle events such as the `preStop` handler to customize what happened before a Pod is deleted.
 
 #### 3. The CMD in the Dockerfile forwards the SIGTERM to the process
 
@@ -445,7 +444,7 @@ It's an architectural best practices for services to expose a port number, speci
 
 Apps that export port binding are able to consume port binding information externally (as environment variables) when using the platform-as-a-service model.
 
-In these services, a routing layer routes requests from a public-facing hostname to your port-bound web processes. For example, when you deploy your apps to App Engine, you declare dependencies to add a webserver library to the app, such as Express (for Node.js), Flask and Gunicorn (for Python), or Jetty (for Java).
+In these services, a routing layer routes requests from a public-facing hostname to your port-bound web processes. For example, when you deploy your apps to App Engine, you declare dependencies to add a webserver library to the app, such as `Express` (for Node.js), `Flask` and `Gunicorn` (for Python), or `Jetty` (for Java).
 
 You should not hard-code port numbers in your code. Instead, you should provide the port numbers in the environment, such as in an environment variable. This makes your apps portable when you run them on App Agility Platform.
 
@@ -497,7 +496,7 @@ As an example, a microservice that exposes functionality for user management mus
 
 #### The Share-Nothing Pattern
 
-Processes often communicate with each other by sharing common resources. Even without considering the move to the cloud, there are a number of benefits to be gained from adopting the sharenothing pattern. Firstly, anything shared among processes is a liability that makes all of those processes more brittle. In many high-availability patterns, processes will share data through a wide variety of techniques to elect cluster leaders, to decide on whether a process is a primary or backup, and so on.
+Processes often communicate with each other by sharing common resources. Even without considering the move to the cloud, there are a number of benefits to be gained from adopting the Share-Nothing pattern. Firstly, anything shared among processes is a liability that makes all of those processes more brittle. In many high-availability patterns, processes will share data through a wide variety of techniques to elect cluster leaders, to decide on whether a process is a primary or backup, and so on.
 
 All of these options need to be avoided when running in the cloud. Your processes can vanish at a moment’s notice with no warning, and that’s a good thing. Processes come and go, scale horizontally and vertically, and are highly disposable. This means that anything shared among processes could also vanish, potentially causing a cascading failure.
 
@@ -507,7 +506,7 @@ If processes need to share data, like session state for a group of processes for
 
 #### Data Caching
 
-A common pattern, especially among long-running, containerbased web applications, is to cache frequently used data during process startup. This book has already mentioned that processes need to start and stop quickly, and taking a long time to fill an in-memory cache violates this principle.
+A common pattern, especially among long-running, container based web applications, is to cache frequently used data during process startup. This book has already mentioned that processes need to start and stop quickly, and taking a long time to fill an in-memory cache violates this principle.
 
 Worse, storing an in-memory cache that your application thinks is always available can bloat your application, making each of your instances (which should be elastically scalable) take up far more RAM than is necessary.
 
@@ -547,7 +546,7 @@ Supporting concurrency means that different parts of an application can be scale
 
 Have multiple replicas of your application
 
-## 14. Environment (Dev/Prod) parity
+## 14. Environment (dev/prod) parity
 
 **What?**
 
@@ -563,7 +562,7 @@ Enterprise apps move across different environments during their development life
 
 Environment parity is a feature that most developers consider a given. Nonetheless, as enterprises grow and their IT ecosystems evolve, environment parity becomes more difficult to maintain.
 
-Maintaining environment parity has become easier in the last few years because developers have embraced source control, configuration management, and templated configuration files. This makes it easier to deploy an app to multiple environments consistently. As an example, using Docker and Docker Compose, you can ensure that the app stack retains its shape and instrumentation across environments.
+Maintaining environment parity has become easier in the last few years because developers have embraced source control, configuration management, and template configuration files. This makes it easier to deploy an app to multiple environments consistently. As an example, using Docker and Docker Compose, you can ensure that the app stack retains its shape and instrumentation across environments.
 
 **Why?**
 
@@ -573,11 +572,11 @@ Backing services, such as the app’s database, queueing system, or cache, is on
 
 Developers sometimes find great appeal in using a lightweight backing service in their local environments, while a more serious and robust backing service will be used in production. For example, using SQLite locally and PostgreSQL in production; or local process memory for caching in development and Memcached in production.
 
-The cloud-native developer resists the urge to use different backing services between development and production, even when adapters theoretically abstract away any differences in backing services. Differences between backing services mean that tiny incompatibilities crop up, causing code that worked and passed tests in development or staging to fail in production. These types of errors create friction that disincentivizes continuous deployment. The cost of this friction and the subsequent dampening of continuous deployment is extremely high when considered in aggregate over the lifetime of an application.
+The cloud-native developer resists the urge to use different backing services between development and production, even when adapters theoretically abstract away any differences in backing services. Differences between backing services mean that tiny incompatibilities crop up, causing code that worked and passed tests in development or staging to fail in production. These types of errors create friction that discourages continuous deployment. The cost of this friction and the subsequent dampening of continuous deployment is extremely high when considered in aggregate over the lifetime of an application.
 
 **How?**
 
-Use kubernetes namespaces to represent different environments and then deploy applications in similiar way with approaches like GitOps
+Use Kubernetes namespaces to represent different environments and then deploy applications in similar way with approaches like GitOps.
 
 ## 15. Security (Authentication and authorization)
 
@@ -605,7 +604,7 @@ Considerations for helping to protect access to your app include the following:
  
 The security landscape constantly evolves within an enterprise, making it harder for you to code security constructs in your apps
 
-Stakater App Agility Platform offers KeyCloak as fully managed IAM solution to cater all the needs.
+Stakater App Agility Platform offers Keycloak as fully managed IAM solution to cater all the needs.
 
 ## 16. Dependencies initialization
 
@@ -684,7 +683,7 @@ The secrets must be handled with care.
 
 **Why?**
 
-Vanilla kubernetes secrets are only base64 encoded so, they can't be pused to SCM as they are readable.
+Vanilla Kubernetes secrets are only base64 encoded so, they can't be put to SCM as they are readable.
 
 **How?**
 
@@ -740,7 +739,7 @@ When multiple applications are deployed on the same node, if the upper and lower
 
 **How?**
 
-Stakater application helm chart always sets default requests and limits: https://github.com/stakater-charts/application/blob/master/application/values.yaml#L142 but ofcourse each application can individually override them
+Stakater application helm chart always sets default requests and limits: https://github.com/stakater-charts/application/blob/master/application/values.yaml#L142 but of course each application can individually override them.
 
 ## 23. Alerts
 
@@ -786,7 +785,7 @@ Ease of management for certificates handling for mTLS communication between serv
 
 **How?**
 
-Stakater App Agility Platform includes managed cert-manager for certificates management and also it includes managed istio which can be used as well.
+Stakater App Agility Platform includes managed cert-manager for certificates management and also it includes managed Istio which can be used as well.
 
 ## 26. Easily discoverable URLs (optional)
 
@@ -814,9 +813,9 @@ You need to make sense out of the data.
 
 **How?**
 
-Add grafana dashboard as code.
+Add Grafana dashboard as code.
 
-Stakater App Agility Platform includes fully managed customer workload monitoring stack with prometheus and grafana.
+Stakater App Agility Platform includes fully managed customer workload monitoring stack with Prometheus and Grafana.
 
 ## 28. Multiple replicas
 
@@ -852,7 +851,7 @@ Use persistent volumes.
 
 Write tests at different layer to ensure high quality code.
 
-![Testig Strategies](./images/testing.jpg)
+![Testing Strategies](./images/testing.jpg)
 
 # Acknowledgements
 

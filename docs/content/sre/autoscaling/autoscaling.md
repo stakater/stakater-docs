@@ -72,15 +72,15 @@ autoscaling:
 
 ## Autoscaling with GitOps
 
-If you are using gitOps to manage your applications across clusters, you need to ignore the difference for replica count to make autoscaling work.
+If you are using GitOps to manage your applications across clusters, you need to ignore the difference for replica count to make autoscaling work.
 
 **Problem:**
-When your hpa will try to increase the number of pods, at the same time your gitOps tool will also try to maintain the original state of your application and it will terminate the newly created pods after autoscaling.
+When your HPA will try to increase the number of pods, at the same time your GitOps tool will also try to maintain the original state of your application and it will terminate the newly created pods after autoscaling.
 
 **Solution:**
-Update your gitOps tool to ignore the difference for replica count, so that whenever hpa scales up the number of pods and increases the replica count, the gitOps tool doesn't try to sync the replica count and doesn't terminate the new pods.
+Update your GitOps tool to ignore the difference for replica count, so that whenever HPA scales up the number of pods and increases the replica count, the GitOps tool doesn't try to sync the replica count and doesn't terminate the new pods.
 
-**Example (argoCD):**
+**Example (ArgoCD):**
 Argo CD allows [ignoring differences](https://argo-cd.readthedocs.io/en/stable/user-guide/diffing/#application-level-configuration) at a specific JSON path, using JSON patches. The following sample application is configured to ignore differences in spec.replicas for all deployments
 
 ```yaml
@@ -96,7 +96,7 @@ spec:
 
 To test the HorizontalPodAutoscaler with your application, you need to install the HPA for your application and then gradually increase the load (memory or cpu depending on hpa configuration). You can use tools like postman, jmeter, readyAPI or a manual [script](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/#increase-load) to increase the load on your application.
 
-You can monitor the Horizontal Pod Auto Scaler from your openshift/kubernetes dashboard or with command
+You can monitor the Horizontal Pod Auto Scaler from your OpenShift/Kubernetes dashboard or with command
 
 ```bash
 kubectl describe hpa <hpa-name>

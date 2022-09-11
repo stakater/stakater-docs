@@ -1,11 +1,11 @@
 # Add new tenant
 
-To onboard a new tenant in gitops structure, you need to do following.
+To onboard a new tenant in GitOps structure, you need to do following.
 
 We broadly categorize tenants into two types:
 
 1. application tenants: tenants who build and delivery applications
-2. sre|delivery-engineering|devops tenant: team responsible to onboard other tenants; usually we recomend only one such tenant
+2. sre|delivery-engineering|devops tenant: team responsible to onboard other tenants; usually we recommend only one such tenant
 
 Adding new tenant can be divided into parts
 
@@ -33,7 +33,7 @@ Replace angle brackets with following values in below templates:
   - \<tenant> : Name of the tenant
   - \<env>:  Name of the tenant
   - \<quota>: Name of the quota
-  - \<gitops-config>: gitops-config repo URL
+  - \<gitops-config>: GitOps-config repo URL
 
 Once these folders are created; add following files
 
@@ -59,9 +59,9 @@ metadata:
     kind: <environment>
 ```
 
-#### Create argocd project and application per environment
+#### Create ArgoCD project and application per environment
 
-Create argocd project and argocd application per environment that will watch folder inside `\<tenant>/\<config>/\<argocd>` that in turn going to deploy application in particular environment
+Create ArgoCD project and ArgoCD application per environment that will watch folder inside `\<tenant>/\<config>/\<argocd>` that in turn going to deploy application in particular environment
 
 Add this file for **each** environment
 

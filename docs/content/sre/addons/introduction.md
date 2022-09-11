@@ -12,7 +12,7 @@ Internal alerting | AlertManager
 Service mesh | Istio, Kiali, Jaeger (only one fully managed control plane)
 Image scanning | Trivy
 Backups & Recovery | Velero
-SSO (for managed addons) | KeyCloak
+SSO (for managed addons) | Keycloak
 Secrets management | Vault
 Artifacts management | Nexus
 Code inspection | SonarQube

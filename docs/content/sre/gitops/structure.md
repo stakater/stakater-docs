@@ -114,7 +114,7 @@
 └── README.md
 ```
 
-The sample configured gitops directory can be found [here](https://github.com/stakater/gitops-config-template)
+The sample configured GitOps directory can be found [here](https://github.com/stakater/gitops-config-template)
 
 Above structure supports following
 
@@ -184,14 +184,14 @@ Inside application tenants folder, there is a separate folder of each applicatio
 
 Inside each appication folder, there is a separate folder of each environment where application will gets deployed to. Inside each environment folder there will be actual deployment files. 
 
-Deployment files can only be vanilla yaml files, helm chart and kustomize repository that are supported by argocd.
+Deployment files can only be vanilla yaml files, helm chart and kustomize repository that are supported by ArgoCD.
 
 ### 2. Configs
 
 Inside config folder there is a folder for each environment. In each environment folder there are 2 entities.
 
-1. **Space.yaml**: File that contains space configuration for each environment. Space is a stakater created ```Tenant-Operator``` Custom Resource that is responsible for creating namespace and assigning appropirate permission to associated tenant members
-2. **argocd**:  Folder that contains argocd ```Application``` Custom Resource that watches deployments files in ```<tenant>/<app>/<env>```  (Layer#3 Environment) folder
+1. **Space.yaml**: File that contains space configuration for each environment. Space is a Stakater created ```Tenant-Operator``` Custom Resource that is responsible for creating namespace and assigning appropirate permission to associated tenant members
+2. **argocd**:  Folder that contains ArgoCD ```Application``` Custom Resource that watches deployments files in ```<tenant>/<app>/<env>```  (Layer#3 Environment) folder
 
 ## SRE or DeliveryEngineering Tenant
 

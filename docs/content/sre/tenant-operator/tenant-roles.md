@@ -145,7 +145,7 @@ Edit role will have edit access on there `Projects`, but they wont have access o
   * Jaeger
   * Kiali
   * Tekton.dev
-* Get access on customresourcedefinitions in `Project`
+* Get access on CustomResourceDefinitions in `Project`
 * Edit and view permission on jenkins.build.openshift.io
 * InstallPlan access in `Project`
   * get

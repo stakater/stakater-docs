@@ -77,7 +77,7 @@
 
 **v0.0.6**
 
-- fix: fix name for generated helm release to conform to kubernetes resource name standards
+- fix: fix name for generated helm release to conform to Kubernetes resource name standards
 
 **v0.0.5**
 

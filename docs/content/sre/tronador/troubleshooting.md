@@ -14,7 +14,7 @@ The guide below is written as a SAAP customer's point of view. If you use Tronad
 
 ## Developer support
 
-Environment provisioning takes a few minutes to complete, since there is a lot of steps involved that can take some time (image creation, argocd sync, Helm Operator reconcile, etc). Please take a look at the [workflow for Tronador](./workflow.html) to see how the process works. If the environment is still not provisioned after a few minutes, you can use the following steps to get an idea of why it is taking so long:
+Environment provisioning takes a few minutes to complete, since there is a lot of steps involved that can take some time (image creation, ArgoCD sync, Helm Operator reconcile, etc). Please take a look at the [workflow for Tronador](./workflow.html) to see how the process works. If the environment is still not provisioned after a few minutes, you can use the following steps to get an idea of why it is taking so long:
 
 * Check your cluster's PipelineRun resource to check its status. If any task fails, you can look at the logs of the failed task to see what went wrong.
 
@@ -32,7 +32,7 @@ Environment provisioning takes a few minutes to complete, since there is a lot o
   <figcaption>A successful pipeline run</figcaption>
 </figure>
 
-* View your gitops repository to verify that the Environment Provisioner CR is pushed to it.
+* View your GitOps repository to verify that the Environment Provisioner CR is pushed to it.
 
 <figure>
   <img
