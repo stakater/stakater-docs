@@ -54,7 +54,7 @@ Once login, users can do all actions on the path `TENANT_NAME/*`.
 
 To use Vault CLI, the token is required. Users can get/renew/revoke the token on the UI. (Click the user account Avatar.)
 
-![Vault-token](./images/Vault_token.png)
+![Vault-token](./images/vault_token.png)
 
 Once token is fetched, users can use the CLI provided by UI. So there is no need to install Vault CLI.
 
