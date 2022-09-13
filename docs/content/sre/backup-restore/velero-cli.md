@@ -2,9 +2,9 @@
 
 For Velero related tasks/sample. It's better to setup the Velero CLI. It can perform various task against the Velero server deployed on the cluster.
 
-Download the appropraite release from here https://github.com/vmware-tanzu/velero/releases and then follow the steps:
+Download the appropriate release from here https://github.com/vmware-tanzu/velero/releases and then follow the steps:
 
-Note: Below commands are linux specific
+Note: Below commands are Linux specific
 
 1. Open a command line and change directory to the Velero CLI download.
 2. To unzip the download file:

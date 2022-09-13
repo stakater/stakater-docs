@@ -2,7 +2,7 @@
 
 Bill as the cluster admin want to add additional rules for manager ClusterRole.
 
-Bill can extend rules by adding additional rbac rules at `managerRoleExtendedRules` in tenant operator Helm Charts
+Bill can extend rules by adding additional RBAC rules at `managerRoleExtendedRules` in tenant operator Helm Charts
 ```yaml
 managerRoleExtendedRules:
   - apiGroups:

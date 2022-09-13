@@ -16,11 +16,11 @@ Forecastle gives you access to a control panel where you can see your running ap
 ### Configuration
 
 Forecastle is already configured for Stakater Agility Platform users and it uses OpenShift Authentication for SSO. Although, users can setup a
-separate instance of forecastle as well by following [Deploying Forecaslte](https://github.com/stakater/forecastle#deploying-to-kubernetes)
+separate instance of Forecastle as well by following [Deploying Forecastle](https://github.com/stakater/forecastle#deploying-to-kubernetes)
 
 ### Usage
 
-To add an application to forecastle you need to add a custom resource for `ForecastleApp`. 
+To add an application to Forecastle you need to add a custom resource for `ForecastleApp`. 
 
 - To add route from within the cluster:
 

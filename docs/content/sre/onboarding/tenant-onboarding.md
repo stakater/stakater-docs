@@ -23,17 +23,17 @@ Here are the steps to create folders per tenant:
 
 It will look like following:
 
-- /\<tenant>
-- /\<tenant>/configs
-- /\<tenant>/configs/\<01-env>/argocd
-- /\<tenant>/configs/\<02-env>/argocd
-- /\<tenant>/configs/\<n-env>/argocd
+- `/<tenant>`
+- `/<tenant>/configs`
+- `/<tenant>/configs/<01-env>/argocd`
+- `/<tenant>/configs/<02-env>/argocd`
+- `/<tenant>/configs/<n-env>/argocd`
 
 Replace angle brackets with following values in below templates:
-  - \<tenant> : Name of the tenant
-  - \<env>:  Name of the tenant
-  - \<quota>: Name of the quota
-  - \<gitops-config>: GitOps-config repo URL
+  - `<tenant>`: Name of the tenant
+  - `<env>`:  Name of the tenant
+  - `<quota>`: Name of the quota
+  - `<gitops-config>`: GitOps-config repo URL
 
 Once these folders are created; add following files
 

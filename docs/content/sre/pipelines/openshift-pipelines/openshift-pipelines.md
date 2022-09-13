@@ -49,7 +49,7 @@ For Continuous Integration/Delivery we can use triggers and webhooks:
 1. Webhook: Send payload to event-listener whenever a push event or a pull request is created. [More on webhooks](https://docs.github.com/en/developers/webhooks-and-events/webhooks/about-webhooks)
 2. Triggers: 
     - Event Listeners: Listen to events over a route
-    - Trigger Templates: Templatized PipelineResources & PipelineRun based on event
+    - Trigger Templates: Template generated PipelineResources & PipelineRun based on event
     - Trigger Bindings: Extract info out of payload to be used in trigger templates 
     - Interceptors: Filtration of events and payload
     

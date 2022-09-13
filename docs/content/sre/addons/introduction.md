@@ -8,7 +8,7 @@ Logging |	ElasticSearch, Fluentd, Kibana
 Monitoring | Prometheus, Grafana
 CI (continuous integration) | Tekton
 CD (continuous delivery) | ArgoCD
-Internal alerting | AlertManager
+Internal alerting | Alertmanager
 Service mesh | Istio, Kiali, Jaeger (only one fully managed control plane)
 Image scanning | Trivy
 Backups & Recovery | Velero

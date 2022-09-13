@@ -118,14 +118,14 @@ The sample configured GitOps directory can be found [here](https://github.com/st
 
 Above structure supports following
 
-- mutli cluster
-- mutli tenant
+- multi cluster
+- multi tenant
 - multi application
 - multi environment
 
 ## Tenant Types
 
-At the root of repository, it has folder with tenant name; tenant is a snonym of team. Each tenant will get its own folder at the root of repository e.g. alpha, beta, etc. There are two type of tenants:
+At the root of repository, it has folder with tenant name; tenant is a synonym of team. Each tenant will get its own folder at the root of repository e.g. alpha, beta, etc. There are two type of tenants:
 
 1. **Application Tenants:**  Tenants that have one or more applications
 2. **SRE or DeliveryEngineering Tenant:** Tenant that is responsible for cluster level configuration
@@ -182,16 +182,16 @@ Inside application tenants folder, there is a separate folder of each applicatio
 
 #### Environments
 
-Inside each appication folder, there is a separate folder of each environment where application will gets deployed to. Inside each environment folder there will be actual deployment files. 
+Inside each application folder, there is a separate folder of each environment where application will gets deployed to. Inside each environment folder there will be actual deployment files. 
 
-Deployment files can only be vanilla yaml files, helm chart and kustomize repository that are supported by ArgoCD.
+Deployment files can only be vanilla yaml files, Helm chart and Kustomize repository that are supported by ArgoCD.
 
 ### 2. Configs
 
 Inside config folder there is a folder for each environment. In each environment folder there are 2 entities.
 
 1. **Space.yaml**: File that contains space configuration for each environment. Space is a Stakater created ```Tenant-Operator``` Custom Resource that is responsible for creating namespace and assigning appropirate permission to associated tenant members
-2. **argocd**:  Folder that contains ArgoCD ```Application``` Custom Resource that watches deployments files in ```<tenant>/<app>/<env>```  (Layer#3 Environment) folder
+2. **ArgoCD**:  Folder that contains ArgoCD ```Application``` Custom Resource that watches deployments files in ```<tenant>/<app>/<env>```  (Layer#3 Environment) folder
 
 ## SRE or DeliveryEngineering Tenant
 
@@ -227,7 +227,7 @@ In each cluster folder there are config files for particular cluster. It is furt
 
 tenant-operator folder contain custom resources of ```Tenant Operator```. They are following
 
-- quotas: Amount of resource (configmaps, cpus, memory, egc.) for each tenant that can consume.
+- quotas: Amount of resource (configmaps, cpus, memory, i.e.) for each tenant that can consume.
 - tenants: Contains file for each team. It contain information of members that are part of tenant.
 
 #### ArgoCD

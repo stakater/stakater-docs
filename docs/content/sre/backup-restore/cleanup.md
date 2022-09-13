@@ -12,6 +12,6 @@ For cleaning up Velero resources, deleting them directly from cluster is not rec
 
 ## Notes
 
-1. If you accidently delete the backup resource directly. Make sure that you delete the backup file from your cloud bucket, which should be the same name as your backup and also delete the volume snapshots associated to this backup (if any)
+1. If you accidentally delete the backup resource directly. Make sure that you delete the backup file from your cloud bucket, which should be the same name as your backup and also delete the volume snapshots associated to this backup (if any)
 
-2. If you accidently delete the backup file from your cloud bucket, then you might not be able to delete the backup using `velero` command. In that case just delete the backup resource from cluster directly.
+2. If you accidentally delete the backup file from your cloud bucket, then you might not be able to delete the backup using `velero` command. In that case just delete the backup resource from cluster directly.

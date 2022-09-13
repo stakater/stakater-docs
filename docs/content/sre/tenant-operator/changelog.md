@@ -4,11 +4,11 @@
 
 **v0.5.4**
 
-- fix: Update helm dependency to v3.8.2
+- fix: Update Helm dependency to v3.8.2
 
 **v0.5.3**
 
-- fix: Add support for parameters in helm chartRepository in templates
+- fix: Add support for parameters in Helm chartRepository in templates
 
 **v0.5.2**
 
@@ -140,7 +140,7 @@
 
 **v0.3.21**
 
-- feat: Added ClusterRole manager rules extention
+- feat: Added ClusterRole manager rules extension
 
 **v0.3.20**
 
@@ -170,7 +170,7 @@ ApiVersion `v1alpha1` of Tenant and Quota custom resources has been deprecated a
 
 **v0.3.16**
 
-- fix: Add groups mentioned in Tenant CR to ArgoCD App Project manifests' rbac
+- fix: Add groups mentioned in Tenant CR to ArgoCD App Project manifests' RBAC
 
 **v0.3.15**
 
@@ -208,7 +208,7 @@ ApiVersion `v1alpha1` of Tenant and Quota custom resources has been deprecated a
 
 **v0.3.7**
 
-- fix: Fix a typo in Tenant Operator's helm release
+- fix: Fix a typo in Tenant Operator's Helm release
 
 **v0.3.6**
 
@@ -256,4 +256,4 @@ ApiVersion `v1alpha1` of Tenant and Quota custom resources has been deprecated a
 
 **v0.2.31**
 
-- feat: Add limit range for kube-rbac-proxy
+- feat: Add limit range for kube-RBAC-proxy

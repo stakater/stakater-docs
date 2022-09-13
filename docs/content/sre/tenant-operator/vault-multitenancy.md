@@ -1,6 +1,6 @@
 # Vault Multitenancy
 
-The pod is authenticated to Vault by [kubernetes auth method](https://www.Vaultproject.io/docs/auth/kubernetes). In Vault, roles are associated with Kubernetes service account. Roles, when associated with serviceaccount, permits it to read secret at particular path in Vault.
+The pod is authenticated to Vault by [Kubernetes auth method](https://www.Vaultproject.io/docs/auth/kubernetes). In Vault, roles are associated with Kubernetes service account. Roles, when associated with serviceaccount, permits it to read secret at particular path in Vault.
 
 In SAAP,policies and roles are automatically created by tenant operator that grants service accounts of namespace to **read** secrets at tenants path.
 

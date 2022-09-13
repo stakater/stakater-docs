@@ -5,9 +5,9 @@ with information about exposed Kubernetes services to make them discoverable.
 
 This helps us automate the process of adding DNS entries to the corresponding hosting service for DNS domains. Currently,
 it supports the following DNS providers:
-- aws, azure, cloudflare, coredns, designate, digitalocoean, google, infoblox, rfc2136, transip
+- `aws`, `azure`, `cloudflare`, `coredns`, `designate`, `digitalocoean`, `google`, `infoblox`, `rfc2136`, `transip`
 
-## Walkthrough of external-dns on AWS
+## Walk-through of `external-dns` on AWS
 
 ### 1. Create an AWS IAM user with the following permissions attached
 
@@ -36,7 +36,7 @@ metadata:
 type: Opaque
 ```
 
-### 5. Create rbac
+### 5. Create RBAC
 
 ```yaml
 apiVersion: v1

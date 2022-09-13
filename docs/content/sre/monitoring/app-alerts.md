@@ -12,12 +12,12 @@ There are 2 types of monitoring:
 ## Infrastructure Monitoring
 1. Prometheus
 2. Grafana
-3. AlertManager
+3. Alertmanager
 
 ## Workload Monitoring
 1. Prometheus
 2. Grafana
-3. AlertManager
+3. Alertmanager
 
 ## Creating Application Alerts to Monitor Application workloads
 In order to define Prometheus rules to monitor applications on the basis of exposed metrics. You need 3 things:

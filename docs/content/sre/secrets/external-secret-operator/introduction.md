@@ -5,7 +5,7 @@ A Kubernetes secret is sensitive information decoupled from the application code
 ## Problem: 
 Kubernetes secret do not support storing or retrieving secret data from external secret management systems, e.g. [HashiCorp Vault](https://www.vaultproject.io/)
 
-**External Secrets** solves this problem by providing access to secrets stored externally. It does this by adding an `ExternalSecret` object to Kubernetes using a [CustomResourceDefinition](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/). Developer specifyies the secret management system as `backendType` and the properties to access in the manifest.
+**External Secrets** solves this problem by providing access to secrets stored externally. It does this by adding an `ExternalSecret` object to Kubernetes using a [CustomResourceDefinition](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/). Developer specifies the secret management system as `backendType` and the properties to access in the manifest.
 
 We use **External Secrets Operator** to integrates external secret management systems like HashiCorp Vault. The operator synchronizes secrets from external APIs into Kubernetes with the help of custom API resources - `ExternalSecret`, `SecretStore` and `ClusterSecretStore`.
 

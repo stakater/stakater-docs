@@ -15,22 +15,22 @@ The CI/CD Environments are special Environments that are part of CI/CD workflow.
 
 #### 1. Build
 
-Build environment contains all Tekton pipeline configurations/resources like *pipeline,eventlistener,pipelinrun etc*. These pipelines respond to changes in Application/Service soruce repositories. This environment is used for running pipelines of tenant applications.
+Build environment contains all Tekton pipeline configurations/resources like *pipeline,eventlistener,pipelinrun etc*. These pipelines respond to changes in Application/Service source repositories. This environment is used for running pipelines of tenant applications.
 
 #### 2. Preview
 
 Preview environment contains all preview application deployments. As soon as there is a new PR in application, pipeline creates new environment to test this PR. Each PR is deployed in separate namespace.
 
-#### 3. Dev
+#### 3. Development
 
-Once the PR is merged; the dynamic test environment is automatically deleted and the helm manifests are pushed to first permanent application environment i.e. `dev` by the CI pipeline.
+Once the PR is merged; the dynamic test environment is automatically deleted and the Helm manifests are pushed to first permanent application environment i.e. `dev` by the CI pipeline.
 
 ### 2. Other Environments
 
 Other than CI/CD environment there are applications environments like *qa,staging,pre-prod,prod etc*. Application promotion in other environments is done manually by creating a PR to the GitOps repo which includes the:
 
 - bumping of the chart version and 
-- bumping image version in helm values
+- bumping image version in Helm values
 
 ## Application promotion
 
@@ -40,9 +40,9 @@ This guide assumes that application is already [on-boarded](https://docs.cloud.s
 
 ### 1. Promote chart
 
-To promote chart from first environment, you can check the chart version from ```Chart.lock``` file and update version in ```Chart.yaml``` of next version. for eg:
+To promote chart from first environment, you can check the chart version from ```Chart.lock``` file and update version in ```Chart.yaml``` of next version, for example:
 
-\<gitops-repo>/\<tenant>/\<application>/\<first-env>/Chart.lock
+`<gitops-repo>/<tenant>/<application>/<first-env>/Chart.lock`
 
 ```
 dependencies:
@@ -55,7 +55,7 @@ generated: "2021-08-23T12:54:14.214409662Z"
 
 pick version ```0.0.84``` from above ```Chart.lock``` and copy it in ``Chart.yaml`` of next environment
 
-\<gitops-repo>/\<tenant>/\<application>/\<next-env>/Chart.yaml
+`<gitops-repo>/<tenant>/<application>/<next-env>/Chart.yaml`
 
 ```
 apiVersion: v2
@@ -72,9 +72,9 @@ similarly for other environments chart promotion, copy same version to ``Chart.y
 
 ### 2. Promote image
 
-First environment image is updated automatically by pipeline. In next environments, image is promoted by manually copying version from previous environment to next environment. for eg:
+First environment image is updated automatically by pipeline. In next environments, image is promoted by manually copying version from previous environment to next environment, for example:
 
-\<gitops-repo>/\<tenant>/\<application>/\<env-1>/values.yaml
+`<gitops-repo>/<tenant>/<application>/<env-1>/values.yaml`
 
 ```
 <application>:
@@ -89,7 +89,7 @@ First environment image is updated automatically by pipeline. In next environmen
 
 Pick version ```0.0.39``` and paste it to next environment
 
-\<gitops-repo>/\<tenant>/\<application>/\<env-2>/values.yaml
+`<gitops-repo>/<tenant>/<application>/<env-2>/values.yaml`
 
 ```
 <application>:

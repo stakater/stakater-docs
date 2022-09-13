@@ -10,8 +10,8 @@ Argo CD is flexible in the structure of the application configuration represente
 
 Argo CD supports defining Kubernetes manifests in a number of ways:
 
-- helm charts
-- kustomize
+- Helm charts
+- Kustomize
 - ksonnet
 - jsonnet
 - plain directory of yaml/json manifests

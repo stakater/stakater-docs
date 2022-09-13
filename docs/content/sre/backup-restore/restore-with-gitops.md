@@ -1,6 +1,6 @@
 # Restore PVC data with GitOps
 
-Restore PVC data when its managed in GitOps by Argocd.
+Restore PVC data when its managed in GitOps by ArgoCD.
 
 ## 1. Prerequisite
 
@@ -10,7 +10,7 @@ Setup `velero-cli` [doc](./velero-cli.md)
 
 To take backup with Velero you have two options:
 
-### 2.1: Option # 1 - Via Cli
+### 2.1: Option # 1 - Via CLI
 
 ~~~
 velero backup create <NAME-OF-BACKUP> --include-namespaces <APPLICATION-NAMESPACE> --namespace openshift-velero
@@ -33,7 +33,7 @@ spec:
   ttl: 2h0m0s
 ~~~
 
-## 3. Disable self heal in Argocd:
+## 3. Disable self heal in ArgoCD:
 
 Disable self heal in ArgoCD application that is managing PVC so it does not recreate resources from GitOps.
 
@@ -46,7 +46,7 @@ Disable self heal in ArgoCD application that is managing PVC so it does not recr
 
 ## 4. Delete PVC 
 
-Scale down statefulset pod so PVC can be deleted
+Scale down `statefulset` pod so PVC can be deleted
 
 ```
 oc scale statefulsets <NAME> --replicas 0
@@ -62,7 +62,7 @@ oc delete pvc <PVC-NAME> -n <NAMESPACE>
 
 To restore backup with Velero you have two options:
 
-### 5.1: Option # 1 - Via Cli
+### 5.1: Option # 1 - Via CLI
 
 ~~~
 velero restore create --from-backup <NAME-OF-BACKUP> --namespace openshift-velero
@@ -91,9 +91,9 @@ spec:
 
 After a successful restore, you should be able to see pod up and running with restored backup data
 
-## 6. Scale up Statefulset again
+## 6. Scale up `statefulset` again
 
-Scale up Stateful set so new pod can be attached to restored pvc
+Scale up `statefulset` set so new pod can be attached to restored PVC
 
 ```
 oc scale statefulsets <NAME> --replicas 0

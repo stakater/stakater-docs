@@ -4,7 +4,7 @@ This guide covers the steps to set up a new project/application/microservice in 
 
 To onboard a new application you need to make following changes:
 
-1. add helm files to application repository
+1. add Helm files to application repository
 2. add dockerfile to application repository
 3. add webhook to application repository 
 4. add few files to GitOps-config repository
@@ -13,17 +13,17 @@ Following are the changes you need to make in order to on-board a new applicatio
 
 Replace angle brackets with following values in below templates:
 
-  - \<tenant> : Name of the tenant
-  - \<application> : Name of git repository of the application
-  - \<env>:  Environment name
-  - \<gitops-repo>:  url of your GitOps repo
-  - \<nexus-repo>: url of nexus repository
+  - `<tenant>`: Name of the tenant
+  - `<application>`: Name of git repository of the application
+  - `<env>`:  Environment name
+  - `<gitops-repo>`:  URL of your GitOps repo
+  - `<nexus-repo>`: URL of nexus repository
 
-## 1. Add helm files to application repo
+## 1. Add Helm files to application repo
 
-In application repo add helm chart in ***deploy*** folder at the root of your repository. To configure helm chart add following 2 files in ***deploy*** folder.
+In application repo add Helm chart in ***deploy*** folder at the root of your repository. To configure Helm chart add following 2 files in ***deploy*** folder.
 
-We use [stakater application](https://github.com/stakater-charts/application/tree/master/application) chart as our main chart.
+We use [`stakater application`](https://github.com/stakater-charts/application/tree/master/application) chart as our main chart.
 
 1. Chart.yaml
 2. values.yaml
@@ -46,7 +46,7 @@ version: 0.1.0
 
 - values.yaml
 
-Configure helm values as per application needs.
+Configure Helm values as per application needs.
 
 ```yaml
 application:
@@ -105,7 +105,7 @@ application:
 
 ## 2. Add dockerfile to application repository
 
-SAAP ships with few generic Tekton pipelines for quick jump start; all those pipelines expect to have Dockerfile in the root of the repository. Dockerfile should handle both build and package part; we typically use mutli-stage Dockerfiles with 2 steps; one for build and another for run e.g.
+SAAP ships with few generic Tekton pipelines for quick jump start; all those pipelines expect to have Dockerfile in the root of the repository. Dockerfile should handle both build and package part; we typically use multi-stage Dockerfiles with 2 steps; one for build and another for run e.g.
 
 ```
 ## BUILD
@@ -155,7 +155,7 @@ For GitHub add following to the payload.
 
 ![GitHub](./images/github.png)
 
-### Gitlab
+### GitLab
 
 _TODO_
 
@@ -167,18 +167,18 @@ _TODO_
 
 You need to create application folder inside a tenant. Inside application folder you need to create each environment folder that application will be deployed to. Following folders will be created.
 
-- \<tenant>/\<application>
-- \<tenant>/\<application>/\<01-env>
--  \<tenant>/\<application>/\<02-env>
--  \<tenant>/\<application>/\<0n-env>
+- `\<tenant>/<application>`
+- `\<tenant>/<application>/<01-env>`
+- `\<tenant>/<application>/<02-env>`
+- `\<tenant>/<application>/<0n-env>`
 
-To deploy, you'll need to add helm chart of your application in **each** environment folder.
+To deploy, you'll need to add Helm chart of your application in **each** environment folder.
 
-Add values of helm chart that are different from  default values at ```deploy/values.yaml```  defined in application repository
+Add values of Helm chart that are different from  default values at ```deploy/values.yaml```  defined in application repository
 
 Templates for the files:
 
-- \<tenant>/\<application>/\<env>\values.yaml: 
+- `<tenant>/<application>/<env>\values.yaml`:
 
 ``` yaml
 <application>:
@@ -191,7 +191,7 @@ Templates for the files:
         tag: v0.0.1
 ```
 
-- \<tenant>/\<app>/\<env>\Chart.yaml: 
+- `<tenant>/<app>/<env>\Chart.yaml`:
 
 ``` yaml
 apiVersion: v2
@@ -210,7 +210,7 @@ appVersion: 1.0.0
 
 ```
 
-- \<tenant>\/configs/\<env>/argocd/\<application>.yaml 
+- `<tenant>/configs/<env>/argocd/<application>.yaml`:
 
 ``` yaml
 apiVersion: argoproj.io/v1alpha1

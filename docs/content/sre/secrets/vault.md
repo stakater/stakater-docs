@@ -5,7 +5,7 @@
 Vault is a tool for securely accessing secrets. A secret is anything that you want to tightly control access to, such as API keys, passwords, or certificates. 
 Vault provides a unified interface to any secret, while providing tight access control and recording a detailed audit log.
 
-When you create a secret in kubernetes it is stored in etcd as plain text, also the secret is accessible to anyone that has access to your cluster. Vault solves this issue by providing a central secret management store that provides an additional layer of security using it's authentication methods. Secrets are only accessible when you provide a corresponding token
+When you create a secret in Kubernetes it is stored in etcd as plain text, also the secret is accessible to anyone that has access to your cluster. Vault solves this issue by providing a central secret management store that provides an additional layer of security using it's authentication methods. Secrets are only accessible when you provide a corresponding token
 
 There are 2 kinds of secrets in the Vault:
 
@@ -30,35 +30,35 @@ Once login, users can do all actions on the path `TENANT_NAME/*`.
 
 **Authentication**
 
-![vault-oidc-login](./images/vault_oidc_login.png)
+![Vault-oidc-login](./images/vault_oidc_login.png)
 
-* Access https://stakater-vault-openshift-stakater-vault.CLUSTER_DOMAIN
+* Access `https://stakater-vault-openshift-stakater-vault.CLUSTER_DOMAIN`
 * Select `OIDC` method on `Sing in to Vault` page.
 * Keep `Role` as default.
 * Click `Sign in with OIDC Provider`
 * Then login on popup authentication dialog. The browser should allow the popup dialog.
 
-![vault-login_popup](./images/login_popup.png)
+![Vault-login_popup](./images/login_popup.png)
 
 **Enable secret engines**
 
-![select_secret_engine](./images/select_secret_engine.png)
+![select-secret-engine](./images/select_secret_engine.png)
 
-![configure_secret_engine](./images/configure_secret_engine.png)
+![configure-secret-engine](./images/configure_secret_engine.png)
 
 **Create secrets**
 
-![create_secret](./images/create_secret.png)
+![create-secret](./images/create_secret.png)
 
 ## Manage Vault secrets via CLI
 
 To use Vault CLI, the token is required. Users can get/renew/revoke the token on the UI. (Click the user account Avatar.)
 
-![vault-token](./images/Vault_token.png)
+![Vault-token](./images/Vault_token.png)
 
 Once token is fetched, users can use the CLI provided by UI. So there is no need to install Vault CLI.
 
-![vault-cli](./images/vault_cli.png)
+![Vault-cli](./images/vault_cli.png)
 
 
 ```bash
@@ -88,7 +88,7 @@ To mount Vault secret in a volume do following:
           stakater.com/vault-access: "true"
      ```
 
-- **Step 2**: Enable ```SecretProviderClass``` object in helm values and define key and value path of Vault. For example
+- **Step 2**: Enable ```SecretProviderClass``` object in Helm values and define key and value path of Vault. For example
 
      ```
      secretProviderClass:
@@ -101,7 +101,7 @@ To mount Vault secret in a volume do following:
           secretKey: postgresql-password
      ``` 
 
-- **Step 3**: Define volume in helm values that use above created ```SecretProviderClass```
+- **Step 3**: Define volume in Helm values that use above created ```SecretProviderClass```
   
      ```
      deployment:
@@ -127,7 +127,7 @@ To mount Vault secret in a volume do following:
 
 To mount Vault secret in an environment variable do following:
 
-- **Step 1**: Enable ```SecretProviderClass``` object in helm values and define key/value path and secret objects in Vault. For example
+- **Step 1**: Enable ```SecretProviderClass``` object in Helm values and define key/value path and secret objects in Vault. For example
 
      ```
      secretProviderClass:
@@ -148,7 +148,7 @@ To mount Vault secret in an environment variable do following:
    
    The value of **secretName** will be the name of Kubernetes secret
 
-- **Step 2**: Define volume in helm values that use above created ```SecretProviderClass```
+- **Step 2**: Define volume in Helm values that use above created ```SecretProviderClass```
   
      ```
      deployment:
@@ -170,7 +170,7 @@ To mount Vault secret in an environment variable do following:
        mountPath: /data/db-creds
      ```
   
-  Volume mount is required in order to create a kubernetes secret.
+  Volume mount is required in order to create a Kubernetes secret.
 
 - **Step 4**: This secret can be used as environment variable 
 

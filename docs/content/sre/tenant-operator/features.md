@@ -14,7 +14,7 @@ Tenant-Operator also is able to leverage existing OpenShift groups or external g
 
 With Tenant-Operator, you can empower your users to safely provision namespaces for themselves and their teams (typically mapped to SSO groups). Team-owned namespaces and the resources inside of them count towards the team's quotas rather than the user's individual limits and are automatically shared with all team members according to the access rules you configure in tenant-operator.
 
-Also by leveraging Tenant-Operators templating mechanism, namespaces can be provisioned and automatically pre populated with any kind of resource or multiple resources such as network policies, docker pull secrets or even Helm charts etc 
+Also by leveraging Tenant-Operators templating mechanism, namespaces can be provisioned and automatically pre-populated with any kind of resource or multiple resources such as network policies, docker pull secrets or even Helm charts etc 
 
 ## HashiCorp Vault Multitenancy
 
@@ -28,9 +28,9 @@ Tenant-Operator is not only providing strong Multi Tenancy for the OpenShift int
 
 Tenant-Operator provides a mechanism for defining Resource Quotas at the tenant scope, meaning all namespaces belonging to a particular tenant share the defined quota, which is why you are able to safely enable dev teams to self serve their namespaces whilst being confident that they can only use the resources allocated based on budget and business needs.
 
-## Remote Dev Namespaces
+## Remote Development Namespaces
 
-Tenant-Operator can be configured to automatically provision a namespace in the cluster for every member of the specific tenant, that will also be pre loaded with any selected templates and consume the same pool of resources from the tenants quota creating safe remote dev namespaces that teams can use as scratch namespace for rapid prototyping and development. So, every developer gets a Kubernetes-based cloud development environment that feel like working on localhost.
+Tenant-Operator can be configured to automatically provision a namespace in the cluster for every member of the specific tenant, that will also be pre-loaded with any selected templates and consume the same pool of resources from the tenants quota creating safe remote dev namespaces that teams can use as scratch namespace for rapid prototyping and development. So, every developer gets a Kubernetes-based cloud development environment that feel like working on localhost.
 
 ## Templates and Template distribution
 

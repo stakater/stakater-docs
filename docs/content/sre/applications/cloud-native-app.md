@@ -673,7 +673,7 @@ For reproducibility and auditability.
 
 **How?**
 
-Stakater team has helm [application chart](https://github.com/stakater-charts/application) which can be used for application deployment.
+Stakater team has Helm [application chart](https://github.com/stakater-charts/application) which can be used for application deployment.
 
 ## 19. Secrets handling
 
@@ -739,7 +739,7 @@ When multiple applications are deployed on the same node, if the upper and lower
 
 **How?**
 
-Stakater application helm chart always sets default requests and limits: https://github.com/stakater-charts/application/blob/master/application/values.yaml#L142 but of course each application can individually override them.
+Stakater application Helm chart always sets default requests and limits: https://github.com/stakater-charts/application/blob/master/application/values.yaml#L142 but of course each application can individually override them.
 
 ## 23. Alerts
 

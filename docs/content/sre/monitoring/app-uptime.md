@@ -1,6 +1,6 @@
 # Application Uptime
 
-We use Uptime Robot to monitor uptimes for application. Whenever an application goes down, it alerts us that application endpoint is down. You can use email or Slack or other integrations for it.
+We use Uptime Robot to monitor uptime for applications. Whenever an application goes down, it alerts us that application endpoint is down. You can use email or Slack or other integrations for it.
 
 ## Automating Using Ingress Monitor Controller
 

@@ -69,13 +69,13 @@ Environment provisioning takes a few minutes to complete, since there is a lot o
 * If everything above looks good, then the pods might be in a failing state. Check the pods deployed to your provisioned namespace and view their events to see if there are any failures, and why. Most likely the issue is a lack of imagePullSecrets in the provisioned namespace.
 
 Those secrets can be added using [Tronador Config](./tronador_config.html) by mentioning the resources in the CR, which will deploy those resources in all DTE Namespaces.
-This can also be done by [Tenant Operator's](../tenant-operator/overview.html) [TemplateGroupInstance](../tenant-operator/customresources.html#_5-templategroupinstance) by setting the proper label in your tronador config file.
+This can also be done by [Tenant Operator's](../tenant-operator/overview.html) [TemplateGroupInstance](../tenant-operator/customresources.html#_5-templategroupinstance) by setting the proper label in your Tronador config file.
 
 
 ## Cluster Admin support
 
 * In case Helm Release keeps failing, you will need to check Helm Operator's logs to get more information about the failure.
-  * If you see constant helm release failures with the error message `Could not resolve host: github.com` or similar, you might need to change the `dnsConfig` within the template's spec for the Helm Operator's deployment with the following details:
+  * If you see constant Helm release failures with the error message `Could not resolve host: github.com` or similar, you might need to change the `dnsConfig` within the template's spec for the Helm Operator's deployment with the following details:
 
     ```yaml
       dnsPolicy: "ClusterFirst"

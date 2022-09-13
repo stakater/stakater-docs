@@ -85,7 +85,7 @@ pool.
 // 2. Build application based on `appType` and `goal` using `builderImage`
 // 3. Run e2e tests
 // 4. Build & push image to `dockerRepositoryURL/appName`
-// 5. Generate/Update manifests based on any changes in the templates, that can be deployed on kubernetes
+// 5. Generate/Update manifests based on any changes in the templates, that can be deployed on Kubernetes
 // 6. Notify on slack regarding the build status, if `notifySlack` is true
 
 releaseApplication {
@@ -104,7 +104,7 @@ releaseApplication {
     // configuration parameter for e2e tess
     e2eTestJob = false
     e2eJobName = "../stakater-nordmart-e2e-tests/master"
-    // configuration for generating kubernetes manifests
+    // configuration for generating Kubernetes manifests
     kubernetesGenerateManifests = true
     kubernetesPublicChartRepositoryURL = "https://stakater.github.io/stakater-charts"
     kubernetesChartName = "stakater/application"

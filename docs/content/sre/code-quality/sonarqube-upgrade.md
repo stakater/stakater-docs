@@ -2,11 +2,11 @@
 
 Before upgrading, it helps to understand how SonarQube version numbers work. Version numbers have up to three digits with each digit representing part of the release cycle:
 
-![Sonarqube-version-format](./images/Sonarqube-version-format.png)
+![SonarQube-version-format](./images/Sonarqube-version-format.png)
 
 ## Migration Path
 
-We upgrade SonarQube from LTS to LTS. However, if there's one or multiple LTS versions in migration path, we first migrate to intermediate LTS and then to target LTS version. Forexample
+We upgrade SonarQube from LTS to LTS. However, if there's one or multiple LTS versions in migration path, we first migrate to intermediate LTS and then to target LTS version. For example
 `From 6.7.7 LTS to 8.9 LTS, the migration path is 6.7.7 LTS to 7.9.6 LTS and then to the latest 8.9.7 LTS patch`
 
 ## SonarQube Upgrade to 8.9 LTS
@@ -22,7 +22,7 @@ Please refer to the [Link](https://docs.sonarqube.org/8.9/setup/upgrade-notes/) 
 
 - After selecting `I understand the risk` option, it will direct us to the page `SonarQube is under maintenance`.
 
-![sonarqube-maintenance](./images/sonarqube-maintenance.png)
+![SonarQube-maintenance](./images/sonarqube-maintenance.png)
 
 - On `SonarQube is under maintenance` page add `/setup` on address bar which will direct us to `Upgrade Database` page.
 

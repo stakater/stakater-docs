@@ -1,6 +1,6 @@
 # Resource Monitoring using Goldilocks
 
-Goldilocks monitors CPU and memory utlizations and recommends changes to the resources on the basis of VerticalPodAutoscaler and displays the suggestions about increasing or decreasing resources for optimized performance. In addition to that it can also autoscale vertically on the basis of these recommendations.
+Goldilocks monitors CPU and memory utilizations and recommends changes to the resources on the basis of VerticalPodAutoscaler and displays the suggestions about increasing or decreasing resources for optimized performance. In addition to that it can also autoscale vertically on the basis of these recommendations.
 
 These suggestions are displayed via dashboard.
 

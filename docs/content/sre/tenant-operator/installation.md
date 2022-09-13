@@ -13,8 +13,8 @@ This document contains instructions on installing and configuring Tenant-Operato
 ## Requirements
 
 * An **OpenShift** cluster [v4.7 - v4.10]
-* [**Helm-CLI**](https://helm.sh/docs/intro/install/) (Optional: *[For installing via helm](#installing-via-helm)*)
-* **Helm-Operator** (Optional: *[For installing via helm-release](#installing-via-helm-release)*)
+* [**Helm-CLI**](https://helm.sh/docs/intro/install/) (Optional: *[For installing via Helm](#installing-via-helm)*)
+* **Helm-Operator** (Optional: *[For installing via Helm release](#installing-via-helm-release)*)
 
 ## Installing via OperatorHub
 
@@ -312,7 +312,7 @@ spec:
         memory: 128Mi
 ```
 
-This helm-release will deploy tenant-operator.
+This Helm release will deploy tenant-operator.
 
 Once the image has been pulled `Tenant-Operator` will be ready for use.
 

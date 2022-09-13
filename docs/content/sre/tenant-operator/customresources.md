@@ -243,7 +243,7 @@ Also you can define custom variables in `Template` and `TemplateInstance` . The 
 </details>
 <details open>
   <summary> Helm Chart Templates</summary>
-  <p>Instead of manifests, a Template can specify a Helm chart that will be installed (using helm template) when the Template is being instantiated.</p>
+  <p>Instead of manifests, a Template can specify a Helm chart that will be installed (using Helm template) when the Template is being instantiated.</p>
 </details>
 
 ### Mandatory and Optional Templates
@@ -266,7 +266,7 @@ spec:
 ```
 
 TemplateInstance are used to keep track of resources created from Templates, which are being instantiated inside a Namespace.
-Generally, a TemplateInstance is created from a Template and then the TemplateInstances will not be updated when the Template changes later on. To change this behavior, it is possible to set `spec.sync: true` in a TemplateInstance. Setting this option, means to keep this TemplateInstance in sync with the underlying template (similar to helm upgrade).
+Generally, a TemplateInstance is created from a Template and then the TemplateInstances will not be updated when the Template changes later on. To change this behavior, it is possible to set `spec.sync: true` in a TemplateInstance. Setting this option, means to keep this TemplateInstance in sync with the underlying template (similar to Helm upgrade).
 
 ## 5. TemplateGroupInstance
 

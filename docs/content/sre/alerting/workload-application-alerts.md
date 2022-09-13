@@ -1,6 +1,6 @@
 # Internal alerting
 
-Stakater App Agility Platform also provides fully managed dedicated workload monitoring stack based on Prometheus, AlertManager and Grafana.
+Stakater App Agility Platform also provides fully managed dedicated workload monitoring stack based on Prometheus, Alertmanager and Grafana.
 
 To configure alerting for your application do following:
 
@@ -14,14 +14,14 @@ To configure alerting for your application do following:
 
 Service Monitor uses the service that is used by your application. Then Service Monitor scrapes metrics via that service.
 
-You need to define ServiceMonitor so, the application metrics can be scrapped.
+You need to define `ServiceMonitor` so, the application metrics can be scrapped.
 
-ServiceMonitor can be enabled in [Application Chart](https://github.com/stakater-charts/application).
+`ServiceMonitor` can be enabled in [Application Chart](https://github.com/stakater-charts/application).
 
 | Parameter | Description |
 |:---|:---|
-| .Values.serviceMonitor.enabled | Enable serviceMonitor
-| .Values.serviceMonitor.endpoints | Array of endpoints to be scraped by prometheus
+| `.Values.serviceMonitor.enabled` | Enable `ServiceMonitor`
+| `.Values.serviceMonitor.endpoints` | Array of endpoints to be scraped by Prometheus
 
 ```
 serviceMonitor:
@@ -32,9 +32,9 @@ serviceMonitor:
     port: http
 ```
 
-## 2. Create AlertmanagerConfig for the applicaiton
+## 2. Create AlertmanagerConfig for the application
 
-You need to define AlertmanagerConfig to direct alerts to your target alerting medium like slack, pagetduty, etc. 
+You need to define AlertmanagerConfig to direct alerts to your target alerting medium like Slack, PagerDuty, etc.
 
 A sample AlertmanagerConfig can be configured in [Application Chart](https://github.com/stakater-charts/application).
 
@@ -44,9 +44,9 @@ A sample AlertmanagerConfig can be configured in [Application Chart](https://git
 | .Values.alertmanagerConfig.spec.route | The Alertmanager route definition for alerts matching the resource’s namespace. It will be added to the generated Alertmanager configuration as a first-level route 
 | .Values.alertmanagerConfig.spec.receivers | List of receivers  
 
-We will use slack as an example here. 
+We will use Slack as an example here. 
 
-Step 1: Create a `slack-webhook-config` secret which holds slack webhook-url
+Step 1: Create a `slack-webhook-config` secret which holds Slack webhook URL
 
 ```
 kind: Secret
@@ -59,7 +59,7 @@ data:
 type: Opaque
 ```
 
-Step 2: Add a alertmanagerConfig spec to use `slack-webhook-config` secret created above in step 1, you need to replace `<workload-alertmanager-url>` with the link of Workload Alertmanager that you can get from forecastle.
+Step 2: Add a alertmanagerConfig spec to use `slack-webhook-config` secret created above in step 1, you need to replace `<workload-alertmanager-url>` with the link of Workload Alertmanager that you can get from Forecastle.
 
 ```
 alertmanagerConfig:
@@ -105,7 +105,7 @@ AlertmanagerConfig will add a match with your namespace name by default, which w
 
 ## 3. [Optional] Create PrometheusRule for the application
 
-Stakater App Agility Platforms comes with lots of [Predefined PrometheusRules](./predefined-prometheusrules.md) which covers most of the commmon use cases.
+Stakater App Agility Platforms comes with lots of [Predefined PrometheusRules](./predefined-prometheusrules.md) which covers most of the common use cases.
 
 If required you can definitely create a new PrometheusRule to define for defining alerting rule.
 

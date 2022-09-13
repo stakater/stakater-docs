@@ -1,5 +1,5 @@
 # Maven Project setup with nexus repository
-If you are using maven dependencies from nexus repository, make sure to do changes in settings.xml file in `.m2` folder. Below is the sample `settings.xml` file which you can use or refer to.
+If you are using Maven dependencies from nexus repository, make sure to do changes in settings.xml file in `.m2` folder. Below is the sample `settings.xml` file which you can use or refer to.
 
     <?xml version="1.0" encoding="UTF-8"?>
     <settings>
@@ -48,7 +48,7 @@ If you are using maven dependencies from nexus repository, make sure to do chang
 
 **NOTE**
 
-Before using this file, please make sure to provide values for env variables i.e. `NEXUS_USERNAME` , `NEXUS_PASSWORD` and `MAVEN_MIRROR_URL`.
+Before using this file, please make sure to provide values for environment variables i.e. `NEXUS_USERNAME` , `NEXUS_PASSWORD` and `MAVEN_MIRROR_URL`.
 
 For `Mac` or `Linux` users, one can set these environment values in `.bashrc` or `.bash_profile`. These files live under user's home directory. Use `cd ~` to navigate to home directory. If file is missing, you can create it. Follow below steps to add the environment values:
 
@@ -63,7 +63,7 @@ export MAVEN_MIRROR_URL=URL
 ```
 source ~/.bash_profile
 ```
-- you can start using maven commands now. If it does not work, try restarting the terminal once.
+- you can start using Maven commands now. If it does not work, try restarting the terminal once.
 - Read more about `.bashrc` and `.bash_profile` online if you want to decide between the two.
 
 For `Windows` users, follow below steps to add environment values:
@@ -71,4 +71,4 @@ For `Windows` users, follow below steps to add environment values:
 1. Press `Windows key` and search `environment`
 2. Click on search result: `Edit environment variables for your account`
 3. Add your values under `User Variables`. Save the changes.
-4. Try maven command in a new terminal, if it does not work, logout and login your user.
+4. Try `maven` command in a new terminal, if it does not work, logout and login your user.

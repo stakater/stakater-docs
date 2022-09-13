@@ -29,15 +29,15 @@ Following is an example view of resources and utilization per namespaces
 
 ## Resource Recommendations
 
-Recommendations for reource allocations can suggested for each pod via two methods 
+Recommendations for resource allocations can suggested for each pod via two methods:
 
-- If defined then read and show VerticalPodAutoscaler (VPA) resource recommendations
-- Calculate own CPU/memory resource recommendations with a decaying exponential histogram
+1. If defined then read and show VerticalPodAutoscaler (VPA) resource recommendations
+1. Calculate own CPU/memory resource recommendations with a decaying exponential histogram
 
 ## Cost Estimation
 On the basis of current utilization and Slack Kubernetes Resource Report can estimate how much cost can be saved if the recommendations are to be applied.
 
-Curently only `AWS` and `Google Cloud` is supported
+Currently only `AWS` and `Google Cloud` is supported:
 
 `AWS`: AWS EC2 (all regions, On Demand, Linux)
 

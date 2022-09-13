@@ -1,8 +1,8 @@
 # Accessing RHACS
 
-- You can find the rhacs link on forcastle
+- You can find the RHACS link on Forecastle
   ![img.png](./images/rhacs-forecastle.png)
-- Login to rhacs using the `OpenShift` auth provider option
-- It will login you via google sso
+- Login to RHACS using the `OpenShift` auth provider option
+- It will login you via Google SSO
 - Automatically you will be granted this role `Analyst`
 - If you would like have another [role](./02-permissions.md); please contact Stakater support

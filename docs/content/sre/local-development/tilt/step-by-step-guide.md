@@ -2,7 +2,7 @@
 
 In this guide we will deploy an application with tilt and namespace in remote OpenShift cluster
 
-1) Clone this sample repo [nordmart-review](https://github.com/stakater-lab/stakater-nordmart-review)
+1) Clone this sample repo [Nordmart-review](https://github.com/stakater-lab/stakater-nordmart-review)
 
 2) Install following tools:
 
@@ -69,20 +69,20 @@ If you get this error `x509: certificate signed by unknown authority` then you n
 }
 ```
 
-7) (Optional) Add helm chart repos
+7) (Optional) Add Helm chart repos
 
-If you reference helm charts from private registry then you first need to add it
+If you reference Helm charts from private registry then you first need to add it
 
 ```bash
 cd deploy
 
-# helm credentials can be found in Vault or in a secret in build namespace
-helm repo add stakater-nexus <private repo url> --username helm-user-name --password ********; 
+# Helm credentials can be found in Vault or in a secret in build namespace
+helm repo add stakater-nexus <private repo URL> --username helm-user-name --password ********; 
 
 cd ..
 ```
 
-8) Update helm dependencies
+8) Update Helm dependencies
 
 ```bash
 cd deploy
@@ -118,7 +118,7 @@ e.g.
 }
 ```
 
-12) Go through the `.gitigore` and check tilt and helm specific ignores
+12) Go through the `.gitigore` and check tilt and Helm specific ignores
 
 ```
 # Tilt
@@ -161,7 +161,7 @@ application:
 
 ![tilt up](./images/tilt-up.png)
 
-Open the tilt browswer; just hit the space
+Open the tilt browser; just hit the space
 
 ![tilt browser](./images/tilt-browser.png)
 

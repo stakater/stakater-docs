@@ -12,7 +12,7 @@ The guide below is written as a SAAP customer's point of view. If you use Tronad
 
 :::
 
-For tronador to work, you need to add support for it in your Git Repository by adding a [Tronador config file](./config_file.html). Afterwards, a Tekton pipeline needs to be setup with the [Tronador cluster task](./cluster_task.html), and a cluster task that pushes the output EP to your GitOps repository. Test environments should then be created automatically every time a PR is created or updated. The entire Dynamic Test Environment (DTE) creation process is described below.
+For Tronador to work, you need to add support for it in your Git Repository by adding a [Tronador config file](./config_file.html). Afterwards, a Tekton pipeline needs to be setup with the [Tronador cluster task](./cluster_task.html), and a cluster task that pushes the output EP to your GitOps repository. Test environments should then be created automatically every time a PR is created or updated. The entire Dynamic Test Environment (DTE) creation process is described below.
 
 
 <figure>
@@ -24,7 +24,7 @@ For tronador to work, you need to add support for it in your Git Repository by a
 
 ### Tronador config file
 
-The [Tronador config file](./config_file.html) is placed in the github repository and is used to configure the EnvironmentProvisioner CR. Environment Provisioning will only work if the config file exists.
+The [Tronador config file](./config_file.html) is placed in the GitHub repository and is used to configure the EnvironmentProvisioner CR. Environment Provisioning will only work if the config file exists.
 
 ```yaml
 application:
@@ -42,11 +42,11 @@ application:
 ```
 
 ### GitHub Event
- GitHub (or any other repository management system) events are used to trigger the Tronador pipeline. The pipeline is triggered whenever a PR is opened for a repository that supports tronador.
+ GitHub (or any other repository management system) events are used to trigger the Tronador pipeline. The pipeline is triggered whenever a PR is opened for a repository that supports Tronador.
 
 ### Tekton Pipeline
 
-The Tekton Pipeline needs to watch your repo where tronador is configured to be used, and when a PR is created or updated, it will trigger the Tekton pipeline. The pipeline will first create a docker image from the changes in your PR. It will then create an EnvironmentProvisioner CR by using the details in the config file, and replacing its `APPLICATION_IMAGE_NAME` and `APPLICATION_IMAGE_TAG` variables in the config file with the details about the created docker image. Finally it will push the Environment Provisioner to your GitOps repository.
+The Tekton Pipeline needs to watch your repo where Tronador is configured to be used, and when a PR is created or updated, it will trigger the Tekton pipeline. The pipeline will first create a docker image from the changes in your PR. It will then create an EnvironmentProvisioner CR by using the details in the config file, and replacing its `APPLICATION_IMAGE_NAME` and `APPLICATION_IMAGE_TAG` variables in the config file with the details about the created docker image. Finally it will push the Environment Provisioner to your GitOps repository.
 
 <figure>
   <img
@@ -88,7 +88,7 @@ ArgoCD is a tool that can be used to watch a repo and push the changes to your c
 
 ### Environment Provisioner
 
-The EnvironmentProvisioner Custom Resource does the actual work of creating the test environment. It is responsible for creating the test environment, and for updating it when the image is updated. The process for this is to first create a namespace, then create a helm release within the namespace using details about the image to be deployed. These details are gotten from the pipeline and the tronador config file.
+The EnvironmentProvisioner Custom Resource does the actual work of creating the test environment. It is responsible for creating the test environment, and for updating it when the image is updated. The process for this is to first create a namespace, then create a Helm release within the namespace using details about the image to be deployed. These details are gotten from the pipeline and the Tronador config file.
 
 ```yaml
 apiVersion: tronador.stakater.com/v1alpha1
@@ -128,7 +128,7 @@ status:
 
 ### Helm Release
 
-Helm Releases are watched by the Helm Operator, which manages the creation of all resources listed in a referenced helm chart. This chart is usually placed within the repo itself, and in this case tronador passes along the reference to this chart from the Environment Provisioner to the Helm Release. The only thing that is changed is the image to be deployed, which is passed along from the pipeline with each update to the PR and updated within the helm release automatically.
+Helm Releases are watched by the Helm Operator, which manages the creation of all resources listed in a referenced Helm chart. This chart is usually placed within the repo itself, and in this case Tronador passes along the reference to this chart from the Environment Provisioner to the Helm Release. The only thing that is changed is the image to be deployed, which is passed along from the pipeline with each update to the PR and updated within the Helm release automatically.
 
 ```yaml
 apiVersion: helm.fluxcd.io/v1
@@ -190,10 +190,10 @@ status:
 
 ### Secrets management
 
-Secrets for the helm chart to be deployed are currently passed along from the tronador config file, to the helm release.
-Secrets for helm chart and other required resources like image pull secret can be brought into Environment Provisioner owned namespaces using [Tronador Config](./tronador_config.html) CR.
+Secrets for the Helm chart to be deployed are currently passed along from the Tronador config file, to the Helm release.
+Secrets for Helm chart and other required resources like image pull secret can be brought into Environment Provisioner owned namespaces using [Tronador Config](./tronador_config.html) CR.
 
-You can also use [Tenant Operator's](../tenant-operator/overview.html) [TemplateGroupInstance](../tenant-operator/customresources.html#_5-templategroupinstance) to pass secrets to the namespace that will be provisioned by the EnvironmentProvisioner by setting the proper label in your tronador config file. An example for this workflow is [provided here](../tenant-operator/usecases/deploying-templates.html#deploying-template-to-namespaces-via-templategroupinstances).
+You can also use [Tenant Operator's](../tenant-operator/overview.html) [TemplateGroupInstance](../tenant-operator/customresources.html#_5-templategroupinstance) to pass secrets to the namespace that will be provisioned by the EnvironmentProvisioner by setting the proper label in your Tronador config file. An example for this workflow is [provided here](../tenant-operator/usecases/deploying-templates.html#deploying-template-to-namespaces-via-templategroupinstances).
 
 ### Application snapshot deployed
 

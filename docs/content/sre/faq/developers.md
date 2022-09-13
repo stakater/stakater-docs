@@ -21,9 +21,9 @@ A number of Red Hat JBoss Middleware Services are available as add-ons for Staka
 - Red Hat JBoss Fuse Integration Services
 - Red Hat Single Sign-On.
 
-### Are IBM Cloud Paks available on Stakater Agility Platform?
+### Are `IBM Cloud Paks` available on Stakater Agility Platform?
 
-A number of IBM Cloud Paks are available as add-ons for Stakater Agility Platform, including:
+A number of `IBM Cloud Paks` are available as add-ons for Stakater Agility Platform, including:
 
-- IBM Cloud Pak for Integration
-- IBM Cloud Pak for Application
+- `IBM Cloud Pak for Integration`
+- `IBM Cloud Pak for Application`

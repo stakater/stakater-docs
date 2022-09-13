@@ -20,12 +20,12 @@ Continuous integration (CI) concerns the integration of code from potentially mu
  
 ## Continuous Delivery
 Once a CI strategy is in place, consideration can then move to achieving continuous delivery (CD).
- This involves automating the steps required to promote the work product from one environment to the next within the 
- defined software development lifecycle (SDLC). Such steps could include automated testing, smoke, unit, functional, 
- and static code analysis and static dependency checks for known security vulnerabilities. With containers, promotion in
-  later stages of the SLC may merely involve the tagging of the (immutable) image to mark acceptance. 
-  Binary promotions are also possible such that only the image is pushed (to the target registry of the new environment), 
-  leaving source code in situ.
+This involves automating the steps required to promote the work product from one environment to the next within the 
+defined software development lifecycle (SDLC). Such steps could include automated testing, smoke, unit, functional, 
+and static code analysis and static dependency checks for known security vulnerabilities. With containers, promotion in
+later stages of the SLC may merely involve the tagging of the (immutable) image to mark acceptance. 
+Binary promotions are also possible such that only the image is pushed (to the target registry of the new environment), 
+leaving source code in place.
   
 ## Continuous Deployment
 

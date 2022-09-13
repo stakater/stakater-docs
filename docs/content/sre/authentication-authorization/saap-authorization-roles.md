@@ -37,7 +37,7 @@ SAAP Cluster Admin (SCA):
 - can create/view/delete NetworkPolicy objects in customer owned namespaces
 - can view services in all namespaces
 - can view routes and ingresses in all namespaces
-- can view/update dns resources for DNS Forwarder apigroups in customer owned namespaces
+- can view/update DNS resources for DNS Forwarder apigroups in customer owned namespaces
 
 ### Monitoring
 - can view console dashboard where metrics are shown for namespaces
@@ -46,7 +46,7 @@ SAAP Cluster Admin (SCA):
 
 ### Compute
 - can view machines, machinesets, nodes, machine configs, machine config pools, imagestreams
-- can start anyuid and nonroot SCCs
+- can start `anyuid` and `nonroot` SCCs
 - can not delete machines, machinesets, nodes, machine configs, machine config pools, imagestreams
 
 ###  User Management

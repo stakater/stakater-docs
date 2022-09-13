@@ -45,10 +45,10 @@ See [Cert-manager documentation](../certificates/cert-manager.md#Example-Certifi
 These Certificates are generated and can be rotated automatically via Certmanager Operator whenever an Ingress is created with annotation: `cert-manager.io/cluster-issuer: <ISSUER_NAME>`
 
 ::: tip
-Consider using the cluster's default domain i.e. `*.kubeapp.cloud` for CI/staging envionment which are all secured by SAAP by default
+Consider using the cluster's default domain i.e. `*.kubeapp.cloud` for CI/staging environment which are all secured by SAAP by default
 :::
 
-If you you are doing GitOps with ArgoCD then you need to create an ArgoCD app like following that will watch cert-manager CRs and deploy them to the cluster:
+If you are doing GitOps with ArgoCD then you need to create an ArgoCD app like following that will watch cert-manager CRs and deploy them to the cluster:
 
 ```
 apiVersion: argoproj.io/v1alpha1
@@ -93,7 +93,7 @@ metadata:
   namespace: <APP_NAMESPACE>
 type: kubernetes.io/tls
 ```
-This TLS certificate then can be referred in tls section of the Ingress resource.
+This TLS certificate then can be referred in TLS section of the Ingress resource.
 
 
 ## 3. Create Ingress for your Application
@@ -115,7 +115,7 @@ ingress:
     secretName: custom-domain-tls-cert
 ...
 ```
-It will take 2-3 mins for certmanager to issue a certificate and upon success, `custom-domain-tls-cert` secret will be populated with the cert values.
+It will take 2-3 min for Certmanager to issue a certificate and upon success, `custom-domain-tls-cert` secret will be populated with the cert values.
 
 ## 4. Verify
 
