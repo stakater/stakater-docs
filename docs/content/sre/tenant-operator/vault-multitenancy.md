@@ -6,6 +6,6 @@ In SAAP,policies and roles are automatically created by tenant operator that gra
 
 Role name is same as **namespace** name
 
-![image](./images/tenant-operator-Vault-auth.png)
+![image](./images/tenant-operator-vault-auth.png)
 
 fig 1. Shows how tenant operator manages authentication with Vault
