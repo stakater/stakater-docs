@@ -1,6 +1,6 @@
 # Logging
 
-Stakater App Agility Platform uses EFK Stack (Elasticseatch Fluentd Kibana) to provide logging for applications. Flunetd daemonsets pick up the logs and send these to elasticsearch. Kibana dashboards can be used to view/analyze logs
+Stakater App Agility Platform uses EFK Stack (ElasticSearch Fluentd Kibana) to provide logging for applications. Fluentd daemonsets pick up the logs and send these to ElasticSearch. Kibana dashboards can be used to view/analyze logs
 
 ![Logging](./images/logging.jpg)
 
@@ -40,7 +40,7 @@ Consider the following example of a one line event by a java application:
 ```
 2019-11-27 11:04:12.682  INFO 1 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 ```
-The configuration to parse/match/send logs can be specified in the [Application Chart](https://github.com/stakater-charts/application) , by specifying regexes as described below:
+The configuration to parse/match/send logs can be specified in the [Application Chart](https://github.com/stakater-charts/application), by specifying regular expressions as described below:
 
 | Parameter | Description |
 |:---|:---|

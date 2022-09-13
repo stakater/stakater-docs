@@ -16,19 +16,19 @@
 
 **v0.1.3**
 
-- feat: add unique error message if tronador config exists but has no spec
+- feat: add unique error message if Tronador config exists but has no spec
 
 **v0.1.2**
 
-- refactor: restructure tronador config, see [relevant docs](./config_file.html) for more details
+- refactor: restructure Tronador config, see [relevant docs](./config_file.html) for more details
 - refactor: all secrets management is now done via this new TronadorConfig CR.
-- feat: faster deletion of tronador config
-- fix: fix crash when tronador config exists without a spec
-- fix: fix helm chart failing if `env.showErrorTrace` is set
+- feat: faster deletion of Tronador config
+- fix: fix crash when Tronador config exists without a spec
+- fix: fix Helm chart failing if `env.showErrorTrace` is set
 
 **v0.1.1**
 
-- fix: add relevant rbac
+- fix: add relevant RBAC
 - feat: double the default memory limit
 
 **v0.1.0**
@@ -53,7 +53,7 @@
 
 **v0.0.12**
 
-- fix: fix for kubebuilder lib which displayed logs timer in unix format
+- fix: fix for `kubebuilder` lib which displayed logs timer in Unix format
 
 **v0.0.11**
 
@@ -61,11 +61,11 @@
 
 **v0.0.10**
 
-- fix: fix a bug that didn't grant tronador access to create custom resources
+- fix: fix a bug that didn't grant Tronador access to create custom resources
 
 **v0.0.9**
 
-- feat: added support for TronadorConfig. Resources required in DTEs can now be created by mentioning them in tronador config
+- feat: added support for TronadorConfig. Resources required in DTEs can now be created by mentioning them in Tronador config
 
 **v0.0.8**
 
@@ -73,11 +73,11 @@
 
 **v0.0.7**
 
-- fix: deletion handled for helm release object created by Tronador
+- fix: deletion handled for Helm release object created by Tronador
 
 **v0.0.6**
 
-- fix: fix name for generated helm release to conform to kubernetes resource name standards
+- fix: fix name for generated Helm release to conform to Kubernetes resource name standards
 
 **v0.0.5**
 
@@ -92,7 +92,7 @@
 - refactor: remove git auth and TronadorConfig object
 - refactor: remove unused dependencies
 - fix: Application and HelmRelease are now required fields for EnvironmentProvisioner
-- fix: HelmRelease creation and updation
+- fix: HelmRelease creation and update
 - feat: added more error handling
 
 **v0.0.2**

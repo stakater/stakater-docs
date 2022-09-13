@@ -1,16 +1,16 @@
 # Create Grafana Dashboard Guide
 
-This document explains how to create Grafana Dashboard via GrafanaDashboard CR powered by grafana operator. In this way there is no need to configure/import it via web UI. Now, developers can ship new dashboards in any namespace and deploy them via gitops. If Dashboard definition/json is invalid, the dashboard will not appear in grafana web UI.
+This document explains how to create Grafana Dashboard via GrafanaDashboard CR powered by Grafana operator. In this way there is no need to configure/import it via web UI. Now, developers can ship new dashboards in any namespace and deploy them via GitOps. If Dashboard definition/json is invalid, the dashboard will not appear in Grafana web UI.
 
 ## Prerequisite 
 
-- Grafana should be up and running. You should be able to find it under Workload Monitoring category in your forecastle link.
+- Grafana should be up and running. You should be able to find it under Workload Monitoring category in your Forecastle link.
 
 ## Instructions  
 
 1) Create GrafanaDashboard definition 
 
-   You can choose any existing namespace. The label “grafanaDashboard: grafana-operator” is required for Grafana Operator to discover the dashboard. The JSON string with the dashboard contents is placed in the “json” section. Check the [official documentation](https://grafana.com/docs/reference/dashboard/#dashboard-json) for details on JSON Model. You can create a dashboard via web UI first, and then export the dashboard json to define a GrafanaDashboard CR (Custom Resource). If the JSON is invalid, the dashboard will not appear in Grafana web UI. Below is a sample GrafanaDashboard CR yaml.
+   You can choose any existing namespace. The label `grafanaDashboard: grafana-operator` is required for Grafana Operator to discover the dashboard. The JSON string with the dashboard contents is placed in the “json” section. Check the [official documentation](https://grafana.com/docs/reference/dashboard/#dashboard-json) for details on JSON Model. You can create a dashboard via web UI first, and then export the dashboard json to define a GrafanaDashboard CR (Custom Resource). If the JSON is invalid, the dashboard will not appear in Grafana web UI. Below is a sample GrafanaDashboard CR yaml.
 
 ```yaml
 apiVersion: integreatly.org/v1alpha1
@@ -146,20 +146,20 @@ spec:
     }
 ```
 
-2. Apply GrafanaDashbaord CR to your cluster, manualy or via gitops way 
+2. Apply GrafanaDashbaord CR to your cluster, manually or via GitOps way 
 
-3. View the dashboard via grafana web UI
+3. View the dashboard via Grafana web UI
 
-   1. Under "stakater-workload-monitoring" project, find the url to grafana through Cluster menu [Networking]->[Routes]
-   2. Open grafana web UI, and go to [Dashboards]->[Manage] to view Dashbaords management page
-      ![grafana-menu](./images/grafana-menu.png)
+   1. Under "stakater-workload-monitoring" project, find the URL to Grafana through Cluster menu [Networking]->[Routes]
+   2. Open Grafana web UI, and go to [Dashboards]->[Manage] to view Dashboards management page
+      ![Grafana-menu](./images/grafana-menu.png)
    
-   3. Your dashboard will be put in a folder named after the namespace that you specified in GrafanaDashboard definition. The following is an example. ![grafana-dashboards-management](./images/grafana-dashboards-management.png)
+   3. Your dashboard will be put in a folder named after the namespace that you specified in GrafanaDashboard definition. The following is an example. ![Grafana-dashboards-management](./images/grafana-dashboards-management.png)
    
 
 ## Application chart
 
-A template for installing GrafanaDashboard is provided by [application chart](https://github.com/stakater-charts/application). You are able to specify configuration via values.yaml and install dabashboards on cluster. The following is an example.
+A template for installing GrafanaDashboard is provided by [application chart](https://github.com/stakater-charts/application). You are able to specify configuration via `values.yaml` and install dashboards on cluster. The following is an example.
 
 ```yaml
 grafanaDashboard:

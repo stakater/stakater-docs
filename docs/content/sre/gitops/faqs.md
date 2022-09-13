@@ -1,6 +1,6 @@
 # Frequently Asked Questions
 
-#### 1. What is Gitops?
+#### 1. What is GitOps?
 _GitOps is a way to do operations, by using Git as a single source of truth, and updating the state of the operating configuration automatically, based on a Git repository_.
 
 #### 2. How does GitOps differ from Infrastructure as Code?

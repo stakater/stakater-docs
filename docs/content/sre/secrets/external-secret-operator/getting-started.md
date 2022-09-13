@@ -30,7 +30,7 @@ spec:
 
 ## Login to Vault
 
-Log in to the Vault by selecting OIDC from **Method** dropdown. In the pop up window, enter your Openshift credentials if prompted.
+Log in to the Vault by selecting OIDC from **Method** dropdown. In the pop up window, enter your OpenShift credentials if prompted.
 
 ![OIDC Login](./images/OIDC-login.png)
 

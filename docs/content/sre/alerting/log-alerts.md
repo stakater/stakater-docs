@@ -1,11 +1,11 @@
 # Log alerting
 
-Stakater App Agility Platform provides alerting for applications logs via [Konfigurator](https://github.com/stakater/Konfigurator) which out of the box integrates with fluentd. These alerts land on Slack channel(s) so that any Errors/Warnings can be responded immediately.
+Stakater App Agility Platform provides alerting for applications logs via [Konfigurator](https://github.com/stakater/Konfigurator) which out of the box integrates with Fluentd. These alerts land on Slack channel(s) so that any Errors/Warnings can be responded immediately.
 
 To configure log alerting do following:
 
 1. Configure the incoming webhook in slack
-2. Configure `FluentdConfigAnnotation` in application helm chart
+2. Configure `FluentdConfigAnnotation` in application Helm chart
 
 ## 1. Configure the incoming webhook in slack
 
@@ -20,15 +20,15 @@ Always use Slack bot account to manage incoming webhooks. An integration/app mig
 - After picking a channel or user to be notified, click the `Add Incoming WebHooks Integration` Button. The most important part on the next screen is the `WebHook URL`. Make sure you copy this URL and save it
 - Near the bottom of this page, you may further customize the Incoming WebHook you just created. Give it a name, description and perhaps a custom icon.
 
-## 2. Configure `FluentdConfigAnnotation` in application helm chart
+## 2. Configure `FluentdConfigAnnotation` in application Helm chart
 
 The configuration to parse/match/send logs can be specified in the [Application Chart](https://github.com/stakater-charts/application).
 
 | Parameter | Description |
 |:---|:---|
-|.Values.deployment.fluentdConfigAnnotations.notifications.slack|specify slack *webhookURL* and *channelName*|
-|.Values.deployment.fluentdConfigAnnotations.key|specify log field to match the regex|
-|.Values.deployment.fluentdConfigAnnotations.pattern|specify regex to be matched|
+|`.Values.deployment.fluentdConfigAnnotations.notifications.slack`|specify slack *`webhookURL`* and *`channelName`*|
+|`.Values.deployment.fluentdConfigAnnotations.key`|specify log field to match the regex|
+|`.Values.deployment.fluentdConfigAnnotations.pattern`|specify regex to be matched|
 
 We recommend to log as JSON but for some reason if you can't then follow the next step as well.
 

@@ -4,7 +4,7 @@ Below is a monthly report published alongside new or updated software that detai
 
 ## February2022
 
-### Nexus urls updated
+### Nexus URLs updated
 
 As part of re-organizing our add-on tools chain we updated nexus URLs.
 
@@ -21,7 +21,7 @@ As part of re-organizing our add-on tools chain we updated nexus URLs.
 
 Following updates required to be done on workflows
 
-- Re-seal dockerconfigjson secret with updated repository url
-- Respective helm and docker urls were to be updated in pipelines and code repositories
-- nexus-docker-config-forked fqdns were updated
-- managed-addons/nexus/docker secret updated in vault
+- Re-seal dockerconfigjson secret with updated repository URL
+- Respective Helm and docker URLs were to be updated in pipelines and code repositories
+- nexus-docker-config-forked FQDNs were updated
+- managed-addons/nexus/docker secret updated in Vault

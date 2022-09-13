@@ -28,7 +28,7 @@ Here is a list of important Helm points that are often controversial between tea
 
 Using Helm repositories is a recommended practice, but completely optional. You can deploy a Helm chart to a Kubernetes cluster directly from the filesystem.
 
-Helm can install a chart either in the package (.tgz) or unpackaged form (tree of files) to a Kubernetes cluster right away. Thus, the most minimal Helm pipeline has only two steps:
+Helm can install a chart either in the package (.tgz) or un-packaged form (tree of files) to a Kubernetes cluster right away. Thus, the most minimal Helm pipeline has only two steps:
 
 - Checkout from git a Helm chart described in uncompressed files.
 - Install this chart to a Kubernetes cluster.
@@ -62,7 +62,7 @@ Here is a table that highlights the comparison:
 
 Helm Feature |	Alternative
 --- | --- 
-Templating |	Kustomize, k8comp, kdeploy, ktmpl, kuku, jinja, sed, awk, etc.
+Templating |	`Kustomize`, `k8comp`, `kdeploy`, `ktmpl`, `kuku`, `jinja`, `sed`, `awk`, etc.
 Manifest grouping (entity/package) |	None
 Application/package dependencies |	None
 Runtime view of cluster packages |	None

@@ -3,8 +3,8 @@
 ## Overview
 There are 2 types of monitoring:
 
-1. Infrastructure monitoring (comes default with openshift installation)
-2. Workload monitoring ( deployed by stakater to monitor application workloads)
+1. Infrastructure monitoring (comes default with OpenShift installation)
+2. Workload monitoring (deployed by Stakater to monitor application workloads)
 
 
 ![Monitoring Diagram](./images/monitoring-diagram.png)
@@ -12,12 +12,12 @@ There are 2 types of monitoring:
 ## Infrastructure Monitoring
 1. Prometheus
 2. Grafana
-3. AlertManager
+3. Alertmanager
 
 ## Workload Monitoring
 1. Prometheus
 2. Grafana
-3. AlertManager
+3. Alertmanager
 
 ## Creating Application Alerts to Monitor Application workloads
 In order to define Prometheus rules to monitor applications on the basis of exposed metrics. You need 3 things:
@@ -54,7 +54,7 @@ spec:
 
 ### Defining PrometheusRule CustomResource
 
-PrometheusRule CustomResource will define rules to generate an alert if the metrics values go below/up a certain value (depends on the usecase).
+PrometheusRule CustomResource will define rules to generate an alert if the metrics values go below/up a certain value (depends on the use case).
 
 The Template for the File is as follows:
 

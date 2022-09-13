@@ -1,8 +1,8 @@
 # Predefined PrometheusRules
 
-There are few pre-defined PrometheusRules that come with the platfrom. You can use existing existing rules to forward alerts to your prefferred medium of choice. 
+There are few pre-defined PrometheusRules that come with the platform. You can use existing rules to forward alerts to your preferred medium of choice.
 
-Following are the rules along their descriptions
+Following are the rules along their descriptions.
 
 ## Kubernetes Apps
 

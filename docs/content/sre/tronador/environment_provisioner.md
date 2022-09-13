@@ -44,15 +44,15 @@ spec:
     owner: stakater
 ```
 
-## application
+## `application`
 
-Values inside the application section are used to create the helm release that manages deployment of the application into the cluster. The important fields here are:
+Values inside the application section are used to create the Helm release that manages deployment of the application into the cluster. The important fields here are:
 
-- **release.chart**: The chart that will be deployed. Must contain its git repo path, the branch to deploy, and the path to the chart within the git repo. If the chart is placed inside a private repo, then its secret must also be specified.
-- **release.releaseName**: The name of the helm release that will be deployed.
-- **release.values**: The values that to override within the helm release. These need to be updated whenever a new image is created for testing. Using the `create-environment-provisioner` cluster task is recommended here
-- **release.valuesFrom**: Values from external sources, such as configMaps or secrets. For more details, see the [Official HelmRelease docs](https://fluxcd.io/legacy/helm-operator/helmrelease-guide/values/)
+- **`release.chart`**: The chart that will be deployed. Must contain its git repo path, the branch to deploy, and the path to the chart within the git repo. If the chart is placed inside a private repo, then its secret must also be specified.
+- **`release.releaseName`**: The name of the Helm release that will be deployed.
+- **`release.values`**: The values that to override within the Helm release. These need to be updated whenever a new image is created for testing. Using the `create-environment-provisioner` cluster task is recommended here
+- **`release.valuesFrom`**: Values from external sources, such as configMaps or secrets. For more details, see the [Official HelmRelease docs](https://fluxcd.io/legacy/helm-operator/helmrelease-guide/values/)
 
-## namespaceLabels
+## `namespaceLabels`
 
 Optional field that contains a map of all labels needed to be placed inside the namespace provisioned by the `EnvironmentProvisioner`. If they are removed from here, they will be removed from the namespace as well. Labels in the namespace that were never in this field will not be affected. A potential use case of this field is to allow compatibility with [Tenant Operator](../tenant-operator/overview.html).

@@ -14,7 +14,7 @@ The guide below is written as a SAAP customer's point of view. If you use Tronad
 
 ## Developer support
 
-Environment provisioning takes a few minutes to complete, since there is a lot of steps involved that can take some time (image creation, argocd sync, Helm Operator reconcile, etc). Please take a look at the [workflow for Tronador](./workflow.html) to see how the process works. If the environment is still not provisioned after a few minutes, you can use the following steps to get an idea of why it is taking so long:
+Environment provisioning takes a few minutes to complete, since there is a lot of steps involved that can take some time (image creation, ArgoCD sync, Helm Operator reconcile, etc). Please take a look at the [workflow for Tronador](./workflow.html) to see how the process works. If the environment is still not provisioned after a few minutes, you can use the following steps to get an idea of why it is taking so long:
 
 * Check your cluster's PipelineRun resource to check its status. If any task fails, you can look at the logs of the failed task to see what went wrong.
 
@@ -32,7 +32,7 @@ Environment provisioning takes a few minutes to complete, since there is a lot o
   <figcaption>A successful pipeline run</figcaption>
 </figure>
 
-* View your gitops repository to verify that the Environment Provisioner CR is pushed to it.
+* View your GitOps repository to verify that the Environment Provisioner CR is pushed to it.
 
 <figure>
   <img
@@ -69,13 +69,13 @@ Environment provisioning takes a few minutes to complete, since there is a lot o
 * If everything above looks good, then the pods might be in a failing state. Check the pods deployed to your provisioned namespace and view their events to see if there are any failures, and why. Most likely the issue is a lack of imagePullSecrets in the provisioned namespace.
 
 Those secrets can be added using [Tronador Config](./tronador_config.html) by mentioning the resources in the CR, which will deploy those resources in all DTE Namespaces.
-This can also be done by [Tenant Operator's](../tenant-operator/overview.html) [TemplateGroupInstance](../tenant-operator/customresources.html#_5-templategroupinstance) by setting the proper label in your tronador config file.
+This can also be done by [Tenant Operator's](../tenant-operator/overview.html) [TemplateGroupInstance](../tenant-operator/customresources.html#_5-templategroupinstance) by setting the proper label in your Tronador config file.
 
 
 ## Cluster Admin support
 
 * In case Helm Release keeps failing, you will need to check Helm Operator's logs to get more information about the failure.
-  * If you see constant helm release failures with the error message `Could not resolve host: github.com` or similar, you might need to change the `dnsConfig` within the template's spec for the Helm Operator's deployment with the following details:
+  * If you see constant Helm release failures with the error message `Could not resolve host: github.com` or similar, you might need to change the `dnsConfig` within the template's spec for the Helm Operator's deployment with the following details:
 
     ```yaml
       dnsPolicy: "ClusterFirst"

@@ -1,20 +1,20 @@
 # Add new environment
 
-To add new environment in cluster do following steps in gitops directory
+To add new environment in cluster do following steps in GitOps directory:
 
-- Add environment folder inside cluster's argocd folder located in sre tenant directory.
-  **\<sre-tenant>/\<cluster>/argocd/\<env>**
+- Add environment folder inside cluster's ArgoCD folder located in sre tenant directory.
+  **`<sre-tenant>/<cluster>/argocd/<env>`**
 
 - Add environment folder inside config folder located in application tenants directory
-  **\<application-tenant>/configs/\<env>**/argocd/
+  **`<application-tenant>/configs/<env>`**`/argocd/`
 
-- Add environment folder in each application direcory located in application tenants directory
-     - \<01-tenant>/\<01-application>/\<env>
-     - \<01-tenant>/\<n-application>/\<env>
-     - \<n-tenant>/\<n-application>/\<env>
+- Add environment folder in each application directory located in application tenants directory
+     - `<01-tenant>/<01-application>/<env>`
+     - `<01-tenant>/<n-application>/<env>`
+     - `<n-tenant>/<n-application>/<env>`
 
 - Add space file inside **each** application tenants config directory 
-  **\<application-tenant>/configs/\<env>**/space.yaml
+  **`<application-tenant>/configs/<env>`**`/space.yaml`
   ```
   apiVersion: tenantoperator.stakater.com/v1alpha1
   kind: Space
@@ -30,9 +30,9 @@ To add new environment in cluster do following steps in gitops directory
     tenant: <tenant>
   ```
 
-  Replace angle brackets with following values in Above templates:
-  - \<tenant> : Name of the tenant
-  - \<application-tenant> : Name of application tenant
-  - \<sre-tenant> : Name of sre tenant
-  - \<env>:  Environment name
-  - \<nexus-repo>: url of nexus repository
+  Replace angle brackets with following values in above templates:
+  - `<tenant>`: Name of the tenant
+  - `<application-tenant>`: Name of application tenant
+  - `<sre-tenant>`: Name of SRE tenant
+  - `<env>`: Environment name
+  - `<nexus-repo>`: URL of Nexus repository

@@ -1,11 +1,11 @@
 # External downtime alerting
 
-Stakater App Agility Platform provides downtime notifications for Applications via [IngressMonitorController](https://github.com/stakater/IngressMonitorController) which out of the box integrates with [UptimeRobot](https://uptimerobot.com) and many other services. For this guide we will configure a slack channel for recieving the alerts; but you can can configure any medium supported by the service (email, pagerduty, etc.).
+Stakater App Agility Platform provides downtime notifications for Applications via [IngressMonitorController](https://github.com/stakater/IngressMonitorController) which out of the box integrates with [UptimeRobot](https://uptimerobot.com) and many other services. For this guide we will configure a slack channel for receiving the alerts; but you can configure any medium supported by the service (email, PagerDuty, etc.).
 
 To configure downtime alerting do following:
 
 1. Configure incoming webhook in slack
-2. Create alert contact on uptimerobot with webhook
+2. Create alert contact on UptimeRobot with webhook
 3. Update IMC configuration
 4. Enable EndpointMonitor in the application
 5. Validate downtime notification
@@ -22,9 +22,9 @@ To configure downtime alerting do following:
 ### Items to be provided to Stakater Support
 - `Incoming WebHook URL`
 
-## 2. Create alert contact on uptimerobot with webhook 
+## 2. Create alert contact on UptimeRobot with webhook 
 
-Create alert contact on uptimerobot
+Create alert contact on UptimeRobot
 
 _TODO Add details with screen shots_
 
@@ -36,7 +36,7 @@ _TODO Add details with screen shots_
 
 ## 4. Enable EndpointMonitor in the application
 
-Stakater helm application chart supports [endpointMonitor](https://github.com/stakater-charts/application/blob/master/application/values.yaml#L465-L475); just enable it i.e.
+Stakater Helm application chart supports [`endpointMonitor`](https://github.com/stakater-charts/application/blob/master/application/values.yaml#L465-L475); just enable it i.e.
 
 ```
 endpointMonitor:
@@ -45,7 +45,7 @@ endpointMonitor:
 
 ## 5. Validate downtime notification
 
-Reduce replicas to zero; and you should recieve downtime notification!
+Reduce replicas to zero; and you should receive downtime notification!
 
 ```
   deployment:

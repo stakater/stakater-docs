@@ -5,7 +5,7 @@
 The major functions include:
 - Backup Kubernetes resources and persistent volumes for supported storage providers.
 - Restore Kubernetes resources and persistent volumes for supported storage providers.
-- When backing up persistent volumes w/o supported storage provider, Velero leverages [restic](https://github.com/restic/restic) as an agnostic solution to back up this sort of persistent volumes under some known limitations.
+- When backing up persistent volumes w/o supported storage provider, Velero leverages [`restic`](https://github.com/restic/restic) as an agnostic solution to back up this sort of persistent volumes under some known limitations.
 
 User can leverage these fundamental functions to achieve user stories:
 - Backup whole Kubernetes cluster resources then restore if any Kubernetes resources loss.
@@ -15,5 +15,5 @@ User can leverage these fundamental functions to achieve user stories:
 
 Velero consists of below components:
 - A Velero server that runs on your Kubernetes cluster.
-- A restic deployed on each worker nodes that run on your Kubernetes cluster (optional).
+- A `restic` deployed on each worker nodes that run on your Kubernetes cluster (optional).
 - A command-line client that runs locally.

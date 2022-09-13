@@ -15,7 +15,7 @@ spec:
   ...
 ```
 
-Afterwards, Bill must specify the source gitops repos for the tenant inside the tenant CR like so:
+Afterwards, Bill must specify the source GitOps repos for the tenant inside the tenant CR like so:
 
 ```yaml
 apiVersion: tenantoperator.stakater.com/v1beta1
@@ -26,7 +26,7 @@ spec:
   argocd:
     sourceRepos:
       # specify source repos here
-      - "https://github.com/stakater/gitops-config"
+      - "https://github.com/stakater/GitOps-config"
   owners:
     users:
       - user
@@ -126,7 +126,7 @@ spec:
   ...
 ```
 
-Now, if these resources are added to any tenant's project directory in gitops, ArgoCD will not sync them to the cluster. The AppProject will also have the blacklisted resources added to it:
+Now, if these resources are added to any tenant's project directory in GitOps, ArgoCD will not sync them to the cluster. The AppProject will also have the blacklisted resources added to it:
 
 ```yaml
 apiVersion: argoproj.io/v1alpha1

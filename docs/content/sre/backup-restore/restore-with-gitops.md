@@ -1,16 +1,16 @@
 # Restore PVC data with GitOps
 
-Restore PVC data when its managed in gitops by Argocd.
+Restore PVC data when its managed in GitOps by ArgoCD.
 
 ## 1. Prerequisite
 
-Setup velero-cli [doc](./velero-cli.md)
+Setup `velero-cli` [doc](./velero-cli.md)
 
 ## 2. Take backup
 
-To take backup with velero you have two options:
+To take backup with Velero you have two options:
 
-### 2.1: Option # 1 - Via Cli
+### 2.1: Option # 1 - Via CLI
 
 ~~~
 velero backup create <NAME-OF-BACKUP> --include-namespaces <APPLICATION-NAMESPACE> --namespace openshift-velero
@@ -33,9 +33,9 @@ spec:
   ttl: 2h0m0s
 ~~~
 
-## 3. Disable self heal in Argocd:
+## 3. Disable self heal in ArgoCD:
 
-Disalbe self heal in argocd application that is managing PVC so it does not recreate resources from gitops.
+Disable self heal in ArgoCD application that is managing PVC so it does not recreate resources from GitOps.
 
 ```
   syncPolicy:
@@ -46,13 +46,13 @@ Disalbe self heal in argocd application that is managing PVC so it does not recr
 
 ## 4. Delete PVC 
 
-Scale down statefulset pod so PVC can be deleted
+Scale down `statefulset` pod so PVC can be deleted
 
 ```
 oc scale statefulsets <NAME> --replicas 0
 ```
 
-Delete the PVC which you want to restore data so that its created again by velero.
+Delete the PVC which you want to restore data so that its created again by Velero.
 
 ``` 
 oc delete pvc <PVC-NAME> -n <NAMESPACE> 
@@ -60,9 +60,9 @@ oc delete pvc <PVC-NAME> -n <NAMESPACE>
 
 ## 5. Restore Velero Backup
 
-To restore backup with velero you have two options:
+To restore backup with Velero you have two options:
 
-### 5.1: Option # 1 - Via Cli
+### 5.1: Option # 1 - Via CLI
 
 ~~~
 velero restore create --from-backup <NAME-OF-BACKUP> --namespace openshift-velero
@@ -91,9 +91,9 @@ spec:
 
 After a successful restore, you should be able to see pod up and running with restored backup data
 
-## 6. Scale up Statefulset again
+## 6. Scale up `statefulset` again
 
-Scale up Stateful set so new pod can be attached to restored pvc
+Scale up `statefulset` set so new pod can be attached to restored PVC
 
 ```
 oc scale statefulsets <NAME> --replicas 0
@@ -105,7 +105,7 @@ Validate the data exists in the database.
 
 ## 8. Enable self heal again
 
-Enable self heal so argocd start managing resources again. 
+Enable self heal so ArgoCD start managing resources again. 
 
 ```
   syncPolicy:

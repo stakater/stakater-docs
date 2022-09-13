@@ -50,15 +50,15 @@ data:
 
 The input parameters to the cluster task will be:
 
-- **pathToTronadorFile:** The path to the .tronador.yaml config file within the repo. Default value is the root your repo, "`.tronador.yaml`"
-- **repoName:** Name of the repository
-- **prNumber:** Pull request number
-- **gitUrl:** URL to the remote git repository
-- **gitBranch:** Branch to clone via helm release
-- **imageTag:** Tag of the image to create
-- **imageRepo:** Repository where the image is located
+- **`pathToTronadorFile`:** The path to the `.tronador.yaml` config file within the repo. Default value is the root your repo, "`.tronador.yaml`"
+- **`repoName`:** Name of the repository
+- **`prNumber`:** Pull request number
+- **`gitUrl`:** URL to the remote git repository
+- **`gitBranch`:** Branch to clone via Helm release
+- **`imageTag`:** Tag of the image to create
+- **`imageRepo`:** Repository where the image is located
 
-These parameters can be gotten from the github webhook that triggers the Tekton pipeline, and will be passed here. `imageTag` and `imageRepo` are gotten from the task that creates and pushes your images to your image registry.
+These parameters can be gotten from the GitHub webhook that triggers the Tekton pipeline, and will be passed here. `imageTag` and `imageRepo` are gotten from the task that creates and pushes your images to your image registry.
 
 ## Outputs
 

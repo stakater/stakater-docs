@@ -12,4 +12,4 @@
 2. Then you can follow [this](https://help.sonatype.com/repomanager3/user-interface/uploading-components) guide to upload dependencies from the Nexus UI.
 
 ### How to setup Maven Project with nexus repository?
-- To setup maven project, follow this [guide](./07-maven-setup.md)
+- To setup Maven project, follow this [guide](./07-maven-setup.md)

@@ -2,9 +2,9 @@
 
 ## Overview
 
-[SealedSecrets](https://github.com/bitnami-labs/sealed-secrets) controller solves the problem of storing kubernetes secret data securely by encrypting the configurations. It can only be decrypted by sealed secret controller running in cluster.
+[SealedSecrets](https://github.com/bitnami-labs/sealed-secrets) controller solves the problem of storing Kubernetes secret data securely by encrypting the configurations. It can only be decrypted by sealed secret controller running in cluster.
 
-## Architecutre
+## Architecture
 
 SealedSecrets is composed of two components:
 
@@ -33,9 +33,9 @@ data:
   DATABASE: dGVzdC1kYXRhYmFzZQ==        # -< base64 encoded test-database
 ```
 
-save it in a file named `secret-mysql.yaml`. This file should not be pushed to git as it is easily decodable.
+save it in a file named `secret-mysql.yaml`. This file should not be pushed to git as it is easily de-codable.
 
-Now install kubeseal and your kubeconfig should be pointing to Openshift cluster.
+Now install kubeseal and your kubeconfig should be pointing to OpenShift cluster.
 
 As sealed secrets controller is running in `stakater-sealed-secrets` namespace and sealed secrets service name is `sealed-secrets`, so you need to run
 
@@ -80,7 +80,7 @@ spec:
       creationTimestamp: null
       name: mysql-secrets
 ```
-you need to add sealedsecret block in helm values present in `deploy/values.yaml` in your application repository and copy paste key values from generated output
+you need to add sealedsecret block in Helm values present in `deploy/values.yaml` in your application repository and copy paste key values from generated output
 ```yaml
   sealedSecret:
     enabled: true
@@ -122,7 +122,7 @@ spec:
       namespace: gabbar-dev
 ```
 
-you need to add sealedsecret block in helm values present in `<tenant>/<application>/<env>/values.yaml` in gitops-config repository and copy paste key values from generated output
+you need to add sealedsecret block in Helm values present in `<tenant>/<application>/<env>/values.yaml` in GitOps-config repository and copy paste key values from generated output
 
 ```yaml
   sealedSecret:
@@ -140,13 +140,13 @@ you need to add sealedsecret block in helm values present in `<tenant>/<applicat
 
 #### Using Environment Variables
 
-When consuming the secret in application using environment variable, you would need to add `env:` field in values file, e.g. if you want to use env vars from above mysql secret, in values file, replace
+When consuming the secret in application using environment variable, you would need to add `env:` field in values file, e.g. if you want to use environment variables from above MySQL secret, in values file, replace
 
 ```yaml
   env: []
 ```
 
-to
+with
 
 ```yaml
   env:

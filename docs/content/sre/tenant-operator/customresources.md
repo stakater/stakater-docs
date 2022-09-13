@@ -2,12 +2,12 @@
 
 Tenant Operator defines following 5 custom resources:
 
-1. [Quota](./customresources.html#_1-quota)
-2. [Tenant](./customresources.html#_2-tenant)
-3. [Template](./customresources.html#_3-template)
-4. [TemplateInstance](./customresources.html#_4-templateinstance)
-5. [TemplateGroupInstance](./customresources.html#_5-templategroupinstance)
-6. [ResourceSupervisor](./customresources.html#_6-resourcesupervisor)
+1. [Quota](#_1-quota)
+2. [Tenant](#_2-tenant)
+3. [Template](#_3-template)
+4. [TemplateInstance](#_4-templateinstance)
+5. [TemplateGroupInstance](#_5-templategroupinstance)
+6. [ResourceSupervisor](#_6-resourcesupervisor)
 
 ## 1. Quota
 
@@ -121,10 +121,10 @@ spec:
 ```
 
 * Tenant has 3 kinds of `Members`:
-  * `Owners:` Users who will be owners of a tenant. They will have openshift admin-role assigned to their users, with additional access to create namespaces as well.
-  * `Editors:` Users who will be editors of a tenant. They will have openshift edit-role assigned to their users.
-  * `Viewers:` Users who will be viewers of a tenant. They will have openshift view-role assigned to their users.
-  * For more [details](https://docs.cloud.stakater.com/content/sre/tenant-operator/tenant_roles.html).
+  * `Owners:` Users who will be owners of a tenant. They will have OpenShift admin-role assigned to their users, with additional access to create namespaces as well.
+  * `Editors:` Users who will be editors of a tenant. They will have OpenShift edit-role assigned to their users.
+  * `Viewers:` Users who will be viewers of a tenant. They will have OpenShift view-role assigned to their users.
+  * For more [details](https://docs.cloud.stakater.com/content/sre/tenant-operator/tenant-roles.html).
 
 * `Users` can be linked to the tenant by specifying there username in `owners.users`, `editors.users` and `viewers.users` respectively.
 
@@ -139,7 +139,7 @@ spec:
 * `onDelete` is used to tell Tenant-Operator what to do when a Tenant is deleted.
   * `cleanNamespaces` if the value is set to **true** *Tenant-Operator* deletes all *tenant namespaces* when a `Tenant` is deleted. Default value is **false**.
 
-* `argocd` can be used to list `sourceRepos` that point to your gitops repositories. The field is required if you want to create an ArgoCD AppProject for the tenant.
+* `argocd` can be used to list `sourceRepos` that point to your GitOps repositories. The field is required if you want to create an ArgoCD AppProject for the tenant.
 
 * `hibernation` can be used to create a schedule during which the namespaces belonging to the tenant will be put to sleep. The values of the `sleepSchedule` and `wakeSchedule` fields must be a string in a cron format.
 
@@ -243,7 +243,7 @@ Also you can define custom variables in `Template` and `TemplateInstance` . The 
 </details>
 <details open>
   <summary> Helm Chart Templates</summary>
-  <p>Instead of manifests, a Template can specify a Helm chart that will be installed (using helm template) when the Template is being instantiated.</p>
+  <p>Instead of manifests, a Template can specify a Helm chart that will be installed (using Helm template) when the Template is being instantiated.</p>
 </details>
 
 ### Mandatory and Optional Templates
@@ -266,7 +266,7 @@ spec:
 ```
 
 TemplateInstance are used to keep track of resources created from Templates, which are being instantiated inside a Namespace.
-Generally, a TemplateInstance is created from a Template and then the TemplateInstances will not be updated when the Template changes later on. To change this behavior, it is possible to set `spec.sync: true` in a TemplateInstance. Setting this option, means to keep this TemplateInstance in sync with the underlying template (similar to helm upgrade).
+Generally, a TemplateInstance is created from a Template and then the TemplateInstances will not be updated when the Template changes later on. To change this behavior, it is possible to set `spec.sync: true` in a TemplateInstance. Setting this option, means to keep this TemplateInstance in sync with the underlying template (similar to Helm upgrade).
 
 ## 5. TemplateGroupInstance
 
@@ -319,7 +319,7 @@ metadata:
   name: build
 ```
 
-* Namespace should have label `stakater.com/tenant` which contains the name of tenant to which it belongs to. The labels and annotationos specified in the operator config,  `ocp.labels.project` and `ocp.annotations.project` are inserted in the namespace by the controller.
+* Namespace should have label `stakater.com/tenant` which contains the name of tenant to which it belongs to. The labels and annotations specified in the operator config,  `ocp.labels.project` and `ocp.annotations.project` are inserted in the namespace by the controller.
 
 ## Notes
 

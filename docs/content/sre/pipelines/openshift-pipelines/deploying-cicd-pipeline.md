@@ -68,7 +68,7 @@ kubectl apply -f triggers/trigger.yaml -n <NAMESPACE_NAME>
 
 ::: details Verify EventListener Route created in your namespace
 
-On Openshift Dashboard, On the left panel, Go to `Networking` -> `Routes` and verify an event listener route is created. 
+On OpenShift Dashboard, On the left panel, Go to `Networking` -> `Routes` and verify an event listener route is created. 
 
 Verify by Opening the URL under `Location` and verify the response is similar to this:
 ```
@@ -84,13 +84,13 @@ Now attempt to make a PR in your forked repository. which will trigger an automa
 
 - Create a PR for the forked repo by adding a `test_file.txt` with some random text in a branch `test-branch`
 
-- As soon as the PR is created Pipeline will be triggered which can be seen in Openshift dashboard under `Pipeline` -> `Pipeline Runs`
+- As soon as the PR is created Pipeline will be triggered which can be seen in OpenShift dashboard under `Pipeline` -> `Pipeline Runs`
 
 - On successful build, the status would be shown as follows
 
 ![Pipeline Status](./images/success-PR.png)
 
-- A comment will be posted on the PR on Github to reflect the status of the Pipeline
+- A comment will be posted on the PR on GitHub to reflect the status of the Pipeline
 
 ![PR Status](./images/pr-comment.png)
 :::
@@ -105,7 +105,7 @@ Now attempt to merge this PR in master
 
 ![Master status](./images/pr-merged.png)
 
-- After successful execution a new release and tag will be created in the `Releases` section on Github
+- After successful execution a new release and tag will be created in the `Releases` section on GitHub
 
 ![new release](./images/new-tag.png)
 :::

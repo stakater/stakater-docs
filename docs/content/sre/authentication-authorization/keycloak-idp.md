@@ -1,4 +1,4 @@
-# Configuring a KeyCloak identity provider 
+# Configuring a Keycloak identity provider 
 
 In the realm you want to provide access, create a new Client:
 

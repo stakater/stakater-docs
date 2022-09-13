@@ -1,8 +1,8 @@
 # Installation
 
-This document contains instructions on installing and configuring Tenant-Operator using Openshift MarketPlace or Helm. Following are the 4 different ways available
+This document contains instructions on installing and configuring Tenant-Operator using OpenShift MarketPlace or Helm. Following are the 4 different ways available
 
-1. [Openshift OperatorHub](#installing-via-operatorhub)
+1. [OpenShift OperatorHub](#installing-via-operatorhub)
 
 2. [Subscription](#installing-via-subscription)
 
@@ -12,9 +12,9 @@ This document contains instructions on installing and configuring Tenant-Operato
 
 ## Requirements
 
-* An **Openshift** cluster [v4.7 - v4.10]
-* [**Helm-CLI**](https://helm.sh/docs/intro/install/) (Optional: *[For installing via helm](#installing-via-helm)*)
-* **Helm-Operator** (Optional: *[For installing via helm-release](#installing-via-helm-release)*)
+* An **OpenShift** cluster [v4.7 - v4.10]
+* [**Helm-CLI**](https://helm.sh/docs/intro/install/) (Optional: *[For installing via Helm](#installing-via-helm)*)
+* **Helm-Operator** (Optional: *[For installing via Helm release](#installing-via-helm-release)*)
 
 ## Installing via OperatorHub
 
@@ -221,7 +221,7 @@ Create a new namespace `stakater-tenant-operator`, where Tenant-Operator will be
 oc apply -f stakater-docker-secret.yaml
 ```
 
-Create a secret called `stakater-docker-secret` in *stakater-tenant-operator* namespace to pull Tenant-Operator image from dockerhub.
+Create a secret called `stakater-docker-secret` in *stakater-tenant-operator* namespace to pull Tenant-Operator image from Docker Hub.
 
 *The secret will be provided by **Stakater***
 
@@ -276,7 +276,7 @@ Create a new namespace `stakater-tenant-operator`, where Tenant-Operator will be
 oc apply -f -n stakater-tenant-operator stakater-docker-secret.yaml
 ```
 
-Create a secret called `stakater-docker-secret` in *stakater-tenant-operator* namespace to pull Tenant-Operator image from dockerhub.
+Create a secret called `stakater-docker-secret` in *stakater-tenant-operator* namespace to pull Tenant-Operator image from Docker Hub.
 
 *The secret will be provided by **Stakater***
 
@@ -312,7 +312,7 @@ spec:
         memory: 128Mi
 ```
 
-This helm-release will deploy tenant-operator.
+This Helm release will deploy tenant-operator.
 
 Once the image has been pulled `Tenant-Operator` will be ready for use.
 
@@ -322,6 +322,6 @@ A default `IntegrationConfig` is installed with tenant-operator, which can be fo
 
 ## Notes
 
-* If tenant-operator is deployed in a newly created namespace, restart its pod once so tenant-operator can retrieve webhook-server-cert provided by openshift(if the pod is started before the secret was made).
+* If tenant-operator is deployed in a newly created namespace, restart its pod once so tenant-operator can retrieve webhook-server-cert provided by OpenShift (if the pod is started before the secret was made).
 * For more details on how to use Tenant-Operator please refer [use-cases](../tenant-operator/usecases/quota.html).
 * For more details on how to extend your Tenant-Operator manager ClusterRole please refer [use-cases](../tenant-operator/usecases/manager-clusterrole.html).
