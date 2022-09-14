@@ -28,6 +28,18 @@ jobs:
           files: docs/content/sre
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+  style_check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Style check
+        uses: reviewdog/action-languagetool@v1
+        with:
+          github_token: ${{secrets.GITHUB_TOKEN}}
+          reporter: github-pr-review
+          level: warning
+          language: 'en-US'
+          patterns: '**/*.md'
   build:
     runs-on: ubuntu-latest
     if: "! contains(toJSON(github.event.commits.*.message), '[skip-ci]')"
