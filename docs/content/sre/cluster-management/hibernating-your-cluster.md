@@ -31,7 +31,7 @@ Click on the menu button beside the cluster for which you wish to set a hibernat
 
 **Running Schedule** accepts a cron expression which specifies when to power  your cluster up. E.g a cron expression of “0 8 * * *” will power your cluster up at 8am everyday.
 
-**Cron Schedule** allows you to enable or disable a cron schedule.
+**cron Schedule** allows you to enable or disable a cron schedule.
 
 **Power State** allows you to manually select a Power State for your cluster. You can set it to Running or Hibernation.
 
