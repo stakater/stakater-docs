@@ -12,20 +12,20 @@ You can schedule a hibernation window for non-critical workload clusters using c
 
 To configure a Hibernation Schedule, log in to your console by first entering your enterprise domain name.
 
-![login1](imgs/Saap-login1.png)
+![login1](./imgs/Saap-login1.png)
 
 Next, Input your username/email and password.
 
-![login2](imgs/SAAP-login22.png)
+![login2](./imgs/SAAP-login22.png)
 
 You will be brought to the Cluster Management page where you can view all your managed clusters.
 
-![clusters](imgs/Saap-clusters.png)
+![clusters](./imgs/Saap-clusters.png)
 
 Click on the menu button beside the cluster for which you wish to set a hibernation window and select Manage Power State.
 
 
-![manage_powerstate_1](imgs/manage-powerstate-1.png)
+![manage_powerstate_1](./imgs/manage-powerstate-1.png)
 
 **Hibernating Schedule** accepts a cron expression which specifies when to power your cluster down. E.g a cron expression of “0 20 * * *” will power your cluster down at 8pm  every day.
 
@@ -37,7 +37,7 @@ Click on the menu button beside the cluster for which you wish to set a hibernat
 
 Setting your Power State to Hibernation will immediately power your cluster down, while Running will bring back your cluster online.
 
-![manage_poerstate2](imgs/manage-powerstate2.png)
+![manage_poerstate2](./imgs/manage-powerstate2.png)
 
 
 Now that you have implemented your hibernation schedule, your cluster will be offline during cluster hibernation, helping you save on cloud costs for your cluster nodes.
