@@ -4,10 +4,11 @@
 You can manage workloads in your cluster with Tenant Operator by implementing a hibernation schedule for your tenants.
 Hibernation downsizes running Deployments and StatefulSets in a tenant’s namespace according to a defined cron schedule. You can set a hibernation schedule for your tenants by adding the ‘spec.hibernation’ field to their respective Custom Resource.
 
-```YAML
+```yaml
 hibernation:
   sleepSchedule: 23 * * * *
   wakeSchedule: 26 * * * *
+
 ```
 `spec.hibernation.sleepSchedule` accepts a cron expression indicating the time to put the workloads in your tenant’s namespaces to sleep.
 
