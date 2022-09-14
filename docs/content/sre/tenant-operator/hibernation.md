@@ -25,7 +25,7 @@ The Resource Supervisor stores the Hibernation schedules and manages the current
   
 When the sleep timer is activated, the controller for the resource stores the details of your applications; including the number of replicas, configurations, etc., in the namespaces owned by the tenant and will then put your applications to sleep. When the wake timer is activated, the controller wakes up the applications using their stored details.
   
-Enabling ArgoCD support for Tenants will also hibernate applications in the tenants appProjects. 
+Enabling ArgoCD support for Tenants will also hibernate applications in the tenants 'appProjects'. 
   
 ```yaml
 apiVersion: tenantoperator.stakater.com/v1beta1
