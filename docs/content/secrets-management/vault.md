@@ -69,15 +69,17 @@ Vault login token=${TOKEN}
 
 SAAP supports 3 different ways to consume secrets from Vault:
 
-1. Option # 1 - Consume Vault secret via a volume
-2. Option # 2 - Consume Vault secret via environment variable
-3. Option # 3 - Consume Vault secret via ExternalSecrets
+1. Option # 1 - Consume Vault secret via a Volume
+2. Option # 2 - Consume Vault secret via Environment Variable
+3. Option # 3 - Consume Vault secret via ExternalSecret (Recommended)
 
 Below you can find step by step guide to consume via different options.
 
-### Option # 1 - Consume Vault secret via a volume
+### Option # 1 - Consume Vault secret via a Volume
 
 To mount Vault secret in a volume do following:
+
+_TODO_ Is this step required by all three options?
 
 - **Step 1**: Add label in serviceaccount so it can be granted Vault read access to secret path
 
@@ -123,7 +125,7 @@ To mount Vault secret in a volume do following:
        mountPath: /data/db-creds
      ```
 
-### Option # 2 - Consume Vault secret via environment variable
+### Option # 2 - Consume Vault secret via Environment Variable
 
 To mount Vault secret in an environment variable do following:
 
@@ -186,3 +188,51 @@ To mount Vault secret in an environment variable do following:
 [Here](https://github.com/stakater-lab/stakater-nordmart-review/blob/main/deploy/values.yaml#L24) is a working example.
 
 Your secret should be available at the path defined above in Vault; a change in secret value in Vault will automatically restart the application by [Stakater Reloader](https://github.com/stakater/Reloader)
+
+### Option # 3 - Consume Vault secret via ExternalSecret
+
+Kubernetes secret do not support storing or retrieving secret data from external secret management systems, e.g. [HashiCorp Vault](https://www.vaultproject.io/)
+
+**External Secrets** solves this problem by providing access to secrets stored externally. It does this by adding an `ExternalSecret` object to Kubernetes using a [CustomResourceDefinition](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/).
+
+SAAP comes with fully managed [**External Secrets Operator**](https://github.com/external-secrets/external-secrets/) to integrate with Vault and makes it extremely easy to consume secrets from Vault.
+
+- **Step 1**: Add `tenant-vault-access` template to the tenant
+
+    ```yaml
+    apiVersion: tenantoperator.stakater.com/v1alpha1
+    kind: Tenant
+    metadata:
+      name: gabbar
+    spec:
+      users:
+        owner:
+        - user1
+        - user2
+      quota: medium
+      namespacetemplate:
+        templateInstances:
+        - spec:
+            template: tenant-vault-access
+            sync: true
+    ```
+
+_TODO_ What will this template do? Who owns and manages this template? Is it owned by SAAP?
+
+- **Step 2**: Enable `externalSecret` in your `deploy/values.yaml` and provide details of the secret path in Vault. 
+
+    ```yaml
+    externalSecret:
+      enabled: true
+      secretStore:
+        name: tenant-vault-secret-store
+      files:   
+      inventory-postgres: #Name of Kubernetes Secret
+        data:
+          postgresql-password: #Name of Kubernetes Secret Key
+            remoteRef:
+              key: inventory-postgres #Name of Vault Secret
+              property: postgresql-password #Name of Vault Secret Key
+    ```
+
+_TODO_ So, when I update a secret in vault; then is the application restarted automatically by Reloader?
