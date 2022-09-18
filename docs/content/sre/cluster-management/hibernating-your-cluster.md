@@ -10,15 +10,7 @@ It takes around 1-3 minutes to take your cluster offline and about 3-5 minutes t
 
 You can schedule a hibernation window for non-critical workload clusters using cron jobs from your web console.
 
-To configure a Hibernation Schedule, log in to your console by first entering your enterprise domain name.
-
-![login1](./imgs/Saap-login1.png)
-
-Next, Input your username/email and password.
-
-![login2](./imgs/SAAP-login22.png)
-
-You will be brought to the Cluster Management page where you can view all your managed clusters.
+To configure a Hibernation Schedule, go to your Cluster Management page where you can view all your managed clusters.
 
 ![clusters](./imgs/Saap-clusters.png)
 
