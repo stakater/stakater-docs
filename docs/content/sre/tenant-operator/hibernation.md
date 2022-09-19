@@ -8,13 +8,12 @@ Hibernation downsizes running Deployments and StatefulSets in a tenant’s names
 hibernation:
   sleepSchedule: 23 * * * *
   wakeSchedule: 26 * * * *
-
 ```
 `spec.hibernation.sleepSchedule` accepts a cron expression indicating the time to put the workloads in your tenant’s namespaces to sleep.
 
 `spec.hibernation.wakeSchedule` accepts a cron expression indicating the time to wake the workloads in your tenant’s namespaces up.
 
-> Note: both sleep and wake schedules must be specified for your Hibernation schedule to be valid.<aside> 
+> Note: both sleep and wake schedules must be specified for your Hibernation schedule to be valid. 
   
 Additionally, adding the following annotation `hibernation.stakater.com/exclude: 'true'` to a namespace, excludes that namespace from hibernating.
 > Note that this won't wake up an already sleeping namespace before the wake schedule.
@@ -26,7 +25,7 @@ The Resource Supervisor stores the Hibernation schedules and manages the current
   
 When the sleep timer is activated, the controller for the resource stores the details of your applications; including the number of replicas, configurations, etc., in the namespaces owned by the tenant and will then put your applications to sleep. When the wake timer is activated, the controller wakes up the applications using their stored details.
   
-Enabling ArgoCD support for Tenants will also hibernate applications in the tenants 'appProjects'. 
+Enabling ArgoCD support for Tenants will also hibernate applications in the tenants `appProjects`. 
   
 ```yaml
 apiVersion: tenantoperator.stakater.com/v1beta1
