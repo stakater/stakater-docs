@@ -7,7 +7,7 @@ Jenkins supports two types of pipelines:
 
 ## Declarative Pipeline
 
-Declarative Pipeline provide a simplified and opinionated syntax on top of jenkins pipeline sub-systems. It supports the
+Declarative Pipeline provide a simplified and opinionated syntax on top of Jenkins pipeline sub-systems. It supports the
  pipeline as code concept and makes the pipeline declarative hence easier to read, write and re-use.
  
 ### Example
@@ -58,7 +58,7 @@ node {
 
 ## Stakater Pipeline Library
 
-We have been using jenkins at Stakater for a long time and one issue that we continuously face is how to make those pipelines
+We have been using Jenkins at Stakater for a long time and one issue that we continuously face is how to make those pipelines
 re-usable ? Since, most of the pipelines have same action items to perform. 
 
 ### Problem 
@@ -85,7 +85,7 @@ pool.
 // 2. Build application based on `appType` and `goal` using `builderImage`
 // 3. Run e2e tests
 // 4. Build & push image to `dockerRepositoryURL/appName`
-// 5. Generate/Update manifests based on any changes in the templates, that can be deployed on kubernetes
+// 5. Generate/Update manifests based on any changes in the templates, that can be deployed on Kubernetes
 // 6. Notify on slack regarding the build status, if `notifySlack` is true
 
 releaseApplication {
@@ -104,7 +104,7 @@ releaseApplication {
     // configuration parameter for e2e tess
     e2eTestJob = false
     e2eJobName = "../stakater-nordmart-e2e-tests/master"
-    // configuration for generating kubernetes manifests
+    // configuration for generating Kubernetes manifests
     kubernetesGenerateManifests = true
     kubernetesPublicChartRepositoryURL = "https://stakater.github.io/stakater-charts"
     kubernetesChartName = "stakater/application"

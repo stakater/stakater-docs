@@ -2,7 +2,7 @@
 
 ## Prerequisite
 
-You need velero CLI setup, follow the velero-cli [doc](./velero-cli.md)
+You need Velero CLI setup, follow the `velero-cli` [doc](./velero-cli.md)
 
 ## Prepare manifests for app
 
@@ -207,7 +207,7 @@ If everything goes well, your output should resemble to the one record above.
 
 ## Take backup and destroy app
 
-To take velero backup, use velero command:
+To take Velero backup, use `velero` command:
 
 ~~~
 velero backup create cassandra-backup --include-namespaces cassandra-app --namespace <VELERO_NAMESAPCE>
@@ -234,7 +234,7 @@ Now delete the app namespace `cassandra-app` and this should delete everything i
 
 ## Restore and verify app
 
-To perform a velero restore, use velero command:
+To perform a Velero restore, use `velero` command:
 
 ~~~
 velero restore create --from-backup cassandra-backup --namespace <VELERO_NAMESAPCE>

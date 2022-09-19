@@ -8,7 +8,7 @@ A GCP account is needed to create and manage cluster on GCP. The following crite
 
   |Type        | Limit |
     |------------|------------|
-  | Virtual Machines | Varies. The limit should be 12 initially. (Initial deployemnt is 3 master + 3 infra + 3 worker)|
+  | Virtual Machines | Varies. The limit should be 12 initially. (Initial deployment is 3 master + 3 infra + 3 worker)|
   | Regional vCPUs | The limit should be A x B x 2 , where A = no. of VMS (worker + infra + master), B = vCPUs per VM) |
   | In-use global IP addresses | 4 |
   | Service accounts | 5 |

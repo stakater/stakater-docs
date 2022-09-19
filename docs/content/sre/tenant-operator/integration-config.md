@@ -67,7 +67,7 @@ spec:
 
 Following are the different components that can be used to configure multi-tenancy in a cluster via tenant operator.
 
-## Openshift
+## OpenShift
 ``` yaml
 openshift:
   project:
@@ -178,13 +178,13 @@ namespaceAccessPolicy:
 ```
 
 #### :memo: Note
-If you want to use a more complex regex pattern (for the openshift.privilegedNamespaces or openshift.privilegedServiceAccounts field), it is recommended that you test the regex pattern first -  either locally or using a platform such as https://regex101.com/.
+If you want to use a more complex regex pattern (for the `openshift.privilegedNamespaces` or `openshift.privilegedServiceAccounts` field), it is recommended that you test the regex pattern first -  either locally or using a platform such as https://regex101.com/.
 
 ## ArgoCD
 
 ### Namespace
 
-`argocd.namespace` is an optional field used to specify the namespace where argocd applications and app projects are deployed. The field should be populated when you want to create an ArgoCD AppProject for each tenant
+`argocd.namespace` is an optional field used to specify the namespace where ArgoCD applications and app projects are deployed. The field should be populated when you want to create an ArgoCD AppProject for each tenant
 
 ### NamespaceResourceBlacklist
 
@@ -199,7 +199,7 @@ argocd:
     kind: NetworkPolicy
 ```
 
-`argocd.namespaceResourceBlacklist` prevents ArgoCD from syncing the listed resources from your gitops repo.
+`argocd.namespaceResourceBlacklist` prevents ArgoCD from syncing the listed resources from your GitOps repo.
 
 ### ClusterResourceWhitelist:
 
@@ -210,7 +210,7 @@ argocd:
     kind: EnvironmentProvisioner
 ```
 
-`argocd.clusterResourceWhitelist` allows ArgoCD to sync the listed cluster scoped resources from your gitops repo.
+`argocd.clusterResourceWhitelist` allows ArgoCD to sync the listed cluster scoped resources from your GitOps repo.
 
 ## RHSSO (Red Hat Single Sign-On)
 
@@ -238,10 +238,10 @@ If enabled, than admins have to provide secret and URL of RHSSO.
 
 [Vault](https://www.vaultproject.io/) is used to secure, store and tightly control access to tokens, passwords, certificates, encryption keys for protecting secrets and other sensitive data using a UI, CLI, or HTTP API.
 
-If `vault` is configured on a cluster, then vault configuration can be enabled.
+If `vault` is configured on a cluster, then Vault configuration can be enabled.
 
 ```yaml
-vault:
+Vault:
   enabled: true
   endpoint:
     secretReference:
@@ -254,12 +254,12 @@ vault:
     clientName: vault
 ```
 
-If enabled, than admins have to provide secret, URL and sso accessorID of vault.
+If enabled, than admins have to provide secret, URL and SSO accessorID of Vault.
 
 - `secretReference.name:` Will contain the name of the secret.
 - `secretReference.namespace:` Will contain the namespace of the secret.
-- `url:` Will contain the URL of vault.
-- `sso.accessorID:` Will contain the sso accessorID.
+- `url:` Will contain the URL of Vault.
+- `sso.accessorID:` Will contain the SSO accessorID.
 - `sso.clientName:` Will contain the client name.
 
 For more details please refer [use-cases](./usecases/integrationconfig.html)

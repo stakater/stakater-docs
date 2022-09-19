@@ -8,11 +8,11 @@ Policies are resources that govern the behavior of the Kubernetes cluster, where
 
 ## Kyverno
 
-Kyverno is a policy engine designed for Kubernetes. It manages policies as Kubernetes native resources and no new language is required to write policies. This allows using familiar tools such as kubectl, git, and kustomize to manage policies. Kyverno policies can validate, mutate, and generate Kubernetes resources.
+Kyverno is a policy engine designed for Kubernetes. It manages policies as Kubernetes native resources and no new language is required to write policies. This allows using familiar tools such as kubectl, git, and Kustomize to manage policies. Kyverno policies can validate, mutate, and generate Kubernetes resources.
 
 ## How to write Policies?
 
-To add custom policies, user can create `Policy` custom resource. This is a namespaced resource and would only allow policy policy in the relevant namespace.
+To add custom policies, user can create `Policy` custom resource. This is a namespaced resource and would only allow policy in the relevant namespace.
 
 Detailed walk-through of how to create policies can be found [here](https://kyverno.io/docs/writing-policies)
 
@@ -74,7 +74,7 @@ A concrete list of policies is maintained by Stakater for ensuring that clusters
 
 **NOTE:** Policies added directly to the clusters(Namespaced Policies) cannot be managed through this front-end
 
-## Alternatives to kyverno
+## Alternatives to Kyverno
 
 ### Kyverno vs OPA Gatekeeper
 
@@ -90,11 +90,11 @@ A concrete list of policies is maintained by Stakater for ensuring that clusters
 | API object lookup                           | ✓          | ✓              |
 | CLI with test ability                       | ✓          | ✓              |
 | Policy audit ability                        | ✓          | ✓              |
-| Programming required                        | ✓ (Rego)   | ✓ (Javascript) |
+| Programming required                        | ✓ (Rego)   | ✓ (JavaScript) |
 
 ## Useful Links
 
-- [https://kubernetes.io/docs/concepts/policy](https://kubernetes.io/docs/concepts/policy/)
+- [Kubernetes Policies](https://kubernetes.io/docs/concepts/policy/)
 - [OPA Gatekeeper vs. Kyverno](https://www.youtube.com/watch?v=9gSrRNmmKBc)
 - [Kyverno Policy Agent](https://thenewstack.io/kyverno-kubernetes-configuration-via-policy/)
 

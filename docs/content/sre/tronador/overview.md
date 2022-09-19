@@ -6,7 +6,7 @@ Traditionally, many software development projects merge changes from developers 
 
 To prevent changes that introduce regressions from being merged, changes should be confirmed to work without disruption before they merged.
 
-Tronador provides testing environments so the changes can be tested in the same environment with the production. The testing environments are aligned with the codebase and provisioned on Openshift or Kubernetes.
+Tronador provides testing environments so the changes can be tested in the same environment with the production. The testing environments are aligned with the codebase and provisioned on OpenShift or Kubernetes.
 
 Tronador enables teams to have separate isolated testing environments per project easily in declarative way and enables multiple teams to collaborate on complex application stacks respecting their own revisions.
 

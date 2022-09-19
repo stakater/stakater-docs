@@ -71,7 +71,7 @@ spec:
 
 [Vault](https://www.vaultproject.io/) is used to secure, store and tightly control access to tokens, passwords, certificates, encryption keys for protecting secrets and other sensitive data using a UI, CLI, or HTTP API.
 
-If Bill the cluster admin has vault configured in his cluster, than he can take benefit from Tenant-Operators integration with vault.
+If Bill the cluster admin has Vault configured in his cluster, than he can take benefit from Tenant-Operators integration with Vault.
 
 Tenant-Operator automatically creates Vault secret paths for tenants where tenant members can securely save their secrets and also authorizes tenant members to access these secrets via OIDC.
 
@@ -117,7 +117,7 @@ spec:
 
 Now Bill goes to `Vault` and sees that a path for `tenant` has been made under the name `bluesky/kv`, confirming that Tenant members with the Owner or Edit roles now have access to the tenant's Vault path.
 
-Now if Anna sign's in to the vault via OIDC, she can see her tenants path and secrets. Whereas if John sign's in to the vault via OIDC, he can't see his tenants path or secrets as he doesn't have the access required to view them.
+Now if Anna sign's in to the Vault via OIDC, she can see her tenants path and secrets. Whereas if John sign's in to the Vault via OIDC, he can't see his tenants path or secrets as he doesn't have the access required to view them.
 
 ## Configuring RHSSO (Red Hat Single Sign-On) in IntegrationConfig
 
@@ -125,7 +125,7 @@ Red Hat Single Sign-On [RHSSO](https://access.redhat.com/products/red-hat-single
 
 If Bill the cluster admin has RHSSO configured in his cluster, than he can take benefit from Tenant-Operator's integration with RHSSO and Vault.
 
-Tenant-Operator automatically allows tenant members to access vault via OIDC(RHSSO authentication and authorization) to access secret paths for tenants where tenant members can securely save their secrets.
+Tenant-Operator automatically allows tenant members to access Vault via OIDC(RHSSO authentication and authorization) to access secret paths for tenants where tenant members can securely save their secrets.
 
 Bill would first have to integrate RHSSO with Tenant-Operator by adding the details in integration config. [Visit here](../integration-config.html#rhsso-red-hat-single-sign-on) for more details.
 

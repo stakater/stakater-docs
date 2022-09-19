@@ -16,7 +16,7 @@ There are three types of maintenance for Stakater Agility Platform: upgrades, ba
 
 Running an upgrade should be a safe process to run and should not disrupt cluster services. The SRE can trigger the upgrade process when new versions are available or CVEs are outstanding. Available updates are tested in a staging environment and then applied to production clusters. Following best practices helps ensure minimal to no downtime. 
 
-Planned maintenance is not prescheduled with the customer. Notifications may be sent via email if communication to the customer is required.
+Planned maintenance is not pre-scheduled with the customer. Notifications may be sent via email if communication to the customer is required.
 
 ### How will the host operating systems and OpenShift software be updated?
 
@@ -38,7 +38,7 @@ You need to open a support case; until we allow customers to have cluster admins
 
 ### Can logs of underlying VMs be streamed out to a customer log analysis system?
 
-Syslog, CRI-O logs, journal, and dmesg are handled by the managed service and are not exposed to customers.
+Syslog, CRI-O logs, journal, and `dmesg` are handled by the managed service and are not exposed to customers.
 
 ### Can logs of applications streamed out to a customer log analysis system?
 

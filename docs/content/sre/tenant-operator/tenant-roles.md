@@ -63,7 +63,7 @@ fig 3. Shows editors role in a tenant using Tenant Operator
 
 Edit role will have edit access on there `Projects`, but they wont have access on `Roles` or `RoleBindings`.
 
-*Editors will also inhert `View` role.*
+*Editors will also inherit `View` role.*
 
 #### Access Permissions
 
@@ -96,7 +96,7 @@ Edit role will have edit access on there `Projects`, but they wont have access o
   * deletecollection
   * patch
   * update
-* Build, BuildConfig, Buildlog, DeploymentConfig, Deployment, ConfigMap, ImageStream , ImageStreamImage and ImageStreamMapping access in `Project`
+* Build, BuildConfig, BuildLog, DeploymentConfig, Deployment, ConfigMap, ImageStream , ImageStreamImage and ImageStreamMapping access in `Project`
   * get
   * list
   * watch
@@ -145,8 +145,8 @@ Edit role will have edit access on there `Projects`, but they wont have access o
   * Jaeger
   * Kiali
   * Tekton.dev
-* Get access on customresourcedefinitions in `Project`
-* Edit and view permission on jenkins.build.openshift.io
+* Get access on CustomResourceDefinitions in `Project`
+* Edit and view permission on `jenkins.build.openshift.io`
 * InstallPlan access in `Project`
   * get
   * list
@@ -221,7 +221,7 @@ Viewer role will only have view access on there `Project`.
   * Tekton.dev
 * Get, list, watch access on ImageStream, ImageStreamImage and ImageStreamMapping in `Project`
 * Get access on CustomResourceDefinition in `Project`
-* View permission on Jenkins.Build.Openshift.io
+* View permission on `Jenkins.Build.Openshift.io`
 * Subscription, PackageManifest and InstallPlan access in `Project`
   * get
   * list

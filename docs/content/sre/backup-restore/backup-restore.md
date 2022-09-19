@@ -3,7 +3,7 @@
 Back up and restore applications on Stakater App Agility Platform (AAP)
 
 ## Prerequisite
-You need velero CLI setup, follow the velero-cli [doc](./velero-cli.md)
+You need Velero CLI setup, follow the `velero-cli` [doc](./velero-cli.md)
 
 ## Service viewpoint
 
@@ -17,7 +17,7 @@ Stakater App Agility Platforms divides backups into two:
 These Backups are stored on the Cloud Provider under your account.
 #### Customer Backups
 
-There are 3 default backup schedules for customers that are deployed with offered velero tool
+There are 3 default backup schedules for customers that are deployed with offered Velero tool
 
 | Schedule                       | Backup Frequency |   Backup Retention   | Backup Scope |
 | -------------------------- | ---------------- | -------------------- | ---------------- |
@@ -33,12 +33,12 @@ Stakater only takes backups of the managed applications:
 | -------------------------- | ---------------- | -------------------- |
 | Nexus                      |    Every 24 hrs   |   Last 3 Backup(s)   | 
 | Prometheus (Cluster)       |    Every 24 hrs   |   Last 3 Backup(s)   |
-| Promehteus (Applications)  |    Every 24 hrs   |   Last 3 Backup(s)   |
+| Prometheus (Applications)  |    Every 24 hrs   |   Last 3 Backup(s)   |
 | Elasticsearch              |    Every 24 hrs   |   Last 3 Backup(s)   |
 | Vault                      |    Every 24 hrs   |   Last 3 Backup(s)   | 
-| Sonarqube                  |    Every 24 hrs   |   Last 3 Backup(s)   | 
+| SonarQube                  |    Every 24 hrs   |   Last 3 Backup(s)   | 
 | CodeReadyWorkspaces        |    Every 24 hrs   |   Last 3 Backup(s)   | 
-| RHSSO (KeyCloak)           |    Every 24 hrs   |   Last 3 Backup(s)   | 
+| RHSSO (Keycloak)           |    Every 24 hrs   |   Last 3 Backup(s)   | 
 | ArgoCD                     |    Every 24 hrs   |   Last 3 Backup(s)   | 
 
 If you want to change backup frequency/retention times for your specific needs, contact support.
@@ -50,21 +50,21 @@ Resources can be restored on demand. Please contact support and specify the foll
 - Time to restore back to.
 - Namespaces to include/exclude from backup
 - Resources to include/exclude from backup
-- LabelSelector to filter objects to restore
+- `labelSelector` to filter objects to restore
 - Whether to include cluster resources or not
 - Whether to restore PVs or not (Not applicable on Object Only Backups)
 
 ## Technical viewpoint
 
-Stakater App Agility Platform uses managed velero operator to provision the velero server. This backup and restore process can be used for both disaster recovery and cluster migration.
+Stakater App Agility Platform uses managed Velero operator to provision the Velero server. This backup and restore process can be used for both disaster recovery and cluster migration.
 
 ### Backup
 
 Using Schedules and Read-Only Backup Storage Locations & Volume Snapshot Locations.
 
-First things first, Velero needs a backupStorageLocation where backups can be stored
+First things first, Velero needs a BackupStorageLocation where backups can be stored
 These are including the backup destination storage information
-- Backupstoragelocation CR
+- BackupStorageLocation CR
 ex:
 ~~~
 apiVersion: velero.io/v1
@@ -93,7 +93,7 @@ metadata:
     provider: aws
 ~~~
 Then schedule the backup by using the backup locations and specifying the various filters for backup target.
-- Create Shedule CR
+- Create Schedule CR
 ex:
 ~~~
 apiVersion: velero.io/v1
@@ -140,38 +140,38 @@ spec:
   volumeSnapshotLocations:
   - default
 ~~~
-##### Different Schedule Definitons and their meanings
+##### Different Schedule Definitions and their meanings
 Changing some parameters in Schedule CR, changes the backup behavior
-- snapshotVolumes: (boolean)
-  - true (makes velero to take native volume snapshots)
-  - false (no native velero snapshots taken)
-  - Not Specify (Defaults to auto behavior define within velero)
-  Note: You don't specify this parameter with velero CSI plugin
+- `snapshotVolumes`: (boolean)
+  - `true` (makes Velero to take native volume snapshots)
+  - `false` (no native Velero snapshots taken)
+  - Not Specify (Defaults to auto behavior define within Velero)
+  Note: You don't specify this parameter with Velero CSI plugin
 
-- includeClusterResources: (boolea)
-  - true (includes all cluster level resource, snapshotVolumes needs to be true to take PV snapshots)
-  - false (exclude cluster level resources, including PVs. So there will be no snapshots)
+- `includeClusterResources`: (boolean)
+  - `true` (includes all cluster level resource, `snapshotVolumes` needs to be true to take PV snapshots)
+  - `false` (exclude cluster level resources, including PVs. So there will be no snapshots)
 
 - Excluding both `snapshotVolumes` and `includeClusterResources` will have default behavior of taking snapshots for only included namespaces PVs.
 
 #### Backup target Filters
 You can use [resource filtering](https://velero.io/docs/main/resource-filtering/) options to backup specific resources. Typical ones are following;
-- labelSelector: Specify the labels for the backup target resources
-   MatchExpression has several operators such as In, NotIn, Exists and DoesNotExist.
-- includeClusterResources:(Boolean) Set true to include cluster level resources like PV etc.
-- includedNamespaces: Specify the namespaces in which backup target resources are included
-- includedResources: Specify the resource types for the backup target resources
-- excludeNamespaces: Specify the namespaces to exlcude from backup
-- excludeResources: Specify the resource types to exclude from backup
+- `labelSelector`: Specify the labels for the backup target resources
+   MatchExpression has several operators such as `In`, `NotIn`, `Exists` and `DoesNotExist`.
+- `includeClusterResources`: (boolean) Set true to include cluster level resources like PV etc.
+- `includedNamespaces`: Specify the namespaces in which backup target resources are included
+- `includedResources`: Specify the resource types for the backup target resources
+- `excludeNamespaces`: Specify the namespaces to exclude from backup
+- `excludeResources`: Specify the resource types to exclude from backup
 **NOTE**: You have to select the resource filters properly. For example, if the target application has cluster-scope resources, then you cannot use `--include-namespaces` only.
 
 #### backup destination
-- snapshotVolumes:(Boolean) Set true for volume snapshotting
-- storageLocation: Backupstoragelocation CR name
-- volumeSnapshotLocations: VolumeSnapshotlocation CR name
+- `snapshotVolumes`: (boolean) Set true for doing volume snapshots
+- `storageLocation`: BackupStorageLocation CR name
+- `volumeSnapshotLocations`: VolumeSnapshotlocation CR name
 
 #### retention policy
-- ttl: The backup retention period
+- `ttl`: The backup retention period
 
 ### Restore
 

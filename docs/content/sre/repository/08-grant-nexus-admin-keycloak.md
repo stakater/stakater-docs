@@ -1,6 +1,6 @@
 # Granting Admin privilege to user for nexus on Keycloak
 
-- Goto routes in `stakater-auth` namespace , open keycloak route , following screen will show up 
+- Go to routes in `stakater-auth` namespace , open keycloak route , following screen will show up 
 
   ![Administration Console](./images/keycloak-1.png)
 
@@ -18,7 +18,7 @@
 
 - On user screen select Role Mappings tab , `nexus-oauth-admin` role will be present in left most column , select it and click on `Add selected`
   
-  ![nexus oauth admin Role](./images/keycloak-5.png)
+  ![nexus OAuth admin Role](./images/keycloak-5.png)
 
 - Role is assigned to user
   

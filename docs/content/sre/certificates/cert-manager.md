@@ -5,7 +5,7 @@ It will ensure certificates are valid and up to date, and attempt to renew certi
 
 ## Example Certificate Generation using Let's Encrypt
 
-Before you start creating Cerificates, you will have to first define a `Issuer`(namespace scoped) or `ClusterIssuer`(cluster scoped).
+Before you start creating Certificates, you will have to first define a `Issuer`(namespace scoped) or `ClusterIssuer`(cluster scoped).
 
 ::: warning Note:
 Any secret that is referred by ClusterIssuer would have to be present only in the project `stakater-cert-manager-operator`. So create CA,DNS credentials secrets in this project.
@@ -14,7 +14,7 @@ Secret can reside in the same namespace for Issuer
 :::
 
 ::: tip
-Consider using the cluster's default domain i.e. `*.kubeapp.cloud` for CI/staging envionment which are all secured by SAAP by default
+Consider using the cluster's default domain i.e. `*.kubeapp.cloud` for CI/staging environment which are all secured by SAAP by default
 :::
 
 ### Defining ClusterIssuer
@@ -48,7 +48,7 @@ spec:
 For DNS01 Challenge you need to first create a secret in `stakater-cert-manager-operator` namespace that should contain the values to alter entries in your DNS provider. Following is an example for configuring AWS's Route53. Check configuration for your provider [here](https://cert-manager.io/v1.7-docs/configuration/acme/dns01/#supported-dns01-providers)
 
 ::: tip
- Use Limited acccess to the account being used for DNS01 Challenge automation 
+ Use Limited access to the account being used for DNS01 Challenge automation 
 :::
 
 ```

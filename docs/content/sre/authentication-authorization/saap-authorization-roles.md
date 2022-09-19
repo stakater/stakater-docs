@@ -15,7 +15,7 @@ SAAP Cluster Admin (SCA):
 - can view OperatorHub in console
 - can create/view/delete CRs for [curated operators](https://docs.cloud.stakater.com/content/sre/authentication-authorization/curated-list-operators.html) e.g.
   - AMQ Certificate Manager Operator
-  - Openshift Pipelines Operator
+  - OpenShift Pipelines Operator
 - can install cluster-wide operators from a [curated list](https://docs.cloud.stakater.com/content/sre/authentication-authorization/curated-list-operators.html) provided by the OperatorHub. This makes the operator available to all developers on your cluster to create Custom Resources and applications using that Operator.
 - can view installed operators by using the web console/CLI
 - can install operators in customer owned namespace
@@ -37,7 +37,7 @@ SAAP Cluster Admin (SCA):
 - can create/view/delete NetworkPolicy objects in customer owned namespaces
 - can view services in all namespaces
 - can view routes and ingresses in all namespaces
-- can view/update dns resources for DNS Forwarder apigroups in customer owned namespaces
+- can view/update DNS resources for DNS Forwarder apigroups in customer owned namespaces
 
 ### Monitoring
 - can view console dashboard where metrics are shown for namespaces
@@ -46,7 +46,7 @@ SAAP Cluster Admin (SCA):
 
 ### Compute
 - can view machines, machinesets, nodes, machine configs, machine config pools, imagestreams
-- can start anyuid and nonroot SCCs
+- can start `anyuid` and `nonroot` SCCs
 - can not delete machines, machinesets, nodes, machine configs, machine config pools, imagestreams
 
 ###  User Management
@@ -62,7 +62,7 @@ SAAP Cluster Admin (SCA):
 
 ###  Velero Backups & Restores
 - can view/edit/create/delete Backup and Restores
-- can view/edit/create/delete Schedules for Velero in openshift-velero namespace
+- can view/edit/create/delete Schedules for Velero in `openshift-velero` namespace
 
 ### Administration:
 - can create/edit/delete resource quotas and limits on the cluster

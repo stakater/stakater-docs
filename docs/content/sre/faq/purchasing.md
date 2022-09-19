@@ -15,7 +15,7 @@ Stakater Agility Platform is available on a pay-as-you-go basis. Yes we offer on
 
 ### Is there any free trial?
 
-Yes we offer 30 days free trial with premium support on major public clouds Azure, Amzaon and Google
+Yes we offer 30 days free trial with premium support on major public clouds Azure, AWS and Google.
 
 ### Will I receive an invoice from Stakater?
 
