@@ -14,7 +14,7 @@ To configure a Hibernation Schedule, go to your Cluster Management page where yo
 
 ![clusters](./imgs/Saap-clusters.png)
 
-Click on the menu button beside the cluster for which you wish to set a hibernation window and select Manage Power State.
+Click on the menu button beside the cluster for which you wish to set a hibernation window and select Manage `Power State`.
 
 
 ![manage_powerstate_1](./imgs/manage-powerstate-1.png)
