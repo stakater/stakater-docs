@@ -30,6 +30,12 @@ export const sidebarEn: SidebarConfig = [
     ],
   },
   {
+    text: "Cluster Management",
+    collapsible: true,
+     children: [
+       "/content/sre/cluster-management/hibernating-your-cluster.md",],
+  },
+  {
     text: "Applications",
     collapsible: true,
     children: [

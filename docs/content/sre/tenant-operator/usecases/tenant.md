@@ -199,7 +199,7 @@ With the above configuration all tenant namespaces will now contain the mentione
 
 ### Distributing specific labels and annotations to tenant namespaces via Tenant Custom Resource
 
-Bill now wants to add labels/annotations to specific namespaces for a tenant. To create those labels/annotations Bill will just add them into `specificMetadata.labels`/`commonMetadata.annotations` and specific namespaces in `specificMetadata.namespaces` field in the tenant CR.
+Bill now wants to add labels/annotations to specific namespaces for a tenant. To create those labels/annotations Bill will just add them into `specificMetadata.labels`/`specificMetadata.annotations` and specific namespaces in `specificMetadata.namespaces` field in the tenant CR.
 
 ```yaml
 kubectl apply -f - << EOF
