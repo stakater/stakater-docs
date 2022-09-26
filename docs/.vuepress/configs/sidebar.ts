@@ -182,12 +182,9 @@ export const sidebarEn: SidebarConfig = [
     text: "Secrets Management",
     collapsible: true,
     children: [
-      "/content/sre/secrets/introduction.md",
-      "/content/sre/secrets/sealed-secrets.md",
-      "/content/sre/secrets/vault.md",
-      "/content/sre/secrets/external-secret-operator/introduction.md",
-      "/content/sre/secrets/external-secret-operator/workflow.md",
-      "/content/sre/secrets/external-secret-operator/getting-started.md",
+      "/content/secrets-management/introduction.md",
+      "/content/secrets-management/sealed-secrets.md",
+      "/content/secrets-management/vault.md",
     ],
   },
   {
