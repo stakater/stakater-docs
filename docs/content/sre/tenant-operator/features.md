@@ -46,7 +46,7 @@ Common use cases for namespace templates may be:
 - Equipping new namespaces with optional credentials such as image pull secrets
  
  ## Tenant level Hibernation
-Tenant-operator can scale-down and scale-up workloads by implementing a hibernation schedule for your tenants. It can downscale Deployments and StatefulSets in a tenant's Namespace according to a defined  sleep schedule. The Deployments and StatefulSets are brought back to their required replicas according to the provided wake schedule.
+Tenant-operator can downscale Deployments and StatefulSets in a tenant's Namespace according to a defined  sleep schedule. The Deployments and StatefulSets are brought back to their required replicas according to the provided wake schedule.
 
 ## Everything as Code/GitOps Ready
 
