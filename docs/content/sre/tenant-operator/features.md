@@ -45,6 +45,9 @@ Common use cases for namespace templates may be:
 - Deploying pre-populated databases with test data
 - Equipping new namespaces with optional credentials such as image pull secrets
  
+ ## Tenant level Hibernation
+Tenant-operator can scale-down and scale-up workloads by implementing a hibernation schedule for your tenants. It can downscale Deployments and StatefulSets in a tenant's namespace according to a defined  sleep schedule. The Deployments and StatefulSets are brought back to their required replicas according to the provided wake schedule.
+
 ## Everything as Code/GitOps Ready
 
 Tenant-Operator is designed and built to be 100% OpenShift native and to be configured and managed the same familiar way as native OpenShift resources so is perfect for modern shops that are dedicated to GitOps as it is fully configurable using Custom Resources 
