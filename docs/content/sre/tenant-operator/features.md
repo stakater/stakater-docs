@@ -48,6 +48,9 @@ Common use cases for namespace templates may be:
  ## Tenant level Hibernation
 Tenant-operator can downscale Deployments and StatefulSets in a tenant's Namespace according to a defined  sleep schedule. The Deployments and StatefulSets are brought back to their required replicas according to the provided wake schedule.
 
+ ## Mattermost Integration
+Tenant-operator can manage Mattermost to create Teams for tenant users. All tenant users gets a unique team and a list of predefined channels gets created. When a user is removed from the tenant, the user is also removed from the Mattermost team corresponding to tenant.
+
 ## Everything as Code/GitOps Ready
 
 Tenant-Operator is designed and built to be 100% OpenShift native and to be configured and managed the same familiar way as native OpenShift resources so is perfect for modern shops that are dedicated to GitOps as it is fully configurable using Custom Resources 
