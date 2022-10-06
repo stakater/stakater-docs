@@ -1,5 +1,31 @@
 # Changelog
 
+## v0.6.x
+
+**v0.6.0**
+
+- feat: Add support to ArgoCD AppProjects created by Tenant Controller to have their sync disabled when relevant namespaces are hibernating
+
+- feat: Add validation webhook for ResourceSupervisor
+
+- fix: Delete ResourceSupervisor when hibernation is removed from tenant CR
+
+- fix: CRQ and limit range not updating when quota changes
+
+- fix: ArgoCD AppProjects created by Tenant Controller not updating when Tenant label is added to an existing namespace
+
+- fix: Namespace workflow for TGI
+
+- fix: ResourceSupervisor deletion workflow
+
+- fix: Update RHSSO user filter for Vault integration
+
+- fix: Update regex of namespace names in tenant CRD
+
+- enhance: Optimize TGI and TI performance under load
+
+- maintain: Bump Operator-SDK and Dependencies version
+
 ## v0.5.x
 
 **v0.5.4**
@@ -130,11 +156,11 @@
 
 ::: warning Known Issues:
 
-- `caBundle` field in validation webhooks is not being populated for newly added webhooks. A temporary fix is to edit the validation webhook configuration manifest without the `caBundle` field added in any webhook, so OpenShift can add it to all fields simultaneously.  
+- `caBundle` field in validation webhooks is not being populated for newly added webhooks. A temporary fix is to edit the validation webhook configuration manifest without the `caBundle` field added in any webhook, so OpenShift can add it to all fields simultaneously.
     - Edit the `ValidatingWebhookConfiguration` `stakater-tenant-operator-validating-webhook-configuration` by removing all the `caBundle` fields of all webhooks.
     - Save the manifest.
     - Verify that all `caBundle` fields have been populated.
-    - Restart Tenant-Operator pods.  
+    - Restart Tenant-Operator pods.
 
 :::
 
