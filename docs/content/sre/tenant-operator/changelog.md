@@ -5,25 +5,15 @@
 **v0.6.0**
 
 - feat: Add support to ArgoCD AppProjects created by Tenant Controller to have their sync disabled when relevant namespaces are hibernating
-
 - feat: Add validation webhook for ResourceSupervisor
-
 - fix: Delete ResourceSupervisor when hibernation is removed from tenant CR
-
 - fix: CRQ and limit range not updating when quota changes
-
 - fix: ArgoCD AppProjects created by Tenant Controller not updating when Tenant label is added to an existing namespace
-
 - fix: Namespace workflow for TGI
-
 - fix: ResourceSupervisor deletion workflow
-
 - fix: Update RHSSO user filter for Vault integration
-
 - fix: Update regex of namespace names in tenant CRD
-
 - enhance: Optimize TGI and TI performance under load
-
 - maintain: Bump Operator-SDK and Dependencies version
 
 ## v0.5.x
