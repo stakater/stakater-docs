@@ -23,7 +23,7 @@ As a tenant owner, Anna is able to create namespaces.
 
 ## Add Existing Namespaces to Tenant via GitOps
 
-Using Gitops as your preferred development workflow, you can add existing namespaces for your tenants by including the tenant label.
+Using GitOps as your preferred development workflow, you can add existing namespaces for your tenants by including the tenant label.
 
 To add an existing namespace to your tenant via gitops;
 
