@@ -25,7 +25,7 @@ As a tenant owner, Anna is able to create namespaces.
 
 Using GitOps as your preferred development workflow, you can add existing namespaces for your tenants by including the tenant label.
 
-To add an existing namespace to your tenant via gitops;
+To add an existing namespace to your tenant via GitOps;
 
 - First, migrate your namespace resource to your “watched” git repository
 - Edit your namespace `yaml` to include the tenant label.
@@ -67,7 +67,7 @@ Additionally, to remove namespaces from a tenant, simply remove the tenant label
 To remove namespaces from your cluster via GitOps;
 
 - Remove the `yaml` file containing your namespace configurations from your “watched” git repository.
-- ArgoCD automatically sets the `[app.kubernetes.io/instance](http://app.kubernetes.io/instance)` label on resources it manages. It uses this label it to select resources which inform the basis of an app. To remove a namespace from a managed ArgoCD app, remove the argocd label `app.kubernetes.io/instance` from the namespace manifest.
+- ArgoCD automatically sets the `[app.kubernetes.io/instance](http://app.kubernetes.io/instance)` label on resources it manages. It uses this label it to select resources which inform the basis of an app. To remove a namespace from a managed ArgoCD app, remove the ArgoCD label `app.kubernetes.io/instance` from the namespace manifest.
 - You can edit your namespace manifest through the OpenShift Web Console or with the OpenShift command line tool.
 - Now that you have removed your namespace manifest from your watched git repository, and from your managed ArgoCD apps, sync your git repository and allow your changes be propagated.
 - Verify that your namespace has been deleted.
