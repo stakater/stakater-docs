@@ -58,7 +58,7 @@ She can then add the tenant label
 
 Now all the users of the `Bluesky` tenant now have access to the existing namespace.
 
-Additionally to remove namespaces from a tenant, simply remove the tenant label from the namespace resource and sync your changes to your cluster.
+Additionally, to remove namespaces from a tenant, simply remove the tenant label from the namespace resource and sync your changes to your cluster.
 
 ## Remove Namespaces from your Cluster via GitOps.
 
