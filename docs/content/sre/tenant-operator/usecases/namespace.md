@@ -32,7 +32,7 @@ To add an existing namespace to your tenant via GitOps;
 - Tenant label follows the naming convention `stakater.com/tenant: <TENANT_NAME>`
 
 <aside>
-➡️ Where <TENANT_NAME> is your tenant name.
+➡️ Where `TENANT_NAME` is your tenant name.
 
 </aside>
 
