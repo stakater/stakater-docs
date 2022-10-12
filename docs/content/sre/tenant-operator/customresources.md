@@ -297,6 +297,9 @@ kind: ResourceSupervisor
 metadata:
   name: tenant-sample
 spec:
+ argocd:
+   appProjects:
+     - tenant-sample
   hibernation:
     sleepSchedule: 23 * * * *
     wakeSchedule: 26 * * * *
@@ -306,7 +309,7 @@ status:
   nextReconcileTime: '2022-07-07T11:23:00Z'
 ```
 
-The `ResourceSupervisor` is a resource created by Tenant Operator in case the [Hibernation](./hibernation.html) feature is enabled. The Resource manages the sleep/wake schedule of the namespaces owned by the tenant, and manages the previous state of any sleeping application. Currently, only StatefulSets and Deployments are put to sleep.
+The `ResourceSupervisor` is a resource created by Tenant Operator in case the [Hibernation](./hibernation.html) feature is enabled. The Resource manages the sleep/wake schedule of the namespaces owned by the tenant, and manages the previous state of any sleeping application. Currently, only StatefulSets and Deployments are put to sleep. Additionally, ArgoCD AppProjects that belong to the tenant have a `deny` SyncWindow added to them.
 
 ## Namespace
 
