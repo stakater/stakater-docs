@@ -170,7 +170,7 @@ fig 4. Shows viewers role in a tenant using Tenant Operator
 
 Viewer role will only have view access on there `Project`.
 
-#### Access Permissions 
+#### Access Permissions
 
 * ServiceAccount access in `Project`
   * get

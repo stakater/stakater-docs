@@ -8,23 +8,23 @@ RBAC is one of the most complicated and error-prone parts of Kubernetes. With Te
 
 Tenant-Operator provides several ClusterRoles that are automatically bound to the Tenants Namespaces used for managing access to the Namespaces and the resources they contain. You can also modify  the default roles or create new roles to have full control and customize access control for your users and teams.
 
-Tenant-Operator also is able to leverage existing OpenShift groups or external groups synced from 3rd party identity management system for maintaining Tenant membership in your organizations current user management system. 
+Tenant-Operator also is able to leverage existing OpenShift groups or external groups synced from 3rd party identity management system for maintaining Tenant membership in your organizations current user management system.
 
 ## Self-Service
 
 With Tenant-Operator, you can empower your users to safely provision namespaces for themselves and their teams (typically mapped to SSO groups). Team-owned namespaces and the resources inside of them count towards the team's quotas rather than the user's individual limits and are automatically shared with all team members according to the access rules you configure in tenant-operator.
 
-Also by leveraging Tenant-Operators templating mechanism, namespaces can be provisioned and automatically pre-populated with any kind of resource or multiple resources such as network policies, docker pull secrets or even Helm charts etc 
+Also by leveraging Tenant-Operators templating mechanism, namespaces can be provisioned and automatically pre-populated with any kind of resource or multiple resources such as network policies, docker pull secrets or even Helm charts etc
 
 ## HashiCorp Vault Multitenancy
 
 Tenant-Operator is not only providing strong Multi Tenancy for the OpenShift internals but also extends the tenants permission model to HashiCorp Vault where it can create Vault paths and greatly ease the overhead of managing RBAC in Vault.
 
-## ArgoCD Multitenancy 
+## ArgoCD Multitenancy
 
 Tenant-Operator is not only providing strong Multi Tenancy for the OpenShift internals but also extends the tenants permission model to ArgoCD were it can provision AppProjects and Allowed Repositories for your tenants greatly ease the overhead of managing RBAC in ArgoCD.
 
-## Cost/Resource Optimization 
+## Cost/Resource Optimization
 
 Tenant-Operator provides a mechanism for defining Resource Quotas at the tenant scope, meaning all namespaces belonging to a particular tenant share the defined quota, which is why you are able to safely enable dev teams to self serve their namespaces whilst being confident that they can only use the resources allocated based on budget and business needs.
 
@@ -44,7 +44,7 @@ Common use cases for namespace templates may be:
 - Adding development tooling to a namespace
 - Deploying pre-populated databases with test data
 - Equipping new namespaces with optional credentials such as image pull secrets
- 
+
  ## Tenant level Hibernation
 Tenant-operator can downscale Deployments and StatefulSets in a tenant's Namespace according to a defined  sleep schedule. The Deployments and StatefulSets are brought back to their required replicas according to the provided wake schedule.
 
@@ -53,7 +53,7 @@ Tenant-operator can manage Mattermost to create Teams for tenant users. All tena
 
 ## Everything as Code/GitOps Ready
 
-Tenant-Operator is designed and built to be 100% OpenShift native and to be configured and managed the same familiar way as native OpenShift resources so is perfect for modern shops that are dedicated to GitOps as it is fully configurable using Custom Resources 
+Tenant-Operator is designed and built to be 100% OpenShift native and to be configured and managed the same familiar way as native OpenShift resources so is perfect for modern shops that are dedicated to GitOps as it is fully configurable using Custom Resources
 
 ## Preventing Clusters Sprawl
 Share a single cluster with multiple teams, groups of users, or departments by saving operational and management efforts.

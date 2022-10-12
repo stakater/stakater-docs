@@ -28,7 +28,7 @@ resources:
             "jenkins.io/credentials-description": credentials from Kubernetes
 ```
 
-Once the template has been created, Bill has to edit the `Tenant` to add unique label to namespaces in which the secret has to be deployed. 
+Once the template has been created, Bill has to edit the `Tenant` to add unique label to namespaces in which the secret has to be deployed.
 For this, he can use the support for [common](./tenant.html#distributing-common-labels-and-annotations-to-tenant-namespaces-via-tenant-custom-resource) and [specific](./tenant.html#distributing-specific-labels-and-annotations-to-tenant-namespaces-via-tenant-custom-resource) labels across namespaces.
 
 Bill has to specify a label on namespaces in which he needs the secret. He can add it to all namespaces inside a tenant or some specific namespaces depending on the use case.
@@ -54,14 +54,14 @@ spec:
   - build
   - prod
 
-  # use this if you want to add label to some specific namespaces 
+  # use this if you want to add label to some specific namespaces
   specificMetadata:
     - namespaces:
         - test-namespace
       labels:
         distribute-image-pull-secret: true
 
-  # use this if you want to add label to all namespaces under your tenant 
+  # use this if you want to add label to all namespaces under your tenant
   commonMetadata:
     labels:
       distribute-image-pull-secret: true
