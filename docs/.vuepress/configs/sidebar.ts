@@ -270,6 +270,10 @@ export const sidebarEn: SidebarConfig = [
             text: "Extending Manager ClusterRole",
             link: "/content/sre/tenant-operator/usecases/manager-clusterrole",
           },
+          {
+            text: "Freeing up Unused Resources",
+            link: "/content/sre/tenant-operator/usecases/hibernation.md",
+          },
         ],
       },
       "/content/sre/tenant-operator/hibernation.md",

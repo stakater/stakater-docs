@@ -18,3 +18,6 @@ managerRoleExtendedRules:
     - update
     - watch
 ```
+## What’s next
+
+See how Bill can [hibernate unused namespaces at night](./hibernation.html)
