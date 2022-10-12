@@ -12,7 +12,7 @@ OpenShift is designed to support a single tenant platform, hence making it diffi
 This is where Tenant Operator comes in and provides easy to manage/configure multi-tenancy. Tenant Operator provides wrappers around OpenShift resources to provide a higher level of abstraction to users. With Tenant Operator admins can configure Network and Security Policies, Resource Quotas, Limit Ranges, RBAC for every tenant, which are automatically inherited by all the namespaces and users in the tenant. Depending on the user's role, they are free to operate within their tenants in complete autonomy. 
 Tenant Operator supports initializing new tenants using GitOps management pattern. Changes can be managed via PRs just like a typical GitOps workflow, so tenants can request changes, add new users, or remove users.
 
-The idea of Tenant Operator is to use namespaces as independent sandboxes, where tenant applications can run independently of each other. Cluster admins shall configure Tenant Operator's custom resources, which then become a self-service system for tenants. This minimizes the cluster admin's efforts.  
+The idea of Tenant Operator is to use namespaces as independent sandboxes, where tenant applications can run independently of each other. Cluster admins shall configure Tenant Operator's custom resources, which then become a self-service system for tenants. This minimizes the efforts of the cluster admins.  
 
 Tenant Operator enables cluster admins to host multiple tenants in a single OpenShift Cluster, i.e.:
 * Share an **OpenShift cluster** with multiple tenants
