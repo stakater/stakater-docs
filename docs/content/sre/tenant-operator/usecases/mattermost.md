@@ -1,6 +1,6 @@
 ### Creating Mattermost Teams for your tenant
 
-Bill wants each tenant to also have their own Mattermost Teams. To Make sure this happens correctly, Bill will first add the `stakater.com/tenant` label to the tenant:
+Bill wants each tenant to also have their own Mattermost Teams. To make sure this happens correctly, Bill will first add the `stakater.com/mattermost: true` label to the tenant:
 
 ```yaml
 apiVersion: tenantoperator.stakater.com/v1beta1
