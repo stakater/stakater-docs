@@ -8,13 +8,13 @@ RBAC is one of the most complicated and error-prone parts of Kubernetes. With Te
 
 Tenant-Operator provides several ClusterRoles that are automatically bound to the Tenants Namespaces used for managing access to the Namespaces and the resources they contain. You can also modify  the default roles or create new roles to have full control and customize access control for your users and teams.
 
-Tenant-Operator also is able to leverage existing OpenShift groups or external groups synced from 3rd party identity management system for maintaining Tenant membership in your organizations current user management system.
+Tenant-Operator is also able to leverage existing OpenShift groups or external groups synced from 3rd party identity management systems, for maintaining Tenant membership in your organization's current user management system.
 
 ## Self-Service
 
 With Tenant-Operator, you can empower your users to safely provision namespaces for themselves and their teams (typically mapped to SSO groups). Team-owned namespaces and the resources inside of them count towards the team's quotas rather than the user's individual limits and are automatically shared with all team members according to the access rules you configure in tenant-operator.
 
-Also by leveraging Tenant-Operators templating mechanism, namespaces can be provisioned and automatically pre-populated with any kind of resource or multiple resources such as network policies, docker pull secrets or even Helm charts etc
+Also by leveraging Tenant-Operator's templating mechanism, namespaces can be provisioned and automatically pre-populated with any kind of resource or multiple resources such as network policies, docker pull secrets or even Helm charts etc
 
 ## HashiCorp Vault Multitenancy
 
@@ -53,7 +53,7 @@ Tenant-operator can manage Mattermost to create Teams for tenant users. All tena
 
 ## Everything as Code/GitOps Ready
 
-Tenant-Operator is designed and built to be 100% OpenShift native and to be configured and managed the same familiar way as native OpenShift resources so is perfect for modern shops that are dedicated to GitOps as it is fully configurable using Custom Resources
+Tenant-Operator is designed and built to be 100% OpenShift-native and to be configured and managed the same familiar way as native OpenShift resources so is perfect for modern shops that are dedicated to GitOps as it is fully configurable using Custom Resources.
 
 ## Preventing Clusters Sprawl
 Share a single cluster with multiple teams, groups of users, or departments by saving operational and management efforts.

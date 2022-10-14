@@ -62,7 +62,7 @@ Additionally, to remove namespaces from a tenant, simply remove the tenant label
 
 ## Remove Namespaces from your Cluster via GitOps.
 
- GitOps is a quick and efficient way to automate the management of your K8S resources.
+ GitOps is a quick and efficient way to automate the management of your K8s resources.
 
 To remove namespaces from your cluster via GitOps;
 
