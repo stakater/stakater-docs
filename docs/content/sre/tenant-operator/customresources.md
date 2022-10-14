@@ -227,11 +227,24 @@ resources:
           ports:
           - protocol: TCP
             port: 5978
+---
+apiVersion: tenantoperator.stakater.com/v1alpha1
+kind: Template
+metadata:
+  name: resource-mapping
+resources:
+  resourceMappings:
+    secrets:
+      - name: secret-s1
+        namespace: namespace-n1
+    configMaps:
+      - name: configmap-c1
+        namespace: namespace-n2
 ```
 
-Templates are used to initialize Namespaces and share common resources across namespaces (e.g. secrets).
+Templates are used to initialize Namespaces, share common resources across namespaces, and map secrets and configMaps from one namespace to other namespaces.
 
-* They either contains one or more Kubernetes manifests or alternatively a Helm chart.
+* They either contains one or more Kubernetes manifests, reference to some secrets and configMaps or alternatively a Helm chart.
 * They are being tracked by TemplateInstances in each Namespace they are applied to.
 * They can contain pre-defined parameters such as ${namespace}/${tenant} or user-defined ${MY_PARAMETER} that can be specified within an TemplateInstance.
 
@@ -244,6 +257,10 @@ Also you can define custom variables in `Template` and `TemplateInstance` . The 
 <details open>
   <summary> Helm Chart Templates</summary>
   <p>Instead of manifests, a Template can specify a Helm chart that will be installed (using Helm template) when the Template is being instantiated.</p>
+</details>
+<details open>
+  <summary>Resource Mapping Templates</summary>
+  <p>The templates can be specified with secrets and configMaps that can be mapped from one tenant's namespace to some other tenant's namespace or within a tenant's namespace.</p>
 </details>
 
 ### Mandatory and Optional Templates
