@@ -267,6 +267,10 @@ export const sidebarEn: SidebarConfig = [
             link: "/content/sre/tenant-operator/usecases/argocd.md",
           },
           {
+            text: "Creating Mattermost Teams",
+            link: "/content/sre/tenant-operator/usecases/mattermost.md",
+          },
+          {
             text: "Extending Manager ClusterRole",
             link: "/content/sre/tenant-operator/usecases/manager-clusterrole",
           },
