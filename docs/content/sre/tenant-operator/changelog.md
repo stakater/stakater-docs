@@ -4,7 +4,7 @@
 
 **v0.6.1**
 
-- fix: Update TO service-account name in envirment variable
+- fix: Update TO service-account name in environment variable
 
 **v0.6.0**
 
