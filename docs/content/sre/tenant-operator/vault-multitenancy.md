@@ -8,6 +8,6 @@ Tenant Operator manages tenant authentication via Vault. Tenant Operator automat
 
 The pod is authenticated to Vault using the [Kubernetes auth method](https://www.Vaultproject.io/docs/auth/kubernetes). In Vault, roles are associated with Kubernetes service accounts, which permits the service account to read Secrets at a particular path in Vault. 
 
-![image](./images/tenant-operator-vault-multitenancy.png)
+![image](./images/to-vault-multitenancy.png)
 
 Fig 1. Shows how Tenant Operator manages authentication with Vault
