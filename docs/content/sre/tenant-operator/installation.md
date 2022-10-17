@@ -12,7 +12,7 @@ This document contains instructions on installing and configuring Tenant-Operato
 
 ## Requirements
 
-* An **OpenShift** cluster [v4.7 - v4.10]
+* An **OpenShift** cluster [v4.7 - v4.11]
 * [**Helm-CLI**](https://helm.sh/docs/intro/install/) (Optional: *[For installing via Helm](#installing-via-helm)*)
 * **Helm-Operator** (Optional: *[For installing via Helm release](#installing-via-helm-release)*)
 
@@ -30,7 +30,7 @@ This document contains instructions on installing and configuring Tenant-Operato
 
 ![image](./images/to_install_1.png)
 
-* After configuring `Update approval` click on the `install` button
+* Select `multi-tenant-operator` to install the operator in `multi-tenant-operator` project from `Installed Namespace` dropdown menu. After configuring `Update approval` click on the `install` button.
 
 ![image](./images/to_install_2.png)
 
@@ -44,7 +44,7 @@ This document contains instructions on installing and configuring Tenant-Operato
 
 ::: warning Note:
 
-* Tenant-Operator will be installed in `openshift-operators` namespace by OperatorHub
+* Tenant-Operator will be installed in `multi-tenant-operator` namespace.
 
 :::
 
@@ -94,7 +94,7 @@ You can uninstall Tenant-Operator by following these steps
 
 * Now click on uninstall and confirm uninstall.
 
-![image](./images/uninstall-from-ui.jpg)
+![image](./images/uninstall-from-ui.png)
 
 * Now the operator has been uninstalled.
 
@@ -102,45 +102,44 @@ You can uninstall Tenant-Operator by following these steps
 
 ## Installing via Subscription
 
-* Create a subscription YAML for tenant-operator and apply it in `openshift-operators` namespace
+* Create namespace `multi-tenant-operator`
 
 ```bash
-$ oc create -f - << EOF
+oc create namespace multi-tenant-operator
+namespace/multi-tenant-operator created
+```
+
+* Create a subscription YAML for tenant-operator and apply it in `multi-tenant-operator` namespace
+
+```bash
+oc create -f - << EOF
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
 metadata:
   name: tenant-operator
-  namespace: openshift-operators
+  namespace: multi-tenant-operator
 spec:
   channel: alpha
   installPlanApproval: Automatic
   name: tenant-operator
   source: certified-operators
   sourceNamespace: openshift-marketplace
-  startingCSV: tenant-operator.v0.5.2
+  startingCSV: tenant-operator.v0.7.0
 EOF
 subscription.operators.coreos.com/tenant-operator created
 ```
 
 * After creating the `subscription` custom resource open OpenShift console and click on `Operators`, followed by `Installed Operators` from the side menu
 
-![image](./images/installed-operators.png)
+![image](./images/to_sub_installation_wait.png)
 
 * Wait for the installation to complete
 
-![image](./images/to_sub_installation_wait.png)
-
-* Once the installation is complete click on `Workloads`, followed by `Pods` from the side menu
-
 ![image](./images/to_sub_installation_successful.png)
 
-* Select `openshift-operators` project
+* Once the installation is complete click on `Workloads`, followed by `Pods` from the side menu and select `multi-tenant-operator` project
 
-![image](./images/select_openshift_operators_project.png)
-
-* Wait for the pods to start
-
-![image](./images/to_installed_wait_pod.png)
+![image](./images/select_multi_tenant_operator_project.png)
 
 * Once pods are up and running, Tenant-Operator will be ready to enforce multi-tenancy in your cluster
 
@@ -189,7 +188,7 @@ You can uninstall Tenant-Operator by following these steps
 * Delete the subscription resource
 
 ```bash
-haseeb:~$ oc delete subscription tenant-operator -n openshift-operators
+oc delete subscription tenant-operator -n multi-tenant-operator
 subscription.operators.coreos.com "tenant-operator" deleted
 ```
 
@@ -248,7 +247,7 @@ helm install tenant-operator stakater/tenant-operator --namespace stakater-tenan
 --set image.repository=stakaterdockerhubpullroot/tenant-operator \
 --set imagePullSecrets[0].name=stakater-docker-secret \
 --set resources.limits.cpu=600m \
---set resources.limits.memory=600Mi \
+--set resources.limits.memory=2Gi \
 --set resources.requests.cpu=100m \
 --set resources.requests.memory=128Mi \
 --set integrationConfig.create=true
@@ -293,20 +292,20 @@ spec:
   chart:
     repository: https://stakater.github.io/stakater-charts
     name: tenant-operator
-    version: 0.5.2
+    version: 0.7.0
   values:
     integrationConfig:
       create: true
     image:
       repository: stakaterdockerhubpullroot/tenant-operator
-      tag:  v0.5.2
+      tag:  v0.7.0
       pullPolicy: IfNotPresent
     imagePullSecrets:
     - name: stakater-docker-secret
     resources:
       limits:
         cpu: 600m
-        memory: 600Mi
+        memory: 2Gi
       requests:
         cpu: 100m
         memory: 128Mi
