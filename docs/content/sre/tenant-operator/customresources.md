@@ -67,7 +67,7 @@ For more details [Quota.Spec](https://kubernetes.io/docs/concepts/policy/resourc
 **Cluster scoped resource**
 
 ```yaml
-apiVersion: tenantoperator.stakater.com/v1beta1
+apiVersion: tenantoperator.stakater.com/v1beta2
 kind: Tenant
 metadata:
   name: alpha
@@ -84,7 +84,9 @@ spec:
     users:
       - jose@stakater.com
   quota: medium
-  sandbox: true
+  sandboxConfig:
+    enabled: true
+    private: true
   onDelete:
     cleanNamespaces: true
   argocd:
@@ -94,9 +96,11 @@ spec:
     sleepSchedule: 23 * * * *
     wakeSchedule: 26 * * * *
   namespaces:
-  - dev
-  - build
-  - preview
+    withTenantPrefix:
+      - dev
+      - build
+    withoutTenantPrefix:
+      - preview
   commonMetadata:
     labels:
       stakater.com/team: alpha
@@ -132,9 +136,11 @@ spec:
 
 * Tenant will have a `Quota` to limit resource consumption.
 
-* Tenant will have an option to create *sandbox namespaces* for owners and editors, when `sandbox` is set to *true*.
+* `sandboxConfig` is used to configure the tenant user sandbox feature
+  * Setting `enabled` to *true* will create *sandbox namespaces* for owners and editors.
   * Sandbox will follow the following naming convention **{TenantName}**-**{UserName}**-*sandbox*.
   * In case of groups, the sandbox namespaces will be created for each member of the group.
+  * Setting `private` to *true* will make those sandboxes be only visible to the user they belong to. By default, sandbox namespaces are visible to all tenant members
 
 * `onDelete` is used to tell Tenant-Operator what to do when a Tenant is deleted.
   * `cleanNamespaces` if the value is set to **true** *Tenant-Operator* deletes all *tenant namespaces* when a `Tenant` is deleted. Default value is **false**.
@@ -144,7 +150,8 @@ spec:
 * `hibernation` can be used to create a schedule during which the namespaces belonging to the tenant will be put to sleep. The values of the `sleepSchedule` and `wakeSchedule` fields must be a string in a cron format.
 
 * Namespaces can also be created via tenant CR by *specifying names* in `namespaces`.
-  * Tenant-Operator will append *tenant name* prefix while creating namespaces, so the format will be **{TenantName}**-**{Name}**.
+  * Tenant-Operator will append *tenant name* prefix while creating namespaces if the list of namespaces is under the `withTenantPrefix` field, so the format will be **{TenantName}**-**{Name}**.
+  * Namespaces listed under the `withoutTenantPrefix` will be created with the given name. Writing down namespaces here that already exist within the cluster are not allowed.
   * `stakater.com/kind: {Name}` label will also be added to the namespaces.
 
 * `commonMetadata` can be used to distribute common labels and annotations among tenant namespaces.

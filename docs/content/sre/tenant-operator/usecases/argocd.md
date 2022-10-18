@@ -18,7 +18,7 @@ spec:
 Afterwards, Bill must specify the source GitOps repos for the tenant inside the tenant CR like so:
 
 ```yaml
-apiVersion: tenantoperator.stakater.com/v1beta1
+apiVersion: tenantoperator.stakater.com/v1beta2
 kind: Tenant
 metadata:
   name: sigma
@@ -36,9 +36,10 @@ spec:
   quota: medium
   sandbox: false
   namespaces:
-    - build
-    - stage
-    - dev
+    withTenantPrefix:
+      - build
+      - stage
+      - dev
 ```
 
 Now Bill can see an AppProject will be created for the tenant
