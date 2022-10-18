@@ -1,11 +1,13 @@
 # Vault Multitenancy
 
-The pod is authenticated to Vault by [Kubernetes auth method](https://www.Vaultproject.io/docs/auth/kubernetes). In Vault, roles are associated with Kubernetes service account. Roles, when associated with serviceaccount, permits it to read secret at particular path in Vault.
+HashiCorp Vault is an identity-based secret and encryption management system. Vault validates and authorizes a system's clients (users, machines, apps) before providing them access to secrets or stored sensitive data.
 
-In SAAP,policies and roles are automatically created by tenant operator that grants service accounts of namespace to **read** secrets at tenants path.
+# Vault integration in Tenant Operator 
 
-Role name is same as **namespace** name
+Tenant Operator manages tenant authentication via Vault. Tenant Operator automatically creates policies and roles that allow the tenant namespace service accounts to **read** secrets at tenant's path in Vault. The name of the role is the same as **namespace** name.
 
-![image](./images/tenant-operator-vault-auth.png)
+The pod is authenticated to Vault using the [Kubernetes auth method](https://www.Vaultproject.io/docs/auth/kubernetes). In Vault, roles are associated with Kubernetes service accounts, which permits the service account to read Secrets at a particular path in Vault. 
 
-fig 1. Shows how tenant operator manages authentication with Vault
+![image](./images/to-vault-multitenancy.png)
+
+Fig 1. Shows how Tenant Operator manages authentication with Vault

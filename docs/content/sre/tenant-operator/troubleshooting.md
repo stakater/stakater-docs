@@ -10,7 +10,7 @@ If a user is added to tenant resource, and the user does not exist in RHSSO, the
 
 Description/steps after which this situation occurs:
 
-1. Add a new user to Tenant CR 
+1. Add a new user to Tenant CR
 2. Attempt to log in to Vault with the added user
 3. Vault denies that the user exists, and signs the user up via RHSSO. User is now created on RHSSO (You may check for the user on RHSSO).
 

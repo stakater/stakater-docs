@@ -98,7 +98,7 @@ You can uninstall Tenant-Operator by following these steps
 
 * Now the operator has been uninstalled.
 
-* `Optional:` you can also manually remove tenant operators CRDs and it's resources from the cluster.  
+* `Optional:` you can also manually remove tenant operators CRDs and its resources from the cluster.
 
 ## Installing via Subscription
 
@@ -203,7 +203,7 @@ subscription.operators.coreos.com "tenant-operator" deleted
 
 * Now the operator has been uninstalled.
 
-* `Optional:` you can also manually remove tenant operators CRDs and it's resources from the cluster.  
+* `Optional:` you can also manually remove tenant operators CRDs and it's resources from the cluster.
 
 ## Installing via Helm
 

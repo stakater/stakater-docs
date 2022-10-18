@@ -2,6 +2,10 @@
 
 ## v0.6.x
 
+**v0.6.1**
+
+- fix: Update TO service-account name in environment variable
+
 **v0.6.0**
 
 - feat: Add support to ArgoCD AppProjects created by Tenant Controller to have their sync disabled when relevant namespaces are hibernating
