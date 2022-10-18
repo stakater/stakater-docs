@@ -242,9 +242,9 @@ resources:
         namespace: namespace-n2
 ```
 
-Templates are used to initialize Namespaces, share common resources across namespaces, and map secrets and configMaps from one namespace to other namespaces.
+Templates are used to initialize Namespaces, share common resources across namespaces, and map secrets/configmaps from one namespace to other namespaces.
 
-* They either contain one or more Kubernetes manifests, a reference to secrets or configMaps, or a Helm chart.
+* They either contain one or more Kubernetes manifests, a reference to secrets/configmaps, or a Helm chart.
 * They are being tracked by TemplateInstances in each Namespace they are applied to.
 * They can contain pre-defined parameters such as ${namespace}/${tenant} or user-defined ${MY_PARAMETER} that can be specified within an TemplateInstance.
 
@@ -260,7 +260,7 @@ Also you can define custom variables in `Template` and `TemplateInstance` . The 
 </details>
 <details open>
   <summary>Resource Mapping Templates</summary>
-  <p>A template can be used to map secrets and configMaps from one tenant's namespace to another tenant's namespace, or within a tenant's namespace.</p>
+  <p>A template can be used to map secrets and configmaps from one tenant's namespace to another tenant's namespace, or within a tenant's namespace.</p>
 </details>
 
 ### Mandatory and Optional Templates
