@@ -6,7 +6,7 @@ Bill creates a new tenant called `bluesky` in the cluster:
 
 ```yaml
 kubectl create -f - << EOF
-apiVersion: tenantoperator.stakater.com/v1beta1
+apiVersion: tenantoperator.stakater.com/v1beta2
 kind: Tenant
 metadata:
   name: bluesky
@@ -62,7 +62,7 @@ In the example above, Bill assigned the ownership of `bluesky` to `Anna`. If ano
 
 ```yaml
 kubectl apply -f - << EOF
-apiVersion: tenantoperator.stakater.com/v1beta1
+apiVersion: tenantoperator.stakater.com/v1beta2
 kind: Tenant
 metadata:
   name: bluesky
@@ -90,11 +90,11 @@ yes
 
 ### Assigning Users Sandbox Namespace
 
-Bill assigned the ownership of `bluesky` to `Anna` and `Anthony`. Now if the users want sandboxes to be made for them, they'll have to ask `Bill` to enable `sandbox` functionality. To enable that, Bill will just set `sandbox: true`
+Bill assigned the ownership of `bluesky` to `Anna` and `Anthony`. Now if the users want sandboxes to be made for them, they'll have to ask `Bill` to enable `sandbox` functionality. To enable that, Bill will just set `enabled: true` within the `sandboxConfig` field
 
 ```yaml
 kubectl apply -f - << EOF
-apiVersion: tenantoperator.stakater.com/v1beta1
+apiVersion: tenantoperator.stakater.com/v1beta2
 kind: Tenant
 metadata:
   name: bluesky
@@ -109,7 +109,8 @@ spec:
     groups:
     - alpha
   quota: small
-  sandbox: true
+  sandboxConfig:
+    enabled: true
 EOF
 ```
 
@@ -129,7 +130,7 @@ Bill now wants to create namespaces for `dev`, `build` and `production` environm
 
 ```yaml
 kubectl apply -f - << EOF
-apiVersion: tenantoperator.stakater.com/v1beta1
+apiVersion: tenantoperator.stakater.com/v1beta2
 kind: Tenant
 metadata:
   name: bluesky
@@ -145,9 +146,10 @@ spec:
     - alpha
   quota: small
   namespaces:
-  - dev
-  - build
-  - prod
+    withTenantPrefix:
+      - dev
+      - build
+      - prod
 EOF
 ```
 
@@ -167,7 +169,7 @@ Bill now wants to add labels/annotations to all the namespaces for a tenant. To 
 
 ```yaml
 kubectl apply -f - << EOF
-apiVersion: tenantoperator.stakater.com/v1beta1
+apiVersion: tenantoperator.stakater.com/v1beta2
 kind: Tenant
 metadata:
   name: bluesky
@@ -183,9 +185,10 @@ spec:
     - alpha
   quota: small
   namespaces:
-  - dev
-  - build
-  - prod
+    withTenantPrefix:
+      - dev
+      - build
+      - prod
   commonMetadata:
     labels:
       app.kubernetes.io/managed-by: tenant-operator
@@ -203,7 +206,7 @@ Bill now wants to add labels/annotations to specific namespaces for a tenant. To
 
 ```yaml
 kubectl apply -f - << EOF
-apiVersion: tenantoperator.stakater.com/v1beta1
+apiVersion: tenantoperator.stakater.com/v1beta2
 kind: Tenant
 metadata:
   name: bluesky
@@ -218,11 +221,13 @@ spec:
     groups:
     - alpha
   quota: small
-  sandbox: true
+  sandboxConfig:
+    enabled: true
   namespaces:
-  - dev
-  - build
-  - prod
+    withTenantPrefix:
+      - dev
+      - build
+      - prod
   specificMetadata:
     - namespaces:
         - bluesky-anna-aurora-sandbox
@@ -240,7 +245,7 @@ With the above configuration all tenant namespaces will now contain the mentione
 Bill now wants to delete tenant `bluesky` and wants to retain all namespaces of the tenant. To retain the namespaces Bill will set `spec.onDelete.cleanNamespaces` to `false`.
 
 ```yaml
-apiVersion: tenantoperator.stakater.com/v1beta1
+apiVersion: tenantoperator.stakater.com/v1beta2
 kind: Tenant
 metadata:
   name: bluesky
@@ -250,11 +255,13 @@ spec:
     - anna@aurora.org
     - anthony@aurora.org
   quota: small
-  sandbox: true
+  sandboxConfig:
+    enabled: true
   namespaces:
-  - dev
-  - build
-  - prod
+    withTenantPrefix:
+      - dev
+      - build
+      - prod
   onDelete:
     cleanNamespaces: false
 ```

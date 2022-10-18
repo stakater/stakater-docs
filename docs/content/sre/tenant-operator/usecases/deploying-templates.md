@@ -23,7 +23,7 @@ resources:
 Once the template has been created, Bill edits Anna's tenant and populates the `namespacetemplate` field:
 
 ```yaml
-apiVersion: tenantoperator.stakater.com/v1beta1
+apiVersion: tenantoperator.stakater.com/v1beta2
 kind: Tenant
 metadata:
   name: bluesky
@@ -35,7 +35,8 @@ spec:
     users:
     - john@aurora.org
   quota: small
-  sandbox: true
+  sandboxConfig:
+    enabled: true
   templateInstances:
   - spec:
       template: docker-pull-secret
@@ -204,7 +205,7 @@ parameters:
 Or she can use her tenant
 
 ```yaml
-apiVersion: tenantoperator.stakater.com/v1beta1
+apiVersion: tenantoperator.stakater.com/v1beta2
 kind: Tenant
 metadata:
   name: bluesky
@@ -216,7 +217,8 @@ spec:
     users:
     - john@aurora.org
   quota: small
-  sandbox: true
+  sandboxConfig:
+    enabled: true
   templateInstances:
   - spec:
       template: namespace-parameterized-restrictions

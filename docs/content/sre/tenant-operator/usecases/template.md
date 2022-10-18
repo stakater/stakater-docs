@@ -38,6 +38,24 @@ resources:
       redisPort: 6379
 ```
 
+Or by using `Resource Mapping`
+```yaml
+apiVersion: tenantoperator.stakater.com/v1alpha1
+kind: Template
+metadata:
+  name: resource-mapping
+resources:
+  resourceMappings:
+    secrets:
+      - name: docker-secret
+        namespace: bluesky-build
+    configMaps:
+      - name: tronador-configMap
+        namespace: stakater-tronador
+```
+
+**Note:** Resource mapping can only be used via TGI to map resources within tenant namespaces or to some other tenant's namespace.
+
 ## Using Templates with Default Parameters
 
 ```yaml
