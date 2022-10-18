@@ -1,6 +1,6 @@
 # Getting Support
 
-We provide support to the customers via our [Service Desk Portal](https://stakater-cloud.atlassian.net/servicedesk/customer/portals). You can create Bugs, suggest for improvements/feature request or ask for technical support by creating support tickets on the portal. Users with access only will be able to create support tickets.
+We provide support to the customers via our [Service Desk Portal](https://stakater-cloud.atlassian.net/servicedesk/customer/portals). You can create Bugs, suggest for improvements/feature request or ask for technical support by creating support tickets on the portal. Users with access only will be able to create support tickets. UPDAT
 
 ## Add Users to Support Portal
 
