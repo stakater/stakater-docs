@@ -3,7 +3,7 @@
 Bill wants each tenant to also have their own Mattermost Teams. To make sure this happens correctly, Bill will first add the `stakater.com/mattermost: true` label to the tenant:
 
 ```yaml
-apiVersion: tenantoperator.stakater.com/v1beta1
+apiVersion: tenantoperator.stakater.com/v1beta2
 kind: Tenant
 metadata:
   name: sigma
@@ -23,9 +23,10 @@ spec:
   quota: medium
   sandbox: false
   namespaces:
-    - build
-    - stage
-    - dev
+    withTenantPrefix:
+      - dev
+      - build
+      - prod
 ```
 
 Now user can logIn to Mattermost to see their Team and relevant channels associated with it.

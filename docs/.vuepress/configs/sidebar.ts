@@ -278,6 +278,10 @@ export const sidebarEn: SidebarConfig = [
             text: "Freeing up Unused Resources",
             link: "/content/sre/tenant-operator/usecases/hibernation.md",
           },
+          {
+            text: "Create Private Sandboxes",
+            link: "/content/sre/tenant-operator/usecases/private-sandboxes.md",
+          },
         ],
       },
       "/content/sre/tenant-operator/hibernation.md",
