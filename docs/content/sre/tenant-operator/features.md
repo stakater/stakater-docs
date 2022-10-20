@@ -45,11 +45,17 @@ Common use cases for namespace templates may be:
 - Deploying pre-populated databases with test data
 - Equipping new namespaces with optional credentials such as image pull secrets
 
- ## Tenant level Hibernation
+ ## Tenant Level Hibernation
+
 Tenant-operator can downscale Deployments and StatefulSets in a tenant's Namespace according to a defined  sleep schedule. The Deployments and StatefulSets are brought back to their required replicas according to the provided wake schedule.
 
- ## Mattermost Integration
+ ## Mattermost Multitenancy
+
 Tenant-operator can manage Mattermost to create Teams for tenant users. All tenant users get a unique team and a list of predefined channels gets created. When a user is removed from the tenant, the user is also removed from the Mattermost team corresponding to tenant.
+
+## Cross Namespace Resource Distribution
+
+Tenant-Operator supports cloning of secrets and configmaps from one namespace to another based on label selectors.
 
 ## Everything as Code/GitOps Ready
 
