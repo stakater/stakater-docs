@@ -10,12 +10,6 @@ Tenant-Operator provides several ClusterRoles that are automatically bound to th
 
 Tenant-Operator is also able to leverage existing OpenShift groups or external groups synced from 3rd party identity management systems, for maintaining Tenant membership in your organization's current user management system.
 
-## Self-Service
-
-With Tenant-Operator, you can empower your users to safely provision namespaces for themselves and their teams (typically mapped to SSO groups). Team-owned namespaces and the resources inside of them count towards the team's quotas rather than the user's individual limits and are automatically shared with all team members according to the access rules you configure in tenant-operator.
-
-Also by leveraging Tenant-Operator's templating mechanism, namespaces can be provisioned and automatically pre-populated with any kind of resource or multiple resources such as network policies, docker pull secrets or even Helm charts etc
-
 ## HashiCorp Vault Multitenancy
 
 Tenant-Operator is not only providing strong Multi Tenancy for the OpenShift internals but also extends the tenants permission model to HashiCorp Vault where it can create Vault paths and greatly ease the overhead of managing RBAC in Vault.
@@ -23,6 +17,10 @@ Tenant-Operator is not only providing strong Multi Tenancy for the OpenShift int
 ## ArgoCD Multitenancy
 
 Tenant-Operator is not only providing strong Multi Tenancy for the OpenShift internals but also extends the tenants permission model to ArgoCD were it can provision AppProjects and Allowed Repositories for your tenants greatly ease the overhead of managing RBAC in ArgoCD.
+
+## Mattermost Multitenancy
+
+Tenant-operator can manage Mattermost to create Teams for tenant users. All tenant users get a unique team and a list of predefined channels gets created. When a user is removed from the tenant, the user is also removed from the Mattermost team corresponding to tenant.
 
 ## Cost/Resource Optimization
 
@@ -45,24 +43,28 @@ Common use cases for namespace templates may be:
 - Deploying pre-populated databases with test data
 - Equipping new namespaces with optional credentials such as image pull secrets
 
- ## Tenant Level Hibernation
+## Hibernation
 
 Tenant-operator can downscale Deployments and StatefulSets in a tenant's Namespace according to a defined  sleep schedule. The Deployments and StatefulSets are brought back to their required replicas according to the provided wake schedule.
-
- ## Mattermost Multitenancy
-
-Tenant-operator can manage Mattermost to create Teams for tenant users. All tenant users get a unique team and a list of predefined channels gets created. When a user is removed from the tenant, the user is also removed from the Mattermost team corresponding to tenant.
 
 ## Cross Namespace Resource Distribution
 
 Tenant-Operator supports cloning of secrets and configmaps from one namespace to another based on label selectors.
+
+## Self-Service
+
+With Tenant-Operator, you can empower your users to safely provision namespaces for themselves and their teams (typically mapped to SSO groups). Team-owned namespaces and the resources inside of them count towards the team's quotas rather than the user's individual limits and are automatically shared with all team members according to the access rules you configure in tenant-operator.
+
+Also by leveraging Tenant-Operator's templating mechanism, namespaces can be provisioned and automatically pre-populated with any kind of resource or multiple resources such as network policies, docker pull secrets or even Helm charts etc
 
 ## Everything as Code/GitOps Ready
 
 Tenant-Operator is designed and built to be 100% OpenShift-native and to be configured and managed the same familiar way as native OpenShift resources so is perfect for modern shops that are dedicated to GitOps as it is fully configurable using Custom Resources.
 
 ## Preventing Clusters Sprawl
+
 Share a single cluster with multiple teams, groups of users, or departments by saving operational and management efforts.
 
 ## Native Experience
+
 Provide multi-tenancy with a native Kubernetes experience without introducing additional management layers, plugins, or customized binaries.
