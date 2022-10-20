@@ -1,6 +1,6 @@
 # Integration Config
 
-Integration config is used to configure settings of multi-tenancy for tenant operator.
+IntegrationConfig is used to configure settings of multi-tenancy for Tenant-Operator.
 
 ```yaml
 apiVersion: tenantoperator.stakater.com/v1alpha1
@@ -65,7 +65,7 @@ spec:
       accessorID: <ACCESSOR_ID_TOKEN>
 ```
 
-Following are the different components that can be used to configure multi-tenancy in a cluster via tenant operator.
+Following are the different components that can be used to configure multi-tenancy in a cluster via Tenant Operator.
 
 ## OpenShift
 ``` yaml
@@ -152,15 +152,15 @@ users:
 
 ### Cluster Admin Groups
 
-`clusterAdminGroups:` Contains names of the groups that are allowed to perform CRUD operations on namespaces present on the cluster. Users in the specified group(s) will be able to perform these operations without the tenant-operator getting in their way
+`clusterAdminGroups:` Contains names of the groups that are allowed to perform CRUD operations on namespaces present on the cluster. Users in the specified group(s) will be able to perform these operations without the Tenant Operator getting in their way
 
 ### Privileged Namespaces
 
-`privilegedNamespaces:` Contains the list of `namespaces` ignored by the tenant-operator. The tenant-operator will not manage the `namespaces` in this list. Values in this list are regex patterns. For example, to ignore the `default` namespace, we can specify `^default$`; and to ignore all `namespaces` starting with the `openshift-` prefix, we can specify `^openshift-*`.
+`privilegedNamespaces:` Contains the list of `namespaces` ignored by the Tenant Operator. The Tenant Operator will not manage the `namespaces` in this list. Values in this list are regex patterns. For example, to ignore the `default` namespace, we can specify `^default$`; and to ignore all `namespaces` starting with the `openshift-` prefix, we can specify `^openshift-*`.
 
 ### Privileged ServiceAccounts
 
-`privilegedServiceAccounts:` Contains the list of `ServiceAccounts` ignored by the tenant-operator. The tenant-operator will not manage the `ServiceAccounts` in this list. Values in this list are regex patterns. For example, to ignore all `ServiceAccounts` starting with the `system:serviceaccount:openshift-` prefix, we can use `^system:serviceaccount:openshift-*`; and to ignore the `system:serviceaccount:builder` service account we can use `^system:serviceaccount:builder$.`
+`privilegedServiceAccounts:` Contains the list of `ServiceAccounts` ignored by the Tenant Operator. The Tenant Operator will not manage the `ServiceAccounts` in this list. Values in this list are regex patterns. For example, to ignore all `ServiceAccounts` starting with the `system:serviceaccount:openshift-` prefix, we can use `^system:serviceaccount:openshift-*`; and to ignore the `system:serviceaccount:builder` service account we can use `^system:serviceaccount:builder$.`
 
 ### Namespace Access Policy
 
@@ -184,7 +184,7 @@ If you want to use a more complex regex pattern (for the `openshift.privilegedNa
 
 ### Namespace
 
-`argocd.namespace` is an optional field used to specify the namespace where ArgoCD applications and app projects are deployed. The field should be populated when you want to create an ArgoCD AppProject for each tenant
+`argocd.namespace` is an optional field used to specify the namespace where ArgoCD applications and app projects are deployed. The field should be populated when you want to create an ArgoCD AppProject for each tenant.
 
 ### NamespaceResourceBlacklist
 
