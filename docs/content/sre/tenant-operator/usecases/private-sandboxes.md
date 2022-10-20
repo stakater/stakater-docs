@@ -1,6 +1,6 @@
 # Create Private Sandboxes
 
-Bill assigned the ownership of `bluesky` to `Anna` and `Anthony`. Now if the users want sandboxes to be made for them, they'll have to ask `Bill` to enable `sandbox` functionality. The Users also want to make sure that that the sandboxes that are created for them are also only visible to the user they belong to. To enable that, Bill will just set `enabled: true` and `private: true` within the `sandboxConfig` field
+Bill assigned the ownership of `bluesky` to `Anna` and `Anthony`. Now if the users want sandboxes to be made for them, they'll have to ask `Bill` to enable `sandbox` functionality. The Users also want to make sure that the sandboxes that are created for them are also only visible to the user they belong to. To enable that, Bill will just set `enabled: true` and `private: true` within the `sandboxConfig` field
 
 ```yaml
 kubectl apply -f - << EOF

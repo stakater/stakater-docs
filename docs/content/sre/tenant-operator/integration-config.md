@@ -214,7 +214,7 @@ argocd:
 
 ## RHSSO (Red Hat Single Sign-On)
 
-Red Hat Single Sign-On [RHSSO](https://access.redhat.com/products/red-hat-single-sign-on) is based on the Keycloak project and enables you to secure your web applications by providing Web single sign-on (SSO) capabilities based on popular standards such as SAML 2.0, OpenID Connect and OAuth 2.0.
+Red Hat Single Sign-On [RHSSO](https://access.redhat.com/products/red-hat-single-sign-on) is based on the Keycloak project and enables you to secure your web applications by providing Web single sign-on (SSO) capabilities based on popular standards such as `SAML 2.0`, `OpenID Connect` and `OAuth 2.0`.
 
 If `RHSSO` is configured on a cluster, then RHSSO configuration can be enabled.
 

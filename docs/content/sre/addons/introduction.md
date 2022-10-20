@@ -28,4 +28,4 @@ GitOps Application Manager | Stakater Fabrikate
 Management and issuance of TLS certificates | [cert-manager](https://github.com/jetstack/cert-manager)
 Intrusion detection | Falco (coming soon)
 Automated base image management | Renovate (coming soon)
-Advanced cluster security | Stackrox (coming soon)
+Advanced cluster security | StackRox (coming soon)
