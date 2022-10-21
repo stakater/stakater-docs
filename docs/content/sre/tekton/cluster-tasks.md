@@ -1,6 +1,6 @@
-# stakater-create-git-tag-v1
+# `stakater-create-git-tag-v1`
 
-stakater-create-git-tag-v1 cluster task creates semantic versions for applications.
+`stakater-create-git-tag-v1` cluster task creates semantic versions for applications.
 
 ## Semantic versioning:
 Given a version number in format x.y.z (Major.Minor.Patch)
