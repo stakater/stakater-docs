@@ -34,7 +34,7 @@ For this, he can use the support for [common](./tenant.html#distributing-common-
 Bill has to specify a label on namespaces in which he needs the secret. He can add it to all namespaces inside a tenant or some specific namespaces depending on the use case.
 
 ```yaml
-apiVersion: tenantoperator.stakater.com/v1beta1
+apiVersion: tenantoperator.stakater.com/v1beta2
 kind: Tenant
 metadata:
   name: bluesky
@@ -50,9 +50,10 @@ spec:
     - alpha
   quota: small
   namespaces:
-  - dev
-  - build
-  - prod
+    withTenantPrefix:
+      - dev
+      - build
+      - prod
 
   # use this if you want to add label to some specific namespaces
   specificMetadata:

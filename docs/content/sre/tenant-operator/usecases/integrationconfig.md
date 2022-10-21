@@ -100,7 +100,7 @@ spec:
 Bill then creates a tenant for Anna and John
 
 ```yaml
-apiVersion: tenantoperator.stakater.com/v1beta1
+apiVersion: tenantoperator.stakater.com/v1beta2
 kind: Tenant
 metadata:
   name: bluesky

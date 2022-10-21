@@ -114,7 +114,7 @@ releaseApplication {
 }
 ```
 
-For usage details and more features refer to [stakater-pipeline-library](https://github.com/stakater/stakater-pipeline-library/tree/master/docs)
+For usage details and more features refer to [Stakater-pipeline-library](https://github.com/stakater/stakater-pipeline-library/tree/master/docs)
 
 ## Useful Resources
 

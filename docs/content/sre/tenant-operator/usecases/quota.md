@@ -50,7 +50,7 @@ Bill then proceeds to create a tenant for Anna, while also linking the newly cre
 
 ```yaml
 kubectl create -f - << EOF
-apiVersion: tenantoperator.stakater.com/v1beta1
+apiVersion: tenantoperator.stakater.com/v1beta2
 kind: Tenant
 metadata:
   name: bluesky

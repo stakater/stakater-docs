@@ -1,5 +1,16 @@
 # Changelog
 
+## v0.7.x
+
+**v0.7.0**
+
+- feat: Add support to map secrets/configmaps from one namespace to other namespaces using TGI
+- feat: Allow creation of sandboxes that are private to the user
+- feat: Allow creation of namespaces without tenant prefix from within tenant spec.
+- fix: Webhook changes will now be updated without manual intervention
+- maintain: Updated Tenant CR version from v1beta1 to v1beta2. Conversion webhook is added to facilitate transition to new version
+  - see [Tenant spec](./customresources.html#_2-tenant) for updated spec
+- enhance: Better automated testing
 ## v0.6.x
 
 **v0.6.1**
@@ -276,4 +287,4 @@ ApiVersion `v1alpha1` of Tenant and Quota custom resources has been deprecated a
 
 **v0.2.31**
 
-- feat: Add limit range for kube-RBAC-proxy
+- feat: Add limit range for `kube-RBAC-proxy`
