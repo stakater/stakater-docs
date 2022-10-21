@@ -28,7 +28,7 @@ spec:
       - ^stakater*
 ```
 
-After mentioning the required regex (^stakater*) under `privilegedNamespaces`, Bill can create the namespace without interference.
+After mentioning the required regex (`^stakater*`) under `privilegedNamespaces`, Bill can create the namespace without interference.
 
 ```bash
 oc create namespace stakater-test
