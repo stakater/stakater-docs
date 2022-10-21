@@ -235,4 +235,4 @@ _TODO_ What will this template do? Who owns and manages this template? Is it own
               property: postgresql-password #Name of Vault Secret Key
     ```
 
-_TODO_ So, when I update a secret in vault; then is the application restarted automatically by Reloader?
+_TODO_ So, when I update a secret in Vault; then is the application restarted automatically by Reloader?

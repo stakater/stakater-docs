@@ -150,7 +150,7 @@ spec:
 
 3. View the dashboard via Grafana web UI
 
-   1. Under "stakater-workload-monitoring" project, find the URL to Grafana through Cluster menu [Networking]->[Routes]
+   1. Under `stakater-workload-monitoring` project, find the URL to Grafana through Cluster menu [Networking]->[Routes]
    2. Open Grafana web UI, and go to [Dashboards]->[Manage] to view Dashboards management page
       ![Grafana-menu](./images/grafana-menu.png)
    

@@ -389,7 +389,7 @@ Applications respond to SIGTERM correctly.
 
 #### 1. The app doesn't shut down on SIGTERM, but it gracefully terminates connections
 
-It might take some time before a component such as kube-proxy or the Ingress controller is notified of the endpoint changes.
+It might take some time before a component such as `kube-proxy` or the Ingress controller is notified of the endpoint changes.
 
 Hence, traffic might still flow to the Pod despite it being marked as terminated.
 

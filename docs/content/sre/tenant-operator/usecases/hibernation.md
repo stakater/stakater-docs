@@ -27,7 +27,7 @@ spec:
       - dev
 ```
 
-The schedules above will make all namespaces that belong to the tenant put the deployments and statefulSets within those namespaces to sleep, by reducing their pod count to 0 at 8 PM every weekday. At 8 AM on a weekday, the namespaces will then wake up by restoring their applications' previous pod count.
+The schedules above will make all namespaces that belong to the tenant put the deployments and `statefulSets` within those namespaces to sleep, by reducing their pod count to 0 at 8 PM every weekday. At 8 AM on a weekday, the namespaces will then wake up by restoring their applications' previous pod count.
 
 Bill can verify this behaviour by checking the newly created ResourceSupervisor resource at running time:
 
