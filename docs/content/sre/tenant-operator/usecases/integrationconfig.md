@@ -121,7 +121,7 @@ Now if Anna sign's in to the Vault via OIDC, she can see her tenants path and se
 
 ## Configuring RHSSO (Red Hat Single Sign-On) in IntegrationConfig
 
-Red Hat Single Sign-On [RHSSO](https://access.redhat.com/products/red-hat-single-sign-on) is based on the Keycloak project and enables you to secure your web applications by providing Web single sign-on (SSO) capabilities based on popular standards such as `SAML 2.0`, `OpenID Connect` and `OAuth 2.0`.
+Red Hat Single Sign-On [RHSSO](https://access.redhat.com/products/red-hat-single-sign-on) is based on the Keycloak project and enables you to secure your web applications by providing Web single sign-on (SSO) capabilities based on popular standards such as SAML 2.0, OpenID Connect and OAuth 2.0.
 
 If Bill the cluster admin has RHSSO configured in his cluster, than he can take benefit from Tenant-Operator's integration with RHSSO and Vault.
 
