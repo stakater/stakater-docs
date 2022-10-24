@@ -6,17 +6,17 @@ ArgoCD is a declarative GitOps tool built to deploy applications to Kubernetes. 
 
 Application definitions, configurations, and environments should be declarative and version controlled. Application deployment and lifecycle management should be automated, auditable, and easy to understand.
 
-# ArgoCD integration in Tenant Operator
+# ArgoCD integration in Multi Tenant Operator
 
-With Tenant Operator, cluster admins can configure multi tenancy in their cluster. Now with ArgoCD integration, multi tenancy can be configured in ArgoCD applications and AppProjects.
+With Multi Tenant Operator, cluster admins can configure multi tenancy in their cluster. Now with ArgoCD integration, multi tenancy can be configured in ArgoCD applications and AppProjects.
 
-Tenant Operator (if configured to) will create AppProjects for each tenant. The AppProject will allow Tenants to create ArgoCD Applications that can be synced to namespaces owned by those tenants. Cluster admins will also be able to blacklist certain  namespaces resources if they want, and allow certain cluster scoped resources as well (see the `NamespaceResourceBlacklist` and `ClusterResourceWhitelist` sections in [Integration Config docs](./integration-config.html)).
+Multi Tenant Operator (if configured to) will create AppProjects for each tenant. The AppProject will allow Tenants to create ArgoCD Applications that can be synced to namespaces owned by those tenants. Cluster admins will also be able to blacklist certain  namespaces resources if they want, and allow certain cluster scoped resources as well (see the `NamespaceResourceBlacklist` and `ClusterResourceWhitelist` sections in [Integration Config docs](./integration-config.html)).
 
-Note that ArgoCD integration in Tenant Operator is completely optional.
+Note that ArgoCD integration in Multi Tenant Operator is completely optional.
 
 # Default ArgoCD configuration
 
-We have set a default ArgoCD configuration in Tenant Operator that fulfils the following use cases:
+We have set a default ArgoCD configuration in Multi Tenant Operator that fulfils the following use cases:
 
 - Tenants are able to see only their ArgoCD applications in the ArgoCD frontend
 - Tenant 'Owners' and 'Editors' will have full access to their ArgoCD applications
