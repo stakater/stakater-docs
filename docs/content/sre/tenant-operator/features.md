@@ -20,7 +20,7 @@ Tenant-Operator is not only providing strong Multi Tenancy for the OpenShift int
 
 ## Mattermost Multitenancy
 
-Tenant-operator can manage Mattermost to create Teams for tenant users. All tenant users get a unique team and a list of predefined channels gets created. When a user is removed from the tenant, the user is also removed from the Mattermost team corresponding to tenant.
+Tenant-Operator can manage Mattermost to create Teams for tenant users. All tenant users get a unique team and a list of predefined channels gets created. When a user is removed from the tenant, the user is also removed from the Mattermost team corresponding to tenant.
 
 ## Cost/Resource Optimization
 
@@ -32,9 +32,9 @@ Tenant-Operator can be configured to automatically provision a namespace in the 
 
 ## Templates and Template distribution
 
-Tenant-operator allows admins/users to define templates for namespaces, so that others can instantiate these templates to provision namespaces with batteries loaded. A template could pre-populate a namespace for certain use cases or with basic tooling required. Templates allow you to define Kubernetes manifests, Helm chart and more to be applied when the template is used to create a namespace.
+Tenant-Operator allows admins/users to define templates for namespaces, so that others can instantiate these templates to provision namespaces with batteries loaded. A template could pre-populate a namespace for certain use cases or with basic tooling required. Templates allow you to define Kubernetes manifests, Helm chart and more to be applied when the template is used to create a namespace.
 
-Tenant-operator even allows to parameterize these templates for flexibility and ease of use and also with the option to enforce templates that must be present in a tenants or all tenants namespaces for configuring secure defaults.
+Tenant-Operator even allows to parameterize these templates for flexibility and ease of use and also with the option to enforce templates that must be present in a tenants or all tenants namespaces for configuring secure defaults.
 
 Common use cases for namespace templates may be:
 
@@ -43,17 +43,13 @@ Common use cases for namespace templates may be:
 - Deploying pre-populated databases with test data
 - Equipping new namespaces with optional credentials such as image pull secrets
 
-## Resource Cloning
-
-Tenant-Operator provides a mechanism for cloning secrets and configmaps present in one namespace to other namespaces. It uses templates to enable users to provide reference to secrets and configmaps and uses a template group instance to distribute those secrets and namespaces in matching namespaces.
-
 ## Hibernation
 
-Tenant-operator can downscale Deployments and StatefulSets in a tenant's Namespace according to a defined  sleep schedule. The Deployments and StatefulSets are brought back to their required replicas according to the provided wake schedule.
+Tenant-Operator can downscale Deployments and StatefulSets in a tenant's Namespace according to a defined  sleep schedule. The Deployments and StatefulSets are brought back to their required replicas according to the provided wake schedule.
 
 ## Cross Namespace Resource Distribution
 
-Tenant-Operator supports cloning of secrets and configmaps from one namespace to another based on label selectors.
+Tenant-Operator supports cloning of secrets and configmaps from one namespace to another namespace based on label selectors. It uses templates to enable users to provide reference to secrets and configmaps and uses a template group instance to distribute those secrets and namespaces in matching namespaces.
 
 ## Self-Service
 
@@ -67,8 +63,10 @@ Tenant-Operator is designed and built to be 100% OpenShift-native and to be conf
 
 ## Preventing Clusters Sprawl
 
-Share a single cluster with multiple teams, groups of users, or departments by saving operational and management efforts.
+As companies look to further harness the power of cloud-native, they are adopting container technologies at rapid speed, increasing the number of clusters and workloads. As the number of Kubernetes clusters grows, this is an increasing work for the Ops team. When it comes to patching security issues or upgrading clusters, teams are doing five times the amount of work.
+
+With Tenant-Operator teams can share a single cluster with multiple teams, groups of users, or departments by saving operational and management efforts. This prevents you from Kubernetes cluster sprawl.
 
 ## Native Experience
 
-Provide multi-tenancy with a native Kubernetes experience without introducing additional management layers, plugins, or customized binaries.
+Tenant-Operator provides multi-tenancy with a native Kubernetes experience without introducing additional management layers, plugins, or customized binaries.
