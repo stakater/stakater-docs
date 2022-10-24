@@ -10,24 +10,24 @@ New users can sign up using their official email address by following this proce
 
 2. Click on **Sign up**
 
-    ![image](./images/support-1.png)
+    ![image](./images/signup-support-1.png)
 
 3. Enter your official email address and click **Send link**
 
-    ![image](./images/support-2.png)
+    ![image](./images/signup-support-2.png)
 
     You will be then redirected to following page
 
-    ![image](./images/support-3.png)
+    ![image](./images/signup-support-3.png)
 
 4. Check your email and click **Sign up**
 
-    ![image](./images/support-4.png)
+    ![image](./images/signup-support-4.png)
 
 5. Provide your full name, strong password and then click **Sign up**
 
-    ![image](./images/support-5.png)
+    ![image](./images/signup-support-5.png)
 
     Then you will be redirected to landing page so, you can create ticket.
 
-    ![image](./images/support-6.png)
+    ![image](./images/signup-support-6.png)
