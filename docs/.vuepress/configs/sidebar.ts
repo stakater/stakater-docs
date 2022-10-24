@@ -308,6 +308,11 @@ export const sidebarEn: SidebarConfig = [
     ],
   },
   {
+    text: "Support",
+    collapsible: true,
+    children: ["/content/sre/support/support.md"],
+  },
+  {
     text: "Frequently Asked Questions",
     collapsible: true,
     children: [
@@ -317,15 +322,5 @@ export const sidebarEn: SidebarConfig = [
       "/content/sre/faq/customization.md",
       "/content/sre/faq/developers.md",
     ],
-  },
-  {
-    text: "Release Notes",
-    collapsible: true,
-    children: ["/content/sre/release-notes/release-notes.md"],
-  },
-  {
-    text: "Support",
-    collapsible: true,
-    children: ["/content/sre/support/support.md"],
   },
 ];

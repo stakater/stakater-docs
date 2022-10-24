@@ -18,10 +18,6 @@ Tenant-Operator is not only providing strong Multi Tenancy for the OpenShift int
 
 Tenant-Operator is not only providing strong Multi Tenancy for the OpenShift internals but also extends the tenants permission model to ArgoCD were it can provision AppProjects and Allowed Repositories for your tenants greatly ease the overhead of managing RBAC in ArgoCD.
 
-## Resource Mapping
-
-Tenant-Operator provides a mechanism for mapping secrets and configmaps present in one namespace to other namespaces. It uses templates to enable users to provide reference to secrets and configmaps and uses a template group instance to distribute those secrets and namespaces in matching namespaces.
-
 ## Mattermost Multitenancy
 
 Tenant-operator can manage Mattermost to create Teams for tenant users. All tenant users get a unique team and a list of predefined channels gets created. When a user is removed from the tenant, the user is also removed from the Mattermost team corresponding to tenant.
@@ -46,6 +42,10 @@ Common use cases for namespace templates may be:
 - Adding development tooling to a namespace
 - Deploying pre-populated databases with test data
 - Equipping new namespaces with optional credentials such as image pull secrets
+
+## Resource Cloning
+
+Tenant-Operator provides a mechanism for cloning secrets and configmaps present in one namespace to other namespaces. It uses templates to enable users to provide reference to secrets and configmaps and uses a template group instance to distribute those secrets and namespaces in matching namespaces.
 
 ## Hibernation
 

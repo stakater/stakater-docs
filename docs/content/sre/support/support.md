@@ -1,15 +1,33 @@
 # Getting Support
 
-We provide support to the customers via our [Service Desk Portal](https://stakater-cloud.atlassian.net/servicedesk/customer/portals). You can create Bugs, suggest for improvements/feature request or ask for technical support by creating support tickets on the portal. Users with access only will be able to create support tickets.
+We provide support to the customers via our [Service Desk Portal](https://stakater-cloud.atlassian.net/servicedesk/customer/portals).
 
-## Add Users to Support Portal
+## Sign Up
 
-If you need to add users to, send us the email id of the users via the account manager and we will give them access to the portal..
+New users can sign up using their official email address by following this process:
 
-## Portal UI
+1. Go to the [Service Desk Portal](https://stakater-cloud.atlassian.net/servicedesk/customer/portals)
 
-![Portal](./images/service-desk.png)
+2. Click on **Sign up**
 
-When you click any type of issue, it will redirect you to a page asking for details about the issue. For example if you click **Report a Bug**, it will show following sort of page.
+    ![image](./images/support-1.png)
 
-![Ticket](./images/issue-details.png)
+3. Enter your official email address and click **Send link**
+
+    ![image](./images/support-2.png)
+
+    You will be then redirected to following page
+
+    ![image](./images/support-3.png)
+
+4. Check your email and click **Sign up**
+
+    ![image](./images/support-4.png)
+
+5. Provide your full name, strong password and then click **Sign up**
+
+    ![image](./images/support-5.png)
+
+    Then you will be redirected to landing page so, you can create ticket.
+
+    ![image](./images/support-6.png)
