@@ -6,7 +6,7 @@
 
 - feat: Add option to keep AppProjects created by Tenant Operator in case Tenant is deleted. By default, AppProjects get deleted.
 - fix: Status now updates after namespaces are created.
-- maintain: Changes to helm chart's default behaviour
+- maintain: Changes to Helm chart's default behaviour
 
 ## v0.7.x
 
