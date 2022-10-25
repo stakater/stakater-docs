@@ -105,7 +105,7 @@ Users belonging to the Sigma group will now only see applications created by the
 
 ![image](./../images/argocd.png)
 
-### Prevent ArgoCD from syncing certain resources
+### Prevent ArgoCD from syncing certain namespaced resources
 
 Bill wants tenants to not be able to sync `ResourceQuota` and `LimitRange` resources to their namespaces. To do this correctly, Bill will specify these resources to blacklist in the ArgoCD portion of the Integration Config's Spec:
 
@@ -142,5 +142,41 @@ spec:
       kind: ResourceQuota
     - group: ''
       kind: LimitRange
+  ...
+```
+
+### Allow ArgoCD to sync certain cluster-wide resources
+
+Bill now wants tenants to be able to sync the `Environment` cluster scoped resource to the cluster. To do this correctly, Bill will specify the resource to whitelist in the ArgoCD portion of the Integration Config's Spec:
+
+```yaml
+apiVersion: tenantoperator.stakater.com/v1alpha1
+kind: IntegrationConfig
+metadata:
+  name: tenant-operator-config
+  namespace: stakater-tenant-operator
+spec:
+  ...
+  argocd:
+    namespace: openshift-operators
+    clusterResourceWhitelist:
+      - group: ""
+        kind: Environment
+  ...
+```
+
+Now, if the resource is added to any tenant's project directory in GitOps, ArgoCD will sync them to the cluster. The AppProject will also have the whitelisted resources added to it:
+
+```yaml
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: sigma
+  namespace: openshift-operators
+spec:
+  ...
+  clusterResourceWhitelist:
+  - group: ""
+    kind: Environment
   ...
 ```
