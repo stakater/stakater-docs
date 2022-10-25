@@ -89,6 +89,7 @@ spec:
     private: true
   onDelete:
     cleanNamespaces: true
+    cleanAppProject: false
   argocd:
     sourceRepos:
       - https://github.com/stakater/gitops-config
@@ -144,6 +145,7 @@ spec:
 
 * `onDelete` is used to tell Tenant-Operator what to do when a Tenant is deleted.
   * `cleanNamespaces` if the value is set to **true** *Tenant-Operator* deletes all *tenant namespaces* when a `Tenant` is deleted. Default value is **false**.
+  * `cleanAppProject` will keep the generated ArgoCD AppProject if the value is set to **false**. By default the value is **true**.
 
 * `argocd` can be used to list `sourceRepos` that point to your GitOps repositories. The field is required if you want to create an ArgoCD AppProject for the tenant.
 
