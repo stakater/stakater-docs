@@ -24,7 +24,7 @@ Kubernetes Resource Report categorizes these resources on the basis of defined l
 
 Following is an example view of resources and utilization per namespaces
 
-![kube-resource-report](./images/kube-report.png)
+![Kube-resource-report](./images/kube-report.png)
 
 
 ## Resource Recommendations

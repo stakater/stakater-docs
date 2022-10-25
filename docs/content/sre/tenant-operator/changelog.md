@@ -295,4 +295,4 @@ ApiVersion `v1alpha1` of Tenant and Quota custom resources has been deprecated a
 
 **v0.2.31**
 
-- feat: Add limit range for kube-RBAC-proxy
+- feat: Add limit range for `kube-RBAC-proxy`

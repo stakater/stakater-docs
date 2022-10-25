@@ -64,7 +64,7 @@ For Continuous Integration/Delivery we can use triggers and webhooks:
 - [Kabanero-io](https://github.com/kabanero-io/kabanero-pipelines/tree/master/pipelines)
 - [OpenShift](https://github.com/openshift/pipelines-catalog)
 - [Open-toolchain](https://github.com/open-toolchain/tekton-catalog)
-- [Redhat-developer-demos](https://github.com/redhat-developer-demos/pipelines-catalog)
+- [RedHat-developer-demos](https://github.com/redhat-developer-demos/pipelines-catalog)
 
 ## Useful Resources
 
