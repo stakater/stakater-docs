@@ -2,6 +2,14 @@
 
 ## v0.7.x
 
+**v0.7.1**
+
+- feat: Add option to keep AppProjects created by Tenant Operator in case Tenant is deleted. By default, AppProjects get deleted.
+- fix: Status now updates after namespaces are created.
+- maintain: Changes to Helm chart's default behaviour
+
+## v0.7.x
+
 **v0.7.0**
 
 - feat: Add support to map secrets/configmaps from one namespace to other namespaces using TGI
