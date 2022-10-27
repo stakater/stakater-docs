@@ -54,7 +54,7 @@ resources:
         namespace: stakater-tronador
 ```
 
-**Note:** Resource mapping can only be used via TGI to map resources within tenant namespaces or to some other tenant's namespace.
+**Note:** Resource mapping can be used via TGI to map resources within tenant namespaces or to some other tenant's namespace. If used with TI, the resources will only be mapped if namespaces belong to same tenant.
 
 ## Using Templates with Default Parameters
 

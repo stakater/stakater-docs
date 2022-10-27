@@ -5,7 +5,7 @@ Bill is a cluster admin who wants to free unused cluster resources in an effort 
 First, Bill creates a tenant with the `hibernation` schedules mentioned in the spec, or adds the hibernation field to existing tenant:
 
 ```yaml
-apiVersion: tenantoperator.stakater.com/v1beta1
+apiVersion: tenantoperator.stakater.com/v1beta2
 kind: Tenant
 metadata:
   name: sigma

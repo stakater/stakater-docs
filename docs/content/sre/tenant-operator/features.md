@@ -49,7 +49,7 @@ Tenant-Operator can downscale Deployments and StatefulSets in a tenant's Namespa
 
 ## Cross Namespace Resource Distribution
 
-Tenant-Operator supports cloning of secrets and configmaps from one namespace to another namespace based on label selectors. It uses templates to enable users to provide reference to secrets and configmaps and uses a template group instance to distribute those secrets and namespaces in matching namespaces.
+Tenant-Operator supports cloning of secrets and configmaps from one namespace to another namespace based on label selectors. It uses templates to enable users to provide reference to secrets and configmaps. It uses a template group instance to distribute those secrets and namespaces in matching namespaces, even if namespaces belong to different tenants. If template instance is used then the resources will only be mapped if namespaces belong to same tenant.
 
 ## Self-Service
 
