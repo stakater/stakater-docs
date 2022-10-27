@@ -240,7 +240,7 @@ export const sidebarEn: SidebarConfig = [
           },
           {
             text: "Creating Namespace",
-            link: "/content/sre/tenant-operator/usecases/namespace.md",
+            link: "/content/sresecases/namespace.md",
           },
           {
             text: "Creating Template",
@@ -249,6 +249,10 @@ export const sidebarEn: SidebarConfig = [
           {
             text: "Deploying Template to Namespace",
             link: "/content/sre/tenant-operator/usecases/deploying-templates.md",
+          },
+          {
+            text: "Mapping Resources via Template",
+            link: "/content/sre/tenant-operator/usecases/mapping-resources.md",
           },
           {
             text: "Configuring Multi-Tenant Isolation with Network Policy Template",
