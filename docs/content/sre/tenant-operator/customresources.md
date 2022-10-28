@@ -98,7 +98,7 @@ spec:
         - group: tronador.stakater.com
           kind: Environment
       namespaceResourceBlacklist:
-        - group: v1
+        - group: ""
           kind: ConfigMap
   hibernation:
     sleepSchedule: 23 * * * *
