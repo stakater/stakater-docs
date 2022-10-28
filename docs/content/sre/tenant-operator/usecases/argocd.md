@@ -180,3 +180,38 @@ spec:
     kind: Environment
   ...
 ```
+
+### Override NamespaceResourceBlacklist and ClusterResourceWhitelist per Tenant
+
+Bill now wants a specific tenant to override the `namespaceResourceBlacklist` and `clusterResourceWhitelist` set via Integration Config. Bill will specify these in `argoCD.appProjects` section of Tenant spec. 
+
+```yaml
+apiVersion: tenantoperator.stakater.com/v1beta2
+kind: Tenant
+metadata:
+  name: blue-sky
+spec:
+  argocd:
+    sourceRepos:
+      # specify source repos here
+      - "https://github.com/stakater/GitOps-config"
+    appProject:
+      clusterResourceWhitelist:
+        - group: admissionregistration.k8s.io
+          kind: validatingwebhookconfigurations
+      namespaceResourceBlacklist:
+        - group: ""
+          kind: ConfigMap
+  owners:
+    users:
+      - user
+  editors:
+    users:
+      - user1
+  quota: medium
+  sandbox: false
+  namespaces:
+    withTenantPrefix:
+      - build
+      - stage
+```

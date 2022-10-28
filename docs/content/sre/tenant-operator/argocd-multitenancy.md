@@ -10,7 +10,7 @@ Application definitions, configurations, and environments should be declarative 
 
 With Tenant Operator, cluster admins can configure multi tenancy in their cluster. Now with ArgoCD integration, multi tenancy can be configured in ArgoCD applications and AppProjects.
 
-Tenant Operator (if configured to) will create AppProjects for each tenant. The AppProject will allow Tenants to create ArgoCD Applications that can be synced to namespaces owned by those tenants. Cluster admins will also be able to blacklist certain  namespaces resources if they want, and allow certain cluster scoped resources as well (see the `NamespaceResourceBlacklist` and `ClusterResourceWhitelist` sections in [Integration Config docs](./integration-config.html)).
+Tenant Operator (if configured to) will create AppProjects for each tenant. The AppProject will allow Tenants to create ArgoCD Applications that can be synced to namespaces owned by those tenants. Cluster admins will also be able to blacklist certain  namespaces resources if they want, and allow certain cluster scoped resources as well (see the `NamespaceResourceBlacklist` and `ClusterResourceWhitelist` sections in [Integration Config docs](./integration-config.html) and [Tenant Custom Resource docs](./customresources.md)).
 
 Note that ArgoCD integration in Tenant Operator is completely optional.
 
