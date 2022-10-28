@@ -93,6 +93,13 @@ spec:
   argocd:
     sourceRepos:
       - https://github.com/stakater/gitops-config
+    appProject:
+      clusterResourceWhitelist:
+        - group: tronador.stakater.com
+          kind: Environment
+      namespaceResourceBlacklist:
+        - group: ""
+          kind: ConfigMap
   hibernation:
     sleepSchedule: 23 * * * *
     wakeSchedule: 26 * * * *
@@ -147,7 +154,9 @@ spec:
   * `cleanNamespaces` if the value is set to **true** *Tenant-Operator* deletes all *tenant namespaces* when a `Tenant` is deleted. Default value is **false**.
   * `cleanAppProject` will keep the generated ArgoCD AppProject if the value is set to **false**. By default, the value is **true**.
 
-* `argocd` can be used to list `sourceRepos` that point to your GitOps repositories. The field is required if you want to create an ArgoCD AppProject for the tenant.
+* `argocd` is required if you want to create an ArgoCD AppProject for the tenant.
+  * `sourceRepos` contain a list of repositories that point to your GitOps.
+  * `appProject` is used to set the `clusterResourceWhitelist` and `namespaceResourceBlacklist` resources. If these are also applied via `IntegrationConfig` then those applied via Tenant CR will have higher precedence for given Tenant.
 
 * `hibernation` can be used to create a schedule during which the namespaces belonging to the tenant will be put to sleep. The values of the `sleepSchedule` and `wakeSchedule` fields must be a string in a cron format.
 
