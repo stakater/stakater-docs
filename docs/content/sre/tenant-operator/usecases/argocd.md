@@ -181,7 +181,7 @@ spec:
   ...
 ```
 
-### Override NamespaceResourceBlacklist and ClusterResourceWhitelist per Tenant
+### Override NamespaceResourceBlacklist and/or ClusterResourceWhitelist per Tenant
 
 Bill now wants a specific tenant to override the `namespaceResourceBlacklist` and `clusterResourceWhitelist` set via Integration Config. Bill will specify these in `argoCD.appProjects` section of Tenant spec. 
 
