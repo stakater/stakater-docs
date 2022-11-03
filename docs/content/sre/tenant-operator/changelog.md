@@ -2,19 +2,19 @@
 
 ## v0.7.x
 
+**v0.7.3**
+
+- feat: Updated Tenant CR to provide Tenant level AppProject permissions.
+
 **v0.7.2**
 
 - feat: Add support to map secrets/configmaps from one namespace to other namespaces using TI. Secrets/configmaps will only be mapped if their namespaces belong to same Tenant.
-
-## v0.7.x
 
 **v0.7.1**
 
 - feat: Add option to keep AppProjects created by Tenant Operator in case Tenant is deleted. By default, AppProjects get deleted.
 - fix: Status now updates after namespaces are created.
 - maintain: Changes to Helm chart's default behaviour
-
-## v0.7.x
 
 **v0.7.0**
 
