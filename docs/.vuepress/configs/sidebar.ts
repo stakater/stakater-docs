@@ -36,6 +36,20 @@ export const sidebarEn: SidebarConfig = [
        "/content/sre/cluster-management/hibernating-your-cluster.md",],
   },
   {
+    text: "Operations as a Service",
+    collapsible: true,
+    children: [
+      "/content/operations-as-service/offer.md",
+      "/content/operations-as-service/general-provisions.md",
+      "/content/operations-as-service/service-composition.md",
+      "/content/operations-as-service/business-hours.md",
+      "/content/operations-as-service/technical-support.md",
+      "/content/operations-as-service/updating-clusters.md",
+      "/content/operations-as-service/sla.md",
+      "/content/operations-as-service/cost.md",
+    ],
+  },
+  {
     text: "Applications",
     collapsible: true,
     children: [
