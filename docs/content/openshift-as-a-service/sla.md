@@ -58,13 +58,23 @@ This availability type does not require enabling the HA mode for components.
 
 Control plane availability indicates that the deployment process in the cluster is working, and self-healing processes are running. It formulates the availability level of the main control OpenShift components:
 
+* `console`
 * `etcd`
+* `ingress`
 * `kube-apiserver`
 * `kube-controller-manager`
-* `kube-scheduler`
 * `kube-dns`
-* `openshift-apiserver`
+* `kube-scheduler`
 * `oauth-server`
+* `openshift-apiserver`
+* `openshift-cluster-csi-drivers`
+* `openshift-cluster-node-tuning-operator`
+* `openshift-image-registry`
+* `openshift-kube-scheduler`
+* `openshift-multus`
+* `openshift-operator-lifecycle-manager`
+* `openshift-sdn`
+* `openshift-storage-operator`
 * other components that the API depends on, such as Vertical Pod Autoscaler's admission controller
 
 This availability type requires enabling the HA mode for components.
