@@ -1,4 +1,4 @@
-`Version: 6 Nov 2022`
+`Version: 8 Nov 2022`
 
 # Service Level Agreement (SLA)
 
@@ -20,11 +20,7 @@ To accurately identify types of degradations and the degree of their impact on t
 
 ### Synthetic Availability
 
-Synthetic availability is the availability of running applications in the cluster and cluster components that are not related to the availability of the cluster's Control Plane, such as:
-
-* Applications that have been started before in containers that are still running
-* Kubernetes services - the presence of corresponding `iptables` rules
-* DNS - the ability to resolve hosts
+Synthetic availability is the availability of running applications in the cluster and cluster components that are not related to the availability of the cluster's Control Plane.
 
 The SLA for Synthetic Availability is valid only if these basic conditions are met:
 
@@ -67,6 +63,8 @@ Control plane availability indicates that the deployment process in the cluster 
 * `kube-controller-manager`
 * `kube-scheduler`
 * `kube-dns`
+* `openshift-apiserver`
+* `oauth-server`
 * other components that the API depends on, such as Vertical Pod Autoscaler's admission controller
 
 This availability type requires enabling the HA mode for components.
@@ -83,10 +81,7 @@ This availability type requires enabling the HA mode for components.
 
 ### Extensions Availability
 
-Extensions availability means that additional Kubernetes components are available. It sets out the availability level of components not directly involved in delivering applications to the runtime environment and their operation in the cluster, such as:
-
-* Default monitoring stack
-* Default logging stack
+Extensions availability means that additional Kubernetes components could be available. It sets out the availability level of components not directly involved in delivering applications to the runtime environment and their operation in the cluster, such as addons from Stakater listed on [Managed AddOns](../sre/addons/introduction.md).
 
 This availability type requires enabling the HA mode for components.
 
@@ -118,3 +113,12 @@ The maximum amount of penalty per month of service for violating the SLA | No mo
 Stakater shall not be considered to have violated the SLA and shall not be deemed liable if the service level cannot be guaranteed for reasons beyond Stakater's control.
 
 If the SLA is violated for multiple availability types for the same cluster simultaneously, only the highest penalty for the availability type shall be subject to payment.
+
+## Additional Sections
+
+The following sections from the `SAAP` SLA also applies to the `Managed OpenShift Service` SLA:
+
+- [Excused Downtime](../saap-sla/saap-sla.md#6-excused-downtime)
+- [Monthly Uptime Percentage](../saap-sla/saap-sla.md#7-monthly-uptime-percentage)
+- [Limitations](../saap-sla/saap-sla.md#10-limitations)
+- [SLA Exclusions](../saap-sla/saap-sla.md#13-sla-exclusions)

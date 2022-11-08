@@ -1,4 +1,4 @@
-`Version: 6 Nov 2022`
+`Version: 8 Nov 2022`
 
 # Updating Clusters
 
@@ -12,7 +12,7 @@ The following update types are available:
 
 * Patch-release is an unplanned update of cluster components to fix errors or other functional issues that have already led or may lead to instability of the cluster. Patch-releases result in incrementing the patch version (`Z`) component in the semantic version number (`X.Y.Z`).
 
-The cluster may be updated on a schedule according to the update windows defined for the cluster. The available options for configuring update windows for the cluster are determined by the tariff in use, as shown in the table below:
+The cluster may be updated on a schedule according to the update windows defined for the cluster. The available options for configuring update windows for the cluster are:
 
 Type of update | Update time | Non-Prod | Prod
 --- | --- | --- | ---

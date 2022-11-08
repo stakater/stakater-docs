@@ -1,4 +1,4 @@
-`Version: 6 Nov 2022`
+`Version: 8 Nov 2022`
 
 # Cost of the Service and Settlement Procedure
 
