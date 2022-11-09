@@ -1,39 +1,5 @@
 # Service Level Agreement (SLA)
 
-## Stakater App Agility Platform
-
-Stakater will provide to the Customer the Stakater App Agility Platform ("**SAAP**") and build and manage Customer's OpenShift cluster to allow Customer to optimise its cloud strategy and enable its teams across its organisations to consume Red Hat OpenShift-as-a-Service (the "**Service**").
-
-## Payments
-
-Payment is due once during a Service Period and the Customer will be charged for the number of worker nodes that have been running during the monthly Service Period.
-
-## Covered Service
-
-- "**Covered Service**" means, for each of Zonal Clusters and Regional Clusters, the OpenShift API provided by Customer's cluster(s), so long as the version of OpenShift Engine deployed in the cluster is a version currently offered in the Stable Channel.
-- "**Stable Channel**" means the Stable release channel.
-- "**Zonal Cluster**" means a single-Zone cluster with control planes (master) running in one Zone.
-- "**Regional Cluster**" means a cluster topology that consists of three replicas of the control plane, running in multiple Zones within a given Region.
-
-## Service Level Objectives
-
-Covered Service | Monthly Uptime Percentage
---- | ---
-Zonal Clusters | 99.00%
-Regional Clusters | 99.50%
-
-## Financial Credits
-
-If the SLO is not met in a Service Period, and if Customer meets its obligations under this SLA, Customer will be entitled to, upon request, a service Financial Credit equal to the following:
-
-Monthly Uptime Percentage - Regional Cluster | Monthly Uptime Percentage - Zonal Cluster | Financial Credit of the Fees actually paid by the Customer for that Service Period
---- | --- | ---
-&gt;99.50% to 99.00% | | 5%
-&lt;99.00% to 95.00% | &gt;99.00% to 95.00% | 10%
-&lt;95.00% | &lt;95.00% | 20%
-
-## Common Provisions
-
 This SERVICE LEVEL AGREEMENT ("**SLA**") is by and between **Stakater** and you ("**Customer**"). Each a "Party", and together the "Parties".
 
 ### 1. Term
@@ -72,7 +38,7 @@ This SERVICE LEVEL AGREEMENT ("**SLA**") is by and between **Stakater** and you 
 
 - 6.1 Service unavailability shall be excused when due to any of the following ("Excused Downtime"):
 
-    - 6.1.1 "**Scheduled Downtime**" or Downtime resulting from Stakater performing maintenance on the Covered Service during a Maintenance Window;
+    - 6.1.1 "**Scheduled Downtime**" or Downtime resulting from Stakater performing maintenance on the [Covered Service](#covered-service) during a Maintenance Window;
 
     - 6.1.2 "**Maintenance Window**" or a scheduled period of time when clusters are taken offline for maintenance tasks.
 
@@ -130,7 +96,7 @@ This SERVICE LEVEL AGREEMENT ("**SLA**") is by and between **Stakater** and you 
 
 ### 9. Maximum Financial Credits
 
-- 9.1 The total maximum Financial Credits that can be issued by Stakater to Customer for any and all Downtime that occur in a single Service Period will not exceed twenty percent (20%) of the amount due from the Customer for the Covered Service for the Service Period.
+- 9.1 The total maximum Financial Credits that can be issued by Stakater to Customer for any and all Downtime that occur in a single Service Period will not exceed twenty percent (20%) of the amount due from the Customer for the [Covered Service](#covered-service) for the Service Period.
 
 ### 10. Limitations
 
@@ -203,3 +169,35 @@ The SLA does not apply to any:
     - 13.5.9 that resulted from Customer attempts to perform operations on the account/subscription/etc. being managed by Stakater, even though Customer has permissions they should treat them as read only;
 
     - 13.5.10 for subscriptions reserved, but not paid for, at the time of the incident.
+
+## Stakater App Agility Platform
+
+Stakater will provide to the Customer the Stakater App Agility Platform ("**SAAP**") and build and manage Customer's OpenShift cluster to allow Customer to optimise its cloud strategy and enable its teams across its organisations to consume Red Hat OpenShift-as-a-Service (the "**Service**").
+
+## Payments
+
+Payment is due once during a Service Period and the Customer will be charged for the number of worker nodes that have been running during the monthly Service Period.
+
+## Covered Service
+
+- "**Covered Service**" means, for each of Zonal Clusters and Regional Clusters, the OpenShift API provided by Customer's cluster(s), so long as the version of OpenShift Engine deployed in the cluster is a version currently offered in the Stable Channel.
+- "**Stable Channel**" means the Red Hat OpenShift Container Platform Stable release channel.
+- "**Zonal Cluster**" means a single-Zone cluster with control planes (master) running in one Zone (data centre).
+- "**Regional Cluster**" means a cluster topology that consists of three replicas of the control plane, running in multiple Zones within a given Region.
+
+## Service Level Objectives
+
+Covered Service | Monthly Uptime Percentage
+--- | ---
+Zonal Clusters | 99.00%
+Regional Clusters | 99.50%
+
+## Financial Credits
+
+If the SLO is not met in a Service Period, and if Customer meets its obligations under this SLA, Customer will be entitled to, upon request, a service Financial Credit equal to the following:
+
+Monthly Uptime Percentage - Regional Cluster | Monthly Uptime Percentage - Zonal Cluster | Financial Credit of the Fees actually paid by the Customer for that Service Period
+--- | --- | ---
+&gt;99.00% to 99.50% | | 5%
+&gt;95.00% to 99.00% | &gt;95.00% to 99.00% | 10%
+&lt;95.00% | &lt;95.00% | 20%
