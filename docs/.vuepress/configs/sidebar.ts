@@ -14,6 +14,27 @@ export const sidebarEn: SidebarConfig = [
     ],
   },
   {
+    text: "SAAP SLA",
+    collapsible: true,
+    children: [
+      "/content/saap-sla/saap-sla.md",
+    ],
+  },
+  {
+    text: "OpenShift as a Service",
+    collapsible: true,
+    children: [
+      "/content/openshift-as-a-service/offer.md",
+      "/content/openshift-as-a-service/general-provisions.md",
+      "/content/openshift-as-a-service/service-composition.md",
+      "/content/openshift-as-a-service/business-hours.md",
+      "/content/openshift-as-a-service/technical-support.md",
+      "/content/openshift-as-a-service/updating-clusters.md",
+      "/content/openshift-as-a-service/sla.md",
+      "/content/openshift-as-a-service/cost.md",
+    ],
+  },
+  {
     text: "Managed AddOns",
     collapsible: true,
     children: ["/content/sre/addons/introduction.md"],
