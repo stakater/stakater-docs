@@ -268,7 +268,11 @@ export const sidebarEn: SidebarConfig = [
           },
           {
             text: "Creating Namespace",
-            link: "/content/sresecases/namespace.md",
+            link: "/content/sre/tenant-operator/usecases/namespace.md",
+          },
+          {
+            text: "Limiting Volumes for Tenants",
+            link: "/content/sre/tenant-operator/usecases/volume-limits.md",
           },
           {
             text: "Creating Template",
