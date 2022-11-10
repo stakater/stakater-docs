@@ -38,7 +38,7 @@ Now, the combined storage used by all tenant namespaces will not exceed `50Gi`.
 
 ### Adding StorageClass Restrictions for Tenant
 
-Now, Bill, as a cluster admin, wants to make sure that no Tenant can provision more than a fixed amount of storage from a StorageClass. Bill can restrict that using `<storage-class-name>.storageclass.storage.k8s.io/requests.storage` field in `quota.spec.resourcequota.hard` field. If Bill wants to restrict tenant `sigma` to use only `20Gi` of storage from storage class `stakater`, he'll first create a StorageClass `stakater` and then create the relevant Quota with `sigma.storageclass.storage.k8s.io/requests.storage` field set to `20Gi`.
+Now, Bill, as a cluster admin, wants to make sure that no Tenant can provision more than a fixed amount of storage from a StorageClass. Bill can restrict that using `<storage-class-name>.storageclass.storage.k8s.io/requests.storage` field in `quota.spec.resourcequota.hard` field. If Bill wants to restrict tenant `sigma` to use only `20Gi` of storage from storage class `stakater`, he'll first create a StorageClass `stakater` and then create the relevant Quota with `stakater.storageclass.storage.k8s.io/requests.storage` field set to `20Gi`.
 
 ```yaml
 kubectl create -f - << EOF
@@ -51,7 +51,7 @@ spec:
     hard:
       requests.cpu: '2'
       requests.memory: '4Gi'
-      sigma.storageclass.storage.k8s.io/requests.storage: '20Gi'
+      stakater.storageclass.storage.k8s.io/requests.storage: '20Gi'
 ```
 
 Once the quota is created, Bill will create the tenant and set the quota field to the one he created.
