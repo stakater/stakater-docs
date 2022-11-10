@@ -22,6 +22,8 @@ Stakater provisions the Stakater App Agility Platform (SAAP) and takes first app
 
 - Containerize application if required
 
+- Create a Helm chart
+
 - Implement CI/CD pipeline if required
 
 - Configure environments
