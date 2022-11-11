@@ -18,7 +18,7 @@ Stakater provisions the Stakater App Agility Platform (SAAP) and takes first app
 
 - Select the first application or group of applications that work together
 
-    - Setup infrastructure and application gitops repositories for deploying application and dependent configurations
+    - Setup infrastructure and application GitOps repositories for deploying application and dependent configurations
 
     - Setup tenant operator configuration and decide on the number of environments if required
 
@@ -26,7 +26,7 @@ Stakater provisions the Stakater App Agility Platform (SAAP) and takes first app
 
     - Deploy the application onto the cluster using Kubernetes Resources. List out secret required, dependent services, databases, storage requirements and implement them accordingly.
 
-    - Deploy Kubernetes Resources using [Stakater Developed Helm Chart](https://github.com/stakater/application) on the environment chosen - prod, stage, test, dev - in the application gitops configuration
+    - Deploy Kubernetes Resources using [Stakater Developed Helm Chart](https://github.com/stakater/application) on the environment chosen - prod, stage, test, dev - in the application GitOps configuration
 
     - Implement CI pipeline for the application if required. Deploy Tekton CI pipeline using the [Stakater Tekton Chart](https://github.com/stakater/stakater-tekton-chart)
 
