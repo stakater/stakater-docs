@@ -16,23 +16,25 @@ Stakater provisions the Stakater App Agility Platform (SAAP) and takes first app
 
 ## Week 2-4 - Application Migration - Time and Material - Optional
 
-- Select the first application
+- Select the first application or group of applications that work together
+
+    - Setup infrastructure and application gitops repositories for deploying application and dependent configurations
+
+    - Setup tenant operator configuration and decide on the number of environments if required
+
+    - Divide applications into microservices and containerize them
+
+    - Deploy the application onto the cluster using Kubernetes Resources. List out secret required, dependent services, databases, storage requirements and implement them accordingly.
+
+    - Deploy Kubernetes Resources using [Stakater Developed Helm Chart](https://github.com/stakater/application) on the environment chosen - prod, stage, test, dev - in the application gitops configuration
+
+    - Implement CI pipeline for the application if required. Deploy Tekton CI pipeline using the [Stakater Tekton Chart](https://github.com/stakater/stakater-tekton-chart)
+
+    - Implement monitoring, logging, validation/testing frameworks or any additional tools for the application
+
+    - Validate
 
 - Educate team on key concepts
-
-- Containerize application if required
-
-- Create a Helm chart
-
-- Implement CI/CD pipeline if required
-
-- Configure environments
-
-- Take application to production
-
-- Configure application monitoring
-
-- Validate
 
 ## Next steps
 
