@@ -1,6 +1,6 @@
 # Integration Config
 
-IntegrationConfig is used to configure settings of multi-tenancy for Tenant-Operator.
+IntegrationConfig is used to configure settings of multi-tenancy for Tenant Operator.
 
 ```yaml
 apiVersion: tenantoperator.stakater.com/v1alpha1
@@ -101,7 +101,7 @@ openshift:
 ```
 
 ### Project, group and sandbox
-We can use the `openshift.project`, `openshift.group` and `openshift.sandbox` fields to automatically add `labels` and `annotations` to  the **Projects** and **Groups** managed via `tenant operator`.
+We can use the `openshift.project`, `openshift.group` and `openshift.sandbox` fields to automatically add `labels` and `annotations` to  the **Projects** and **Groups** managed via Tenant Operator.
 
 ```yaml
   openshift:
@@ -156,7 +156,11 @@ users:
 
 ### Privileged Namespaces
 
-`privilegedNamespaces:` Contains the list of `namespaces` ignored by the Tenant Operator. The Tenant Operator will not manage the `namespaces` in this list. Values in this list are regex patterns. For example, to ignore the `default` namespace, we can specify `^default$`; and to ignore all `namespaces` starting with the `openshift-` prefix, we can specify `^openshift-*`.
+`privilegedNamespaces:` Contains the list of `namespaces` ignored by the Tenant Operator. The Tenant Operator will not manage the `namespaces` in this list. Values in this list are regex patterns. 
+For example: 
+- To ignore the `default` namespace, we can specify `^default$`
+- To ignore all namespaces starting with the `openshift-` prefix, we can specify `^openshift-*`.
+- To ignore any namespace containing `stakater` in its name, we can specify `stakater`. (A constant word given as a regex pattern will match any namespace containing that word.)  
 
 ### Privileged ServiceAccounts
 
@@ -184,7 +188,7 @@ If you want to use a more complex regex pattern (for the `openshift.privilegedNa
 
 ### Namespace
 
-`argocd.namespace` is an optional field used to specify the namespace where ArgoCD applications and app projects are deployed. The field should be populated when you want to create an ArgoCD AppProject for each tenant.
+`argocd.namespace` is an optional field used to specify the namespace where ArgoCD Applications and AppProjects are deployed. The field should be populated when you want to create an ArgoCD AppProject for each tenant.
 
 ### NamespaceResourceBlacklist
 
