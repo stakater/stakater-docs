@@ -193,7 +193,7 @@ status:
 Secrets for the Helm chart to be deployed are currently passed along from the Tronador config file, to the Helm release.
 Secrets for Helm chart and other required resources like image pull secret can be brought into Environment Provisioner owned namespaces using [Tronador Config](./tronador_config.html) CR.
 
-You can also use [Tenant Operator's](../tenant-operator/overview.html) [TemplateGroupInstance](../tenant-operator/customresources.html#_5-templategroupinstance) to pass secrets to the namespace that will be provisioned by the EnvironmentProvisioner by setting the proper label in your Tronador config file. An example for this workflow is [provided here](../tenant-operator/usecases/deploying-templates.html#deploying-template-to-namespaces-via-templategroupinstances).
+You can also use [Multi Tenant Operator's](./../tenant-operator/overview.html) [TemplateGroupInstance](./../tenant-operator/customresources.html#_5-templategroupinstance) to pass secrets to the namespace that will be provisioned by the EnvironmentProvisioner by setting the proper label in your Tronador config file. An example for this workflow is [provided here](./../tenant-operator/usecases/deploying-templates.html#deploying-template-to-namespaces-via-templategroupinstances).
 
 ### Application snapshot deployed
 

@@ -1,6 +1,6 @@
 # Custom Resources
 
-Tenant Operator defines following 5 custom resources:
+Multi Tenant Operator defines the following 5 Custom Resources:
 
 1. [Quota](#_1-quota)
 2. [Tenant](#_2-tenant)
@@ -150,8 +150,8 @@ spec:
   * In case of groups, the sandbox namespaces will be created for each member of the group.
   * Setting `private` to *true* will make those sandboxes be only visible to the user they belong to. By default, sandbox namespaces are visible to all tenant members
 
-* `onDelete` is used to tell Tenant-Operator what to do when a Tenant is deleted.
-  * `cleanNamespaces` if the value is set to **true** *Tenant-Operator* deletes all *tenant namespaces* when a `Tenant` is deleted. Default value is **false**.
+* `onDelete` is used to tell Multi Tenant Operator what to do when a Tenant is deleted.
+  * `cleanNamespaces` if the value is set to **true** *MTO* deletes all *tenant namespaces* when a `Tenant` is deleted. Default value is **false**.
   * `cleanAppProject` will keep the generated ArgoCD AppProject if the value is set to **false**. By default, the value is **true**.
 
 * `argocd` is required if you want to create an ArgoCD AppProject for the tenant.
@@ -161,7 +161,7 @@ spec:
 * `hibernation` can be used to create a schedule during which the namespaces belonging to the tenant will be put to sleep. The values of the `sleepSchedule` and `wakeSchedule` fields must be a string in a cron format.
 
 * Namespaces can also be created via tenant CR by *specifying names* in `namespaces`.
-  * Tenant-Operator will append *tenant name* prefix while creating namespaces if the list of namespaces is under the `withTenantPrefix` field, so the format will be **{TenantName}**-**{Name}**.
+  * Multi Tenant Operator will append *tenant name* prefix while creating namespaces if the list of namespaces is under the `withTenantPrefix` field, so the format will be **{TenantName}**-**{Name}**.
   * Namespaces listed under the `withoutTenantPrefix` will be created with the given name. Writing down namespaces here that already exist within the cluster are not allowed.
   * `stakater.com/kind: {Name}` label will also be added to the namespaces.
 
@@ -344,7 +344,7 @@ status:
   nextReconcileTime: '2022-07-07T11:23:00Z'
 ```
 
-The `ResourceSupervisor` is a resource created by Tenant Operator in case the [Hibernation](./hibernation.html) feature is enabled. The Resource manages the sleep/wake schedule of the namespaces owned by the tenant, and manages the previous state of any sleeping application. Currently, only StatefulSets and Deployments are put to sleep. Additionally, ArgoCD AppProjects that belong to the tenant have a `deny` SyncWindow added to them.
+The `ResourceSupervisor` is a resource created by MTO in case the [Hibernation](./hibernation.html) feature is enabled. The Resource manages the sleep/wake schedule of the namespaces owned by the tenant, and manages the previous state of any sleeping application. Currently, only StatefulSets and Deployments are put to sleep. Additionally, ArgoCD AppProjects that belong to the tenant have a `deny` SyncWindow added to them.
 
 ## Namespace
 

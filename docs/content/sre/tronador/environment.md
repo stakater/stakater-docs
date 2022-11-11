@@ -74,4 +74,4 @@ Contains the needed details to create a HelmRelease object in the cluster. All t
 
 ## `namespaceLabels`
 
-Optional field that contains a map of all labels needed to be placed inside the namespace provisioned by the `Environment`. If they are removed from here, they will be removed from the namespace as well. Labels in the namespace that were never in this field will not be affected. A potential use case of this field is to allow compatibility with [Tenant Operator](../tenant-operator/overview.html).
+Optional field that contains a map of all labels needed to be placed inside the namespace provisioned by the `Environment`. If they are removed from here, they will be removed from the namespace as well. Labels in the namespace that were never in this field will not be affected. A potential use case of this field is to allow compatibility with [Multi Tenant Operator](../tenant-operator/overview.html).

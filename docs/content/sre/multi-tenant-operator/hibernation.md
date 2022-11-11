@@ -1,6 +1,6 @@
-# Hibernating Namespaces with Tenant Operator
+# Hibernating Namespaces with Multi Tenant Operator (MTO)
 
-You can manage workloads in your cluster with Tenant Operator by implementing a hibernation schedule for your tenants.
+You can manage workloads in your cluster with MTO by implementing a hibernation schedule for your tenants.
 Hibernation downsizes the running Deployments and StatefulSets in a tenant’s namespace according to a defined cron schedule. You can set a hibernation schedule for your tenants by adding the ‘spec.hibernation’ field to the tenant's respective Custom Resource.
 
 ```yaml

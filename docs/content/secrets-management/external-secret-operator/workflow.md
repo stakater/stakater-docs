@@ -10,11 +10,11 @@ In `externalSecret` we define details of secrets available in Vault and secret s
 
 ### Step 2
 
-Secret Store `tenant-vault-secret-store` is already created in each namespace by Tenant Operator templates. It refers to service account `tenant-vault-access` for authentication. Secret Store also refers to Vault `role` created with the same name as namespace name by Tenant Operator.
+Secret Store `tenant-vault-secret-store` is already created in each namespace by Multi Tenant Operator templates. It refers to service account `tenant-vault-access` for authentication. Secret Store also refers to Vault `role` created with the same name as namespace name by Multi Tenant Operator.
 
 ### Step 3
 
-Service account `tenant-vault-access` being referred by `SecretStore` is already created by Tenant Operator templates. This service account has label `stakater.com/vault-access: 'true'` that is used to bound it with Vault `role` by Tenant Operator. To know more how Tenant Operator authenticates with Vault, see [this].(https://docs.cloud.stakater.com/content/sre/tenant-operator/vault-authentication.html)
+Service account `tenant-vault-access` being referred by `SecretStore` is already created by Multi Tenant Operator templates. This service account has the `stakater.com/vault-access: 'true'` label, which is used to bound it with the Vault `role` by Multi Tenant Operator. To know more how Multi Tenant Operator authenticates with Vault, see [this].(https://docs.cloud.stakater.com/content/sre/tenant-operator/vault-authentication.html)
 
 ### Step 4
 

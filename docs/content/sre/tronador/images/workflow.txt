@@ -10,7 +10,7 @@ participant K8s Cluster
 participant K8s Build
 participant Tronador
 participant Helm Controller
-participant Tenant Operator
+participant Multi Tenant Operator
 participant K8s Preview
 
 Developer->Code Repo: git push
@@ -28,6 +28,6 @@ Helm Controller->K8s Preview: watch helm release
 K8s Build->K8s Preview: sync git secrets
 Code Repo->K8s Preview: pull helm chart
 Helm Controller->K8s Preview: create deployment
-Tenant Operator->K8s Preview: sync image\nregistry secrets
+Multi Tenant Operator->K8s Preview: sync image\nregistry secrets
 Image Registry->K8s Preview: pull application snapshot image
 note over K8s Preview: environment provisioning\n           completed

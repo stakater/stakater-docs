@@ -1,6 +1,6 @@
 # Enforcing Resources Quotas
 
-Using Tenant-Operator, the cluster-admin can set and enforce resource quotas and limit ranges for tenants.
+Using Multi Tenant Operator, the cluster-admin can set and enforce resource quotas and limit ranges for tenants.
 
 ## Assigning Resource Quotas
 
@@ -63,7 +63,7 @@ spec:
 EOF
 ```
 
-When no quota is mentioned in the `quota` field of Tenant CR, Tenant Operator looks for quota with the following annotation `quota.tenantoperator.stakater.com/is-default: "true"` and links that quota with the tenant.
+When no quota is mentioned in the `quota` field of Tenant CR, MTO looks for quota with the following annotation `quota.tenantoperator.stakater.com/is-default: "true"` and links that quota with the tenant.
 
 Now that the quota is linked with Anna's tenant, Anna can create any resource within the values of resource quota and limit range.
 
