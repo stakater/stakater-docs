@@ -74,7 +74,7 @@ spec:
       - ^system:serviceaccount:redhat-*
 ```
 
-For more details and configurations check out [IntegrationConfig](https://docs.cloud.stakater.com/content/sre/tenant-operator/integration-config.html).
+For more details and configurations check out [IntegrationConfig](https://docs.cloud.stakater.com/content/sre/multi-tenant-operator/integration-config.html).
 
 ::: warning Note:
 
@@ -171,7 +171,7 @@ spec:
       - ^system:serviceaccount:redhat-*
 ```
 
-For more details and configurations check out [IntegrationConfig](https://docs.cloud.stakater.com/content/sre/tenant-operator/integration-config.html).
+For more details and configurations check out [IntegrationConfig](https://docs.cloud.stakater.com/content/sre/multi-tenant-operator/integration-config.html).
 
 ::: warning Note:
 
@@ -257,7 +257,7 @@ Once the image has been pulled `Multi Tenant Operator` will be ready for use.
 
 ### 5. Configuring IntegrationConfig
 
-A default `IntegrationConfig` is installed with MTO, which can be found in `stakater-tenant-operator` namespace under the name `tenant-operator-config`. For more details check out [IntegrationConfig](https://docs.cloud.stakater.com/content/sre/tenant-operator/integration-config.html).
+A default `IntegrationConfig` is installed with MTO, which can be found in `stakater-tenant-operator` namespace under the name `tenant-operator-config`. For more details check out [IntegrationConfig](https://docs.cloud.stakater.com/content/sre/multi-tenant-operator/integration-config.html).
 
 ## Installing via Helm Release
 
@@ -317,10 +317,10 @@ Once the image has been pulled `Multi Tenant Operator` will be ready for use.
 
 ### 4. Configuring IntegrationConfig
 
-A default `IntegrationConfig` is installed with MTO, which can be found in `stakater-tenant-operator` namespace under the name `tenant-operator-config`. For more details check out [IntegrationConfig](https://docs.cloud.stakater.com/content/sre/tenant-operator/integration-config.html).
+A default `IntegrationConfig` is installed with MTO, which can be found in `stakater-tenant-operator` namespace under the name `tenant-operator-config`. For more details check out [IntegrationConfig](https://docs.cloud.stakater.com/content/sre/multi-tenant-operator/integration-config.html).
 
 ## Notes
 
 * If MTO is deployed in a newly created namespace, restart its pod once so MTO can retrieve webhook-server-cert provided by OpenShift (if the pod is started before the secret was made).
-* For more details on how to use MTO please refer [use-cases](./../tenant-operator/usecases/quota.html).
-* For more details on how to extend your MTO manager ClusterRole please refer [use-cases](./../tenant-operator/usecases/manager-clusterrole.html).
+* For more details on how to use MTO please refer [use-cases](./../multi-tenant-operator/usecases/quota.html).
+* For more details on how to extend your MTO manager ClusterRole please refer [use-cases](./../multi-tenant-operator/usecases/manager-clusterrole.html).
