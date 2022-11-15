@@ -21,6 +21,13 @@ export const sidebarEn: SidebarConfig = [
     ],
   },
   {
+    text: "SAAP Onboarding",
+    collapsible: true,
+    children: [
+      "/content/onboarding/onboarding.md",
+    ],
+  },
+  {
     text: "OpenShift as a Service",
     collapsible: true,
     children: [
