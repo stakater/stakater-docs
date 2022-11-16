@@ -190,7 +190,7 @@ Deployment files can only be vanilla yaml files, Helm chart and Kustomize reposi
 
 Inside config folder there is a folder for each environment. In each environment folder there are 2 entities.
 
-1. **Space.yaml**: File that contains space configuration for each environment. Space is a Stakater created ```Tenant-Operator``` Custom Resource that is responsible for creating namespace and assigning appropirate permission to associated tenant members
+1. **Space.yaml**: File that contains space configuration for each environment. Space is a Stakater created ```Tenant-Operator``` Custom Resource that is responsible for creating namespace and assigning appropriate permission to associated tenant members
 2. **ArgoCD**:  Folder that contains ArgoCD ```Application``` Custom Resource that watches deployments files in ```<tenant>/<app>/<env>```  (Layer#3 Environment) folder
 
 ## SRE or DeliveryEngineering Tenant
@@ -223,9 +223,9 @@ At the root of SRE tenant, there is a folder of each cluster.
 
 In each cluster folder there are config files for particular cluster. It is further divided into 2 sub folders:
 
-#### Tenant-Operator
+#### Multi Tenant Operator
 
-tenant-operator folder contain custom resources of ```Tenant Operator```. They are following
+tenant-operator folder contain custom resources of ```Multi Tenant Operator```. They are following
 
 - quotas: Amount of resource (configmaps, cpus, memory, i.e.) for each tenant that can consume.
 - tenants: Contains file for each team. It contain information of members that are part of tenant.

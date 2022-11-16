@@ -1,6 +1,6 @@
 # Tenant Member Roles
 
-Tenant Operator tenant members can have one of following 3 roles:
+MTO tenant members can have one of following 3 roles:
 
 1. Owner
 2. Editor
@@ -9,7 +9,7 @@ Tenant Operator tenant members can have one of following 3 roles:
 ## 1. Owner
 
 ![image](./images/tenant-operator-owner-overview.jpg)
-fig 2. Shows how tenant owners manage there tenant using Tenant Operator
+fig 2. Shows how tenant owners manage there tenant using MTO
 
 Owner is an admin of a tenant with some restrictions. It has privilege to see all resources in there Tenant with some additional privileges. They can also create new `namespaces`.
 
@@ -43,7 +43,7 @@ Owner is an admin of a tenant with some restrictions. It has privilege to see al
 
 #### Resources Permissions
 
-* CRUD access on Template, TemplateInstance and TemplateGroupInstance of Tenant Operator custom resources
+* CRUD access on Template, TemplateInstance and TemplateGroupInstance of MTO custom resources
 * CRUD access on ImageStreamTags in `Project`
 * Get access on CustomResourceDefinitions in `Project`
 * Get, list, watch access on Builds, BuildConfigs in `Project`
@@ -59,7 +59,7 @@ Owner is an admin of a tenant with some restrictions. It has privilege to see al
 ## 2. Editor
 
 ![image](./images/tenant-operator-edit-overview.jpg)
-fig 3. Shows editors role in a tenant using Tenant Operator
+fig 3. Shows editors role in a tenant using MTO
 
 Edit role will have edit access on there `Projects`, but they wont have access on `Roles` or `RoleBindings`.
 
@@ -108,7 +108,7 @@ Edit role will have edit access on there `Projects`, but they wont have access o
 
 ### Resources Permissions
 
-* CRUD access on Template, TemplateInstance and TemplateGroupInstance of Tenant Operator custom resources
+* CRUD access on Template, TemplateInstance and TemplateGroupInstance of MTO custom resources
 * Job, CronJob, Task, Trigger and Pipeline access in `Project`
   * get
   * list
@@ -166,7 +166,7 @@ Edit role will have edit access on there `Projects`, but they wont have access o
 ## 3. Viewer
 
 ![image](./images/tenant-operator-view-overview.jpg)
-fig 4. Shows viewers role in a tenant using Tenant Operator
+fig 4. Shows viewers role in a tenant using MTO
 
 Viewer role will only have view access on there `Project`.
 
@@ -197,7 +197,7 @@ Viewer role will only have view access on there `Project`.
 
 #### Resources Permissions
 
-* Get, list, view access on Template, TemplateInstance and TemplateGroupInstance of Tenant Operator custom resources
+* Get, list, view access on Template, TemplateInstance and TemplateGroupInstance of MTO custom resources
 * Job, CronJob, Task, Trigger and Pipeline access in `Project`
   * get
   * list

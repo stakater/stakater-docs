@@ -112,7 +112,7 @@ spec:
 
 Add tenants configuration inside sre tenant configuration
 
-- \<sre>/\<cluster>/tenant-operator/tenants/\<tenant>.yaml
+- \<sre>/\<cluster>/multi-tenant-operator/tenants/\<tenant>.yaml
 
 ``` yaml
 apiVersion: tenantoperator.stakater.com/v1alpha1
@@ -134,4 +134,4 @@ spec:
   quota: <quota>
 ```
 
-For more details please refer [custom-resources](../tenant-operator/customresources.html#_2-tenant)
+For more details please refer [custom-resources](../multi-tenant-operator/customresources.html#_2-tenant)
