@@ -45,7 +45,7 @@ spec:
         kind: build
 ```
 
-Tenant-Operator will deploy `TemplateInstances` mentioned in `templateInstances`, `TemplateInstances` will only be applied in those `namespaces` which belong to Anna's `tenant` and which have `matching label`.
+Multi Tenant Operator will deploy `TemplateInstances` mentioned in `templateInstances`, `TemplateInstances` will only be applied in those `namespaces` which belong to Anna's `tenant` and which have `matching label`.
 
 So now Anna adds label `kind: build` to her existing namespace `bluesky-anna-aurora-sandbox`, and after adding the label she see's that the secret has been created.
 

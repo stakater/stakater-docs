@@ -1,6 +1,6 @@
 # Integration Config
 
-IntegrationConfig is used to configure settings of multi-tenancy for Tenant Operator.
+IntegrationConfig is used to configure settings of multi-tenancy for Multi Tenant Operator.
 
 ```yaml
 apiVersion: tenantoperator.stakater.com/v1alpha1
@@ -65,7 +65,7 @@ spec:
       accessorID: <ACCESSOR_ID_TOKEN>
 ```
 
-Following are the different components that can be used to configure multi-tenancy in a cluster via Tenant Operator.
+Following are the different components that can be used to configure multi-tenancy in a cluster via Multi Tenant Operator.
 
 ## OpenShift
 ``` yaml
@@ -101,7 +101,7 @@ openshift:
 ```
 
 ### Project, group and sandbox
-We can use the `openshift.project`, `openshift.group` and `openshift.sandbox` fields to automatically add `labels` and `annotations` to  the **Projects** and **Groups** managed via Tenant Operator.
+We can use the `openshift.project`, `openshift.group` and `openshift.sandbox` fields to automatically add `labels` and `annotations` to  the **Projects** and **Groups** managed via MTO.
 
 ```yaml
   openshift:
@@ -152,11 +152,11 @@ users:
 
 ### Cluster Admin Groups
 
-`clusterAdminGroups:` Contains names of the groups that are allowed to perform CRUD operations on namespaces present on the cluster. Users in the specified group(s) will be able to perform these operations without the Tenant Operator getting in their way
+`clusterAdminGroups:` Contains names of the groups that are allowed to perform CRUD operations on namespaces present on the cluster. Users in the specified group(s) will be able to perform these operations without MTO getting in their way
 
 ### Privileged Namespaces
 
-`privilegedNamespaces:` Contains the list of `namespaces` ignored by the Tenant Operator. The Tenant Operator will not manage the `namespaces` in this list. Values in this list are regex patterns. 
+`privilegedNamespaces:` Contains the list of `namespaces` ignored by MTO. MTO will not manage the `namespaces` in this list. Values in this list are regex patterns. 
 For example: 
 - To ignore the `default` namespace, we can specify `^default$`
 - To ignore all namespaces starting with the `openshift-` prefix, we can specify `^openshift-*`.
@@ -164,7 +164,7 @@ For example:
 
 ### Privileged ServiceAccounts
 
-`privilegedServiceAccounts:` Contains the list of `ServiceAccounts` ignored by the Tenant Operator. The Tenant Operator will not manage the `ServiceAccounts` in this list. Values in this list are regex patterns. For example, to ignore all `ServiceAccounts` starting with the `system:serviceaccount:openshift-` prefix, we can use `^system:serviceaccount:openshift-*`; and to ignore the `system:serviceaccount:builder` service account we can use `^system:serviceaccount:builder$.`
+`privilegedServiceAccounts:` Contains the list of `ServiceAccounts` ignored by MTO. MTO will not manage the `ServiceAccounts` in this list. Values in this list are regex patterns. For example, to ignore all `ServiceAccounts` starting with the `system:serviceaccount:openshift-` prefix, we can use `^system:serviceaccount:openshift-*`; and to ignore the `system:serviceaccount:builder` service account we can use `^system:serviceaccount:builder$.`
 
 ### Namespace Access Policy
 

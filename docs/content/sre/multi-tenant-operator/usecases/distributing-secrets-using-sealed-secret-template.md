@@ -1,6 +1,6 @@
 # Distributing Secrets Using Sealed Secrets Template
 
-Bill is a cluster admin who wants to provide a mechanism for distributing secrets in multiple namespaces. For this, he wants to use [Sealed Secrets](https://github.com/bitnami-labs/sealed-secrets#sealed-secrets-for-kubernetes) as the solution by adding them to TO Template CR
+Bill is a cluster admin who wants to provide a mechanism for distributing secrets in multiple namespaces. For this, he wants to use [Sealed Secrets](https://github.com/bitnami-labs/sealed-secrets#sealed-secrets-for-kubernetes) as the solution by adding them to MTO Template CR
 
 First, Bill creates a Template in which Sealed Secret is mentioned:
 
@@ -69,7 +69,7 @@ spec:
 
 ```
 
-Bill has added support for a new label `distribute-image-pull-secret: true"` for tenant projects/namespaces, now Tenant-Operator will add that label depending on the used field.
+Bill has added support for a new label `distribute-image-pull-secret: true"` for tenant projects/namespaces, now MTO will add that label depending on the used field.
 
 Finally Bill creates a `TemplateGroupInstance` which will deploy the sealed secrets using the newly created project label and template.
 
@@ -86,4 +86,4 @@ spec:
   sync: true
 ```
 
-Tenant-Operator will now deploy the sealed secrets mentioned in `Template` to namespaces which have the mentioned label. The rest of the work to deploy secret from a sealed secret has to be done by Sealed Secrets Controller.
+MTO will now deploy the sealed secrets mentioned in `Template` to namespaces which have the mentioned label. The rest of the work to deploy secret from a sealed secret has to be done by Sealed Secrets Controller.

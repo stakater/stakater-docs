@@ -12,7 +12,7 @@
 
 **v0.7.1**
 
-- feat: Add option to keep AppProjects created by Tenant Operator in case Tenant is deleted. By default, AppProjects get deleted.
+- feat: Add option to keep AppProjects created by Multi Tenant Operator in case Tenant is deleted. By default, AppProjects get deleted.
 - fix: Status now updates after namespaces are created.
 - maintain: Changes to Helm chart's default behaviour
 
@@ -29,7 +29,7 @@
 
 **v0.6.1**
 
-- fix: Update TO service-account name in environment variable
+- fix: Update MTO service-account name in environment variable
 
 **v0.6.0**
 
@@ -229,7 +229,7 @@ ApiVersion `v1alpha1` of Tenant and Quota custom resources has been deprecated a
 
 **v0.3.13**
 
-- feat: Tenant Operator will now consider all namespaces to be managed if any default Integration Config is not found
+- feat: Multi Tenant Operator will now consider all namespaces to be managed if any default Integration Config is not found
 
 **v0.3.12**
 
@@ -253,11 +253,11 @@ ApiVersion `v1alpha1` of Tenant and Quota custom resources has been deprecated a
 
 **v0.3.7**
 
-- fix: Fix a typo in Tenant Operator's Helm release
+- fix: Fix a typo in Multi Tenant Operator's Helm release
 
 **v0.3.6**
 
-- fix: Fix ArgoCD's `destinationNamespaces` created by Tenant Operator
+- fix: Fix ArgoCD's `destinationNamespaces` created by Multi Tenant Operator
 
 **v0.3.5**
 

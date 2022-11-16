@@ -76,7 +76,7 @@ spec:
       - ^system:serviceaccount:kube-*
 ```
 
-Bill has added a new label `tenant-network-policy: "true"` for tenant projects, now Tenant-Operator will add that label in all projects of tenants.
+Bill has added a new label `tenant-network-policy: "true"` for tenant projects, now MTO will add that label in all projects of tenants.
 
 Finally Bill creates a `TemplateGroupInstance` which will deploy the network policies using the newly created project label and template.
 
@@ -93,4 +93,4 @@ spec:
   sync: true
 ```
 
-Tenant-Operator will now deploy the network policies mentioned in `Template` to all tenant projects.
+MTO will now deploy the network policies mentioned in `Template` to all tenant projects.

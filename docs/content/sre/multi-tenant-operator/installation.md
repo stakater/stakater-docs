@@ -1,6 +1,6 @@
 # Installation
 
-This document contains instructions on installing and configuring Tenant-Operator using OpenShift MarketPlace or Helm. Following are the 4 different ways available
+This document contains instructions on installing and configuring Multi Tenant Operator using OpenShift MarketPlace or Helm. Following are the 4 different ways available:
 
 1. [OpenShift OperatorHub](#installing-via-operatorhub)
 
@@ -38,19 +38,19 @@ This document contains instructions on installing and configuring Tenant-Operato
 
 ![image](./images/to_install_wait.png)
 
-* Once successfully installed, Tenant-Operator will be ready to enforce multi-tenancy in your cluster
+* Once successfully installed, MTO will be ready to enforce multi-tenancy in your cluster
 
 ![image](./images/to_installed_successful.png)
 
 ::: warning Note:
 
-* Tenant-Operator will be installed in `multi-tenant-operator` namespace.
+* MTO will be installed in `multi-tenant-operator` namespace.
 
 :::
 
 ### Configuring IntegrationConfig
 
-IntegrationConfig is required to configure the settings of multi-tenancy for Tenant-Operator.
+IntegrationConfig is required to configure the settings of multi-tenancy for MTO.
 
 * We recommend using the following IntegrationConfig as a starting point
 
@@ -74,17 +74,17 @@ spec:
       - ^system:serviceaccount:redhat-*
 ```
 
-For more details and configurations check out [IntegrationConfig](https://docs.cloud.stakater.com/content/sre/tenant-operator/integration-config.html).
+For more details and configurations check out [IntegrationConfig](https://docs.cloud.stakater.com/content/sre/multi-tenant-operator/integration-config.html).
 
 ::: warning Note:
 
-* A default IntegrationConfig with the name `tenant-operator-config` will be present in Tenant-Operators installed namespace
+* A default IntegrationConfig with the name `tenant-operator-config` will be present in MTO's installed namespace
 
 :::
 
 ### Uninstall
 
-You can uninstall Tenant-Operator by following these steps
+You can uninstall MTO by following these steps:
 
 * Decide on whether you want to retain tenant namespaces or not. If yes, please set `spec.onDelete.cleanNamespaces` to `false` for all those tenants whose namespaces you want to retain. For more details check out [onDelete](./usecases/tenant.html#retaining-tenant-namespaces-when-a-tenant-is-being-deleted)
 
@@ -98,7 +98,7 @@ You can uninstall Tenant-Operator by following these steps
 
 * Now the operator has been uninstalled.
 
-* `Optional:` you can also manually remove tenant operators CRDs and its resources from the cluster.
+* `Optional:` you can also manually remove MTO's CRDs and its resources from the cluster.
 
 ## Installing via Subscription
 
@@ -109,7 +109,7 @@ oc create namespace multi-tenant-operator
 namespace/multi-tenant-operator created
 ```
 
-* Create a subscription YAML for tenant-operator and apply it in `multi-tenant-operator` namespace
+* Create a subscription YAML for MTO and apply it in `multi-tenant-operator` namespace
 
 ```bash
 oc create -f - << EOF
@@ -141,15 +141,15 @@ subscription.operators.coreos.com/tenant-operator created
 
 ![image](./images/select_multi_tenant_operator_project.png)
 
-* Once pods are up and running, Tenant-Operator will be ready to enforce multi-tenancy in your cluster
+* Once pods are up and running, MTO will be ready to enforce multi-tenancy in your cluster
 
 ![image](./images/to_installed_successful_pod.png)
 
 ### Configuring IntegrationConfig
 
-IntegrationConfig is required to configure the settings of multi-tenancy for Tenant-Operator.
+IntegrationConfig is required to configure the settings of multi-tenancy for MTO.
 
-* We recommend using the following IntegrationConfig as a starting point
+* We recommend using the following IntegrationConfig as a starting point:
 
 ```yaml
 apiVersion: tenantoperator.stakater.com/v1alpha1
@@ -171,17 +171,17 @@ spec:
       - ^system:serviceaccount:redhat-*
 ```
 
-For more details and configurations check out [IntegrationConfig](https://docs.cloud.stakater.com/content/sre/tenant-operator/integration-config.html).
+For more details and configurations check out [IntegrationConfig](https://docs.cloud.stakater.com/content/sre/multi-tenant-operator/integration-config.html).
 
 ::: warning Note:
 
-* A default IntegrationConfig with the name `tenant-operator-config` will be present in Tenant-Operators installed namespace
+* A default IntegrationConfig with the name `tenant-operator-config` will be present in MTO's installed namespace
 
 :::
 
 ### Uninstall
 
-You can uninstall Tenant-Operator by following these steps
+You can uninstall MTO by following these steps:
 
 * Decide on whether you want to retain tenant namespaces or not. If yes, please set `spec.onDelete.cleanNamespaces` to `false` for all those tenants whose namespaces you want to retain. For more details check out [onDelete](./usecases/tenant.html#retaining-tenant-namespaces-when-a-tenant-is-being-deleted)
 
@@ -202,7 +202,7 @@ subscription.operators.coreos.com "tenant-operator" deleted
 
 * Now the operator has been uninstalled.
 
-* `Optional:` you can also manually remove tenant operators CRDs and it's resources from the cluster.
+* `Optional:` you can also manually remove MTO's CRDs and its resources from the cluster.
 
 ## Installing via Helm
 
@@ -212,7 +212,7 @@ subscription.operators.coreos.com "tenant-operator" deleted
 oc create namespace stakater-tenant-operator
 ```
 
-Create a new namespace `stakater-tenant-operator`, where Tenant-Operator will be deployed.
+Create a new namespace `stakater-tenant-operator`, where MTO will be deployed.
 
 ### 2. Create Secret
 
@@ -220,13 +220,13 @@ Create a new namespace `stakater-tenant-operator`, where Tenant-Operator will be
 oc apply -f stakater-docker-secret.yaml
 ```
 
-Create a secret called `stakater-docker-secret` in *stakater-tenant-operator* namespace to pull Tenant-Operator image from Docker Hub.
+Create a secret called `stakater-docker-secret` in *stakater-tenant-operator* namespace to pull MTO image from Docker Hub.
 
 *The secret will be provided by **Stakater***
 
 ### 3. Add Helm Repository
 
-In order to install Tenant Operator with Helm, first add the Stakater Helm repository.
+In order to install MTO with Helm, first add the Stakater Helm repository.
 
 ```bash
 helm repo add stakater https://stakater.github.io/stakater-charts
@@ -238,7 +238,7 @@ Scan the new repository for charts.
 helm repo update
 ```
 
-### 4. Install Tenant Operator
+### 4. Install Multi Tenant Operator
 
 ```bash
 helm repo update
@@ -253,11 +253,11 @@ helm install tenant-operator stakater/tenant-operator --namespace stakater-tenan
 --set integrationConfig.create=true
 ```
 
-Once the image has been pulled `Tenant-Operator` will be ready for use.
+Once the image has been pulled `Multi Tenant Operator` will be ready for use.
 
 ### 5. Configuring IntegrationConfig
 
-A default `IntegrationConfig` is installed with tenant-operator, which can be found in `stakater-tenant-operator` namespace under the name `tenant-operator-config`. For more details check out [IntegrationConfig](https://docs.cloud.stakater.com/content/sre/tenant-operator/integration-config.html).
+A default `IntegrationConfig` is installed with MTO, which can be found in `stakater-tenant-operator` namespace under the name `tenant-operator-config`. For more details check out [IntegrationConfig](https://docs.cloud.stakater.com/content/sre/multi-tenant-operator/integration-config.html).
 
 ## Installing via Helm Release
 
@@ -267,7 +267,7 @@ A default `IntegrationConfig` is installed with tenant-operator, which can be fo
 oc create namespace stakater-tenant-operator
 ```
 
-Create a new namespace `stakater-tenant-operator`, where Tenant-Operator will be deployed.
+Create a new namespace `stakater-tenant-operator`, where MTO will be deployed.
 
 ### 2. Create Secret
 
@@ -275,11 +275,11 @@ Create a new namespace `stakater-tenant-operator`, where Tenant-Operator will be
 oc apply -f -n stakater-tenant-operator stakater-docker-secret.yaml
 ```
 
-Create a secret called `stakater-docker-secret` in *stakater-tenant-operator* namespace to pull Tenant-Operator image from Docker Hub.
+Create a secret called `stakater-docker-secret` in *stakater-tenant-operator* namespace to pull MTO image from Docker Hub.
 
 *The secret will be provided by **Stakater***
 
-### 3. Create Tenant-Operator Helm Release
+### 3. Create Multi Tenant Operator Helm Release
 
 ```yaml
 apiVersion: helm.fluxcd.io/v1
@@ -311,16 +311,16 @@ spec:
         memory: 128Mi
 ```
 
-This Helm release will deploy tenant-operator.
+This Helm release will deploy MTO.
 
-Once the image has been pulled `Tenant-Operator` will be ready for use.
+Once the image has been pulled `Multi Tenant Operator` will be ready for use.
 
 ### 4. Configuring IntegrationConfig
 
-A default `IntegrationConfig` is installed with tenant-operator, which can be found in `stakater-tenant-operator` namespace under the name `tenant-operator-config`. For more details check out [IntegrationConfig](https://docs.cloud.stakater.com/content/sre/tenant-operator/integration-config.html).
+A default `IntegrationConfig` is installed with MTO, which can be found in `stakater-tenant-operator` namespace under the name `tenant-operator-config`. For more details check out [IntegrationConfig](https://docs.cloud.stakater.com/content/sre/multi-tenant-operator/integration-config.html).
 
 ## Notes
 
-* If tenant-operator is deployed in a newly created namespace, restart its pod once so tenant-operator can retrieve webhook-server-cert provided by OpenShift (if the pod is started before the secret was made).
-* For more details on how to use Tenant-Operator please refer [use-cases](../tenant-operator/usecases/quota.html).
-* For more details on how to extend your Tenant-Operator manager ClusterRole please refer [use-cases](../tenant-operator/usecases/manager-clusterrole.html).
+* If MTO is deployed in a newly created namespace, restart its pod once so MTO can retrieve webhook-server-cert provided by OpenShift (if the pod is started before the secret was made).
+* For more details on how to use MTO please refer [use-cases](./../multi-tenant-operator/usecases/quota.html).
+* For more details on how to extend your MTO manager ClusterRole please refer [use-cases](./../multi-tenant-operator/usecases/manager-clusterrole.html).
