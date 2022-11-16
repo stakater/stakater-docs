@@ -8,7 +8,7 @@ Changes required in application repository:
 2. Add Dockerfile to application repository
 3. Add webhook to application repository 
 
-Changes required in gitops config repository:
+Changes required in `gitops config repository`:
 
 4. Add files in `apps-gitops-config` repository
 
@@ -112,7 +112,7 @@ _TODO_
 
 _TODO_
 
-## 4. Add files to gitops config repository
+## 4. Add files to `gitops config repository`
 
 You need to create application folder inside a tenant. Inside application folder you need to create each environment folder that application will be deployed to. Following folders will be created.
 
