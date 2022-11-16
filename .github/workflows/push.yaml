@@ -44,7 +44,6 @@ jobs:
           password: ${{ secrets.STAKATER_NEXUS_PREPROD_PASSWORD }}
 
       - name: Generate image repository path
-        id: image_repository_op
         run: |
           echo IMAGE_REPOSITORY=$(echo ${{ secrets.STAKATER_NEXUS_PREPROD_REGISTRY }}/${{ github.repository }} | tr '[:upper:]' '[:lower:]') >> $GITHUB_ENV
 
@@ -74,7 +73,6 @@ jobs:
 
 
       - name: Generate image repository path
-        id: image_repository_op
         run: |
           echo IMAGE_REPOSITORY=$(echo ${{ secrets.STAKATER_NEXUS_PROD_REGISTRY }}/${{ github.repository }} | tr '[:upper:]' '[:lower:]') >> $GITHUB_ENV
 
