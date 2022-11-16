@@ -33,31 +33,33 @@ As a registered user you can go to the [Service Desk Portal](https://stakater-cl
 
 ![image](./images/signup-support-6.png)
 
-## Urgency Levels
+## Priorities
 
-The Customer can set the initial urgency level for a Request by specifying the appropriate level (Critical, Major, Default, Low) or symbolic label (S1, S2, S3, S4) of the respective urgency level in the message body. The Engineer on Duty has the right to adjust it at their own discretion based on the rules below:
+The Customer can set the initial priority for a Request by specifying the appropriate priority: `Highest`, `High`, `Medium`, `Low`, or `Lowest`. The Engineer on Duty has the right to adjust it at their own discretion based on the rules below:
 
-Request Urgency Level | Description of the Request Urgency Level
+Request Priority | Description of the Request Priority
 --- | ---
-Critical - `S1` | Large-scale failure or complete unavailability of OpenShift or Customer's business application deployed on OpenShift. The `S1` urgency level will be lowered to `S2` if there is a workaround for the problem. Examples: Router availability issues, synthetic monitoring availability issues.
-Major - `S2` | Partial degradation of OpenShift core functionality or Customer's business application functionality with potential adverse impact on long-term performance. The `S2` urgency level will be lowered to `S3` if there is a workaround for the problem. Examples: Node Group and Control Plane availability problems.
-Default - `S3` | Partial, non-critical loss of functionality of OpenShift or the Customer's business application. This category also includes major bugs in OpenShift that affect some aspects of the Customer's operations and have no known solutions. The `S3` urgency level will be lowered to `S4` if there is a workaround for the problem. This urgency level is assigned to Requests by default. If the Request does not have an urgency level set by the Customer, it will be assigned the default level `S3`. Examples: Problems with the monitoring availability and Pod autoscaling.
-Low - `S4` | This category includes: Requests for information and other matters, requests regarding extending the functionality of the Kubernetes Platform, performance issues that have no effect on functionality, Kubernetes platform flaws with known solutions or moderate impact on functionality. Example: Issues with extension availability.
+`Highest` | Large-scale failure or complete unavailability of OpenShift or Customer's business application deployed on OpenShift. The `Highest` priority will be lowered to `High` if there is a workaround for the problem. Example: Router availability issues, synthetic monitoring availability issues.
+`High` | Partial degradation of OpenShift core functionality or Customer's business application functionality with potential adverse impact on long-term performance. The `High` priority will be lowered to `Medium` if there is a workaround for the problem. Example: Node Group and Control Plane availability problems.
+`Medium` | Partial, non-critical loss of functionality of OpenShift or the Customer's business application. This category also includes major bugs in OpenShift that affect some aspects of the Customer's operations and have no known solutions. The `Medium` priority will be lowered to `Low` if there is a workaround for the problem. This priority is assigned to Requests by default. If the Request does not have an priority set by the Customer, it will be assigned the default priority `Medium`. Example: Problems with the monitoring availability and Pod autoscaling.
+`Low` | This category includes: Requests for information and other matters, requests regarding extending the functionality of the Kubernetes Platform, performance issues that have no effect on functionality, Kubernetes platform flaws with known solutions or moderate impact on functionality. Example: Issues with extension availability.
+`Lowest` | Trivial problem with little or no impact on progress
 
 ## Response Times
 
-Stakater guarantees certain reaction and response times for each urgency level:
+Stakater guarantees certain reaction and response times for each priority. The reaction time is the maximum time taken for Stakater Support to become aware of the ticket. The response time is the maximum time taken for Stakater Support to make an initial response to the ticket.
 
-Request Urgency Level | Reaction time | Response Time
+Request Priority | Reaction time | Response Time
 --- | --- | ---
-Critical - `S1` | 5 min | 2 h
-Major - `S2` | 5 min | 1 day
-Default - `S3` | 5 min | 3 working days
-Low - `S4` | 2 working hours | 25 working days
+`Highest` | 5 min | 2 h
+`High` | 5 min | 1 day
+`Medium` | 5 min | 3 working days
+`Low` | 2 working hours | 25 working days
+`Lowest` | 4 working hours | 25 working days
 
 ## Resolution Time
 
-The time taken to resolve the problem does not include the time required to gain access to the Customer's environment or the data needed to verify and reproduce the problem. The calculation of time resumes as soon as the Customer provides the requested access to the environment or data. The Engineer on Duty has the right to downgrade the urgency level if the Customer fails to provide access to the environment or data within three hours of the Engineer's request.
+The time taken to resolve the problem does not include the time required to gain access to the Customer's environment or the data needed to verify and reproduce the problem. The calculation of time resumes as soon as the Customer provides the requested access to the environment or data. The Engineer on Duty has the right to downgrade the priority if the Customer fails to provide access to the environment or data within three hours of the Engineer's request.
 
 ## Feedback
 
