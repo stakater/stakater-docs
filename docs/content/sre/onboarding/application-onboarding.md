@@ -10,7 +10,9 @@ Changes required in application repository:
 
 Changes required in `gitops config repository`:
 
-4. Add files in `apps-gitops-config` repository
+4. Add build environment in `apps-gitops-config` repository for application
+5. Add preview environment in `apps-gitops-config` repository for application
+6. Add dev environment in `apps-gitops-config` repository for application
 
 Replace angle brackets with following values in below templates:
 
@@ -116,12 +118,27 @@ _TODO_
 
 You need to create application folder inside a tenant. Inside application folder you need to create each environment folder that application will be deployed to. Following folders will be created.
 
-- `\<tenant>/<01-application>`
+- `\<tenant>/<01-application>.gitkeep`
 - `\<tenant>/<01-application>/<00-build>`
 - `\<tenant>/<01-application>/<00-preview>`
-- `\<tenant>/<01-application>/<01-env>`
-- `\<tenant>/<01-application>/<02-env>`
-- `\<tenant>/<01-application>/<0n-env>`
+- `\<tenant>/<01-application>/<01-env-name>`
+- `\<tenant>/<01-application>/<02-env-name>`
+- `\<tenant>/<01-application>/<0n-env-name>`
+
+### 00-build environment
+
+
+### 00-preview environment
+
+
+### 01-dev environment
+
+
+### 02-stage environment
+
+
+### 03-prod environment
+
 
 To deploy, you'll need to add Helm chart of your application in **each** environment folder.
 
