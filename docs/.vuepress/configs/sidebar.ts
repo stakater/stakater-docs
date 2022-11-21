@@ -179,6 +179,11 @@ export const sidebarEn: SidebarConfig = [
     children: ["/content/sre/autoscaling/autoscaling.md"],
   },
   {
+    text: "Machine Pools",
+    collapsible: true,
+    children: ["/content/sre/machinepools/machinepools.md"],
+  },
+  {
     text: "Storage",
     collapsible: true,
     children: ["/content/sre/storage/volume-expander.md"],
