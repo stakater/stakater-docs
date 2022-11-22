@@ -22,7 +22,7 @@ In a Kubernetes cluster, the worker nodes are where the actual workloads request
 
 ## 1x Infra
 
-The following infrastructure workloads do not incur OpenShift Container Platform worker subscriptions, atleast one infrastructure node is required for deployments.
+The following infrastructure workloads do not incur OpenShift Container Platform worker subscriptions, at least one infrastructure node is required for deployments.
 
    - Kubernetes and OpenShift Container Platform control plane services that run on masters
 
