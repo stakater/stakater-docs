@@ -9,7 +9,7 @@ The control plane, which is composed of control plane machines (also known as th
 |   | vCPU | Memory |  Cost/mo<sup id="fnref1"><a href="#fn1" rel="footnote">*</a></sup> |
 |---|---|---|---|
 | Amazon EC2  | 8  | 64 GiB  | 400 USD  |
-|  Binero | 8 | 48 GB | 2079.88 SEK  |
+|  Binero | 8 | 48 GB | 2080 SEK  |
 
 ## 2x Worker
 
@@ -18,7 +18,7 @@ In a Kubernetes cluster, the worker nodes are where the actual workloads request
 |   | vCPU | Memory |  Cost/mo<sup id="fnref1"><a href="#fn1" rel="footnote">*</a></sup>|
 |---|---|---|---|
 | Amazon EC2  | 8  | 32 GiB  | 300 USD  |
-|  Binero | 8 | 32 GB  | 2079.88 SEK  |
+|  Binero | 8 | 32 GB  | 2080 SEK  |
 
 ## 3x Infra
 
@@ -27,7 +27,7 @@ We use three infrastructure machines for all the resources except for logging , 
 |   | vCPU | Memory |  Cost/mo<sup id="fnref1"><a href="#fn1" rel="footnote">*</a></sup> |
 |---|---|---|---|
 | Amazon EC2  | 8  | 32 GiB  | 300 USD  |
-|  Binero | 8 | 32 GB  | 2079.88 SEK  |
+|  Binero | 8 | 32 GB  | 2080 SEK  |
 
 ## 1x Logging
 
@@ -36,7 +36,7 @@ One logging machine is used for cluster logging workloads.
 |   | vCPU | Memory |  Cost/mo<sup id="fnref1"><a href="#fn1" rel="footnote">*</a></sup> |
 |---|---|---|---|
 | Amazon EC2  | 4  | 16 GiB  | 150 USD  |
-|  Binero | 4  | 16 GB | 880.04 SEK  |
+|  Binero | 4  | 16 GB | 880 SEK  |
 
 ## 2x Monitoring
 
@@ -45,7 +45,7 @@ Two monitoring machines are used for cluster monitoring workloads
 |   | vCPU | Memory |  Cost/mo<sup id="fnref1"><a href="#fn1" rel="footnote">*</a></sup> |
 |---|---|---|---|
 | Amazon EC2  |8  | 32 GiB  | 300 USD  |
-|  Binero | 6  | 32 GB  | 1640.09 SEK  |
+|  Binero | 6  | 32 GB  | 1640 SEK  |
 
 
 ## 1x Pipeline
@@ -55,9 +55,14 @@ One pipeline machine is used for pipeline runs.
 |   | vCPU | Memory |  Cost/mo<sup id="fnref1"><a href="#fn1" rel="footnote">*</a></sup> |
 |---|---|---|---|
 | Amazon EC2  | 4  | 16 GiB  | 150 USD  |
-|  Binero | 6  | 24 GB  | 1320.06 SEK  |
+|  Binero | 6  | 24 GB  | 1320 SEK  |
 
+## Total Machine cost
 
+|   | vCPU | Memory |  Cost/mo<sup id="fnref1"><a href="#fn1" rel="footnote">*</a></sup> |
+|---|---|---|---|
+| Amazon EC2  | 40  | 192 GiB  | 1600 USD  |
+|  Binero | 40 | 184 GB | 10080 SEK  |
 <h4 id="fn1">
     <a href="#fn1" rel="footnote">*  </a>This estimate is an approximation and may differ.
 </h4>
