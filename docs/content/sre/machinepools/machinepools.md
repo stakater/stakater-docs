@@ -8,8 +8,8 @@ The control plane, which is composed of control plane machines (also known as th
 
 |   | vCPU | Memory |  Cost/mo<sup id="fnref1"><a href="#fn1" rel="footnote">*</a></sup> |
 |---|---|---|---|
-| Amazon EC2  | 8  | 64 GiB  | 400 USD  |
-|  Binero | 8 | 48 GB | 2080 SEK  |
+| Amazon EC2  | 8  | 32 GiB  | 300 USD  |
+|  Binero | 8 | 32 GB | 2080 SEK  |
 
 ## 2x Worker
 
@@ -61,8 +61,8 @@ One pipeline machine is used for pipeline runs.
 
 |   | vCPU | Memory |  Cost/mo<sup id="fnref1"><a href="#fn1" rel="footnote">*</a></sup> |
 |---|---|---|---|
-| Amazon EC2  | 40  | 192 GiB  | 1600 USD  |
-|  Binero | 40 | 184 GB | 10080 SEK  |
+| Amazon EC2  | 88  | 352 GiB  | 3300 USD  |
+|  Binero | 86 | 360 GB | 22120 SEK  |
 <h4 id="fn1">
     <a href="#fn1" rel="footnote">*  </a>This estimate is an approximation and may differ.
 </h4>
