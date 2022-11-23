@@ -74,7 +74,7 @@ spec:
       - ^system:serviceaccount:redhat-*
 ```
 
-For more details and configurations check out [IntegrationConfig](https://docs.cloud.stakater.com/content/sre/multi-tenant-operator/integration-config.md).
+For more details and configurations check out [IntegrationConfig](./integration-config.md).
 
 ::: warning Note:
 
@@ -171,7 +171,7 @@ spec:
       - ^system:serviceaccount:redhat-*
 ```
 
-For more details and configurations check out [IntegrationConfig](https://docs.cloud.stakater.com/content/sre/multi-tenant-operator/integration-config.md).
+For more details and configurations check out [IntegrationConfig](./integration-config.md).
 
 ::: warning Note:
 
@@ -257,7 +257,7 @@ Once the image has been pulled `Multi Tenant Operator` will be ready for use.
 
 ### 5. Configuring IntegrationConfig
 
-A default `IntegrationConfig` is installed with MTO, which can be found in `stakater-tenant-operator` namespace under the name `tenant-operator-config`. For more details check out [IntegrationConfig](https://docs.cloud.stakater.com/content/sre/multi-tenant-operator/integration-config.md).
+A default `IntegrationConfig` is installed with MTO, which can be found in `stakater-tenant-operator` namespace under the name `tenant-operator-config`. For more details check out [IntegrationConfig](./integration-config.md).
 
 ## Installing via Helm Release
 
@@ -317,7 +317,7 @@ Once the image has been pulled `Multi Tenant Operator` will be ready for use.
 
 ### 4. Configuring IntegrationConfig
 
-A default `IntegrationConfig` is installed with MTO, which can be found in `stakater-tenant-operator` namespace under the name `tenant-operator-config`. For more details check out [IntegrationConfig](https://docs.cloud.stakater.com/content/sre/multi-tenant-operator/integration-config.md).
+A default `IntegrationConfig` is installed with MTO, which can be found in `stakater-tenant-operator` namespace under the name `tenant-operator-config`. For more details check out [IntegrationConfig](./integration-config.md).
 
 ## Notes
 
