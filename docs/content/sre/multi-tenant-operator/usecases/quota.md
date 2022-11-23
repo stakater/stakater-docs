@@ -38,7 +38,7 @@ spec:
 EOF
 ```
 
-For more details please refer to [Quotas](../customresources.html#_1-quota).
+For more details please refer to [Quotas](../customresources.md#_1-quota).
 
 ```bash
 kubectl get quota small
@@ -80,4 +80,4 @@ Error from server (Cannot exceed Namespace quota: please, reach out to the syste
 
 ## What’s next
 
-See how Bill can create [tenants](./tenant.html)
+See how Bill can create [tenants](./tenant.md)

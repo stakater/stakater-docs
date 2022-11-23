@@ -74,7 +74,7 @@ spec:
       - ^system:serviceaccount:redhat-*
 ```
 
-For more details and configurations check out [IntegrationConfig](https://docs.cloud.stakater.com/content/sre/multi-tenant-operator/integration-config.html).
+For more details and configurations check out [IntegrationConfig](https://docs.cloud.stakater.com/content/sre/multi-tenant-operator/integration-config.md).
 
 ::: warning Note:
 
@@ -86,7 +86,7 @@ For more details and configurations check out [IntegrationConfig](https://docs.c
 
 You can uninstall MTO by following these steps:
 
-* Decide on whether you want to retain tenant namespaces or not. If yes, please set `spec.onDelete.cleanNamespaces` to `false` for all those tenants whose namespaces you want to retain. For more details check out [onDelete](./usecases/tenant.html#retaining-tenant-namespaces-when-a-tenant-is-being-deleted)
+* Decide on whether you want to retain tenant namespaces or not. If yes, please set `spec.onDelete.cleanNamespaces` to `false` for all those tenants whose namespaces you want to retain. For more details check out [onDelete](./usecases/tenant.md#retaining-tenant-namespaces-when-a-tenant-is-being-deleted)
 
 * After making the required changes open OpenShift console and click on `Operators`, followed by `Installed Operators` from the side menu
 
@@ -171,7 +171,7 @@ spec:
       - ^system:serviceaccount:redhat-*
 ```
 
-For more details and configurations check out [IntegrationConfig](https://docs.cloud.stakater.com/content/sre/multi-tenant-operator/integration-config.html).
+For more details and configurations check out [IntegrationConfig](https://docs.cloud.stakater.com/content/sre/multi-tenant-operator/integration-config.md).
 
 ::: warning Note:
 
@@ -183,7 +183,7 @@ For more details and configurations check out [IntegrationConfig](https://docs.c
 
 You can uninstall MTO by following these steps:
 
-* Decide on whether you want to retain tenant namespaces or not. If yes, please set `spec.onDelete.cleanNamespaces` to `false` for all those tenants whose namespaces you want to retain. For more details check out [onDelete](./usecases/tenant.html#retaining-tenant-namespaces-when-a-tenant-is-being-deleted)
+* Decide on whether you want to retain tenant namespaces or not. If yes, please set `spec.onDelete.cleanNamespaces` to `false` for all those tenants whose namespaces you want to retain. For more details check out [onDelete](./usecases/tenant.md#retaining-tenant-namespaces-when-a-tenant-is-being-deleted)
 
 * Delete the subscription resource
 
@@ -257,7 +257,7 @@ Once the image has been pulled `Multi Tenant Operator` will be ready for use.
 
 ### 5. Configuring IntegrationConfig
 
-A default `IntegrationConfig` is installed with MTO, which can be found in `stakater-tenant-operator` namespace under the name `tenant-operator-config`. For more details check out [IntegrationConfig](https://docs.cloud.stakater.com/content/sre/multi-tenant-operator/integration-config.html).
+A default `IntegrationConfig` is installed with MTO, which can be found in `stakater-tenant-operator` namespace under the name `tenant-operator-config`. For more details check out [IntegrationConfig](https://docs.cloud.stakater.com/content/sre/multi-tenant-operator/integration-config.md).
 
 ## Installing via Helm Release
 
@@ -317,10 +317,10 @@ Once the image has been pulled `Multi Tenant Operator` will be ready for use.
 
 ### 4. Configuring IntegrationConfig
 
-A default `IntegrationConfig` is installed with MTO, which can be found in `stakater-tenant-operator` namespace under the name `tenant-operator-config`. For more details check out [IntegrationConfig](https://docs.cloud.stakater.com/content/sre/multi-tenant-operator/integration-config.html).
+A default `IntegrationConfig` is installed with MTO, which can be found in `stakater-tenant-operator` namespace under the name `tenant-operator-config`. For more details check out [IntegrationConfig](https://docs.cloud.stakater.com/content/sre/multi-tenant-operator/integration-config.md).
 
 ## Notes
 
 * If MTO is deployed in a newly created namespace, restart its pod once so MTO can retrieve webhook-server-cert provided by OpenShift (if the pod is started before the secret was made).
-* For more details on how to use MTO please refer [use-cases](./../multi-tenant-operator/usecases/quota.html).
-* For more details on how to extend your MTO manager ClusterRole please refer [use-cases](./../multi-tenant-operator/usecases/manager-clusterrole.html).
+* For more details on how to use MTO please refer [use-cases](./../multi-tenant-operator/usecases/quota.md).
+* For more details on how to extend your MTO manager ClusterRole please refer [use-cases](./../multi-tenant-operator/usecases/manager-clusterrole.md).

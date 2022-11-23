@@ -1,3 +1,5 @@
+# ArgoCD
+
 ### Creating ArgoCD AppProjects for your tenant
 
 Bill wants each tenant to also have their own ArgoCD AppProjects. To make sure this happens correctly, Bill will first specify the namespace where these AppProjects will in the IntegrationConfig:

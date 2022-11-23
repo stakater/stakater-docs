@@ -20,7 +20,7 @@
 
 **v0.1.2**
 
-- refactor: restructure Tronador config, see [relevant docs](./config_file.html) for more details
+- refactor: restructure Tronador config, see [relevant docs](./config_file.md) for more details
 - refactor: all secrets management is now done via this new TronadorConfig CR.
 - feat: faster deletion of Tronador config
 - fix: fix crash when Tronador config exists without a spec
@@ -33,7 +33,7 @@
 
 **v0.1.0**
 
-- refactor: update Tronador's `v1alpha1/EnvironmentProvisioner` to `v1alpha2/Environment`, see [relevant docs](./environment.html) for more details about spec changes
+- refactor: update Tronador's `v1alpha1/EnvironmentProvisioner` to `v1alpha2/Environment`, see [relevant docs](./environment.md) for more details about spec changes
   - feat: faster provisioning of DTEs
   - feat: much faster deletion of DTE on deletion of CR
   - fix: fix all instances of an error that prevented DTE deletion

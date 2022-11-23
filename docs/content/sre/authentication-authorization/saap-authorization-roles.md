@@ -13,10 +13,10 @@ SAAP Cluster Admin (SCA):
 
 ###  Operators Permissions:
 - can view OperatorHub in console
-- can create/view/delete CRs for [curated operators](https://docs.cloud.stakater.com/content/sre/authentication-authorization/curated-list-operators.html) e.g.
+- can create/view/delete CRs for [curated operators](../authentication-authorization/curated-list-operators.md) e.g.
   - AMQ Certificate Manager Operator
   - OpenShift Pipelines Operator
-- can install cluster-wide operators from a [curated list](https://docs.cloud.stakater.com/content/sre/authentication-authorization/curated-list-operators.html) provided by the OperatorHub. This makes the operator available to all developers on your cluster to create Custom Resources and applications using that Operator.
+- can install cluster-wide operators from a [curated list](../authentication-authorization/curated-list-operators.md) provided by the OperatorHub. This makes the operator available to all developers on your cluster to create Custom Resources and applications using that Operator.
 - can view installed operators by using the web console/CLI
 - can install operators in customer owned namespace
 - can manage subscriptions in customer owned namespace

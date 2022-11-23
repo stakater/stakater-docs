@@ -235,4 +235,4 @@ spec:
 
 ## What’s next
 
-See how Bill can configure [multi-tenant isolation with network policies using templates](./configuring-multitenant-network-isolation.html)
+See how Bill can configure [multi-tenant isolation with network policies using templates](./configuring-multitenant-network-isolation.md)
