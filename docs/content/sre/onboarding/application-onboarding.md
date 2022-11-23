@@ -1,6 +1,6 @@
 # Add new application
 
-This guide covers the step by step guide to onboard a new project/application/microservice on SAAP.
+This guide covers the step-by-step guide to onboard a new project/application/microservice on SAAP.
 
 Changes required in application repository:
 
@@ -135,9 +135,7 @@ If your application contains dependency charts run the following command in depl
     ```
     Open the file to view raw kubernetes manifests seperated by '---' that ll be deployed for your application.
 
-
-For the sake of references explore following:
-
+References to Explore:
 - [stakater-nordmart-review](https://github.com/stakater-lab/stakater-nordmart-review/deploy)
 - [stakater-nordmart-review-ui](https://github.com/stakater-lab/stakater-nordmart-review-ui/deploy)
 - [All configurations available via Application Chart Values](https://github.com/stakater/application/blob/master/application/values.yaml)
@@ -282,7 +280,7 @@ Deploy Pipelines stakater-tekton-chart to build environment of application in `a
 
 SAAP ships with few generic Tekton pipelines for quick jump start; all those pipelines expect to have Dockerfile in the root of the repository. Dockerfile should handle both build and package part; we typically use multi-stage Dockerfiles with 2 steps; one for build and another for run e.g.
 
-The idea is to avoid having different pipelines for different applications and if possible do stuff in dockerfiles but there can be use cases where one might need to language specific pipelines.
+The idea is to avoid having different pipelines for different applications and if possible do stuff in dockerfiles, but there can be use cases where users might need language specific pipelines.
 
 Customers can do the way they like; as we ship few generic Tekton pipelines just for the sake of jump start.
 
