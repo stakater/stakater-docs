@@ -8,16 +8,12 @@ Changes required in application repository:
 2. Add Helm Chart to application repository and push it to nexus
 3. Push Docker Image to Nexus Docker.
 4. Push Helm Chart to Nexus Helm
-5. View Application in Cluster
-
----> 3. Add webhook to application repository
 
 Changes required in `gitops config repository`:
 
---->4. Add build environment in `apps-gitops-config` repository for application.
---->5. Add preview environment in `apps-gitops-config` repository for application
-6. Add dev environment in `apps-gitops-config` repository for application
-7. Add application to the dev environment
+5. Add dev environment in `apps-gitops-config` repository for application
+6. Add application to the dev environment and sync ArgoCD Application
+7. View Application in Cluster
 
 Replace angle brackets with following values in below templates:
 
@@ -152,7 +148,7 @@ References to Explore:
 
 
 
-# Tekton Pipelines for application CI/CD
+# Tekton Pipelines for Application CI
 
 Changes required in application repository:
 
