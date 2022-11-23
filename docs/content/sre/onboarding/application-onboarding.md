@@ -4,15 +4,20 @@ This guide covers the step by step guide to onboard a new project/application/mi
 
 Changes required in application repository:
 
-1. Add Helm Chart to application repository
-2. Add Dockerfile to application repository
-3. Add webhook to application repository 
+1. Add Dockerfile to application repository and push it to nexus
+2. Add Helm Chart to application repository and push it to nexus
+3. Push Docker Image to Nexus Docker.
+4. Push Helm Chart to Nexus Helm
+5. View Application in Cluster
+
+---> 3. Add webhook to application repository
 
 Changes required in `gitops config repository`:
 
-4. Add build environment in `apps-gitops-config` repository for application
-5. Add preview environment in `apps-gitops-config` repository for application
+--->4. Add build environment in `apps-gitops-config` repository for application.
+--->5. Add preview environment in `apps-gitops-config` repository for application
 6. Add dev environment in `apps-gitops-config` repository for application
+7. Add application to the dev environment
 
 Replace angle brackets with following values in below templates:
 
@@ -22,81 +27,147 @@ Replace angle brackets with following values in below templates:
   - `<gitops-repo>`:  URL of your GitOps repo
   - `<nexus-repo>`: URL of nexus repository
 
-## 1. Add Helm Chart to application repository
+## 1. Add **Dockerfile** to application repository
+
+We need a **Dockerfile** for our application present inside our code repo.  Navigate to [**redhat image registry**](https://catalog.redhat.com/software/containers/search) and find a suitable image for the application.
+
+Below is a dockerfile for ReactJS application for product reviews. Visit For More Info : https://github.com/stakater-lab/stakater-nordmart-review-ui 
+
+```
+FROM node:14 as builder
+LABEL name="Nordmart review"
+
+# set workdir
+RUN mkdir -p $HOME/application
+WORKDIR $HOME/application
+
+# copy the entire application
+COPY . .
+
+# install dependencies
+RUN npm ci
+ARG VERSION
+
+# build the application
+RUN npm run build -- --env VERSION=$VERSION
+
+EXPOSE 4200
+
+CMD ["node", "server.js"]
+```
+
+> Create [multi-stage builds](https://docs.docker.com/build/building/multi-stage/), use multiple `FROM` statements. Each `FROM` instruction can use a different base, and each of them begins a new stage of the build. You can selectively copy artifacts from one stage to another, leaving behind everything you don’t want in the final image. The end result is the same tiny production image as before, with a significant reduction in complexity. You don’t need to create any intermediate images, and you don’t need to extract any artifacts to your local system at all.
+
+Look into the following dockerizing guides for a start.
+| Framework/Language | Reference                                                   |
+|--------------------|-------------------------------------------------------------|
+| NodeJS             | https://nodejs.org/en/docs/guides/nodejs-docker-webapp/     |
+| Django             | https://blog.logrocket.com/dockerizing-django-app/          |
+| General            | https://www.redhat.com/sysadmin/containerizing-applications |
+
+
+## 2. Add Helm Chart to application repository
 
 In application repo add Helm Chart in ***deploy*** folder at the root of your repository. To configure Helm chart add following 2 files in ***deploy*** folder.
 
-1. A Chart.yaml is defined for each environment with an [external dependency](https://github.com/stakater/application) to a Chart Version. The Helm chart is present in a remote Helm Chart repository
+1. A Chart.yaml is YAML file containing information about the chart. We will be using an external helm dependency chart called [Stakater Application Chart](https://github.com/stakater/application). The Helm chart is present in a remote Helm Chart repository
 
-```yaml 
-apiVersion: v2
-name: <application>
-description: A Helm chart for Kubernetes
-dependencies:
-- name: application
-  version: 1.2.10
-  repository: https://stakater.github.io/stakater-charts  
+    > More Info : Stakater Application Chart https://github.com/stakater/application
 
-type: application
+    ```yaml
+    apiVersion: v2
+    name: <application>
+    description: A Helm chart for Kubernetes
+    dependencies:
+    - name: application
+      version: 1.2.10
+      repository: https://stakater.github.io/stakater-charts
+    type: application
+    version: 1.0.0
+    ```
+2. The values.yaml contains all the application specific **kubenetes resources** (deployments, configmaps, namespaces, secrets, services, route, podautoscalers, rbac) for the particular environment. Configure Helm values as per application needs.
 
-version: 0.0.0
-```
+    Here is a minimal values file defined for an application with deployment,route,service.
+    ```yaml
+    # Name of the dependency chart
+    application:
+      # application name should be short so limit of 63 characters in route can be fulfilled. 
+      # Default route name formed is <application-name>-<namespace>.<base-domain> . 
+      # Config Maps have prefix <application>
+      applicationName: <application>
 
-2. The values.yaml contains all the environment-specific configurations for the particular environment along with an image tag that points to a tag in the Container registry. Configure Helm values as per application needs.
+      deployment:
+        imagePullSecrets: nexus-docker-config-forked
+        additionalLabels:
+          mylabel: mylabelvalue
+        envFrom:
+          <application>-dbconfig:
+            type: configmap
+            nameSuffix: dbconfig
+      configMap:
+        enabled: true
+        files:
+          dbconfig:
+            DB_NAME: "my-application-db"
+            MONGO_HOST: "my-db-host"
+      route:
+        enabled: true
+        port:
+          targetPort: http
+    ```
 
-```yaml
-application:
-  # application name should be short so limit of 63 characters in route can be fulfilled. Default route name formed is <application-name>-<namespace>.<base-domain>
-  applicationName: <application>
+3. Make sure the validate the helm chart before commiting it to the repository.
+If your application contains dependency charts run the following command in deploy/ folder to download helm dependencies using **helm dependency build**.
 
-  deployment:
-    imagePullSecrets: nexus-docker-config-forked
-```
+    ```
+    # Download helm dependencies in Chart.yaml
+    helm dependency build
+    ```
+    <p align="center">
+      <img src="./images/helm-dependency-build.png" width="60%" />
+    </p>
+
+4. Run the following command to see the kubernetes manifests are being generated successfully and validate whether they match your required configuration.
+    ```
+    # Generates the chart against values file provided
+    # and write the output to application-output.yaml
+    helm template . > application-output.yaml
+    ```
+    Open the file to view raw kubernetes manifests seperated by '---' that ll be deployed for your application.
+
 
 For the sake of references explore following:
 
 - [stakater-nordmart-review](https://github.com/stakater-lab/stakater-nordmart-review/deploy)
 - [stakater-nordmart-review-ui](https://github.com/stakater-lab/stakater-nordmart-review-ui/deploy)
+- [All configurations available via Application Chart Values](https://github.com/stakater/application/blob/master/application/values.yaml)
 
-## 2. Add Dockerfile to application repository
+## 3. Push Docker Image to Nexus
 
-Create [multi-stage builds](https://docs.docker.com/build/building/multi-stage/), use multiple `FROM` statements in your Dockerfile. Each `FROM` instruction can use a different base, and each of them begins a new stage of the build. You can selectively copy artifacts from one stage to another, leaving behind everything you don’t want in the final image. The end result is the same tiny production image as before, with a significant reduction in complexity. You don’t need to create any intermediate images, and you don’t need to extract any artifacts to your local system at all.
+## 4. Push Helm Chart to Nexus
 
-### Java
+## 5. View Application in Cluster
 
-```
-## BUILD STAGE
-FROM maven:3.6.3-openjdk-11-slim AS build
-COPY src /usr/src/app/src
-COPY pom.xml /usr/src/app
-RUN mvn -f /usr/src/app/pom.xml clean package
 
-## RUN STAGE
-FROM registry.access.redhat.com/ubi8/openjdk-8
 
-LABEL name="review" \
-      maintainer="Stakater <hello@stakater.com>" \
-      vendor="Stakater" \
-      release="1" \
-      summary="Java Spring boot application"
 
-# Set working directory
-ENV HOME=/opt/app
-WORKDIR $HOME
 
-# Expose the port on which your service will run
-EXPOSE 8080
 
-# NOTE we assume there's only 1 jar in the target dir
-COPY --from=build /usr/src/app/target/*.jar $HOME/artifacts/app.jar
 
-USER 1001
+# Tekton Pipelines for application CI/CD
 
-# Set Entrypoint
-ENTRYPOINT exec java $JAVA_OPTS -jar artifacts/app.jar
-```
+Changes required in application repository:
 
-## 3. Add webhook to application repository
+1. Add webhook to application repository
+
+Changes required in `gitops config repository`:
+
+2. Add build environment in `apps-gitops-config` repository for application.
+3. Add preview environment in `apps-gitops-config` repository for application.
+4. Deploy Pipelines stakater-tekton-chart to build environment of application in `apps-gitops-config`.
+5. Deploy triggerbindings for the pipelines.
+6. Trigger Pipeline by sending webhooks to Eventlistener Route.
+## 1. Add webhook to application repository
 
 Add webhook to the application repository; you can find the webhook URL in the routes of the `build` namespace; for payload you need to include the `pull requests` and `pushes` with ContentType `application/json`.
 
@@ -200,6 +271,12 @@ spec:
       prune: true
       selfHeal: true
 ```
+
+## 4. Deploy Pipelines 
+Deploy Pipelines stakater-tekton-chart to build environment of application in `apps-gitops-config`
+## 5. Deploy TriggerBindings for the pipelines.
+## 6. Trigger Pipeline by sending webhooks to Eventlistener Route.
+
 
 ## Junkyard
 
