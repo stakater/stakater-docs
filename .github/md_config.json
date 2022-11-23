@@ -8,6 +8,9 @@
     },
     {
       "pattern": "^(https://nexus).+"
+    },
+    {
+      "pattern": "^(https://docs.github.com).+"
     }
   ]
 }
