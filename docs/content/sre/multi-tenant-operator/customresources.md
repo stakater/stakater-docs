@@ -66,6 +66,19 @@ For more details [Quota.Spec](https://kubernetes.io/docs/concepts/policy/resourc
 
 **Cluster scoped resource**
 
+The smallest valid Tenant definition is given below (with just one field in its spec):
+
+```yaml
+apiVersion: tenantoperator.stakater.com/v1beta2
+kind: Tenant
+metadata:
+  name: alpha
+spec:
+  quota: small
+```
+
+Here is a more detailed Tenant definition, explained below:
+
 ```yaml
 apiVersion: tenantoperator.stakater.com/v1beta2
 kind: Tenant
