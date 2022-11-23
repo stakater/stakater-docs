@@ -93,7 +93,7 @@ In application repo add Helm Chart in ***deploy*** folder at the root of your re
     application:
       # application name should be short so limit of 63 characters in route can be fulfilled. 
       # Default route name formed is <application-name>-<namespace>.<base-domain> . 
-      # Config Maps have prefix <application>
+      # Config Maps have <application> prefixed
       applicationName: <application>
 
       deployment:
@@ -116,7 +116,7 @@ In application repo add Helm Chart in ***deploy*** folder at the root of your re
           targetPort: http
     ```
 
-3. Make sure the validate the helm chart before commiting it to the repository.
+3. Make sure to validate the helm chart before commiting it to the repository.
 If your application contains dependency charts run the following command in deploy/ folder to download helm dependencies using **helm dependency build**.
 
     ```
