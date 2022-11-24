@@ -19,7 +19,7 @@ At least one infrastructure node is required for these supporting workloads.
 | [Ingress Monitor Controller](https://github.com/stakater/IngressMonitorController)  | 150 m  | 600 MiB  |
 | OpenShift-GitOps  | 530 m  | 500 MiB  |
 | Stakater-nexus  | 200 m  | 1.6 GiB  |
-| Vault  | 255 m  | 360 MiB  |
+| [Vault](https://github.com/hashicorp/vault)  | 255 m  | 360 MiB  |
 |  Stakater-Tronador  | 100 m  | 200 MiB  |
 |  OpenShift-Velero  | 500 m  | 150 MiB  |
 |  Multi Tenant Operator  | 600 m  | 1.2 GiB  |
@@ -32,7 +32,7 @@ At least one infrastructure node is required for these supporting workloads.
 |  Stakater-group-sync-operator  | 50 m  | 100 MiB  |
 |  Stakater-Konfigurator | 20 m  | 300 MiB  |
 |  Stakater-namespace-configuration-operator | 200 m  | 300 MiB  |
-|  Stakater-Reloader | 20 m  | 500 MiB  |
+|  [Stakater Reloader](https://github.com/stakater/Reloader) | 20 m  | 500 MiB  |
 |  Stakater-external-secrets-operator | 50 m  | 300 MiB  |
 |  Stakater-kubehealth | 150 m  | 400 MiB  |
 |  OpenShift-image-registry | 50 m  | 400 MiB  |
