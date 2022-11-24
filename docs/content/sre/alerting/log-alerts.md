@@ -33,7 +33,7 @@ The configuration to parse/match/send logs can be specified in the [Application 
 We recommend to log as JSON but for some reason if you can't then follow the next step as well.
 
 ::: tip
-If you use a customized format for logs in your application, you can describe your own regex to parse logs. See example in our [log parsing](https://docs.cloud.stakater.com/content/sre/logging/logging.html) section.
+If you use a customized format for logs in your application, you can describe your own regex to parse logs. See example in our [log parsing](../logging/logging.md) section.
 :::
 
 ### Examples

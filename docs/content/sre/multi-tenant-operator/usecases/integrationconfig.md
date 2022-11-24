@@ -78,7 +78,7 @@ If Bill (the cluster admin) has Vault configured in his cluster, then he can tak
 
 MTO automatically creates Vault secret paths for tenants, where tenant members can securely save their secrets. It also authorizes tenant members to access these secrets via OIDC.
 
-Bill would first have to integrate Vault with MTO by adding the details in IntegrationConfig. For more [details](./../integration-config.html#vault)
+Bill would first have to integrate Vault with MTO by adding the details in IntegrationConfig. For more [details](./../integration-config.md#vault)
 
 ```yaml
 apiVersion: tenantoperator.stakater.com/v1alpha1
@@ -130,7 +130,7 @@ If Bill the cluster admin has RHSSO configured in his cluster, then he can take 
 
 MTO automatically allows tenant members to access Vault via OIDC(RHSSO authentication and authorization) to access secret paths for tenants where tenant members can securely save their secrets.
 
-Bill would first have to integrate RHSSO with MTO by adding the details in IntegrationConfig. [Visit here](./../integration-config.html#rhsso-red-hat-single-sign-on) for more details.
+Bill would first have to integrate RHSSO with MTO by adding the details in IntegrationConfig. [Visit here](./../integration-config.md#rhsso-red-hat-single-sign-on) for more details.
 
 ```yaml
 rhsso:
@@ -144,4 +144,4 @@ rhsso:
 
 ## What’s next
 
-See how Bill can create [ArgoCD AppProjects](./argocd.html) for their tenants
+See how Bill can create [ArgoCD AppProjects](./argocd.md) for their tenants

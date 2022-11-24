@@ -12,7 +12,7 @@ The guide below is written as a SAAP customer's point of view. If you use Tronad
 
 :::
 
-For Tronador to work, you need to add support for it in your Git Repository by adding a [Tronador config file](./config_file.html). Afterwards, a Tekton pipeline needs to be setup with the [Tronador cluster task](./cluster_task.html), and a cluster task that pushes the output EP to your GitOps repository. Test environments should then be created automatically every time a PR is created or updated. The entire Dynamic Test Environment (DTE) creation process is described below.
+For Tronador to work, you need to add support for it in your Git Repository by adding a [Tronador config file](./config_file.md). Afterwards, a Tekton pipeline needs to be setup with the [Tronador cluster task](./cluster_task.md), and a cluster task that pushes the output EP to your GitOps repository. Test environments should then be created automatically every time a PR is created or updated. The entire Dynamic Test Environment (DTE) creation process is described below.
 
 
 <figure>
@@ -24,7 +24,7 @@ For Tronador to work, you need to add support for it in your Git Repository by a
 
 ### Tronador config file
 
-The [Tronador config file](./config_file.html) is placed in the GitHub repository and is used to configure the EnvironmentProvisioner CR. Environment Provisioning will only work if the config file exists.
+The [Tronador config file](./config_file.md) is placed in the GitHub repository and is used to configure the EnvironmentProvisioner CR. Environment Provisioning will only work if the config file exists.
 
 ```yaml
 application:
@@ -191,9 +191,9 @@ status:
 ### Secrets management
 
 Secrets for the Helm chart to be deployed are currently passed along from the Tronador config file, to the Helm release.
-Secrets for Helm chart and other required resources like image pull secret can be brought into Environment Provisioner owned namespaces using [Tronador Config](./tronador_config.html) CR.
+Secrets for Helm chart and other required resources like image pull secret can be brought into Environment Provisioner owned namespaces using [Tronador Config](./tronador_config.md) CR.
 
-You can also use [Multi Tenant Operator's](./../multi-tenant-operator/overview.html) [TemplateGroupInstance](./../multi-tenant-operator/customresources.html#_5-templategroupinstance) to pass secrets to the namespace that will be provisioned by the EnvironmentProvisioner by setting the proper label in your Tronador config file. An example for this workflow is [provided here](./../multi-tenant-operator/usecases/deploying-templates.html#deploying-template-to-namespaces-via-templategroupinstances).
+You can also use [Multi Tenant Operator's](./../multi-tenant-operator/overview.md) [TemplateGroupInstance](./../multi-tenant-operator/customresources.md#_5-templategroupinstance) to pass secrets to the namespace that will be provisioned by the EnvironmentProvisioner by setting the proper label in your Tronador config file. An example for this workflow is [provided here](./../multi-tenant-operator/usecases/deploying-templates.md#deploying-template-to-namespaces-via-templategroupinstances).
 
 ### Application snapshot deployed
 

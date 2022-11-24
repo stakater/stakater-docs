@@ -28,7 +28,7 @@ Stakater provisions the Stakater App Agility Platform (SAAP) and takes first app
 
     - Deploy Kubernetes Resources using [Stakater Developed Helm Chart](https://github.com/stakater/application) on the environment chosen - prod, stage, test, dev - in the application GitOps configuration
 
-    - Implement CI pipeline for the application if required. Deploy Tekton CI pipeline using the [Stakater Tekton Chart](https://github.com/stakater/stakater-tekton-chart)
+    - Implement CI pipeline for the application if required. Deploy Tekton CI pipeline using the `Stakater Tekton Chart`
 
     - Implement monitoring, logging, validation/testing frameworks or any additional tools for the application
 

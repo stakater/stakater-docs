@@ -74,4 +74,4 @@ To remove namespaces from your cluster via GitOps;
 
 ## What’s next
 
-See how Bill can create [templates](./template.html)
+See how Bill can create [templates](./template.md)

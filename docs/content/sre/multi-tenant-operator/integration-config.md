@@ -266,4 +266,4 @@ If enabled, than admins have to provide secret, URL and SSO accessorID of Vault.
 - `sso.accessorID:` Will contain the SSO accessorID.
 - `sso.clientName:` Will contain the client name.
 
-For more details please refer [use-cases](./usecases/integrationconfig.html)
+For more details please refer [use-cases](./usecases/integrationconfig.md)

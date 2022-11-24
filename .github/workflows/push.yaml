@@ -71,7 +71,6 @@ jobs:
           username: ${{ secrets.STAKATER_NEXUS_PROD_USERNAME }}
           password: ${{ secrets.STAKATER_NEXUS_PROD_PASSWORD }}
 
-
       - name: Generate image repository path
         run: |
           echo IMAGE_REPOSITORY=$(echo ${{ secrets.STAKATER_NEXUS_PROD_REGISTRY }}/${{ github.repository }} | tr '[:upper:]' '[:lower:]') >> $GITHUB_ENV
@@ -106,15 +105,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.STAKATER_GITHUB_TOKEN }}
           WITH_V: true
           DEFAULT_BUMP: patch
-
-      - name: Notify Failure
-        if: failure()
-        uses: mshick/add-pr-comment@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.STAKATER_GITHUB_TOKEN }}
-        with:
-          message: '@${{ github.actor }} Yikes! You better fix it before anyone else finds out! [Build](https://github.com/${{ github.repository }}/commit/${{ github.event.pull_request.head.sha }}/checks) has Failed!'
-          allow-repeats: false
 
       - name: Notify Slack
         uses: 8398a7/action-slack@v3
