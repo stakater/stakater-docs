@@ -60,7 +60,7 @@ OpenShift Container Platform exposes metrics that can be collected and stored in
 
 | vCPU | Memory |
 |---|---|
-| 6 | 32 GiB  |
+| 6 | 24 GiB  |
 
 
 ## 1x Pipeline
