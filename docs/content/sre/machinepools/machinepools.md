@@ -42,15 +42,14 @@ At least two infrastructure nodes are required for the SAAP infrastructure workl
 | [Kubehealth](https://github.com/arehmandev/kubehealth) | 150 m  | 0.40 GiB  |
 | [Kubernetes-replicator](https://github.com/mittwald/kubernetes-replicator) | 50 m  | 0.30 GiB  |
 | [Multi Tenant Operator](../multi-tenant-operator/overview.md)  | 600 m  | 1.20 GiB  |
-| [Namespace-configuration-operator](https://github.com/redhat-cop/namespace-configuration-operator) | 200 m  | 0.30 GiB  |
 | [Nexus](https://github.com/sonatype/nexus-public)  | 200 m  | 1.60 GiB  |
 | [OpenShift GitOps](https://docs.openshift.com/container-platform/4.7/cicd/gitops/understanding-openshift-gitops.html)  | 530 m  | 0.50 GiB  |
-| [OpenShift-image-registry](https://github.com/openshift/image-registry) | 50 m  | 0.40 GiB  |
-| OpenShift-ingress (router)  | 300 m  |  0.30 GiB  |
+| [OpenShift Image Registry](https://github.com/openshift/image-registry) | 50 m  | 0.40 GiB  |
+| [OpenShift Router](https://docs.openshift.com/container-platform/4.11/networking/ingress-operator.html)  | 300 m  |  0.30 GiB  |
 | [SonarQube](https://github.com/SonarSource/sonarqube)  | 350 m  | 1.50 GiB  |
 | [Stakater-Konfigurator](https://github.com/stakater/Konfigurator) | 20 m  | 0.30 GiB  |
 | [Stakater Reloader](https://github.com/stakater/Reloader) | 20 m  | 0.50 GiB  |
-| [Stakater-Tronador](https://github.com/stakater/tronador-github-app)  | 100 m  | 0.20 GiB  |
+| [Stakater Tronador](https://docs.stakater.com/content/sre/tronador/overview.html)  | 100 m  | 0.20 GiB  |
 | [Vault](https://github.com/hashicorp/vault)  | 255 m  | 0.36 GiB  |
 | [Velero](https://github.com/vmware-tanzu/velero)  | 500 m  | 0.15 GiB |
 | [Volume Expander Operator](https://github.com/redhat-cop/volume-expander-operator)  | 50 m  | 0.10 GiB |
