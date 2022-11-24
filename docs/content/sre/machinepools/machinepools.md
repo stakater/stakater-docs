@@ -25,14 +25,14 @@ The following infrastructure workloads do not incur OpenShift Container Platform
 |  | vCPU | Memory |
 |---|---|---|
 | Ingress monitor controller  | 150m  | 600 MiB  |
-| Openshift-gitops  | 530m  | 500 MiB  |
-| stakater-nexus  | 200m  | 1.6 GiB  |
+| OpenShift-GitOps  | 530m  | 500 MiB  |
+| Stakater-nexus  | 200m  | 1.6 GiB  |
 | Vault  | 255m  | 360 MiB  |
-|  stakater-tronador  | 100m  | 200 MiB  |
-|  openshift-velero  | 500m  | 150 MiB  |
-|  stakater-tenant-operator  | 600m  | 1.2 GiB  |
-|  stakater-forecastle  | 50m  | 200 MiB  |
-|  stakater-sonarqube  | 350m  | 1.5 GiB  |
+|  Stakater-Tronador  | 100m  | 200 MiB  |
+|  OpenShift-Velero  | 500m  | 150 MiB  |
+|  Stakater-tenant-operator  | 600m  | 1.2 GiB  |
+|  Stakater-forecastle  | 50m  | 200 MiB  |
+|  Stakater-sonarqube  | 350m  | 1.5 GiB  |
 
 | vCPU | Memory |
 |---|---|
@@ -43,7 +43,7 @@ For Cluster aggregated logging , we offer one dedicated logging machine. Minimum
 
 |  | vCPU | Memory |
 |---|---|---|
-| Opensift logging | 4  | 12 GiB  |
+| OpenShift logging | 4  | 12 GiB  |
 
 | vCPU | Memory |
 |---|---|
