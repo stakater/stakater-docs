@@ -63,7 +63,7 @@ Minimum required specifications for monitoring nodes are as follows :
 
 ## 1x Logging (optional)
 
-For Cluster aggregated logging , SAAP offer one dedicated logging machine. Minimum requirements for logging infrastructure is as follows: 
+If its required, SAAP offer logging subsystem to aggregate all the logs from the SAAP cluster. Minimum requirements for logging infrastructure is as follows: 
 For high availability consider using three logging nodes.
 
 |  | vCPU | Memory |
@@ -91,7 +91,7 @@ Minimum required specifications for pipeline nodes are as follows :
 
 ## 3x Worker
 
-In a SAAP cluster, the worker nodes are where the actual application workloads run and are managed. Minimum three worker machines are required for SAAP deployments.
+In a SAAP cluster, the worker nodes are where the actual user application workloads run and are managed. Minimum three worker machines are required for SAAP deployments.
 
 | vCPU | Memory |
 |---|---|
