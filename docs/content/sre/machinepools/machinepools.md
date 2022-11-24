@@ -73,7 +73,7 @@ Minimum one monitoring node must be used for all production deployments. For hig
 | | Alertmanager   | 20 m | 250 MiB |
 | **Total**|    | 3.4 | 11.5 GiB |
 
-For more details of monitoting, Please visit [Creating Application Alerts](http://localhost:8082/content/sre/monitoring/app-alerts.html)
+For more details of monitoring, Please visit [Creating Application Alerts](http://localhost:8082/content/sre/monitoring/app-alerts.html)
 ## 1x Logging (optional)
 
 Logging components aggregates all logs and stores them centrally. These components run on logging nodes. The logging stack includes EFK stack (Elasticsearch-Fluentd-Kibana). Logging stack is optional, If a customer doesn't want it, we don't deploy it.
