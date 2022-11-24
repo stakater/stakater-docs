@@ -64,13 +64,12 @@ Minimum required specifications for monitoring nodes are as follows :
 ## 1x Logging (optional)
 
 If its required, SAAP offer logging subsystem to aggregate all the logs from the SAAP cluster. Minimum requirements for logging infrastructure is as follows: 
-For high availability consider using three logging nodes.
 
 |  | vCPU | Memory |
 |---|---|---|
 | OpenShift logging | 4  | 12 GiB  |
 
-Minimum required specifications for logging nodes are as follows :
+At least, one logging machine is required. For high availability consider using three logging nodes. Minimum required specifications for logging nodes are as follows :
 
 | vCPU | Memory |
 |---|---|
