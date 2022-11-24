@@ -24,11 +24,6 @@ Machine pool is a set of similar sized virtual machines. In SAAP, different mach
 
 The control plane, which is composed of master machines (also known as the control plane), manages the SAAP cluster. The control plane machines run the control plane. No user workloads run on masters.
 
-
-| vCPU | Memory |
-|---|---|
-| 4  | 32 GiB  |
-
 ## 2x Infra
 
 At least two infrastructure nodes are required for these SAAP workloads.
