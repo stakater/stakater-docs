@@ -32,7 +32,7 @@ The following infrastructure workloads do not incur OpenShift Container Platform
 |  OpenShift-Velero  | 500 m  | 150 MiB  |
 |  Stakater-tenant-operator  | 600 m  | 1.2 GiB  |
 |  Stakater-Forecastle  | 50 m  | 200 MiB  |
-|  Stakater-Sonarqube  | 350 m  | 1.5 GiB  |
+|  Stakater-SonarQube  | 350 m  | 1.5 GiB  |
 
 | vCPU | Memory |
 |---|---|
@@ -49,9 +49,9 @@ For Cluster aggregated logging , we offer one dedicated logging machine. Minimum
 |---|---|
 | 4  | 16 GiB  |
 
-## 2x Monitoring
+## 1x Monitoring
 
-OpenShift Container Platform exposes metrics that can be collected and stored in back-ends by the cluster-monitoring-operator. As an OpenShift Container Platform administrator, you can view system resources, containers and components metrics in one dashboard interface, Grafana. Exactly two monitoring nodes must be used for all production deployments. The recommended size of a monitoring node is the minimum of 6 vCPUs and 14 GB ram per 7200 pods.
+OpenShift Container Platform exposes metrics that can be collected and stored in back-ends by the cluster-monitoring-operator. As an OpenShift Container Platform administrator, you can view system resources, containers and components metrics in one dashboard interface, Grafana. Exactly one monitoring nodes must be used for all production deployments. The recommended size of a monitoring node is the minimum of 6 vCPUs and 14 GB ram per 7200 pods.
 
 |  | vCPU | Memory |
 |---|---|---|
