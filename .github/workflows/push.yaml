@@ -91,6 +91,14 @@ jobs:
             org.opencontainers.image.created=${{ steps.prep.outputs.created }}
             org.opencontainers.image.revision=${{ github.sha }}
 
+      - name: Comment on PR
+        uses: mshick/add-pr-comment@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.STAKATER_GITHUB_TOKEN }}
+        with:
+          message: '@${{ github.actor }} Image is available for testing. `docker pull ${{ env.IMAGE_REPOSITORY }}:${{ steps.generate_tag.outputs.new_tag }}`'
+          allow-repeats: false
+
       - name: Push Latest Tag
         uses: anothrNick/github-tag-action@1.36.0
         env:
