@@ -35,19 +35,19 @@ At least two infrastructure nodes are required for the SAAP infrastructure workl
 |---|---:|---:|
 | [cert-manager-operator](https://github.com/openshift/cert-manager-operator)  | 100 m  | 1.50 GiB  |
 | [External Secrets operator](https://github.com/external-secrets/external-secrets) | 50 m  | 0.30 GiB  |
-| [Forecastle](https://github.com/stakater/Forecastle)  | 50 m  | 0.20 GiB  |
+| [Stakater Forecastle](https://github.com/stakater/Forecastle)  | 50 m  | 0.20 GiB  |
 | [group-sync-operator](https://github.com/redhat-cop/group-sync-operator)  | 50 m  | 0.10 GiB  |
 | [Helm operator](https://github.com/fluxcd/helm-operator) | 500 m  | 0.80 GiB  |
-| [Ingress Monitor Controller](https://github.com/stakater/IngressMonitorController)  | 150 m  | 0.60 GiB  |
+| [Stakater Ingress Monitor Controller](https://github.com/stakater/IngressMonitorController)  | 150 m  | 0.60 GiB  |
 | [Kubehealth](https://github.com/arehmandev/kubehealth) | 150 m  | 0.40 GiB  |
 | [Kubernetes-replicator](https://github.com/mittwald/kubernetes-replicator) | 50 m  | 0.30 GiB  |
-| [Multi Tenant Operator](../multi-tenant-operator/overview.md)  | 600 m  | 1.20 GiB  |
+| [Stakater Multi Tenant Operator](../multi-tenant-operator/overview.md)  | 600 m  | 1.20 GiB  |
 | [Nexus](https://github.com/sonatype/nexus-public)  | 200 m  | 1.60 GiB  |
 | [OpenShift GitOps](https://docs.openshift.com/container-platform/4.7/cicd/gitops/understanding-openshift-gitops.html)  | 530 m  | 0.50 GiB  |
 | [OpenShift Image Registry](https://github.com/openshift/image-registry) | 50 m  | 0.40 GiB  |
 | [OpenShift Router](https://docs.openshift.com/container-platform/4.11/networking/ingress-operator.html)  | 300 m  |  0.30 GiB  |
 | [SonarQube](https://github.com/SonarSource/sonarqube)  | 350 m  | 1.50 GiB  |
-| [Stakater-Konfigurator](https://github.com/stakater/Konfigurator) | 20 m  | 0.30 GiB  |
+| [Stakater Konfigurator](https://github.com/stakater/Konfigurator) | 20 m  | 0.30 GiB  |
 | [Stakater Reloader](https://github.com/stakater/Reloader) | 20 m  | 0.50 GiB  |
 | [Stakater Tronador](https://docs.stakater.com/content/sre/tronador/overview.html)  | 100 m  | 0.20 GiB  |
 | [Vault](https://github.com/hashicorp/vault)  | 255 m  | 0.36 GiB  |
