@@ -3,28 +3,28 @@ sidebarDepth: 2
 ---
 # Use cases
 
-- ## [Creating Quota](quota.html)
+- ## [Creating Quota](quota.md)
 
-- ## [Creating Tenant](tenant.html)
+- ## [Creating Tenant](tenant.md)
 
-- ## [Creating Namespace](namespace.html)
+- ## [Creating Namespace](namespace.md)
 
-- ## [Creating Template](template.html)
+- ## [Creating Template](template.md)
 
-- ## [Deploying Template to Namespace](deploying-templates.html)
+- ## [Deploying Template to Namespace](deploying-templates.md)
 
-- ## [Configuring Multi-Tenant Isolation with Network Policy Template](configuring-multitenant-network-isolation.html)
+- ## [Configuring Multi-Tenant Isolation with Network Policy Template](configuring-multitenant-network-isolation.md)
 
-- ## [Distributing Secrets Using Sealed Secrets Template](distributing-secrets-using-sealed-secret-template.html)
+- ## [Distributing Secrets Using Sealed Secrets Template](distributing-secrets-using-sealed-secret-template.md)
 
-- ## [Configuring IntegrationConfig](integrationconfig.html)
+- ## [Configuring IntegrationConfig](integrationconfig.md)
 
-- ## [Creating ArgoCD AppProject](argocd.html)
+- ## [Creating ArgoCD AppProject](argocd.md)
 
-- ## [Creating Mattermost Teams](mattermost.html)
+- ## [Creating Mattermost Teams](mattermost.md)
 
-- ## [Extending Manager ClusterRole](manager-clusterrole.html)
+- ## [Extending Manager ClusterRole](manager-clusterrole.md)
 
-- ## [Freeing up Unused Resources](hibernation.md.html)
+- ## [Freeing up Unused Resources](hibernation.md)
 
-- ## [Create Private Sandboxes](private-sandboxes.html)
+- ## [Create Private Sandboxes](private-sandboxes.md)

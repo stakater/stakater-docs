@@ -23,7 +23,7 @@
 - feat: Allow creation of namespaces without tenant prefix from within tenant spec.
 - fix: Webhook changes will now be updated without manual intervention
 - maintain: Updated Tenant CR version from v1beta1 to v1beta2. Conversion webhook is added to facilitate transition to new version
-  - see [Tenant spec](./customresources.html#_2-tenant) for updated spec
+  - see [Tenant spec](./customresources.md#_2-tenant) for updated spec
 - enhance: Better automated testing
 ## v0.6.x
 
@@ -65,13 +65,13 @@
 
 **v0.5.0**
 
-- feat: Add support for tenant namespaces off-boarding. For more details check out [onDelete](./usecases/tenant.html#retaining-tenant-namespaces-when-a-tenant-is-being-deleted)
+- feat: Add support for tenant namespaces off-boarding. For more details check out [onDelete](./usecases/tenant.md#retaining-tenant-namespaces-when-a-tenant-is-being-deleted)
 - feat: Add tenant webhook for spec validation
 
 - fix: TemplateGroupInstance now cleans up leftover Template resources from namespaces that are no longer part of TGI namespace selector
 - fix: Fixed hibernation sync issue
 
-- enhance: Update tenant spec for applying common/specific namespace labels/annotations. For more details check out [commonMetadata & SpecificMetadata](./usecases/tenant.html#distributing-common-labels-and-annotations-to-tenant-namespaces-via-tenant-custom-resource)
+- enhance: Update tenant spec for applying common/specific namespace labels/annotations. For more details check out [commonMetadata & SpecificMetadata](./usecases/tenant.md#distributing-common-labels-and-annotations-to-tenant-namespaces-via-tenant-custom-resource)
 - enhance: Add support for multi-pod architecture for Operator-Hub
 
 - chore: Remove conversion webhook for Quota and Tenant
@@ -81,7 +81,7 @@
 **v0.4.7**
 
 - feat: Add hibernation of StatefulSets and Deployments based on a timer
-- feat: [New custom resource](./customresources.html#_6-resourcesupervisor) that handles hibernation
+- feat: [New custom resource](./customresources.md#_6-resourcesupervisor) that handles hibernation
 
 **v0.4.6**
 
@@ -160,7 +160,7 @@
 
 **v0.3.24**
 
-- feat: Add feature to allow ArgoCD to sync specific cluster scoped custom resources, configurable via Integration Config. More details in [relevant docs](./integration-config.html#argocd)
+- feat: Add feature to allow ArgoCD to sync specific cluster scoped custom resources, configurable via Integration Config. More details in [relevant docs](./integration-config.md#argocd)
 
 **v0.3.23**
 
@@ -201,8 +201,8 @@
 
 ApiVersion `v1alpha1` of Tenant and Quota custom resources has been deprecated and is scheduled to be removed in the future. The following links contain the updated structure of both resources
 
-- [Quota v1beta1](./customresources.html#_1-quota)
-- [Tenant v1beta1](./customresources.html#_2-tenant)
+- [Quota v1beta1](./customresources.md#_1-quota)
+- [Tenant v1beta1](./customresources.md#_2-tenant)
 :::
 
 **v0.3.18**
@@ -273,13 +273,13 @@ ApiVersion `v1alpha1` of Tenant and Quota custom resources has been deprecated a
 
 **v0.3.2**
 
-- refactor: Restructure Quota CR, more details in [relevant docs](./customresources.html#_1-quota)
+- refactor: Restructure Quota CR, more details in [relevant docs](./customresources.md#_1-quota)
 - feat: Add support for adding LimitRanges in Quota
 - feat: Add conversion webhook to convert existing v1alpha1 versions of quota to v1beta1
 
 **v0.3.1**
 
-- feat: Add ability to create ArgoCD AppProjects per tenant, more details in [relevant docs](./argocd.html)
+- feat: Add ability to create ArgoCD AppProjects per tenant, more details in [relevant docs](./usecases/argocd.md)
 
 **v0.3.0**
 
@@ -289,15 +289,15 @@ ApiVersion `v1alpha1` of Tenant and Quota custom resources has been deprecated a
 
 **v0.2.33**
 
-- refactor: Restructure Tenant spec, more details in [relevant docs](./customresources.html#_2-tenant)
+- refactor: Restructure Tenant spec, more details in [relevant docs](./customresources.md#_2-tenant)
 - feat: Add conversion webhook to convert existing v1alpha1 versions of tenant to v1beta1
 
 **v0.2.32**
 
 
 
-- refactor: Restructure integration config spec, more details in [relevant docs](./integration-config.html)
-- feat: Allow users to input custom regex in certain fields inside of integration config, more details in [relevant docs](./integration-config.html#openshift)
+- refactor: Restructure integration config spec, more details in [relevant docs](./integration-config.md)
+- feat: Allow users to input custom regex in certain fields inside of integration config, more details in [relevant docs](./integration-config.md#openshift)
 
 **v0.2.31**
 

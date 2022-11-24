@@ -2,7 +2,7 @@
 
 ::: warning Warning
 
-`tronador.stakater.com/v1alpha1/EnvironmentProvisioner` has now been deprecated. Please use `tronador.stakater.com/v1alpha2/Environment` instead. See its [relevant docs](./environment.html) for more details.
+`tronador.stakater.com/v1alpha1/EnvironmentProvisioner` has now been deprecated. Please use `tronador.stakater.com/v1alpha2/Environment` instead. See its [relevant docs](./environment.md) for more details.
 
 :::
 
@@ -55,4 +55,4 @@ Values inside the application section are used to create the Helm release that m
 
 ## `namespaceLabels`
 
-Optional field that contains a map of all labels needed to be placed inside the namespace provisioned by the `EnvironmentProvisioner`. If they are removed from here, they will be removed from the namespace as well. Labels in the namespace that were never in this field will not be affected. A potential use case of this field is to allow compatibility with [Multi Tenant Operator](../multi-tenant-operator/overview.html).
+Optional field that contains a map of all labels needed to be placed inside the namespace provisioned by the `EnvironmentProvisioner`. If they are removed from here, they will be removed from the namespace as well. Labels in the namespace that were never in this field will not be affected. A potential use case of this field is to allow compatibility with [Multi Tenant Operator](../multi-tenant-operator/overview.md).

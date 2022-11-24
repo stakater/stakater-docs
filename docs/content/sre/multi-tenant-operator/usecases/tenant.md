@@ -270,4 +270,4 @@ With the above configuration all tenant namespaces will not be deleted when tena
 
 ### What’s next
 
-See how Anna can create [namespaces](./namespace.html)
+See how Anna can create [namespaces](./namespace.md)

@@ -36,7 +36,7 @@ Other than CI/CD environment there are applications environments like *qa,stagin
 
 To promote application from one environment to another; as mentioned above you will need to bump chart version and image version in that environment. You can do so by picking these versions from previous environment. 
 
-This guide assumes that application is already [on-boarded](https://docs.cloud.stakater.com/content/sre/onboarding/application-onboarding.html) to different environments.
+This guide assumes that application is already [on-boarded](../onboarding/application-onboarding.md) to different environments.
 
 ### 1. Promote chart
 

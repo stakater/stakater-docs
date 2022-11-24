@@ -10,4 +10,4 @@
 
 ![grant-admin-access](./images/grant-admin-access.png)
 
-For more about bot account permissions. [Read here](https://docs.cloud.stakater.com/content/sre/gitops/bot-account.html)
+For more about bot account permissions. [Read here](../gitops/bot-account.md)
