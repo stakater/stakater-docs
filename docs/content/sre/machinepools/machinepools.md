@@ -31,7 +31,7 @@ The control plane, which is composed of master machines (also known as the contr
 
 ## 2x Infra
 
-At least two infrastructure node is required for these SAAP workloads.
+At least two infrastructure nodes are required for these SAAP workloads.
 
 |  | vCPU | Memory |
 |---|---|---|
