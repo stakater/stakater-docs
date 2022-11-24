@@ -16,7 +16,7 @@ At least one infrastructure node is required for these supporting workloads.
 
 |  | vCPU | Memory |
 |---|---|---|
-| Ingress monitor controller  | 150 m  | 600 MiB  |
+| [Ingress Monitor Controller](https://github.com/stakater/IngressMonitorController)  | 150 m  | 600 MiB  |
 | OpenShift-GitOps  | 530 m  | 500 MiB  |
 | Stakater-nexus  | 200 m  | 1.6 GiB  |
 | Vault  | 255 m  | 360 MiB  |
