@@ -22,26 +22,17 @@ In a Kubernetes cluster, the worker nodes are where the actual workloads request
 
 The following infrastructure workloads do not incur OpenShift Container Platform worker subscriptions, at least one infrastructure node is required for deployments.
 
-   - Kubernetes and OpenShift Container Platform control plane services that run on masters
-
-   - The default router
-
-   - The integrated container image registry
-
-   - The HAProxy-based Ingress Controller
-
-   - Service brokers
-
-   - Red Hat Quay
-
-   - Red Hat OpenShift Container Storage
-
-   - Red Hat Advanced Cluster Manager
-
-   - Red Hat Advanced Cluster Security for Kubernetes
-
-   - Red Hat OpenShift GitOps
-
+|  | vCPU | Memory |
+|---|---|---|
+| Ingress monitor controller  | 150m  | 600 MiB  |
+| Openshift-gitops  | 530m  | 500 MiB  |
+| stakater-nexus  | 200m  | 1.6 GiB  |
+| Vault  | 255m  | 360 MiB  |
+|  stakater-tronador  | 100m  | 200 MiB  |
+|  openshift-velero  | 500m  | 150 MiB  |
+|  stakater-tenant-operator  | 600m  | 1.2 GiB  |
+|  stakater-forecastle  | 50m  | 200 MiB  |
+|  stakater-sonarqube  | 350m  | 1.5 GiB  |
 
 | vCPU | Memory |
 |---|---|
@@ -49,6 +40,10 @@ The following infrastructure workloads do not incur OpenShift Container Platform
 ## 1x Logging
 
 For Cluster aggregated logging , we offer one dedicated logging machine. Minimum requirements for logging infrastructure is as follows: 
+
+|  | vCPU | Memory |
+|---|---|---|
+| Opensift logging | 4  | 12 GiB  |
 
 | vCPU | Memory |
 |---|---|
@@ -58,21 +53,24 @@ For Cluster aggregated logging , we offer one dedicated logging machine. Minimum
 
 OpenShift Container Platform exposes metrics that can be collected and stored in back-ends by the cluster-monitoring-operator. As an OpenShift Container Platform administrator, you can view system resources, containers and components metrics in one dashboard interface, Grafana. Exactly two monitoring nodes must be used for all production deployments. The recommended size of a monitoring node is the minimum of 6 vCPUs and 14 GB ram per 7200 pods.
 
+|  | vCPU | Memory |
+|---|---|---|
+| Opensift monitoring | 600m  | 3 GiB  |
+| stakater-workload-monitoring | 1 GiB  | 4 GiB  |
+
 | vCPU | Memory |
 |---|---|
-|8  | 32 GiB  |
+| 6 | 32 GiB  |
 
 
 ## 1x Pipeline
 
 Red Hat OpenShift Pipelines is a cloud-native, continuous integration and continuous delivery (CI/CD) solution based on Kubernetes resources. You can use the OpenShift Container Platform Developer console to create Tekton resources, view logs of pipeline runs, and manage pipelines in your OpenShift Container Platform namespaces. We offer one dedicated pipeline machine. Minimum requirements for pipeline infrastructure is as follows: 
 
+|  | vCPU | Memory |
+|---|---|---|
+| Opensift pipelines | 100m  | 200 MiB  |
+
 | vCPU | Memory |
 |---|---|
 | 4  | 16 GiB  |
-
-# Useful Links
-
-- [Creating infrastructure nodes](https://docs.openshift.com/container-platform/4.10/nodes/nodes/nodes-nodes-creating-infrastructure-nodes.html)
-
-- [Scaling Cluster Monitoring](https://docs.openshift.com/container-platform/4.10/scalability_and_performance/scaling-cluster-monitoring-operator.html)
