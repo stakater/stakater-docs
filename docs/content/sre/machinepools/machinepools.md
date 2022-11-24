@@ -31,8 +31,8 @@ The following infrastructure workloads do not incur OpenShift Container Platform
 |  Stakater-Tronador  | 100 m  | 200 MiB  |
 |  OpenShift-Velero  | 500 m  | 150 MiB  |
 |  Stakater-tenant-operator  | 600 m  | 1.2 GiB  |
-|  Stakater-forecastle  | 50 m  | 200 MiB  |
-|  Stakater-sonarqube  | 350 m  | 1.5 GiB  |
+|  Stakater-Forecastle  | 50 m  | 200 MiB  |
+|  Stakater-Sonarqube  | 350 m  | 1.5 GiB  |
 
 | vCPU | Memory |
 |---|---|
@@ -55,8 +55,8 @@ OpenShift Container Platform exposes metrics that can be collected and stored in
 
 |  | vCPU | Memory |
 |---|---|---|
-| Opensift monitoring | 600 m  | 3 GiB  |
-| stakater-workload-monitoring | 1 GiB  | 4 GiB  |
+| OpenShift monitoring | 600 m  | 3 GiB  |
+| Stakater-workload-monitoring | 1 GiB  | 4 GiB  |
 
 | vCPU | Memory |
 |---|---|
@@ -69,7 +69,7 @@ Red Hat OpenShift Pipelines is a cloud-native, continuous integration and contin
 
 |  | vCPU | Memory |
 |---|---|---|
-| Opensift pipelines | 100 m  | 200 MiB  |
+| OpenShift pipelines | 100 m  | 200 MiB  |
 
 | vCPU | Memory |
 |---|---|
