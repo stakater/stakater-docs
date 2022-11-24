@@ -12,7 +12,7 @@ The control plane, which is composed of control plane machines (also known as th
 
 ## 2x Infra
 
-Aleast one infrastructure node is required for these supporting workloads.
+At least one infrastructure node is required for these supporting workloads.
 
 |  | vCPU | Memory |
 |---|---|---|
