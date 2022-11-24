@@ -40,7 +40,7 @@ At least one infrastructure node is required for these supporting workloads.
 
 In addition to these tools, there are some cluster components required to run on each node.
 
-Specifications for infra nodes are as follows :
+Minimum required specifications for infra nodes are as follows :
 
 | vCPU | Memory |
 |---|---|
@@ -55,7 +55,7 @@ SAAP exposes metrics that can be collected and stored in back-ends by the cluste
 | OpenShift monitoring | 1 Gi   | 4 GiB  |
 | Stakater-workload-monitoring | 1 Gi  | 4 GiB  |
 
-Specifications for monitoring nodes are as follows :
+Minimum required specifications for monitoring nodes are as follows :
 
 | vCPU | Memory |
 |---|---|
@@ -70,12 +70,12 @@ For high availability consider using three logging nodes.
 |---|---|---|
 | OpenShift logging | 4  | 12 GiB  |
 
-Specifications for logging nodes are as follows :
+Minimum required specifications for logging nodes are as follows :
 
 | vCPU | Memory |
 |---|---|
 | 4  | 16 GiB  |
-## 1x Pipeline(optional)
+## 1x Pipeline (optional)
 
 Pipeline machine holds pods running for pipelines. Minimum requirements for pipeline infrastructure is as follows: 
 
@@ -83,7 +83,7 @@ Pipeline machine holds pods running for pipelines. Minimum requirements for pipe
 |---|---|---|
 | OpenShift pipelines | 100 m  | 200 MiB  |
 
-Specifications for pipeline nodes are as follows :
+Minimum required specifications for pipeline nodes are as follows :
 
 | vCPU | Memory |
 |---|---|
