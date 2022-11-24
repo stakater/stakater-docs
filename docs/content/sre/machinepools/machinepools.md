@@ -101,7 +101,7 @@ No user workloads run on logging nodes.
 
 ## 1 x Pipeline (optional)
 
-Pipeline nodes hold pods running for CI/CD pipelines.
+Pipeline nodes hold pods running for tekton based CI/CD pipelines.
 
 The pipeline pool is optional, if there is no need for it, it will not be deployed.
 
