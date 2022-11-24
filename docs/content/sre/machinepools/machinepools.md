@@ -81,10 +81,10 @@ At least, one logging machine is required. For high availability consider using 
 
 |  | vCPU | Memory |
 |---|---|---|
-| Elasticsearch | 500 m  | 4 GiB  |
-| apps-Fluentd | 20 m  | 600 MiB  |
+| [Elasticsearch](https://github.com/elastic/elasticsearch) | 500 m  | 4 GiB  |
+| [Fluentd](https://github.com/fluent/fluentd) | 20 m  | 600 MiB  |
 | Collector | 200 m  | 2 GiB  |
-| Kibana| 300 m  | 500 MiB  |
+| [Kibana](https://github.com/elastic/kibana)| 300 m  | 500 MiB  |
 | **Total**|    | 1 | 7 GiB |
 
 ## 1x Pipeline (optional)
