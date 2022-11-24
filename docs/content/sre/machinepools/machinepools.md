@@ -56,6 +56,8 @@ At least two infrastructure nodes are required for the SAAP infrastructure workl
 | [Volume Expander Operator](https://github.com/redhat-cop/volume-expander-operator)  | 50 m  | 0.10 GiB |
 | **Total** | 4275 m | 11.61 GiB |
 
+No user workloads run on infrastructure nodes.
+
 ## 1 x Monitoring
 
 Monitoring components to monitor SAAP workloads and user workloads are deployed on monitoring nodes. The monitoring stack includes the Prometheus stack (Prometheus, Grafana and Alertmanager).
@@ -78,9 +80,11 @@ Minimum one monitoring node must be used for all production deployments. For hig
 
 For more details of monitoring, please visit [Creating Application Alerts](../monitoring/app-alerts.md).
 
+No user workloads run on monitoring nodes.
+
 ## 1 x Logging (optional)
 
-Logging components aggregate all logs and store them centrally. These components run on logging nodes. The logging stack includes the EFK stack (Elasticsearch, Fluentd, and Kibana).
+Logging components aggregate all logs and store them centrally. These components run on logging nodes. The logging stack includes the EFK stack (Elasticsearch, Fluentd and Kibana).
 
 The logging pool is optional, if there is no need for it, it will not be deployed. Logging infrastructure is still highly recommended for troubleshooting purposes.
 
@@ -94,6 +98,8 @@ Minimum one logging node is required. For high availability consider using three
 | [Kibana](https://github.com/elastic/kibana)| 300 m  | 0.5 GiB  |
 | **Total** | 1020 m | 7.1 GiB |
 
+No user workloads run on logging nodes.
+
 ## 1 x Pipeline (optional)
 
 Pipeline nodes hold pods running for CI/CD pipelines.
@@ -105,6 +111,8 @@ Minimum requirements for pipeline infrastructure is:
 | SAAP component | vCPU requirement | Memory requirement |
 |---|---:|---:|
 | OpenShift pipelines | 100 m | 0.2 GiB |
+
+No user workloads run on pipelines nodes.
 
 ## 3 x Worker
 
