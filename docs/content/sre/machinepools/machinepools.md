@@ -40,8 +40,8 @@ At least two infrastructure nodes are required for the SAAP infrastructure workl
 | [Helm operator](https://github.com/fluxcd/helm-operator) | 500 m  | 0.80 GiB  |
 | [Stakater Ingress Monitor Controller](https://github.com/stakater/IngressMonitorController)  | 150 m  | 0.60 GiB  |
 | [Kubehealth](https://github.com/arehmandev/kubehealth) | 150 m  | 0.40 GiB  |
-| [Kubernetes-replicator](https://github.com/mittwald/kubernetes-replicator) | 50 m  | 0.30 GiB  |
-| [Stakater Multi Tenant Operator](../multi-tenant-operator/overview.md)  | 600 m  | 1.20 GiB  |
+| [Kubernetes replicator](https://github.com/mittwald/kubernetes-replicator) | 50 m  | 0.30 GiB  |
+| [Stakater Multi Tenant Operator](https://docs.stakater.com/content/sre/multi-tenant-operator/overview.html)  | 600 m  | 1.20 GiB  |
 | [Nexus](https://github.com/sonatype/nexus-public)  | 200 m  | 1.60 GiB  |
 | [OpenShift GitOps](https://docs.openshift.com/container-platform/4.7/cicd/gitops/understanding-openshift-gitops.html)  | 530 m  | 0.50 GiB  |
 | [OpenShift Image Registry](https://github.com/openshift/image-registry) | 50 m  | 0.40 GiB  |
