@@ -69,7 +69,7 @@ Red Hat OpenShift Pipelines is a cloud-native, continuous integration and contin
 
 ## 3x Worker
 
-In a SAAP cluster, the worker nodes are where the actual workloads requested by users run and are managed. The worker nodes advertise their capacity and the scheduler, which is part of the master services, determines on which nodes to start containers and pods.  divide worker machines into infra,logging,monitoring and pipeline machines to have dedicated machines for every type of resources. Three worker machines are used.
+In a SAAP cluster, the worker nodes are where the actual workloads requested by users run and are managed. The worker nodes advertise their capacity and the scheduler, which is part of the master services, determines on which nodes to start containers and pods. Three worker machines are used.
 
 | vCPU | Memory |
 |---|---|
