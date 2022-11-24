@@ -76,7 +76,7 @@ Minimum one monitoring node must be used for all production deployments. For hig
 
 ## 1x Logging (optional)
 
-Logging components aggregates all logs and stores them centrally. These components run on logging nodes. The logging stack includes EFK stack (Elasticsearch-Fluentd-Kibana).
+Logging components aggregates all logs and stores them centrally. These components run on logging nodes. The logging stack includes EFK stack (Elasticsearch-Fluentd-Kibana). Logging stack is optional, If a customer doesn't want it, we don't deploy it.
 
 At least, one logging machine is required. For high availability consider using three logging nodes. 
 
