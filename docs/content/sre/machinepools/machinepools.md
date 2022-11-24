@@ -1,103 +1,111 @@
 # Machine Pools
 
-Machine pool is a set of similar sized virtual machines. In SAAP, different machine pools serve different purposes. Details of machine pools and tools running on them are described below.
+A machine pool is a set of similar sized virtual machines, in Kubernetes terminology called nodes. In SAAP (Stakater App Agility Platform), different machine pools exist to serve different purposes. Details of machine pools and tools running on them are described here.
 
 ><u>**Glossary:**</u>
 >
-> **User workloads:** User applications (Your e-commerce frontend, backend APIs etc.)
+> **User workloads:** User applications (e-commerce frontend, backend APIs, etc.)
 >
-> **SAAP workloads:** Supporting applications for software lifecycle.
+> **SAAP workloads:** Supporting applications for software lifecycle
 
 ## Resource Requirements
 
-| Role | Size <br/>(vCPU x Memory x Storage) |Pool<br/>size | Total vCPU | Total Memory (GiB) | Total Storage (GiB) |Required |
-|:---|:---|:---:|:---:|:---:|:---:|:---|
-| Master  | 4 x 32 x100| 3 |12 | 96 |300 | Yes |
-| Infra  | 4 x 16 x 64 | 2 |8 | 32 |128 | Yes |
-| Monitoring  | 4 x 32 x 64  | 1 |4 | 16 |64 | Yes |
-| Logging  | 4 x 16 x 64 |1 |4 | 16 |64 | Optional |
-| Pipeline  | 4 x 16 x 64 |1 |4 | 16 |64 | Optional |
-| Worker  | 4 x 16 x100 | 3 |12 | 48 |300 | Minimum 3<br/>Increased as desired |
-| **Total Recommended**  |  |   |  | 11   | 46 | 224   | 12 | |
-| **Total Minimum**  |  |   |   | 09  | 36 |  192 |12 |  |
-## 3x Master
+The overall minimum resource requirements are:
 
-The control plane, which is composed of master machines (also known as the control plane), manages the SAAP cluster. The control plane machines run the control plane. No user workloads run on masters.
+| Machine pool role | Minimum size (vCPU x Memory x Storage) | Minimum pool size | Total vCPU | Total Memory (GiB) | Total Storage (GiB) | Required |
+|:---|:---|---:|---:|---:|---:|:---|
+| Master | 4 x 32 x 100 | 3 | 12 | 96 | 300 | Yes |
+| Infra | 4 x 16 x 64 | 2 | 8 | 32 | 128 | Yes |
+| Monitoring | 4 x 32 x 64 | 1 | 4 | 32 | 64 | Yes |
+| _Logging_ | _4 x 16 x 64_ | _1_ | _4_ | _16_ | _64_ | _Optional_ |
+| _Pipeline_ | _4 x 16 x 64_ | _1_ | _4_ | _16_ | _64_ | _Optional_ |
+| Worker | 4 x 16 x 100 | 3 | 12 | 48 | 300 | Yes |
+| **Total minimum** | | 9 | 36 | 208 | 792 | |
+| **Total recommended** | | 11 | 44 | 240 | 920 | |
 
-## 2x Infra
+## 3 x Master
 
-At least two infrastructure nodes are required for these SAAP workloads.
+The control plane, which is composed of master nodes, also known as the control plane, manages the SAAP cluster. The control plane nodes run the control plane. No user workloads run on master nodes.
 
-|  | vCPU | Memory |
-|---|---|---|
-| [Ingress Monitor Controller](https://github.com/stakater/IngressMonitorController)  | 150 m  | 600 MiB  |
-| [OpenShift GitOps](https://docs.openshift.com/container-platform/4.7/cicd/gitops/understanding-openshift-gitops.html)  | 530 m  | 500 MiB  |
-| [Nexus](https://github.com/sonatype/nexus-public)  | 200 m  | 1.6 GiB  |
-| [Vault](https://github.com/hashicorp/vault)  | 255 m  | 360 MiB  |
-|  [Stakater-Tronador](https://github.com/stakater/tronador-github-app)  | 100 m  | 200 MiB  |
-|  [Velero](https://github.com/vmware-tanzu/velero)  | 500 m  | 150 MiB  |
-|  [Multi Tenant Operator](https://docs.cloud.stakater.com/content/sre/multi-tenant-operator/overview.html)  | 600 m  | 1.2 GiB  |
-|  [Forecastle](https://github.com/stakater/Forecastle)  | 50 m  | 200 MiB  |
-|  [SonarQube](https://github.com/SonarSource/sonarqube)  | 350 m  | 1.5 GiB  |
-| OpenShift-ingress (router)  | 300 m  |  300 MiB  |
-| [Helm operator](https://github.com/fluxcd/helm-operator) | 500 m  | 800 MiB  |
-| [Volume Expander Operator](https://github.com/redhat-cop/volume-expander-operator)  | 50 m  | 100 MiB  |
-| [cert-manager-operator](https://github.com/openshift/cert-manager-operator)  | 100 m  | 1.5 GiB  |
-|  [group-sync-operator](https://github.com/redhat-cop/group-sync-operator)  | 50 m  | 100 MiB  |
-|  [Stakater-Konfigurator](https://github.com/stakater/Konfigurator) | 20 m  | 300 MiB  |
-|  [Namespace-configuration-operator](https://github.com/redhat-cop/namespace-configuration-operator) | 200 m  | 300 MiB  |
-|  [Stakater Reloader](https://github.com/stakater/Reloader) | 20 m  | 500 MiB  |
-|  [External Secrets operator](https://github.com/external-secrets/external-secrets) | 50 m  | 300 MiB  |
-|  [Kubehealth](https://github.com/arehmandev/kubehealth) | 150 m  | 400 MiB  |
-|  [OpenShift-image-registry](https://github.com/openshift/image-registry) | 50 m  | 400 MiB  |
-|  [Kubernetes-replicator](https://github.com/mittwald/kubernetes-replicator) | 50 m  | 300 MiB  |
-|  **Total** | 4.2 | 11.5 GiB  |
+## 2 x Infra
 
-## 1x Monitoring
+At least two infrastructure nodes are required for the SAAP infrastructure workloads:
 
-Monitoring components to monitor SAAP workloads and user workloads are deployed on monitoring machines. The monitoring stack includes Prometheus stack (Prometheus-Grafana-Alertmanager).
+| SAAP component | vCPU requirement | Memory requirement |
+|---|---:|---:|
+| [cert-manager-operator](https://github.com/openshift/cert-manager-operator)  | 100 m  | 1.50 GiB  |
+| [External Secrets operator](https://github.com/external-secrets/external-secrets) | 50 m  | 0.30 GiB  |
+| [Forecastle](https://github.com/stakater/Forecastle)  | 50 m  | 0.20 GiB  |
+| [group-sync-operator](https://github.com/redhat-cop/group-sync-operator)  | 50 m  | 0.10 GiB  |
+| [Helm operator](https://github.com/fluxcd/helm-operator) | 500 m  | 0.80 GiB  |
+| [Ingress Monitor Controller](https://github.com/stakater/IngressMonitorController)  | 150 m  | 0.60 GiB  |
+| [Kubehealth](https://github.com/arehmandev/kubehealth) | 150 m  | 0.40 GiB  |
+| [Kubernetes-replicator](https://github.com/mittwald/kubernetes-replicator) | 50 m  | 0.30 GiB  |
+| [Multi Tenant Operator](../multi-tenant-operator/overview.md)  | 600 m  | 1.20 GiB  |
+| [Namespace-configuration-operator](https://github.com/redhat-cop/namespace-configuration-operator) | 200 m  | 0.30 GiB  |
+| [Nexus](https://github.com/sonatype/nexus-public)  | 200 m  | 1.60 GiB  |
+| [OpenShift GitOps](https://docs.openshift.com/container-platform/4.7/cicd/gitops/understanding-openshift-gitops.html)  | 530 m  | 0.50 GiB  |
+| [OpenShift-image-registry](https://github.com/openshift/image-registry) | 50 m  | 0.40 GiB  |
+| OpenShift-ingress (router)  | 300 m  |  0.30 GiB  |
+| [SonarQube](https://github.com/SonarSource/sonarqube)  | 350 m  | 1.50 GiB  |
+| [Stakater-Konfigurator](https://github.com/stakater/Konfigurator) | 20 m  | 0.30 GiB  |
+| [Stakater Reloader](https://github.com/stakater/Reloader) | 20 m  | 0.50 GiB  |
+| [Stakater-Tronador](https://github.com/stakater/tronador-github-app)  | 100 m  | 0.20 GiB  |
+| [Vault](https://github.com/hashicorp/vault)  | 255 m  | 0.36 GiB  |
+| [Velero](https://github.com/vmware-tanzu/velero)  | 500 m  | 0.15 GiB |
+| [Volume Expander Operator](https://github.com/redhat-cop/volume-expander-operator)  | 50 m  | 0.10 GiB |
+| **Total** | 4275 m | 11.61 GiB |
+
+## 1 x Monitoring
+
+Monitoring components to monitor SAAP workloads and user workloads are deployed on monitoring nodes. The monitoring stack includes the Prometheus stack (Prometheus, Grafana and Alertmanager).
 
 Minimum one monitoring node must be used for all production deployments. For high availability consider using three monitoring nodes.
 
-|  |Components| vCPU | Memory | 
-|---|:---:|---|---|
-| **Infrastructure monitoring** |   |  | |
-| | [Prometheus](https://github.com/prometheus/prometheus)   | 2.5 | 7.5 GiB|
-| | [Grafana](https://github.com/grafana/grafana)   | 50 m | 100 MiB|
-| | [Alertmanager](https://github.com/prometheus/alertmanager)   | 500 m | 1 GiB |
-| | [Thanos](https://github.com/thanos-io/thanos)   | 50 m | 200 MiB |
-| | [Node exporter](https://github.com/prometheus/node_exporter)  | 50 m | 500 MiB |
-| **Workload Monitoring** |   |  | |
-| | Prometheus   | 100 m | 2.5 GiB |
-| | Grafana   | 20 m | 100 MiB |
-| | Alertmanager   | 20 m | 250 MiB |
-| **Total**|    | 3.4 | 11.5 GiB |
+| Type of monitoring | SAAP component | vCPU requirement | Memory requirement |
+|---|:---|---:|---:|
+| **Infrastructure** |   |  | |
+| | [Alertmanager](https://github.com/prometheus/alertmanager)   | 500 m | 1.00 GiB |
+| | [Grafana](https://github.com/grafana/grafana)   | 50 m | 0.10 GiB|
+| | [Node exporter](https://github.com/prometheus/node_exporter)  | 50 m | 0.50 GiB |
+| | [Prometheus](https://github.com/prometheus/prometheus)   | 2500 m | 7.50 GiB|
+| | [Thanos](https://github.com/thanos-io/thanos)   | 50 m | 0.20 GiB |
+| **Workloads** |   |  | |
+| | [Alertmanager](https://github.com/prometheus/alertmanager) | 20 m | 0.25 GiB |
+| | [Grafana](https://github.com/grafana/grafana) | 20 m | 0.10 GiB |
+| | [Prometheus](https://github.com/prometheus/prometheus) | 100 m | 2.50 GiB |
+| **Total**|    | 3290 m | 12.15 GiB |
 
-For more details of monitoring, Please visit [Creating Application Alerts](https://docs.cloud.stakater.com/content/sre/monitoring/app-alerts.html)
-## 1x Logging (optional)
+For more details of monitoring, please visit [Creating Application Alerts](../monitoring/app-alerts.md).
 
-Logging components aggregates all logs and stores them centrally. These components run on logging nodes. The logging stack includes EFK stack (Elasticsearch-Fluentd-Kibana). Logging stack is optional, If a customer doesn't want it, we don't deploy it.
+## 1 x Logging (optional)
 
-At least, one logging machine is required. For high availability consider using three logging nodes. 
+Logging components aggregate all logs and store them centrally. These components run on logging nodes. The logging stack includes the EFK stack (Elasticsearch, Fluentd, and Kibana).
 
-|  | vCPU | Memory |
-|---|---|---|
-| [Elasticsearch](https://github.com/elastic/elasticsearch) | 500 m  | 4 GiB  |
-| [Fluentd](https://github.com/fluent/fluentd) | 20 m  | 600 MiB  |
-| Collector | 200 m  | 2 GiB  |
-| [Kibana](https://github.com/elastic/kibana)| 300 m  | 500 MiB  |
-| **Total**|    | 1 | 7 GiB |
+The logging pool is optional, if there is no need for it, it will not be deployed. Logging infrastructure is still highly recommended for troubleshooting purposes.
 
-## 1x Pipeline (optional)
+Minimum one logging node is required. For high availability consider using three logging nodes.
 
-Pipeline nodes holds pods running for CI/CD pipelines. Minimum requirements for pipeline infrastructure is as follows: 
+| SAAP component | vCPU requirement | Memory requirement |
+|---|---:|---:|
+| Collector | 200 m  | 2.0 GiB  |
+| [Elasticsearch](https://github.com/elastic/elasticsearch) | 500 m  | 4.0 GiB  |
+| [Fluentd](https://github.com/fluent/fluentd) | 20 m  | 0.6 GiB  |
+| [Kibana](https://github.com/elastic/kibana)| 300 m  | 0.5 GiB  |
+| **Total** | 1020 m | 7.1 GiB |
 
-|  | vCPU | Memory |
-|---|---|---|
-| OpenShift pipelines | 100 m  | 200 MiB  |
+## 1 x Pipeline (optional)
 
+Pipeline nodes hold pods running for CI/CD pipelines.
 
-## 3x Worker
+The pipeline pool is optional, if there is no need for it, it will not be deployed.
 
-In a SAAP cluster, users run their applications on worker nodes. By default, three worker machines are available to run their workloads.
+Minimum requirements for pipeline infrastructure is:
 
+| SAAP component | vCPU requirement | Memory requirement |
+|---|---:|---:|
+| OpenShift pipelines | 100 m | 0.2 GiB |
+
+## 3 x Worker
+
+In a SAAP cluster, users run their applications on worker nodes. By default, a SAAP subscription comes with three worker nodes.
