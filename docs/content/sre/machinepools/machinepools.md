@@ -10,9 +10,9 @@ The control plane, which is composed of control plane machines (also known as th
 |---|---|
 | 4  | 32 GiB  |
 
-## 2x Worker
+## 3x Worker
 
-In a Kubernetes cluster, the worker nodes are where the actual workloads requested by Kubernetes users run and are managed. The worker nodes advertise their capacity and the scheduler, which is part of the master services, determines on which nodes to start containers and pods. We divide worker machines into infra,logging,monitoring and pipeline machines to have dedicated machines for every type of resources. Two worker machines are used.
+In a Kubernetes cluster, the worker nodes are where the actual workloads requested by Kubernetes users run and are managed. The worker nodes advertise their capacity and the scheduler, which is part of the master services, determines on which nodes to start containers and pods. We divide worker machines into infra,logging,monitoring and pipeline machines to have dedicated machines for every type of resources. Three worker machines are used.
 
 | vCPU | Memory |
 |---|---|
