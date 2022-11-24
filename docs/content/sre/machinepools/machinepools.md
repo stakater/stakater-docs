@@ -62,15 +62,16 @@ Minimum one monitoring node must be used for all production deployments. For hig
 |  |Components| vCPU | Memory | 
 |---|:---:|---|---|
 | **OpenShift monitoring** |   |  | |
-| | Prometheus   | 2.5 | 7.5 GiB|
-| | Grafana   | 50 m | 100 MiB|
-| | Alertmanager   | 500 m | 1 GiB |
-| | Thanos   | 50 m | 200 MiB |
+| | [Prometheus](https://github.com/prometheus/prometheus)   | 2.5 | 7.5 GiB|
+| | [Grafana](https://github.com/grafana/grafana)   | 50 m | 100 MiB|
+| | [Alertmanager](https://github.com/prometheus/alertmanager)   | 500 m | 1 GiB |
+| | [Thanos](https://github.com/thanos-io/thanos)   | 50 m | 200 MiB |
+| | [Node exporter](https://github.com/prometheus/node_exporter)  | 50 m | 500 MiB |
 | **Stakater-workload-monitoring** |   |  | |
 | | Prometheus   | 100 m | 2.5 GiB |
 | | Grafana   | 20 m | 100 MiB |
 | | Alertmanager   | 20 m | 250 MiB |
-| **Total**|    | 3.3 | 11.07 GiB |
+| **Total**|    | 3.4 | 11.5 GiB |
 
 
 ## 1x Logging (optional)
