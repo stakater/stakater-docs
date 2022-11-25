@@ -38,6 +38,8 @@ nav:
             - content/sre/introduction/saap-vs-k8s.md
         - SAAP SLA:
             - content/saap-sla/saap-sla.md
+        - Resource Requirements:
+            - content/sre/requirements/requirements.md
         - SAAP Onboarding:
             - content/onboarding/onboarding.md
         - OpenShift as a Service:
@@ -118,8 +120,6 @@ nav:
             - content/sre/alerting/predefined-prometheusrules.md
         - Autoscaling:
             - content/sre/autoscaling/autoscaling.md
-        - Machine Pools:
-            - content/sre/machinepools/machinepools.md
         - Storage:
             - content/sre/storage/volume-expander.md
         - Backup & Restore:

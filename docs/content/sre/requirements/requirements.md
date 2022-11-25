@@ -1,6 +1,4 @@
-# Machine Pools
-
-A machine pool is a set of similar sized virtual machines, in Kubernetes terminology called nodes. In SAAP (Stakater App Agility Platform), different machine pools exist to serve different purposes. Details of machine pools and tools running on them are described here.
+# Resource requirements for SAAP installation
 
 ><u>**Glossary:**</u>
 >
@@ -8,13 +6,27 @@ A machine pool is a set of similar sized virtual machines, in Kubernetes termino
 >
 > **SAAP workloads:** Supporting applications for software lifecycle
 
-## Compute Requirements
+## Summary
+
+Resource requirements for a single SAAP cluster is as follows:
+
+| Resource | Minimum | Recommended |
+|:---|---:|---:|
+| vCPUs (m) | 36 | 44 |
+| Memory (Gib)  | 208 | 240 |
+| Storage Block (Gib)| 900 | 1100 |
+| Storage Snapshots (Gib) | 330 | 330 |
+| Storage Buckets | 1 | 1 |
+| Load Balancers <span style="color: red;">*</span> | 3 | 3 |
+| Public IPs      | 2 | 2 |
+
+>  <span style="color: red;">*</span> Load Balancers are only required for AWS, Azure and GCP.
 
 ### Minimum
 
 The overall minimum resource requirements are:
 
-| Machine pool role | Minimum size (vCPU x Memory x Storage) | Minimum pool size | vCPU (m) | Total Memory (GiB) | Total Storage (GiB)
+| Machine pool role | Minimum size (vCPU x Memory x Storage) | Minimum pool size | vCPU | Total Memory (GiB) | Total Storage (GiB)
 |:---|:---|---:|---:|---:|---:|
 | Master | 4 x 32 x 100 | 3 | 12 | 96 | 300 |
 | Infra | 4 x 16 x 100 | 2 | 8 | 32 | 200 |
@@ -26,7 +38,7 @@ The overall minimum resource requirements are:
 
 The recommended resource requirements are:
 
-| Machine pool role | Minimum size (vCPU x Memory x Storage) | Minimum pool size | vCPU (m) | Total Memory (GiB) | Total Storage (GiB) |
+| Machine pool role | Minimum size (vCPU x Memory x Storage) | Minimum pool size | vCPU | Total Memory (GiB) | Total Storage (GiB) |
 |:---|:---|---:|---:|---:|---:|
 | Master | 4 x 32 x 100 | 3 | 12 | 96 | 300 |
 | Infra | 4 x 16 x 100 | 2 | 8 | 32 | 200 |
@@ -36,7 +48,7 @@ The recommended resource requirements are:
 | Worker | 4 x 16 x 100 | 3 | 12 | 48 | 300 |
 | **Total** | | **11** | **44** | **240** | **1100** |
 
-## Machine Pools Description
+## Compute
 
 ### 3 x Master
 
@@ -133,9 +145,9 @@ No user workloads run on pipelines nodes.
 In a SAAP cluster, users run their applications on worker nodes. By default, a SAAP subscription comes with three worker nodes.
 
 
-## Storage Requirements
+## Storage
 
-### Block Storage Requirements
+### Block Storage
 
 SAAP uses high performance disks i.e. `SSDs` for storage requirements which includes:
 
@@ -154,17 +166,23 @@ Following are the storage requirements used as Persistent Volumes consumed by `S
 | Vault | 10 |
 | **Total** | **62** |
 
-### Object Storage Requirements
+### Object Storage
 
 `1 x Object storage bucket` is required for keeping Backups of Kubernetes Objects.
 
 ### Volume Snapshot Requirements
 
-Volume Snapshots are backups of volumes for `SAAP workloads`.
+Volume Snapshots are backups of volumes for critical `SAAP workloads` that only include `Nexus` and `Vault`
 
 By default backups are taken daily and are retained for 3 days. So at a given instance 3 day old backups for `SAAP workloads` are kept.
 
-## Network Requirements
+| SAAP component | Backup size (GiB) <br/> (PV size * backup frequency)|
+|---|:---:|
+| Nexus | 300  (100 x 3) |
+| Vault | 30 (10 x 3) |
+| **Total** | **330** |
+
+## Network
 
 ### Load Balancers
 
