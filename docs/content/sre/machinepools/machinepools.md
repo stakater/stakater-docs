@@ -15,13 +15,13 @@ The overall minimum resource requirements are:
 | Machine pool role | Minimum size (vCPU x Memory x Storage) | Minimum pool size | Total vCPU | Total Memory (GiB) | Total Storage (GiB) | Required |
 |:---|:---|---:|---:|---:|---:|:---|
 | Master | 4 x 32 x 100 | 3 | 12 | 96 | 300 | Yes |
-| Infra | 4 x 16 x 64 | 2 | 8 | 32 | 128 | Yes |
-| Monitoring | 4 x 32 x 64 | 1 | 4 | 32 | 64 | Yes |
-| _Logging_ | _4 x 16 x 64_ | _1_ | _4_ | _16_ | _64_ | _Optional_ |
-| _Pipeline_ | _4 x 16 x 64_ | _1_ | _4_ | _16_ | _64_ | _Optional_ |
+| Infra | 4 x 16 x 100 | 2 | 8 | 32 | 200 | Yes |
+| Monitoring | 4 x 32 x 100 | 1 | 4 | 32 | 100 | Yes |
+| _Logging_ | _4 x 16 x 100_ | _1_ | _4_ | _16_ | _100_ | _Optional_ |
+| _Pipeline_ | _4 x 16 x 100_ | _1_ | _4_ | _16_ | _100_ | _Optional_ |
 | Worker | 4 x 16 x 100 | 3 | 12 | 48 | 300 | Yes |
-| **Total minimum** | | 9 | 36 | 208 | 792 | |
-| **Total recommended** | | 11 | 44 | 240 | 920 | |
+| **Total minimum** | | 9 | 36 | 208 | 900 | |
+| **Total recommended** | | 11 | 44 | 240 | 1100 | |
 
 ## 3 x Master
 
