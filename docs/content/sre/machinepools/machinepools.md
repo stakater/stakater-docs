@@ -30,29 +30,29 @@ The control plane, which is composed of master nodes, also known as the control 
 
 At least two infrastructure nodes are required for the SAAP infrastructure workloads:
 
-| SAAP component | vCPU requirement | Memory requirement |
+| SAAP component | vCPU requirement (m) | Memory requirement (GiB) |
 |---|---:|---:|
-| [cert-manager](https://github.com/cert-manager/cert-manager)  | 100 m  | 1.50 GiB  |
-| [External Secrets operator](https://github.com/external-secrets/external-secrets) | 50 m  | 0.30 GiB  |
-| [Stakater Forecastle](https://github.com/stakater/Forecastle)  | 50 m  | 0.20 GiB  |
-| [group-sync-operator](https://github.com/redhat-cop/group-sync-operator)  | 50 m  | 0.10 GiB  |
-| [Helm operator](https://github.com/fluxcd/helm-operator) | 500 m  | 0.80 GiB  |
-| [Stakater Ingress Monitor Controller](https://github.com/stakater/IngressMonitorController)  | 150 m  | 0.60 GiB  |
-| Kubehealth (SAAP components monitoring) | 150 m  | 0.40 GiB  |
-| [Kubernetes replicator](https://github.com/mittwald/kubernetes-replicator) | 50 m  | 0.30 GiB  |
-| [Stakater Multi Tenant Operator](https://docs.stakater.com/content/sre/multi-tenant-operator/overview.html)  | 600 m  | 1.20 GiB  |
-| [Nexus](https://github.com/sonatype/nexus-public)  | 200 m  | 1.60 GiB  |
-| [OpenShift GitOps](https://docs.openshift.com/container-platform/4.7/cicd/gitops/understanding-openshift-gitops.html)  | 530 m  | 0.50 GiB  |
-| [OpenShift Image Registry](https://docs.openshift.com/container-platform/4.11/registry/index.html) | 50 m  | 0.40 GiB  |
-| [OpenShift Router](https://docs.openshift.com/container-platform/4.11/networking/ingress-operator.html)  | 300 m  |  0.30 GiB  |
-| [SonarQube](https://www.sonarqube.org/)  | 350 m  | 1.50 GiB  |
-| [Stakater Konfigurator](https://github.com/stakater/Konfigurator) | 20 m  | 0.30 GiB  |
-| [Stakater Reloader](https://github.com/stakater/Reloader) | 20 m  | 0.50 GiB  |
-| [Stakater Tronador](https://docs.stakater.com/content/sre/tronador/overview.html)  | 100 m  | 0.20 GiB  |
-| [Vault](https://github.com/hashicorp/vault)  | 255 m  | 0.36 GiB  |
-| [Velero](https://github.com/vmware-tanzu/velero)  | 500 m  | 0.15 GiB |
-| [Volume Expander Operator](https://github.com/redhat-cop/volume-expander-operator)  | 50 m  | 0.10 GiB |
-| **Total** | 4275 m | 11.61 GiB |
+| [cert-manager](https://github.com/cert-manager/cert-manager)  | 100 | 1.50 |
+| [External Secrets operator](https://github.com/external-secrets/external-secrets) | 50 | 0.30 |
+| [Stakater Forecastle](https://github.com/stakater/Forecastle)  | 50 | 0.20 |
+| [group-sync-operator](https://github.com/redhat-cop/group-sync-operator)  | 50 | 0.10 |
+| [Helm operator](https://github.com/fluxcd/helm-operator) | 500 | 0.80 |
+| [Stakater Ingress Monitor Controller](https://github.com/stakater/IngressMonitorController)  | 150 | 0.60 |
+| Kubehealth (SAAP components monitoring) | 150 | 0.40 |
+| [Kubernetes replicator](https://github.com/mittwald/kubernetes-replicator) | 50 | 0.30 |
+| [Stakater Multi Tenant Operator](https://docs.stakater.com/content/sre/multi-tenant-operator/overview.html)  | 600 | 1.20 |
+| [Nexus](https://github.com/sonatype/nexus-public)  | 200 | 1.60 |
+| [OpenShift GitOps](https://docs.openshift.com/container-platform/4.7/cicd/gitops/understanding-openshift-gitops.html)  | 530 | 0.50 |
+| [OpenShift Image Registry](https://docs.openshift.com/container-platform/4.11/registry/index.html) | 50 | 0.40 |
+| [OpenShift Router](https://docs.openshift.com/container-platform/4.11/networking/ingress-operator.html)  | 300 |  0.30 |
+| [SonarQube](https://www.sonarqube.org/)  | 350 | 1.50 |
+| [Stakater Konfigurator](https://github.com/stakater/Konfigurator) | 20 | 0.30 |
+| [Stakater Reloader](https://github.com/stakater/Reloader) | 20 | 0.50 |
+| [Stakater Tronador](https://docs.stakater.com/content/sre/tronador/overview.html)  | 100 | 0.20 |
+| [Vault](https://github.com/hashicorp/vault)  | 255 | 0.36 |
+| [Velero](https://github.com/vmware-tanzu/velero)  | 500 | 0.15 |
+| [Volume Expander Operator](https://github.com/redhat-cop/volume-expander-operator)  | 50 | 0.10 |
+| **Total** | 4275 | 11.61 |
 
 No user workloads run on infrastructure nodes.
 
@@ -62,19 +62,19 @@ Monitoring components to monitor `SAAP workloads` and user workloads are deploye
 
 Minimum one monitoring node must be used for all production deployments. For high availability consider using two monitoring nodes.
 
-| Type of monitoring | SAAP component | vCPU requirement | Memory requirement |
+| Type of monitoring | SAAP component | vCPU requirement (m) | Memory requirement (GiB) |
 |---|:---|---:|---:|
 | **Infrastructure** |   |  | |
-| | [Alertmanager](https://github.com/prometheus/alertmanager)   | 500 m | 1.00 GiB |
-| | [Grafana](https://github.com/grafana/grafana)   | 50 m | 0.10 GiB|
-| | [Node exporter](https://github.com/prometheus/node_exporter)  | 50 m | 0.50 GiB |
-| | [Prometheus](https://github.com/prometheus/prometheus)   | 2500 m | 7.50 GiB|
-| | [Thanos](https://github.com/thanos-io/thanos)   | 50 m | 0.20 GiB |
+| | [Alertmanager](https://github.com/prometheus/alertmanager)   | 500 | 1.00 |
+| | [Grafana](https://github.com/grafana/grafana)   | 50 | 0.10 |
+| | [Node exporter](https://github.com/prometheus/node_exporter)  | 50 | 0.50 |
+| | [Prometheus](https://github.com/prometheus/prometheus)   | 2500 | 7.50 |
+| | [Thanos](https://github.com/thanos-io/thanos)   | 50 | 0.20 |
 | **Workloads** |   |  | |
-| | [Alertmanager](https://github.com/prometheus/alertmanager) | 20 m | 0.25 GiB |
-| | [Grafana](https://github.com/grafana/grafana) | 20 m | 0.10 GiB |
-| | [Prometheus](https://github.com/prometheus/prometheus) | 100 m | 2.50 GiB |
-| **Total**|    | 3290 m | 12.15 GiB |
+| | [Alertmanager](https://github.com/prometheus/alertmanager) | 20 | 0.25 |
+| | [Grafana](https://github.com/grafana/grafana) | 20 | 0.10 |
+| | [Prometheus](https://github.com/prometheus/prometheus) | 100 | 2.50 |
+| **Total**|    | 3290 | 12.15 |
 
 For more details of monitoring, please visit [Creating Application Alerts](../monitoring/app-alerts.md).
 
@@ -88,13 +88,13 @@ The logging pool is optional, if there is no need for it, it will not be deploye
 
 Minimum one logging node is required. For high availability consider using three logging nodes.
 
-| SAAP component | vCPU requirement | Memory requirement |
+| SAAP component | vCPU requirement (m) | Memory requirement (GiB) |
 |---|---:|---:|
-| Collector | 200 m  | 2.0 GiB  |
-| [Elasticsearch](https://github.com/elastic/elasticsearch) | 500 m  | 4.0 GiB  |
-| [Fluentd](https://github.com/fluent/fluentd) | 20 m  | 0.6 GiB  |
-| [Kibana](https://github.com/elastic/kibana)| 300 m  | 0.5 GiB  |
-| **Total** | 1020 m | 7.1 GiB |
+| Collector | 200 | 2.0 |
+| [Elasticsearch](https://github.com/elastic/elasticsearch) | 500 | 4.0 |
+| [Fluentd](https://github.com/fluent/fluentd) | 20 | 0.6 |
+| [Kibana](https://github.com/elastic/kibana)| 300 | 0.5 |
+| **Total** | 1020 | 7.1 |
 
 No user workloads run on logging nodes.
 
@@ -106,9 +106,9 @@ The pipeline pool is optional, if there is no need for it, it will not be deploy
 
 Minimum requirements for pipeline infrastructure is:
 
-| SAAP component | vCPU requirement | Memory requirement |
+| SAAP component | vCPU requirement (m) | Memory requirement (GiB) |
 |---|---:|---:|
-| OpenShift pipelines | 100 m | 0.2 GiB |
+| OpenShift pipelines | 100 | 0.2 |
 
 No user workloads run on pipelines nodes.
 
