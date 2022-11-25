@@ -144,7 +144,7 @@ Following are the storage requirements used as Persistent Volumes consumed by `S
 
 Volume Snapshots are backups of volumes for `SAAP workloads`.
 
-By default backups are taken daily and are retained for 3 days. So at any given instance 3 day old backups for `SAAP workloads` are kept.
+By default, backups are taken daily and are retained for 3 days. So at any given instance 3 day old backups for `SAAP workloads` are kept.
 
 ## Network Requirements
 
