@@ -27,7 +27,7 @@ Replace angle brackets with following values in below templates:
 
 We need a **Dockerfile** for our application present inside our code repo.  Navigate to [**redhat image registry**](https://catalog.redhat.com/software/containers/search) and find a suitable image for the application.
 
-Below is a dockerfile for ReactJS application for product reviews. Visit For More Info : https://github.com/stakater-lab/stakater-nordmart-review-ui 
+Below is a dockerfile for ReactJS application for product reviews. Visit For More Info : https://github.com/stakater-lab/stakater-nordmart-review-ui
 
 ```
 FROM node:14 as builder
@@ -87,8 +87,8 @@ In application repo add Helm Chart in ***deploy*** folder at the root of your re
     ```yaml
     # Name of the dependency chart
     application:
-      # application name should be short so limit of 63 characters in route can be fulfilled. 
-      # Default route name formed is <application-name>-<namespace>.<base-domain> . 
+      # application name should be short so limit of 63 characters in route can be fulfilled.
+      # Default route name formed is <application-name>-<namespace>.<base-domain> .
       # Config Maps have <application> prefixed
       applicationName: <application>
 
@@ -198,9 +198,15 @@ Login into ArgoCD UI using forecastle console. Visit the application against dev
   <img src="./images/dev-argocd-app.png" width="80%" />
 </p>
 
-Visit the Openshift console to verify the application deployment as well.
-
-
+Visit the Openshift console to verify the application deployment. 
+<p align="center">
+  <img src="./images/review-web-pod.png" width="80%" />
+  <img src="./images/review-web-route.png" width="80%" />
+</p>
+Visit the application url using routes to check if application is working as expedcted.
+<p align="center">
+  <img src="./images/review-web-ui.png" width="80%" />
+</p>
 
 # Tekton Pipelines for Application CI
 
