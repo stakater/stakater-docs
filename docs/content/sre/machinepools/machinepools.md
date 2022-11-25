@@ -23,25 +23,58 @@ The overall minimum resource requirements are:
 | **Total minimum** | | 9 | 36 | 208 | 900 | |
 | **Total recommended** | | 11 | 44 | 240 | 1100 | |
 
-## Additional Storage Requirements
+## Storage Requirements
+### Block Storage Requirements
 
-| SAAP component | Storage requirement (GiB)|
+SAAP uses high performance disks i.e. `SSDs` for storage requirements which includes
+- Boot Volumes (Attached to nodes for OS. See [Resource Requirements](#resource-requirements))
+- Persistent Volumes (Additionally attached volumes for application consumption)
+
+Following are the storage requirements used as Persistent Volumes consumed by `SAAP workloads`
+
+| SAAP component | Volume Size (GiB)|
 |---|---:|
-| [Elasticsearch](https://github.com/elastic/elasticsearch) | 280  |
-| [Prometheus - infrastructure](https://github.com/prometheus/prometheus) | 100  |
-| [Prometheus - workload](https://github.com/prometheus/prometheus)| 100 |
-| [SonarQube](https://github.com/SonarSource/sonarqube) | 5  |
-| SonarQube Database | 8 |
-| [Nexus](https://github.com/sonatype/nexus-public) | 100  |
-| [Vault](https://github.com/hashicorp/vault) | 10 |
-| **Total** | 603 |
+| Elasticsearch Logging | 300  |
+| Prometheus - Infrastructure Monitoring | 100  |
+| Prometheus - workload Monitoring| 100 |
+| SonarQube | 15 |
+| Nexus | 100 |
+| Vault | 10 |
+| **Total** | **62** |
 
-**Volume Snapshot**  represents a snapshot of a volume on a storage system, it is recommended to have minimum one snapshot of each component.
+### Object Storage Requirements
+
+`1 x Object storage bucket` is required for keeping Backups of Kubernetes Objects.
+
+
+
+### Volume Snapshot Requirements 
+
+Volume Snapshots are backups of volumes for `SAAP workloads`
+By default backups are taken daily and are retained for 3 days. So at a given instance 3 day old backups for `SAAP workloads` are kept.
+
 ## Network Requirements
 
-**Load Balancer** is used to distribute traffic across multiple servers in order to prevent server overload. For Azure, AWS (Amazon Web Services) and GCP (Google Cloud Platform), it is mandatory to use 3 load balancers (2 Public, 1 Private).
+### Load Balancers
 
-**Floating IPs**  
+#### For AWS, Azure, GCP
+
+Each SAAP cluster deploys `3 x Loadbalancers`
+- 2 x Public (for cluster API and cluster dashboard)
+- 1 x Private (for control plane communication)
+
+#### For Openstack
+
+No LoadBalancers required.
+
+### Floating IPs 
+#### For AWS, Azure, GCP
+
+No additional Floating IPs/Public IPs are required  
+#### For Openstack
+
+`2 x Floating IPs` are required (for cluster API and cluster dashboard)
+
 ## 3 x Master
 
 The control plane, which is composed of master nodes, also known as the control plane, manages the SAAP cluster. The control plane nodes run the control plane. No user workloads run on master nodes.
@@ -52,20 +85,20 @@ At least two infrastructure nodes are required for the SAAP infrastructure workl
 
 | SAAP component | vCPU requirement | Memory requirement |
 |---|---:|---:|
-| [cert-manager-operator](https://github.com/openshift/cert-manager-operator)  | 100 m  | 1.50 GiB  |
+| [cert-manager](https://github.com/cert-manager/cert-manager)  | 100 m  | 1.50 GiB  |
 | [External Secrets operator](https://github.com/external-secrets/external-secrets) | 50 m  | 0.30 GiB  |
 | [Stakater Forecastle](https://github.com/stakater/Forecastle)  | 50 m  | 0.20 GiB  |
 | [group-sync-operator](https://github.com/redhat-cop/group-sync-operator)  | 50 m  | 0.10 GiB  |
 | [Helm operator](https://github.com/fluxcd/helm-operator) | 500 m  | 0.80 GiB  |
 | [Stakater Ingress Monitor Controller](https://github.com/stakater/IngressMonitorController)  | 150 m  | 0.60 GiB  |
-| [Kubehealth](https://github.com/arehmandev/kubehealth) | 150 m  | 0.40 GiB  |
+| Kubehealth (SAAP components monitoring) | 150 m  | 0.40 GiB  |
 | [Kubernetes replicator](https://github.com/mittwald/kubernetes-replicator) | 50 m  | 0.30 GiB  |
 | [Stakater Multi Tenant Operator](https://docs.stakater.com/content/sre/multi-tenant-operator/overview.html)  | 600 m  | 1.20 GiB  |
 | [Nexus](https://github.com/sonatype/nexus-public)  | 200 m  | 1.60 GiB  |
 | [OpenShift GitOps](https://docs.openshift.com/container-platform/4.7/cicd/gitops/understanding-openshift-gitops.html)  | 530 m  | 0.50 GiB  |
-| [OpenShift Image Registry](https://github.com/openshift/image-registry) | 50 m  | 0.40 GiB  |
+| [OpenShift Image Registry](https://docs.openshift.com/container-platform/4.11/registry/index.html) | 50 m  | 0.40 GiB  |
 | [OpenShift Router](https://docs.openshift.com/container-platform/4.11/networking/ingress-operator.html)  | 300 m  |  0.30 GiB  |
-| [SonarQube](https://github.com/SonarSource/sonarqube)  | 350 m  | 1.50 GiB  |
+| [SonarQube](https://www.sonarqube.org/)  | 350 m  | 1.50 GiB  |
 | [Stakater Konfigurator](https://github.com/stakater/Konfigurator) | 20 m  | 0.30 GiB  |
 | [Stakater Reloader](https://github.com/stakater/Reloader) | 20 m  | 0.50 GiB  |
 | [Stakater Tronador](https://docs.stakater.com/content/sre/tronador/overview.html)  | 100 m  | 0.20 GiB  |
@@ -78,7 +111,7 @@ No user workloads run on infrastructure nodes.
 
 ## 1 x Monitoring
 
-Monitoring components to monitor SAAP workloads and user workloads are deployed on monitoring nodes. The monitoring stack includes the Prometheus stack (Prometheus, Grafana and Alertmanager).
+Monitoring components to monitor `SAAP workloads` and user workloads are deployed on monitoring nodes. The monitoring stack includes the Prometheus stack (Prometheus, Grafana and Alertmanager).
 
 Minimum one monitoring node must be used for all production deployments. For high availability consider using two monitoring nodes.
 
