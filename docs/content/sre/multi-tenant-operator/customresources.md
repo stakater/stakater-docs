@@ -149,7 +149,7 @@ spec:
   * `Owners:` Users who will be owners of a tenant. They will have OpenShift admin-role assigned to their users, with additional access to create namespaces as well.
   * `Editors:` Users who will be editors of a tenant. They will have OpenShift edit-role assigned to their users.
   * `Viewers:` Users who will be viewers of a tenant. They will have OpenShift view-role assigned to their users.
-  * For more [details](https://docs.cloud.stakater.com/content/sre/multi-tenant-operator/tenant-roles.html).
+  * For more [details](./tenant-roles.md).
 
 * `Users` can be linked to the tenant by specifying there username in `owners.users`, `editors.users` and `viewers.users` respectively.
 
@@ -357,7 +357,7 @@ status:
   nextReconcileTime: '2022-07-07T11:23:00Z'
 ```
 
-The `ResourceSupervisor` is a resource created by MTO in case the [Hibernation](./hibernation.html) feature is enabled. The Resource manages the sleep/wake schedule of the namespaces owned by the tenant, and manages the previous state of any sleeping application. Currently, only StatefulSets and Deployments are put to sleep. Additionally, ArgoCD AppProjects that belong to the tenant have a `deny` SyncWindow added to them.
+The `ResourceSupervisor` is a resource created by MTO in case the [Hibernation](./hibernation.md) feature is enabled. The Resource manages the sleep/wake schedule of the namespaces owned by the tenant, and manages the previous state of any sleeping application. Currently, only StatefulSets and Deployments are put to sleep. Additionally, ArgoCD AppProjects that belong to the tenant have a `deny` SyncWindow added to them.
 
 ## Namespace
 

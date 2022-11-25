@@ -1,63 +1,169 @@
 # Machine Pools
 
-A machine pool creates machine sets that are all clones of the same configuration across availability zones. Machine pools perform all of the host node provisioning management actions on a worker node. We have different machine pools for different resources to cater the problems when one service deprives another service of resources when they share the same node. Below is the detail of minimum machines required for SAAP deployment.
+A machine pool is a set of similar sized virtual machines, in Kubernetes terminology called nodes. In SAAP (Stakater App Agility Platform), different machine pools exist to serve different purposes. Details of machine pools and tools running on them are described here.
 
-## 3x Master
+><u>**Glossary:**</u>
+>
+> **User workloads:** User applications (e-commerce frontend, backend APIs, etc.)
+>
+> **SAAP workloads:** Supporting applications for software lifecycle
 
-The control plane, which is composed of control plane machines (also known as the master machines), manages the OpenShift Container Platform cluster. Exactly three control plane nodes must be used for all production deployments. The control plane machines manage workloads on the compute machines, which are also known as worker machines. 
+## Resource Requirements
 
-|   | vCPU | Memory |  Cost/mo<sup id="fnref1"><a href="#fn1" rel="footnote">*</a></sup> |
-|---|---|---|---|
-| Amazon EC2  | 8  | 64 GiB  | 400 USD  |
-|  Binero | 8 | 48 GB | 2079.88 SEK  |
+The overall minimum resource requirements are:
 
-## 2x Worker
+| Machine pool role | Minimum size (vCPU x Memory x Storage) | Minimum pool size | Total vCPU | Total Memory (GiB) | Total Storage (GiB) | Required |
+|:---|:---|---:|---:|---:|---:|:---|
+| Master | 4 x 32 x 100 | 3 | 12 | 96 | 300 | Yes |
+| Infra | 4 x 16 x 100 | 2 | 8 | 32 | 200 | Yes |
+| Monitoring | 4 x 32 x 100 | 1 | 4 | 32 | 100 | Yes |
+| _Logging_ | _4 x 16 x 100_ | _1_ | _4_ | _16_ | _100_ | _Optional_ |
+| _Pipeline_ | _4 x 16 x 100_ | _1_ | _4_ | _16_ | _100_ | _Optional_ |
+| Worker | 4 x 16 x 100 | 3 | 12 | 48 | 300 | Yes |
+| **Total minimum** | | 9 | 36 | 208 | 900 | |
+| **Total recommended** | | 11 | 44 | 240 | 1100 | |
 
-In a Kubernetes cluster, the worker nodes are where the actual workloads requested by Kubernetes users run and are managed. The worker nodes advertise their capacity and the scheduler, which is part of the master services, determines on which nodes to start containers and pods. We divide worker machines into infra,logging,monitoring and pipeline machines to have dedicated machines for every type of resources. Two worker machines are used.
+## 3 x Master
 
-|   | vCPU | Memory |  Cost/mo<sup id="fnref1"><a href="#fn1" rel="footnote">*</a></sup>|
-|---|---|---|---|
-| Amazon EC2  | 8  | 32 GiB  | 300 USD  |
-|  Binero | 8 | 32 GB  | 2079.88 SEK  |
+The control plane, which is composed of master nodes, also known as the control plane, manages the SAAP cluster. The control plane nodes run the control plane. No user workloads run on master nodes.
 
-## 3x Infra
+## 2 x Infra
 
-We use three infrastructure machines for all the resources except for logging , monitoring or pipelines workloads.
+At least two infrastructure nodes are required for the SAAP infrastructure workloads:
 
-|   | vCPU | Memory |  Cost/mo<sup id="fnref1"><a href="#fn1" rel="footnote">*</a></sup> |
-|---|---|---|---|
-| Amazon EC2  | 8  | 32 GiB  | 300 USD  |
-|  Binero | 8 | 32 GB  | 2079.88 SEK  |
+| SAAP component | vCPU requirement (m) | Memory requirement (GiB) |
+|---|---:|---:|
+| [cert-manager](https://github.com/cert-manager/cert-manager)  | 100 | 1.50 |
+| [External Secrets operator](https://github.com/external-secrets/external-secrets) | 50 | 0.30 |
+| [Stakater Forecastle](https://github.com/stakater/Forecastle)  | 50 | 0.20 |
+| [group-sync-operator](https://github.com/redhat-cop/group-sync-operator)  | 50 | 0.10 |
+| [Helm operator](https://github.com/fluxcd/helm-operator) | 500 | 0.80 |
+| [Stakater Ingress Monitor Controller](https://github.com/stakater/IngressMonitorController)  | 150 | 0.60 |
+| Kubehealth (SAAP components monitoring) | 150 | 0.40 |
+| [Kubernetes replicator](https://github.com/mittwald/kubernetes-replicator) | 50 | 0.30 |
+| [Stakater Multi Tenant Operator](../multi-tenant-operator/overview.md)  | 600 | 1.20 |
+| [Nexus](https://github.com/sonatype/nexus-public)  | 200 | 1.60 |
+| [OpenShift GitOps](https://docs.openshift.com/container-platform/4.7/cicd/gitops/understanding-openshift-gitops.html)  | 530 | 0.50 |
+| [OpenShift Image Registry](https://docs.openshift.com/container-platform/4.11/registry/index.html) | 50 | 0.40 |
+| [OpenShift Router](https://docs.openshift.com/container-platform/4.11/networking/ingress-operator.html)  | 300 |  0.30 |
+| [SonarQube](https://www.sonarqube.org/)  | 350 | 1.50 |
+| [Stakater Konfigurator](https://github.com/stakater/Konfigurator) | 20 | 0.30 |
+| [Stakater Reloader](https://github.com/stakater/Reloader) | 20 | 0.50 |
+| [Stakater Tronador](../tronador/overview.md)  | 100 | 0.20 |
+| [Vault](https://github.com/hashicorp/vault)  | 255 | 0.36 |
+| [Velero](https://github.com/vmware-tanzu/velero)  | 500 | 0.15 |
+| [Volume Expander Operator](https://github.com/redhat-cop/volume-expander-operator)  | 50 | 0.10 |
+| **Total** | 4275 | 11.61 |
 
-## 1x Logging
+No user workloads run on infrastructure nodes.
 
-One logging machine is used for cluster logging workloads.
+## 1 x Monitoring
 
-|   | vCPU | Memory |  Cost/mo<sup id="fnref1"><a href="#fn1" rel="footnote">*</a></sup> |
-|---|---|---|---|
-| Amazon EC2  | 4  | 16 GiB  | 150 USD  |
-|  Binero | 4  | 16 GB | 880.04 SEK  |
+Monitoring components to monitor `SAAP workloads` and user workloads are deployed on monitoring nodes. The monitoring stack includes the Prometheus stack (Prometheus, Grafana and Alertmanager).
 
-## 2x Monitoring
+Minimum one monitoring node must be used for all production deployments. For high availability consider using two monitoring nodes.
 
-Two monitoring machines are used for cluster monitoring workloads
+| Type of monitoring | SAAP component | vCPU requirement (m) | Memory requirement (GiB) |
+|---|:---|---:|---:|
+| **Infrastructure** |   |  | |
+| | [Alertmanager](https://github.com/prometheus/alertmanager)   | 500 | 1.00 |
+| | [Grafana](https://github.com/grafana/grafana)   | 50 | 0.10 |
+| | [Node exporter](https://github.com/prometheus/node_exporter)  | 50 | 0.50 |
+| | [Prometheus](https://github.com/prometheus/prometheus)   | 2500 | 7.50 |
+| | [Thanos](https://github.com/thanos-io/thanos)   | 50 | 0.20 |
+| **Workloads** |   |  | |
+| | [Alertmanager](https://github.com/prometheus/alertmanager) | 20 | 0.25 |
+| | [Grafana](https://github.com/grafana/grafana) | 20 | 0.10 |
+| | [Prometheus](https://github.com/prometheus/prometheus) | 100 | 2.50 |
+| **Total**|    | 3290 | 12.15 |
 
-|   | vCPU | Memory |  Cost/mo<sup id="fnref1"><a href="#fn1" rel="footnote">*</a></sup> |
-|---|---|---|---|
-| Amazon EC2  |8  | 32 GiB  | 300 USD  |
-|  Binero | 6  | 32 GB  | 1640.09 SEK  |
+For more details of monitoring, please visit [Creating Application Alerts](../monitoring/app-alerts.md).
 
+No user workloads run on monitoring nodes.
 
-## 1x Pipeline
+## 1 x Logging (optional)
 
-One pipeline machine is used for pipeline runs.
+Logging components aggregate all logs and store them centrally. These components run on logging nodes. The logging stack includes the EFK stack (Elasticsearch, Fluentd and Kibana).
 
-|   | vCPU | Memory |  Cost/mo<sup id="fnref1"><a href="#fn1" rel="footnote">*</a></sup> |
-|---|---|---|---|
-| Amazon EC2  | 4  | 16 GiB  | 150 USD  |
-|  Binero | 6  | 24 GB  | 1320.06 SEK  |
+The logging pool is optional, if there is no need for it, it will not be deployed. Logging infrastructure is still highly recommended for troubleshooting purposes.
 
+Minimum one logging node is required. For high availability consider using three logging nodes.
 
-<h4 id="fn1">
-    <a href="#fn1" rel="footnote">*  </a>This estimate is an approximation and may differ.
-</h4>
+| SAAP component | vCPU requirement (m) | Memory requirement (GiB) |
+|---|---:|---:|
+| Collector | 200 | 2.0 |
+| [Elasticsearch](https://github.com/elastic/elasticsearch) | 500 | 4.0 |
+| [Fluentd](https://github.com/fluent/fluentd) | 20 | 0.6 |
+| [Kibana](https://github.com/elastic/kibana)| 300 | 0.5 |
+| **Total** | 1020 | 7.1 |
+
+No user workloads run on logging nodes.
+
+## 1 x Pipeline (optional)
+
+Pipeline nodes hold pods running for Tekton based CI/CD pipelines.
+
+The pipeline pool is optional, if there is no need for it, it will not be deployed.
+
+Minimum requirements for pipeline infrastructure is:
+
+| SAAP component | vCPU requirement (m) | Memory requirement (GiB) |
+|---|---:|---:|
+| OpenShift pipelines | 100 | 0.2 |
+
+No user workloads run on pipelines nodes.
+
+## 3 x Worker
+
+In a SAAP cluster, users run their applications on worker nodes. By default, a SAAP subscription comes with three worker nodes.
+
+## Storage Requirements
+### Block Storage Requirements
+
+SAAP uses high performance disks i.e. `SSDs` for storage requirements which includes:
+- Boot Volumes (Attached to nodes for OS. See [Resource Requirements](#resource-requirements))
+- Persistent Volumes (Additionally attached volumes for application consumption)
+
+Following are the storage requirements used as Persistent Volumes consumed by `SAAP workloads`:
+
+| SAAP component | Volume Size (GiB)|
+|---|---:|
+| Elasticsearch Logging | 300  |
+| Prometheus - Infrastructure Monitoring | 100  |
+| Prometheus - workload Monitoring| 100 |
+| SonarQube | 15 |
+| Nexus | 100 |
+| Vault | 10 |
+| **Total** | **62** |
+
+### Object Storage Requirements
+
+`1 x Object storage bucket` is required for keeping Backups of Kubernetes Objects.
+
+### Volume Snapshot Requirements 
+
+Volume Snapshots are backups of volumes for `SAAP workloads`.
+
+By default, backups are taken daily and are retained for 3 days. So at any given instance 3 day old backups for `SAAP workloads` are kept.
+
+## Network Requirements
+
+### Load Balancers
+#### For AWS, Azure, GCP
+
+Each SAAP cluster deploys `3 x Loadbalancers`:
+- 2 x Public (for cluster API and cluster dashboard)
+- 1 x Private (for control plane communication)
+
+#### For OpenStack
+
+No LoadBalancers required.
+
+### Floating IPs 
+#### For AWS, Azure, GCP
+
+No additional Floating IPs/Public IPs are required.
+
+#### For OpenStack
+
+`2 x Floating IPs` are required (for cluster API and cluster dashboard).

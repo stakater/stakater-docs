@@ -15,4 +15,4 @@
 
 ## Kubernetes Native Apps
 
-- [What is Kubernetes Native App](https://docs.cloud.stakater.com/content/sre/applications/cloud-native-app.html)
+- [What is Kubernetes Native App](../applications/cloud-native-app.md)
