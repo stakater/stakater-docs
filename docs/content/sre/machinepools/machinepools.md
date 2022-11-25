@@ -22,6 +22,7 @@ The overall minimum resource requirements are:
 | Worker | 4 x 16 x 100 | 3 | 12 | 48 | 300 | Yes |
 | **Total minimum** | | 9 | 36 | 208 | 900 | |
 | **Total recommended** | | 11 | 44 | 240 | 1100 | |
+
 ## 3 x Master
 
 The control plane, which is composed of master nodes, also known as the control plane, manages the SAAP cluster. The control plane nodes run the control plane. No user workloads run on master nodes.
@@ -116,15 +117,14 @@ No user workloads run on pipelines nodes.
 
 In a SAAP cluster, users run their applications on worker nodes. By default, a SAAP subscription comes with three worker nodes.
 
-
 ## Storage Requirements
 ### Block Storage Requirements
 
-SAAP uses high performance disks i.e. `SSDs` for storage requirements which includes
+SAAP uses high performance disks i.e. `SSDs` for storage requirements which includes:
 - Boot Volumes (Attached to nodes for OS. See [Resource Requirements](#resource-requirements))
 - Persistent Volumes (Additionally attached volumes for application consumption)
 
-Following are the storage requirements used as Persistent Volumes consumed by `SAAP workloads`
+Following are the storage requirements used as Persistent Volumes consumed by `SAAP workloads`:
 
 | SAAP component | Volume Size (GiB)|
 |---|---:|
@@ -142,15 +142,16 @@ Following are the storage requirements used as Persistent Volumes consumed by `S
 
 ### Volume Snapshot Requirements 
 
-Volume Snapshots are backups of volumes for `SAAP workloads`
-By default backups are taken daily and are retained for 3 days. So at a given instance 3 day old backups for `SAAP workloads` are kept.
+Volume Snapshots are backups of volumes for `SAAP workloads`.
+
+By default backups are taken daily and are retained for 3 days. So at any given instance 3 day old backups for `SAAP workloads` are kept.
 
 ## Network Requirements
 
 ### Load Balancers
 #### For AWS, Azure, GCP
 
-Each SAAP cluster deploys `3 x Loadbalancers`
+Each SAAP cluster deploys `3 x Loadbalancers`:
 - 2 x Public (for cluster API and cluster dashboard)
 - 1 x Private (for control plane communication)
 
@@ -161,7 +162,8 @@ No LoadBalancers required.
 ### Floating IPs 
 #### For AWS, Azure, GCP
 
-No additional Floating IPs/Public IPs are required  
+No additional Floating IPs/Public IPs are required.
+
 #### For OpenStack
 
-`2 x Floating IPs` are required (for cluster API and cluster dashboard)
+`2 x Floating IPs` are required (for cluster API and cluster dashboard).
