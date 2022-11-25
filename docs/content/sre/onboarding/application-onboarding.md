@@ -137,14 +137,68 @@ References to Explore:
 - [All configurations available via Application Chart Values](https://github.com/stakater/application/blob/master/application/values.yaml)
 
 ## 3. Push Docker Image to Nexus
+Navigate to the cluster forecastle and get the Nexus URL. Get and copy the nexus url.
+    <p align="center">
+      <img src="./images/nexus-forecastle.png" width="80%" />
+    </p>
+
+Replace the placeholders and Run the following command inside application folder.
+```
+# Buldah Bud Info : https://manpages.ubuntu.com/manpages/impish/man1/buildah-bud.1.html
+buildah bud --format=docker --tls-verify=false --no-cache -f ./Dockerfile -t <nexus-repo-url>/<app-name>:1.0.0 .
+```
+Lets push the image to nexus docker repo. Make sure to get credentials from Stakater Admin.
+```
+# Buildah push Info https://manpages.ubuntu.com/manpages/impish/man1/buildah-push.1.html
+buildah push --tls-verify=false --digestfile ./image-digest <nexus-repo-url>/stakater-nordmart-review:snapshot-pr-350-68b5d049 docker://<nexus-repo-url>/
+```
 
 ## 4. Push Helm Chart to Nexus
+After successfully pushing the image to Nexus. We need to package our helm chart and push to Nexus Helm Repo.
+Run the following command to package the helm chart into compressed file.
+```
+# helm package [CHART_PATH]
+helm package .
+# output : successfully packaged chart and saved it to: /Desktop/Tasks/stakater/stakater-nordmart-review-ui/deploy/stakater-nordmart-review-ui-1.0.0.tgz
+```
+Now lets upload the chart to Nexus Helm Repo using curl.
+```
+# heml
+curl -u "<helm_user>":"<helm_password>" <nexus-repo-url>/repository/helm-charts --upload-file "stakater-nordmart-review-ui-1.0.0.tgz"
+```
+## 5. Add application chart to apps-gitops-config
 
-## 5. View Application in Cluster
+Navigate to apps-gitops-config repository and add a helm chart in path <tenant-name>/<app-name>/dev.
+<p align="center">
+  <img src="./images/app-in-dev-env.png" width="80%" />
+</p>
 
+```
+# <tenant-name>/<app-name>/dev/Chart.yaml
+apiVersion: v2
+name: <application-name>
+description: A Helm chart for Kubernetes
+dependencies:
+  - name: <chart-name-in-deploy-folder>
+    version: "1.0.0"
+    repository: <nexus-repo>/repository/helm-charts/
+version: 1.0.0
+-----------------------------------------
+# <tenant-name>/<app-name>/dev/values.yaml
+<dependency-name>:
+  application:
+    deployment:
+      image:
+        repository: <nexus-repo>/<chart-name-in-deploy-folder>
+        tag: 1.0.0
+```
+## 6. View Application in Cluster
+Login into ArgoCD UI using forecastle console. Visit the application against dev environment inside your tenant. Usual naming convention is **tenantName-envName-appName**. Make sure that there arent any error while deploying during ArgoCD.
+<p align="center">
+  <img src="./images/dev-argocd-app.png" width="80%" />
+</p>
 
-
-
+Visit the Openshift console to verify the application deployment as well.
 
 
 
