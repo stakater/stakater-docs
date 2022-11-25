@@ -64,7 +64,7 @@ At least two infrastructure nodes are required for the SAAP infrastructure workl
 | [SonarQube](https://www.sonarqube.org/)  | 350 | 1.50 |
 | [Stakater Konfigurator](https://github.com/stakater/Konfigurator) | 20 | 0.30 |
 | [Stakater Reloader](https://github.com/stakater/Reloader) | 20 | 0.50 |
-| [Stakater Tronador](../tronador/overview.md) | 100 | 0.20 |
+| [Stakater Tronador](../tronador/overview.md)  | 100 | 0.20 |
 | [Vault](https://github.com/hashicorp/vault)  | 255 | 0.36 |
 | [Velero](https://github.com/vmware-tanzu/velero)  | 500 | 0.15 |
 | [Volume Expander Operator](https://github.com/redhat-cop/volume-expander-operator)  | 50 | 0.10 |
