@@ -14,7 +14,7 @@ A machine pool is a set of similar sized virtual machines, in Kubernetes termino
 
 The overall minimum resource requirements are:
 
-| Machine pool role | Minimum size (vCPU x Memory x Storage) | Minimum pool size | Total vCPU | Total Memory (GiB) | Total Storage (GiB)
+| Machine pool role | Minimum size (vCPU x Memory x Storage) | Minimum pool size | vCPU (m) | Total Memory (GiB) | Total Storage (GiB)
 |:---|:---|---:|---:|---:|---:|
 | Master | 4 x 32 x 100 | 3 | 12 | 96 | 300 |
 | Infra | 4 x 16 x 100 | 2 | 8 | 32 | 200 |
@@ -26,7 +26,7 @@ The overall minimum resource requirements are:
 
 The recommended resource requirements are:
 
-| Machine pool role | Minimum size (vCPU x Memory x Storage) | Minimum pool size | Total vCPU | Total Memory (GiB) | Total Storage (GiB) |
+| Machine pool role | Minimum size (vCPU x Memory x Storage) | Minimum pool size | vCPU (m) | Total Memory (GiB) | Total Storage (GiB) |
 |:---|:---|---:|---:|---:|---:|
 | Master | 4 x 32 x 100 | 3 | 12 | 96 | 300 |
 | Infra | 4 x 16 x 100 | 2 | 8 | 32 | 200 |
@@ -86,7 +86,7 @@ Minimum one monitoring node must be used for all production deployments. For hig
 | | [Node exporter](https://github.com/prometheus/node_exporter)  | 50 | 0.50 |
 | | [Prometheus](https://github.com/prometheus/prometheus)   | 2500 | 7.50 |
 | | [Thanos](https://github.com/thanos-io/thanos)   | 50 | 0.20 |
-| **Workloads** |   |  | |
+| **User Workloads** |   |  | |
 | | [Alertmanager](https://github.com/prometheus/alertmanager) | 20 | 0.25 |
 | | [Grafana](https://github.com/grafana/grafana) | 20 | 0.10 |
 | | [Prometheus](https://github.com/prometheus/prometheus) | 100 | 2.50 |
