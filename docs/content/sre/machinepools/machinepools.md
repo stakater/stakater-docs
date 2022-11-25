@@ -23,6 +23,20 @@ The overall minimum resource requirements are:
 | **Total minimum** | | 9 | 36 | 208 | 900 | |
 | **Total recommended** | | 11 | 44 | 240 | 1100 | |
 
+## Additional Storage Requirements
+
+| SAAP component | Storage requirement (GiB)|
+|---|---:|
+| [Elasticsearch](https://github.com/elastic/elasticsearch) | 280  |
+| [Prometheus - infrastructure](https://github.com/prometheus/prometheus) | 100  |
+| [Prometheus - workload](https://github.com/prometheus/prometheus)| 100 |
+| [SonarQube](https://github.com/SonarSource/sonarqube) | 5  |
+| SonarQube Database | 8 |
+| [Nexus](https://github.com/sonatype/nexus-public) | 100  |
+| [Vault](https://github.com/hashicorp/vault) | 10 |
+| **Total** | 603 |
+
+## Network Requirements
 ## 3 x Master
 
 The control plane, which is composed of master nodes, also known as the control plane, manages the SAAP cluster. The control plane nodes run the control plane. No user workloads run on master nodes.
