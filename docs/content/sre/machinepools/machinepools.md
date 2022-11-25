@@ -8,26 +8,41 @@ A machine pool is a set of similar sized virtual machines, in Kubernetes termino
 >
 > **SAAP workloads:** Supporting applications for software lifecycle
 
-## Resource Requirements
+## Compute Requirements
+
+### Minimum
 
 The overall minimum resource requirements are:
 
-| Machine pool role | Minimum size (vCPU x Memory x Storage) | Minimum pool size | Total vCPU | Total Memory (GiB) | Total Storage (GiB) | Required |
-|:---|:---|---:|---:|---:|---:|:---|
-| Master | 4 x 32 x 100 | 3 | 12 | 96 | 300 | Yes |
-| Infra | 4 x 16 x 100 | 2 | 8 | 32 | 200 | Yes |
-| Monitoring | 4 x 32 x 100 | 1 | 4 | 32 | 100 | Yes |
-| _Logging_ | _4 x 16 x 100_ | _1_ | _4_ | _16_ | _100_ | _Optional_ |
-| _Pipeline_ | _4 x 16 x 100_ | _1_ | _4_ | _16_ | _100_ | _Optional_ |
-| Worker | 4 x 16 x 100 | 3 | 12 | 48 | 300 | Yes |
-| **Total minimum** | | 9 | 36 | 208 | 900 | |
-| **Total recommended** | | 11 | 44 | 240 | 1100 | |
+| Machine pool role | Minimum size (vCPU x Memory x Storage) | Minimum pool size | Total vCPU | Total Memory (GiB) | Total Storage (GiB)
+|:---|:---|---:|---:|---:|---:|
+| Master | 4 x 32 x 100 | 3 | 12 | 96 | 300 |
+| Infra | 4 x 16 x 100 | 2 | 8 | 32 | 200 |
+| Monitoring | 4 x 32 x 100 | 1 | 4 | 32 | 100 |
+| Worker | 4 x 16 x 100 | 3 | 12 | 48 | 300 |
+| **Total** | | **9** | **36** | **208** | **900** |
 
-## 3 x Master
+### Recommended
+
+The recommended resource requirements are:
+
+| Machine pool role | Minimum size (vCPU x Memory x Storage) | Minimum pool size | Total vCPU | Total Memory (GiB) | Total Storage (GiB) |
+|:---|:---|---:|---:|---:|---:|
+| Master | 4 x 32 x 100 | 3 | 12 | 96 | 300 |
+| Infra | 4 x 16 x 100 | 2 | 8 | 32 | 200 |
+| Monitoring | 4 x 32 x 100 | 1 | 4 | 32 | 100 |
+| Logging | 4 x 16 x 100 | 1 | 4 | 16 | 100 |
+| Pipeline | 4 x 16 x 100 | 1 | 4 | 16 | 100 |
+| Worker | 4 x 16 x 100 | 3 | 12 | 48 | 300 |
+| **Total** | | **11** | **44** | **240** | **1100** |
+
+## Machine Pools Description
+
+### 3 x Master
 
 The control plane, which is composed of master nodes, also known as the control plane, manages the SAAP cluster. The control plane nodes run the control plane. No user workloads run on master nodes.
 
-## 2 x Infra
+### 2 x Infra
 
 At least two infrastructure nodes are required for the SAAP infrastructure workloads:
 
@@ -41,7 +56,7 @@ At least two infrastructure nodes are required for the SAAP infrastructure workl
 | [Stakater Ingress Monitor Controller](https://github.com/stakater/IngressMonitorController)  | 150 | 0.60 |
 | Kubehealth (SAAP components monitoring) | 150 | 0.40 |
 | [Kubernetes replicator](https://github.com/mittwald/kubernetes-replicator) | 50 | 0.30 |
-| [Stakater Multi Tenant Operator](../multi-tenant-operator/overview.md)  | 600 | 1.20 |
+| [Stakater Multi Tenant Operator](https://docs.stakater.com/content/sre/multi-tenant-operator/overview.html)  | 600 | 1.20 |
 | [Nexus](https://github.com/sonatype/nexus-public)  | 200 | 1.60 |
 | [OpenShift GitOps](https://docs.openshift.com/container-platform/4.7/cicd/gitops/understanding-openshift-gitops.html)  | 530 | 0.50 |
 | [OpenShift Image Registry](https://docs.openshift.com/container-platform/4.11/registry/index.html) | 50 | 0.40 |
@@ -49,15 +64,15 @@ At least two infrastructure nodes are required for the SAAP infrastructure workl
 | [SonarQube](https://www.sonarqube.org/)  | 350 | 1.50 |
 | [Stakater Konfigurator](https://github.com/stakater/Konfigurator) | 20 | 0.30 |
 | [Stakater Reloader](https://github.com/stakater/Reloader) | 20 | 0.50 |
-| [Stakater Tronador](../tronador/overview.md)  | 100 | 0.20 |
+| [Stakater Tronador](https://docs.stakater.com/content/sre/tronador/overview.html)  | 100 | 0.20 |
 | [Vault](https://github.com/hashicorp/vault)  | 255 | 0.36 |
 | [Velero](https://github.com/vmware-tanzu/velero)  | 500 | 0.15 |
 | [Volume Expander Operator](https://github.com/redhat-cop/volume-expander-operator)  | 50 | 0.10 |
-| **Total** | 4275 | 11.61 |
+| **Total** | **4275** | **11.61** |
 
 No user workloads run on infrastructure nodes.
 
-## 1 x Monitoring
+### 1 x Monitoring
 
 Monitoring components to monitor `SAAP workloads` and user workloads are deployed on monitoring nodes. The monitoring stack includes the Prometheus stack (Prometheus, Grafana and Alertmanager).
 
@@ -75,13 +90,13 @@ Minimum one monitoring node must be used for all production deployments. For hig
 | | [Alertmanager](https://github.com/prometheus/alertmanager) | 20 | 0.25 |
 | | [Grafana](https://github.com/grafana/grafana) | 20 | 0.10 |
 | | [Prometheus](https://github.com/prometheus/prometheus) | 100 | 2.50 |
-| **Total**|    | 3290 | 12.15 |
+| **Total**|    | **3290** | **12.15** |
 
 For more details of monitoring, please visit [Creating Application Alerts](../monitoring/app-alerts.md).
 
 No user workloads run on monitoring nodes.
 
-## 1 x Logging (optional)
+### 1 x Logging (optional)
 
 Logging components aggregate all logs and store them centrally. These components run on logging nodes. The logging stack includes the EFK stack (Elasticsearch, Fluentd and Kibana).
 
@@ -95,11 +110,11 @@ Minimum one logging node is required. For high availability consider using three
 | [Elasticsearch](https://github.com/elastic/elasticsearch) | 500 | 4.0 |
 | [Fluentd](https://github.com/fluent/fluentd) | 20 | 0.6 |
 | [Kibana](https://github.com/elastic/kibana)| 300 | 0.5 |
-| **Total** | 1020 | 7.1 |
+| **Total** | **1020** | **7.1** |
 
 No user workloads run on logging nodes.
 
-## 1 x Pipeline (optional)
+### 1 x Pipeline (optional)
 
 Pipeline nodes hold pods running for Tekton based CI/CD pipelines.
 
@@ -113,18 +128,20 @@ Minimum requirements for pipeline infrastructure is:
 
 No user workloads run on pipelines nodes.
 
-## 3 x Worker
+### 3 x Worker
 
 In a SAAP cluster, users run their applications on worker nodes. By default, a SAAP subscription comes with three worker nodes.
 
+
 ## Storage Requirements
+
 ### Block Storage Requirements
 
-SAAP uses high performance disks i.e. `SSDs` for storage requirements which includes:
+SAAP uses high performance disks i.e. `SSDs` for storage requirements which includes
 - Boot Volumes (Attached to nodes for OS. See [Resource Requirements](#resource-requirements))
 - Persistent Volumes (Additionally attached volumes for application consumption)
 
-Following are the storage requirements used as Persistent Volumes consumed by `SAAP workloads`:
+Following are the storage requirements used as Persistent Volumes consumed by `SAAP workloads`
 
 | SAAP component | Volume Size (GiB)|
 |---|---:|
@@ -140,30 +157,32 @@ Following are the storage requirements used as Persistent Volumes consumed by `S
 
 `1 x Object storage bucket` is required for keeping Backups of Kubernetes Objects.
 
-### Volume Snapshot Requirements 
+### Volume Snapshot Requirements
 
-Volume Snapshots are backups of volumes for `SAAP workloads`.
-
-By default, backups are taken daily and are retained for 3 days. So at any given instance 3 day old backups for `SAAP workloads` are kept.
+Volume Snapshots are backups of volumes for `SAAP workloads`
+By default backups are taken daily and are retained for 3 days. So at a given instance 3 day old backups for `SAAP workloads` are kept.
 
 ## Network Requirements
 
 ### Load Balancers
+
 #### For AWS, Azure, GCP
 
 Each SAAP cluster deploys `3 x Loadbalancers`:
+
 - 2 x Public (for cluster API and cluster dashboard)
+
 - 1 x Private (for control plane communication)
 
 #### For OpenStack
 
 No LoadBalancers required.
 
-### Floating IPs 
+### Floating IPs
+
 #### For AWS, Azure, GCP
 
-No additional Floating IPs/Public IPs are required.
-
+No additional Floating IPs/Public IPs are required  
 #### For OpenStack
 
-`2 x Floating IPs` are required (for cluster API and cluster dashboard).
+`2 x Floating IPs` are required (for cluster API and cluster dashboard)
