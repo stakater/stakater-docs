@@ -36,7 +36,12 @@ The overall minimum resource requirements are:
 | [Vault](https://github.com/hashicorp/vault) | 10 |
 | **Total** | 603 |
 
+**Volume Snapshot**  represents a snapshot of a volume on a storage system, it is recommended to have minimum one snapshot of each component.
 ## Network Requirements
+
+**Load Balancer** is used to distribute traffic across multiple servers in order to prevent server overload. It is recommended to use 3 load balancers (2 Public, 1 Private).
+
+**Floating IPs**  
 ## 3 x Master
 
 The control plane, which is composed of master nodes, also known as the control plane, manages the SAAP cluster. The control plane nodes run the control plane. No user workloads run on master nodes.
