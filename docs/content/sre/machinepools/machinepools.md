@@ -100,7 +100,7 @@ No user workloads run on logging nodes.
 
 ## 1 x Pipeline (optional)
 
-Pipeline nodes hold pods running for tekton based CI/CD pipelines.
+Pipeline nodes hold pods running for Tekton based CI/CD pipelines.
 
 The pipeline pool is optional, if there is no need for it, it will not be deployed.
 
@@ -154,7 +154,7 @@ Each SAAP cluster deploys `3 x Loadbalancers`
 - 2 x Public (for cluster API and cluster dashboard)
 - 1 x Private (for control plane communication)
 
-#### For Openstack
+#### For OpenStack
 
 No LoadBalancers required.
 
@@ -162,6 +162,6 @@ No LoadBalancers required.
 #### For AWS, Azure, GCP
 
 No additional Floating IPs/Public IPs are required  
-#### For Openstack
+#### For OpenStack
 
 `2 x Floating IPs` are required (for cluster API and cluster dashboard)
