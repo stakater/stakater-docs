@@ -137,8 +137,9 @@ In a SAAP cluster, users run their applications on worker nodes. By default, a S
 
 ### Block Storage Requirements
 
-SAAP uses high performance disks i.e. `SSDs` for storage requirements which includes
-- Boot Volumes (Attached to nodes for OS. See [Resource Requirements](#resource-requirements))
+SAAP uses high performance disks i.e. `SSDs` for storage requirements which includes:
+
+- Boot Volumes (Attached to nodes for OS. See [Resource Requirements](#compute-requirements))
 - Persistent Volumes (Additionally attached volumes for application consumption)
 
 Following are the storage requirements used as Persistent Volumes consumed by `SAAP workloads`
