@@ -56,7 +56,7 @@ At least two infrastructure nodes are required for the SAAP infrastructure workl
 | [Stakater Ingress Monitor Controller](https://github.com/stakater/IngressMonitorController)  | 150 | 0.60 |
 | Kubehealth (SAAP components monitoring) | 150 | 0.40 |
 | [Kubernetes replicator](https://github.com/mittwald/kubernetes-replicator) | 50 | 0.30 |
-| [Stakater Multi Tenant Operator](https://docs.stakater.com/content/sre/multi-tenant-operator/overview.html)  | 600 | 1.20 |
+| [Stakater Multi Tenant Operator](../multi-tenant-operator/overview.md)  | 600 | 1.20 |
 | [Nexus](https://github.com/sonatype/nexus-public)  | 200 | 1.60 |
 | [OpenShift GitOps](https://docs.openshift.com/container-platform/4.7/cicd/gitops/understanding-openshift-gitops.html)  | 530 | 0.50 |
 | [OpenShift Image Registry](https://docs.openshift.com/container-platform/4.11/registry/index.html) | 50 | 0.40 |
@@ -64,7 +64,7 @@ At least two infrastructure nodes are required for the SAAP infrastructure workl
 | [SonarQube](https://www.sonarqube.org/)  | 350 | 1.50 |
 | [Stakater Konfigurator](https://github.com/stakater/Konfigurator) | 20 | 0.30 |
 | [Stakater Reloader](https://github.com/stakater/Reloader) | 20 | 0.50 |
-| [Stakater Tronador](https://docs.stakater.com/content/sre/tronador/overview.html)  | 100 | 0.20 |
+| [Stakater Tronador](../tronador/overview.md) | 100 | 0.20 |
 | [Vault](https://github.com/hashicorp/vault)  | 255 | 0.36 |
 | [Velero](https://github.com/vmware-tanzu/velero)  | 500 | 0.15 |
 | [Volume Expander Operator](https://github.com/redhat-cop/volume-expander-operator)  | 50 | 0.10 |
@@ -160,7 +160,8 @@ Following are the storage requirements used as Persistent Volumes consumed by `S
 
 ### Volume Snapshot Requirements
 
-Volume Snapshots are backups of volumes for `SAAP workloads`
+Volume Snapshots are backups of volumes for `SAAP workloads`.
+
 By default backups are taken daily and are retained for 3 days. So at a given instance 3 day old backups for `SAAP workloads` are kept.
 
 ## Network Requirements
@@ -186,4 +187,4 @@ No LoadBalancers required.
 No additional Floating IPs/Public IPs are required  
 #### For OpenStack
 
-`2 x Floating IPs` are required (for cluster API and cluster dashboard)
+`2 x Floating IPs` are required (for cluster API and cluster dashboard).
