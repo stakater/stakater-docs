@@ -39,7 +39,7 @@ The overall minimum resource requirements are:
 **Volume Snapshot**  represents a snapshot of a volume on a storage system, it is recommended to have minimum one snapshot of each component.
 ## Network Requirements
 
-**Load Balancer** is used to distribute traffic across multiple servers in order to prevent server overload. It is recommended to use 3 load balancers (2 Public, 1 Private).
+**Load Balancer** is used to distribute traffic across multiple servers in order to prevent server overload. For Azure, AWS (Amazon Web Services) and GCP (Google Cloud Platform), it is mandatory to use 3 load balancers (2 Public, 1 Private).
 
 **Floating IPs**  
 ## 3 x Master
