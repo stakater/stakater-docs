@@ -64,7 +64,6 @@ nav:
         - Applications:
             - content/sre/applications/cloud-native-app.md
             - content/sre/applications/helm.md
-            - content/sre/forecastle/forecastle.md
         - GitOps:
             - content/sre/gitops/introduction.md
             - content/sre/gitops/github.md
