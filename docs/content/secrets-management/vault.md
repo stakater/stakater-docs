@@ -1,7 +1,5 @@
 # Vault
 
-[[toc]]
-
 Vault is a tool for securely accessing secrets. A secret is anything that you want to tightly control access to, such as API keys, passwords, or certificates. 
 Vault provides a unified interface to any secret, while providing tight access control and recording a detailed audit log.
 
@@ -83,7 +81,7 @@ _TODO_ Is this step required by all three options?
 
 - **Step 1**: Add label in serviceaccount so it can be granted Vault read access to secret path
 
-     ```
+     ```bash
       serviceAccount:
         enabled: true
         additionalLabels: 
@@ -92,7 +90,7 @@ _TODO_ Is this step required by all three options?
 
 - **Step 2**: Enable ```SecretProviderClass``` object in Helm values and define key and value path of Vault. For example
 
-     ```
+     ```bash
      secretProviderClass:
       enabled: true
       name: postgres-secret
@@ -105,7 +103,7 @@ _TODO_ Is this step required by all three options?
 
 - **Step 3**: Define volume in Helm values that use above created ```SecretProviderClass```
   
-     ```
+     ```bash
      deployment:
        volumes: 
          - name: postgres-secret
@@ -118,7 +116,7 @@ _TODO_ Is this step required by all three options?
     
 - **Step 4**: Now mount this volume in container
   
-     ```
+     ```bash
      volumeMounts:
      - name: postgres-secret
        readOnly: true
@@ -131,7 +129,7 @@ To mount Vault secret in an environment variable do following:
 
 - **Step 1**: Enable ```SecretProviderClass``` object in Helm values and define key/value path and secret objects in Vault. For example
 
-     ```
+     ```bash
      secretProviderClass:
       enabled: true
       name: postgres-secret
@@ -152,7 +150,7 @@ To mount Vault secret in an environment variable do following:
 
 - **Step 2**: Define volume in Helm values that use above created ```SecretProviderClass```
   
-     ```
+     ```bash
      deployment:
        volumes: 
          - name: postgres-secret
@@ -165,7 +163,7 @@ To mount Vault secret in an environment variable do following:
 
 - **Step 3**: Now mount this volume in container. 
   
-     ```
+     ```bash
      volumeMounts:
      - name: postgres-secret
        readOnly: true
@@ -176,7 +174,7 @@ To mount Vault secret in an environment variable do following:
 
 - **Step 4**: This secret can be used as environment variable 
 
-     ```
+     ```bash
      env:
         - name: POSTGRES_PASSWORD
           valueFrom:
@@ -199,7 +197,7 @@ SAAP comes with fully managed [**External Secrets Operator**](https://github.com
 
 - **Step 1**: Add `tenant-vault-access` template to the tenant
 
-    ```yaml
+    ```bash
     apiVersion: tenantoperator.stakater.com/v1alpha1
     kind: Tenant
     metadata:
@@ -221,7 +219,7 @@ _TODO_ What will this template do? Who owns and manages this template? Is it own
 
 - **Step 2**: Enable `externalSecret` in your `deploy/values.yaml` and provide details of the secret path in Vault. 
 
-    ```yaml
+    ```bash
     externalSecret:
       enabled: true
       secretStore:
