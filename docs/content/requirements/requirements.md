@@ -60,23 +60,23 @@ At least two infrastructure nodes are required for the SAAP infrastructure workl
 
 | SAAP component | vCPU requirement (m) | Memory requirement (GiB) |
 |---|---:|---:|
+| [Stakater Forecastle](https://github.com/stakater/Forecastle)  | 50 | 0.20 |
+| [Stakater Ingress Monitor Controller](https://github.com/stakater/IngressMonitorController)  | 150 | 0.60 |
+| Stakater Kubehealth (SAAP components monitoring) | 150 | 0.40 |
+| [Stakater Multi Tenant Operator](../multi-tenant-operator/overview.md)  | 600 | 1.20 |
+| [Stakater Konfigurator](https://github.com/stakater/Konfigurator) | 20 | 0.30 |
+| [Stakater Reloader](https://github.com/stakater/Reloader) | 20 | 0.50 |
+| [Stakater Tronador](../tronador/overview.md)  | 100 | 0.20 |
 | [cert-manager](https://github.com/cert-manager/cert-manager)  | 100 | 1.50 |
 | [External Secrets operator](https://github.com/external-secrets/external-secrets) | 50 | 0.30 |
-| [Stakater Forecastle](https://github.com/stakater/Forecastle)  | 50 | 0.20 |
+| [Kubernetes replicator](https://github.com/mittwald/kubernetes-replicator) | 50 | 0.30 |
 | [group-sync-operator](https://github.com/redhat-cop/group-sync-operator)  | 50 | 0.10 |
 | [Helm operator](https://github.com/fluxcd/helm-operator) | 500 | 0.80 |
-| [Stakater Ingress Monitor Controller](https://github.com/stakater/IngressMonitorController)  | 150 | 0.60 |
-| Kubehealth (SAAP components monitoring) | 150 | 0.40 |
-| [Kubernetes replicator](https://github.com/mittwald/kubernetes-replicator) | 50 | 0.30 |
-| [Stakater Multi Tenant Operator](../multi-tenant-operator/overview.md)  | 600 | 1.20 |
 | [Nexus](https://github.com/sonatype/nexus-public)  | 200 | 1.60 |
 | [OpenShift GitOps](https://docs.openshift.com/container-platform/4.7/cicd/gitops/understanding-openshift-gitops.html)  | 530 | 0.50 |
 | [OpenShift Image Registry](https://docs.openshift.com/container-platform/4.11/registry/index.html) | 50 | 0.40 |
 | [OpenShift Router](https://docs.openshift.com/container-platform/4.11/networking/ingress-operator.html)  | 300 |  0.30 |
 | [SonarQube](https://www.sonarqube.org/)  | 350 | 1.50 |
-| [Stakater Konfigurator](https://github.com/stakater/Konfigurator) | 20 | 0.30 |
-| [Stakater Reloader](https://github.com/stakater/Reloader) | 20 | 0.50 |
-| [Stakater Tronador](../tronador/overview.md)  | 100 | 0.20 |
 | [Vault](https://github.com/hashicorp/vault)  | 255 | 0.36 |
 | [Velero](https://github.com/vmware-tanzu/velero)  | 500 | 0.15 |
 | [Volume Expander Operator](https://github.com/redhat-cop/volume-expander-operator)  | 50 | 0.10 |

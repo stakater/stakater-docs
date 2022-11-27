@@ -39,7 +39,7 @@ nav:
         - SAAP SLA:
             - content/saap-sla/saap-sla.md
         - Resource Requirements:
-            - content/sre/requirements/requirements.md
+            - content/requirements/requirements.md
         - SAAP Onboarding:
             - content/onboarding/onboarding.md
         - OpenShift as a Service:
