@@ -2,6 +2,8 @@ site_name: Stakater App Agility Platform
 docs_dir: docs
 site_url: https://docs.stakater.com/
 repo_url: https://github.com/stakater/StakaterCloudDocs
+edit_uri: blob/main/docs/
+use_directory_urls: false
 theme:
     name: material
     prev_next_buttons_location: none
@@ -28,7 +30,7 @@ extra:
             find what they're searching for. With your consent, you're helping us to
             make our documentation better.
 nav:
-    - SAAP:
+    - Docs Home:
         - Introduction:
             - content/sre/introduction/introduction.md
             - content/sre/introduction/why-sro.md
