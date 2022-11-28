@@ -38,6 +38,8 @@ nav:
             - content/sre/introduction/saap-vs-k8s.md
         - SAAP SLA:
             - content/saap-sla/saap-sla.md
+        - Resource Requirements:
+            - content/requirements/requirements.md
         - SAAP Onboarding:
             - content/onboarding/onboarding.md
         - OpenShift as a Service:
@@ -62,7 +64,6 @@ nav:
         - Applications:
             - content/sre/applications/cloud-native-app.md
             - content/sre/applications/helm.md
-            - content/sre/forecastle/forecastle.md
         - GitOps:
             - content/sre/gitops/introduction.md
             - content/sre/gitops/github.md
@@ -105,8 +106,8 @@ nav:
             - content/sre/logging/logging.md
             - content/sre/logging/kibana-view-logs.md
         - Monitoring:
+            - content/sre/monitoring/overview.md
             - content/sre/monitoring/01-introduction.md
-            - content/sre/monitoring/02-maturity-model.md
             - content/sre/monitoring/app-uptime.md
             - content/sre/monitoring/app-alerts.md
             - content/sre/monitoring/goldilocks.md
@@ -118,8 +119,6 @@ nav:
             - content/sre/alerting/predefined-prometheusrules.md
         - Autoscaling:
             - content/sre/autoscaling/autoscaling.md
-        - Machine Pools:
-            - content/sre/machinepools/machinepools.md
         - Storage:
             - content/sre/storage/volume-expander.md
         - Backup & Restore:

@@ -1,4 +1,4 @@
-# Service Monitoring Maturity Model
+# Overview
 
 Stakater App Agility Platform supports all four levels in service monitoring maturity model.
 

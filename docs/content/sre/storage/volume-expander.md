@@ -3,6 +3,7 @@
 Stakater App Agility Platform offers volume expansion to expand volumes when they are running out of space. Volume expansion periodically checks the `kubelet_volume_stats_used_bytes` and `kubelet_volume_stats_capacity_bytes` published by the kubelets to decide when to expand a volume. These metrics are generated only when a volume is mounted to a pod. Also the kubelet takes a minute or two to start generating accurate values for these metrics. 
 
 Volume expansion works based on the following annotations to PersistentVolumeClaim resources:
+
 | Annotation               | Default                    | Description                                                                                                   |
 | -------------------- | --------------------------------|----------------------------------------------------------------------------- |
 |`volume-expander-operator.redhat-cop.io/autoexpand`|N/A|if set to "true" enables the volume-expansion to watch on this PVC|

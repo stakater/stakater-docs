@@ -12,4 +12,5 @@ Alerting/notifications via Prometheus’ Alertmanager, an open-source tool that 
 Metrics visualization via Grafana, the leading metrics visualization technology.
 
 ## Stakater Ingress Monitor Controller (IMC)
-IMC watches ingress/routes and creates liveness alerts in third party uptime checkers; for downtime notifications. By default SAAP uses UptimeRobot free tier.
+
+[Stakater IMC](https://github.com/stakater/IngressMonitorController) watches ingress/routes and creates liveness alerts in third party uptime checkers; for downtime notifications. By default SAAP uses UptimeRobot free tier.
