@@ -63,10 +63,10 @@ At least two infrastructure nodes are required for the SAAP infrastructure workl
 | [Stakater Forecastle](https://github.com/stakater/Forecastle)  | 50 | 0.20 |
 | [Stakater Ingress Monitor Controller](https://github.com/stakater/IngressMonitorController)  | 150 | 0.60 |
 | Stakater Kubehealth (SAAP components monitoring) | 150 | 0.40 |
-| [Stakater Multi Tenant Operator](./../sre/multi-tenant-operator/overview.md)  | 600 | 1.20 |
+| [Stakater Multi Tenant Operator](../sre/multi-tenant-operator/overview.md)  | 600 | 1.20 |
 | [Stakater Konfigurator](https://github.com/stakater/Konfigurator) | 20 | 0.30 |
 | [Stakater Reloader](https://github.com/stakater/Reloader) | 20 | 0.50 |
-| [Stakater Tronador](./../sre/tronador/overview.md)  | 100 | 0.20 |
+| [Stakater Tronador](../sre/tronador/overview.md)  | 100 | 0.20 |
 | [cert-manager](https://github.com/cert-manager/cert-manager)  | 100 | 1.50 |
 | [External Secrets operator](https://github.com/external-secrets/external-secrets) | 50 | 0.30 |
 | [Kubernetes replicator](https://github.com/mittwald/kubernetes-replicator) | 50 | 0.30 |
@@ -104,7 +104,7 @@ Minimum one monitoring node must be used for all production deployments. For hig
 | | [Prometheus](https://github.com/prometheus/prometheus) | 100 | 2.50 |
 | **Total**|    | **3290** | **12.15** |
 
-For more details of monitoring, please visit [Creating Application Alerts](./../sre/monitoring/app-alerts.md).
+For more details of monitoring, please visit [Creating Application Alerts](../sre/monitoring/app-alerts.md).
 
 No user workloads run on monitoring nodes.
 
