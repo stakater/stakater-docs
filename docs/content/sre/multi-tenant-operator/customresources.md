@@ -66,69 +66,82 @@ For more details [Quota.Spec](https://kubernetes.io/docs/concepts/policy/resourc
 
 **Cluster scoped resource**
 
+The smallest valid Tenant definition is given below (with just one field in its spec):
+
 ```yaml
 apiVersion: tenantoperator.stakater.com/v1beta2
 kind: Tenant
 metadata:
   name: alpha
 spec:
-  owners:
-    users:
+  quota: small
+```
+
+Here is a more detailed Tenant definition, explained below:
+
+```yaml
+apiVersion: tenantoperator.stakater.com/v1beta2
+kind: Tenant
+metadata:
+  name: alpha
+spec:
+  owners: # optional
+    users: # optional
       - haseeb@stakater.com
-    groups:
+    groups: # optional
       - alpha
-  editors:
-    users:
+  editors: # optional
+    users: # optional
       - hanzala@stakater.com
-  viewers:
-    users:
+  viewers: # optional
+    users: # optional
       - jose@stakater.com
-  quota: medium
-  sandboxConfig:
-    enabled: true
-    private: true
-  onDelete:
-    cleanNamespaces: true
-    cleanAppProject: false
-  argocd:
-    sourceRepos:
+  quota: medium # required
+  sandboxConfig: # optional
+    enabled: true # optional
+    private: true # optional
+  onDelete: # optional
+    cleanNamespaces: true # optional
+    cleanAppProject: false # optional
+  argocd: # optional
+    sourceRepos: # required
       - https://github.com/stakater/gitops-config
-    appProject:
-      clusterResourceWhitelist:
+    appProject: # optional
+      clusterResourceWhitelist: # optional
         - group: tronador.stakater.com
           kind: Environment
-      namespaceResourceBlacklist:
+      namespaceResourceBlacklist: # optional
         - group: ""
           kind: ConfigMap
-  hibernation:
-    sleepSchedule: 23 * * * *
-    wakeSchedule: 26 * * * *
-  namespaces:
-    withTenantPrefix:
+  hibernation: # optional
+    sleepSchedule: 23 * * * * # required
+    wakeSchedule: 26 * * * * # required
+  namespaces: # optional
+    withTenantPrefix: # optional
       - dev
       - build
-    withoutTenantPrefix:
+    withoutTenantPrefix: # optional
       - preview
-  commonMetadata:
-    labels:
+  commonMetadata: # optional
+    labels: # optional
       stakater.com/team: alpha
-    annotations:
+    annotations: # optional
       openshift.io/node-selector: node-role.kubernetes.io/infra=
-  specificMetadata:
-    - annotations:
+  specificMetadata: # optional
+    - annotations: # optional
         stakater.com/user: haseeb
-      labels:
+      labels: # optional
         stakater.com/sandbox: true
-      namespaces:
+      namespaces: # optional
         - alpha-haseeb-stakater-sandbox
-  templateInstances:
-  - spec:
-      template: networkpolicy
-    parameters:
-      - name: CIDR_IP
-        value: "172.17.0.0/16"
-    selector:
-      matchLabels:
+  templateInstances: # optional
+  - spec: # optional
+      template: networkpolicy # required
+      parameters: # optional
+        - name: CIDR_IP
+          value: "172.17.0.0/16"
+    selector: # optional
+      matchLabels: # optional
         policy: network-restriction
 ```
 
