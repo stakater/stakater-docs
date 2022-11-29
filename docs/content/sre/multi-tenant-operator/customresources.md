@@ -145,11 +145,11 @@ spec:
         policy: network-restriction
 ```
 
-* Tenant has 3 kinds of `Members`:
+* Tenant has 3 kinds of `Members`. Each member type should have different roles assigned to them. These roles are gotten from the [IntegrationConfig's TenantRoles field](integration-config.html#tenantroles). You can customize these roles to your liking, but by default the following configuration applies:
   * `Owners:` Users who will be owners of a tenant. They will have OpenShift admin-role assigned to their users, with additional access to create namespaces as well.
   * `Editors:` Users who will be editors of a tenant. They will have OpenShift edit-role assigned to their users.
   * `Viewers:` Users who will be viewers of a tenant. They will have OpenShift view-role assigned to their users.
-  * For more [details](./tenant-roles.md).
+  * For more details, check out [their definitions](./tenant-roles.md).
 
 * `Users` can be linked to the tenant by specifying there username in `owners.users`, `editors.users` and `viewers.users` respectively.
 
