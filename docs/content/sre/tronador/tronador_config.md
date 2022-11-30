@@ -136,8 +136,6 @@ spec:
 - **`authSecret`**: Name of the Secret required in case of a private repository. If this field is not filled, it will be treated as a public repository.
 - **`imagePullSecret`**: Name of the Secret required to access the image repository where the application's images are hosted, e.g. Nexus or Docker.
 
-Note: The Secrets mentioned under `mappings.authSecret` and `mappings.imagePullSecret` will only be created in the relevant Environments' namespaces, and not in any other namespaces. The relevant Environments are those that are based on the repositories mentioned in `mappings.repos`.
-
 ### orgLevelSecrets
 
 `orgLevelSecrets` contains Secrets that are to be used as default Secrets for any repositories that do not have their name mentioned in a mapping. This field can prove useful in case there are a large number of repositories that share the same Secret(s), and it is infeasible to write all of the repository names in a mapping.
@@ -208,3 +206,4 @@ stringData:
 - If namespace is set in any resource, Tronador will ignore it and only deploy the resource to the relevant namespace (see mappings section above).
 - Tronador will only apply resources from the TronadorConfig CR present in the operator Namespace, and named `tronador-config`.
 - TronadorConfig points to default `admin` ClusterRole of OpenShift; all the namespaced resources allowed by that ClusterRole will be applied in the Namespaces.
+- The Secrets mentioned under `mappings.authSecret` and `mappings.imagePullSecret` will only be created in the relevant Environments' namespaces, and not in any other namespaces. The relevant Environments are those that are based on the repositories mentioned in `mappings.repos`.
