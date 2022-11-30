@@ -168,6 +168,7 @@ nav:
                 - content/sre/multi-tenant-operator/usecases/volume-limits.md
                 - content/sre/multi-tenant-operator/usecases/template.md
                 - content/sre/multi-tenant-operator/usecases/deploying-templates.md
+                - content/sre/multi-tenant-operator/usecases/custom-roles.md
                 - content/sre/multi-tenant-operator/usecases/mapping-resources.md
                 - content/sre/multi-tenant-operator/usecases/configuring-multitenant-network-isolation.md
                 - content/sre/multi-tenant-operator/usecases/distributing-secrets-using-sealed-secret-template.md
