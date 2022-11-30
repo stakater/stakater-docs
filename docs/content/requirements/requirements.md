@@ -144,7 +144,6 @@ No user workloads run on pipelines nodes.
 
 In a SAAP cluster, users run their applications on worker nodes. By default, a SAAP subscription comes with three worker nodes.
 
-
 ## Storage
 
 ### Block Storage
@@ -154,17 +153,17 @@ SAAP uses high performance disks i.e. `SSDs` for storage requirements which incl
 - Boot Volumes (Attached to nodes for OS. See [Resource Requirements](#compute-requirements))
 - Persistent Volumes (Additionally attached volumes for application consumption)
 
-Following are the storage requirements used as Persistent Volumes consumed by `SAAP workloads`
+Following are the storage requirements used as Persistent Volumes consumed by `SAAP workloads`:
 
-| SAAP component | Volume Size (GiB)|
+| SAAP component | Volume Size (GiB) |
 |---|---:|
 | Elasticsearch Logging | 300  |
+| Nexus | 100 |
 | Prometheus - Infrastructure Monitoring | 100  |
 | Prometheus - workload Monitoring| 100 |
 | SonarQube | 15 |
-| Nexus | 100 |
 | Vault | 10 |
-| **Total** | **62** |
+| **Total** | **625** |
 
 ### Object Storage
 
@@ -176,11 +175,11 @@ Volume Snapshots are backups of volumes for critical `SAAP workloads` that only 
 
 By default backups are taken daily and are retained for 3 days. So at a given instance 3 day old backups for `SAAP workloads` are kept.
 
-| SAAP component | Backup size (GiB) <br/> (PV size * backup frequency)|
-|---|:---:|
-| Nexus | 300  (100 x 3) |
-| Vault | 30 (10 x 3) |
-| **Total** | **330** |
+| SAAP component | PV size | backup frequency | Backup size (GiB) |
+|---|---:|---:|---:|
+| Nexus | 100 | 3 | 300 |
+| Vault | 10 | 3 | 30 |
+| **Total** | | | **330** |
 
 ## Network
 
@@ -203,6 +202,7 @@ No LoadBalancers required.
 #### For AWS, Azure, GCP
 
 No additional Floating IPs/Public IPs are required.
+
 #### For OpenStack
 
 `2 x Floating IPs` are required (for cluster API and cluster dashboard).
