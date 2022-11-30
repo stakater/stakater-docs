@@ -1,6 +1,6 @@
 # Changing the default access level for tenant owners
 
-Bill as the cluster admin wants to reduce the privileges that tenant owners have, so they cannot create or edit Roles or bind them. As an admin of an Openshift cluster, Bill can do this by assigning the `edit` role to all tenant owners. This is easily achieved by modifying the IntegrationConfig:
+Bill as the cluster admin wants to reduce the privileges that tenant owners have, so they cannot create or edit Roles or bind them. As an admin of an OpenShift cluster, Bill can do this by assigning the `edit` role to all tenant owners. This is easily achieved by modifying the IntegrationConfig:
 
 ```yaml
 apiVersion: tenantoperator.stakater.com/v1alpha1

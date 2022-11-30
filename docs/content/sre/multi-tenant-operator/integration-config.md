@@ -104,7 +104,7 @@ TenantRoles are required within the integration config, as they are used to defi
 
 ::: warning Note:
 
-If you do not configure roles in any way, then the default Openshift roles of `owner`, `edit`, and `view` will apply to tenant members. Their details can be found [here](./tenant-roles.html5r)
+If you do not configure roles in any way, then the default OpenShift roles of `owner`, `edit`, and `view` will apply to tenant members. Their details can be found [here](./tenant-roles.html5r)
 
 ```yaml
 tenantRoles:
