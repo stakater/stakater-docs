@@ -186,7 +186,7 @@ data:
 
 ##### SSH authentication
 
-To authenticate towards a Git repository over SSH, the referenced Secret is expected to contain identity and known_hosts fields. With the respective private key of the SSH key pair, and the host keys of the Git repository.
+To authenticate towards a Git repository over SSH, the referenced Secret is expected to contain identity and `known_hosts` fields. With the respective private key of the SSH key pair, and the host keys of the Git repository.
 
 ```yaml
 apiVersion: v1
