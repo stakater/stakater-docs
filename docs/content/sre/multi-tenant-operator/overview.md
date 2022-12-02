@@ -24,5 +24,5 @@ MTO is also [OpenShift certified](https://catalog.redhat.com/software/operators/
 ![image](./images/to-architecture.png)
 Fig 1.1 Overview of MTO architecture
 
-![image](./images/tenant-operator-basic-overview.jpg)
+![image](./images/tenant-operator-basic-overview.png)
 Fig 1.2 Overview of MTO
