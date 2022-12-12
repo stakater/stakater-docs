@@ -156,6 +156,7 @@ nav:
             - content/sre/cluster-configuration/node-configuration.md
         - Multi Tenant Operator:
             - content/sre/multi-tenant-operator/overview.md
+            - content/sre/multi-tenant-operator/eula.md
             - content/sre/multi-tenant-operator/features.md
             - content/sre/multi-tenant-operator/installation.md
             - content/sre/multi-tenant-operator/integration-config.md
