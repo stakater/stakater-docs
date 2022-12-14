@@ -122,17 +122,15 @@ In order to use the Software under this Agreement, you must receive a license ke
 
 - 13.5 Indemnification. You agree to defend, indemnify, and hold harmless the Company from and against any lawsuits, claims, losses, damages, fines and expenses (including attorneys' fees and costs) arising out of your use of the Software or breach of this Agreement.
 
-- 13.6 Governing Law. This Agreement is governed by the laws of Sweden without regard to conflicts of laws provisions thereof, and without regard to the United Nations Convention on the International Sale of Goods or the Uniform Computer Information Transactions Act, as currently enacted by any jurisdiction or as may be codified or amended from time to time by any jurisdiction. The jurisdiction and venue for actions related to the subject matter hereof shall be the courts of Sweden, and both parties hereby submit to the personal jurisdiction of such courts.
+- 13.6 Attorneys' Fees and Costs. The prevailing party in any action to enforce this Agreement will be entitled to recover its attorneys' fees and costs in connection with such action.
 
-- 13.7 Attorneys' Fees and Costs. The prevailing party in any action to enforce this Agreement will be entitled to recover its attorneys' fees and costs in connection with such action.
+- 13.7 Severability. If any provision of this Agreement is held by a court of competent jurisdiction to be invalid, illegal, or unenforceable, the remainder of this Agreement will remain in full force and effect.
 
-- 13.8 Severability. If any provision of this Agreement is held by a court of competent jurisdiction to be invalid, illegal, or unenforceable, the remainder of this Agreement will remain in full force and effect.
+- 13.8 Waiver. Failure or neglect by either party to enforce at any time any of the provisions of this license Agreement shall not be construed or deemed to be a waiver of that party's rights under this Agreement.
 
-- 13.9 Waiver. Failure or neglect by either party to enforce at any time any of the provisions of this license Agreement shall not be construed or deemed to be a waiver of that party's rights under this Agreement.
+- 13.9 Audit. The Company may, at its expense, appoint its own personnel or an independent third party to audit the numbers of installations of the Software in use by you. Any such audit shall be conducted upon thirty (30) days prior notice, during regular business hours and shall not unreasonably interfere with your business activities.
 
-- 13.10 Audit. The Company may, at its expense, appoint its own personnel or an independent third party to audit the numbers of installations of the Software in use by you. Any such audit shall be conducted upon thirty (30) days prior notice, during regular business hours and shall not unreasonably interfere with your business activities.
-
-- 13.11 Headings. The headings of sections and paragraphs of this Agreement are for convenience of reference only and are not intended to restrict, affect or be of any weight in the interpretation or construction of the provisions of such sections or paragraphs.
+- 13.10 Headings. The headings of sections and paragraphs of this Agreement are for convenience of reference only and are not intended to restrict, affect or be of any weight in the interpretation or construction of the provisions of such sections or paragraphs.
 
 ## 14. Contact Information
 
