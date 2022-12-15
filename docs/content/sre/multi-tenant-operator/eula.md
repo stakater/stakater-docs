@@ -56,82 +56,62 @@ In order to use the Software under this Agreement, you must receive a license ke
 
 - 6.1 Subject to the terms and conditions of this Agreement, as set forth in your invoice, and as set forth on the Multi Tenant Operator [support page](../support/support.md), support and maintenance services may be included with the purchase of your license subscription.
 
-## 7. Term of Agreement
+## 7. Disclaimer of Warranties
 
-- 7.1 Term. This Agreement is effective as of the Delivery of the Software and expires at such time as all license and service subscriptions hereunder have expired in accordance with their own terms (the "Term"). For clarification, the term of your license under this Agreement may be perpetual, limited for Evaluation Version, or designated as a fixed-term license in the Invoice, and shall be specified at your time of purchase. Either party may terminate this Agreement (including all related Invoices) if the other party:
+- 7.1 The Software is provided "as is", with all faults, defects and errors, and without warranty of any kind. The Company does not warrant that the Software will be free of bugs, errors, or other defects, and the Company shall have no liability of any kind for the use of or inability to use the Software, the Software content or any associated service, and you acknowledge that it is not technically practicable for the Company to do so.
 
-    - (a) fails to cure any material breach of this Agreement within thirty (30) days after written notice of such breach, provided that the Company may terminate this Agreement immediately upon any breach of [Section 3](#3-restricted-uses) or if you exceed any other restrictions contained in [Section 1](#1-license-grant), unless otherwise specified in this agreement;
+- 7.2 To the maximum extent permitted by applicable law, the Company disclaims all warranties, express, implied, arising by law or otherwise, regarding the Software, the Software content and their respective performance or suitability for your intended use, including without limitation any implied warranty of merchantability, fitness for a particular purpose.
 
-    - (b) ceases operation without a successor; or
+## 8. Limitation of Liability
 
-    - (c) seeks protection under any bankruptcy, receivership, trust deed, creditors arrangement, composition or comparable proceeding, or if any such proceeding is instituted against such party (and not dismissed within sixty (60) days). Termination is not an exclusive remedy and the exercise by either party of any remedy under this Agreement will be without prejudice to any other remedies it may have under this Agreement, by law, or otherwise.
+- 8.1 In no event will the Company be liable for any direct, indirect, consequential, incidental, special, exemplary, or punitive damages or liabilities whatsoever arising from or relating to the Software, the Software content or this Agreement, whether based on contract, tort (including negligence), strict liability or other theory, even if the Company has been advised of the possibility of such damages.
 
-- 7.2 Termination. Upon any termination of this Agreement, you shall cease any and all use of any Software and uninstall all copies thereof.
+- 8.2 In no event will the Company's liability exceed the Software license price as indicated in the invoice. The existence of more than one claim will not enlarge or extend this limit.
 
-- 7.3 Expiration of License. Upon the expiration of any term under this Agreement:
+## 9. Remedies
 
-    - (a) All Software updates and services pursuant to the license shall cease
-
-    - (b) You may not install the Software on any additional Hosts, and
-
-    - (c) Any new installation of the Software shall require the purchase of a new license subscription from the Company
-
-## 8. Disclaimer of Warranties
-
-- 8.1 The Software is provided "as is", with all faults, defects and errors, and without warranty of any kind. The Company does not warrant that the Software will be free of bugs, errors, or other defects, and the Company shall have no liability of any kind for the use of or inability to use the Software, the Software content or any associated service, and you acknowledge that it is not technically practicable for the Company to do so.
-
-- 8.2 To the maximum extent permitted by applicable law, the Company disclaims all warranties, express, implied, arising by law or otherwise, regarding the Software, the Software content and their respective performance or suitability for your intended use, including without limitation any implied warranty of merchantability, fitness for a particular purpose.
-
-## 9. Limitation of Liability
-
-- 9.1 In no event will the Company be liable for any direct, indirect, consequential, incidental, special, exemplary, or punitive damages or liabilities whatsoever arising from or relating to the Software, the Software content or this Agreement, whether based on contract, tort (including negligence), strict liability or other theory, even if the Company has been advised of the possibility of such damages.
-
-- 9.2 In no event will the Company's liability exceed the Software license price as indicated in the invoice. The existence of more than one claim will not enlarge or extend this limit.
-
-## 10. Remedies
-
-- 10.1 Your exclusive remedy and the Company's entire liability for breach of this Agreement shall be limited, at the Company's sole and exclusive discretion, to:
+- 9.1 Your exclusive remedy and the Company's entire liability for breach of this Agreement shall be limited, at the Company's sole and exclusive discretion, to:
 
     - (a) replacement of any defective software or documentation; or
 
     - (b) refund of the license fee paid to the Company
 
-## 11. Acknowledgements
+## 10. Acknowledgements
 
-- 11.1 Consent to the Use of Data. You agree that the Company and its affiliates may collect and use technical information gathered as part of the product support services. The Company may use this information solely to improve products and services and will not disclose this information in a form that personally identifies individuals or organizations.
+- 10.1 Consent to the Use of Data. You agree that the Company and its affiliates may collect and use technical information gathered as part of the product support services. The Company may use this information solely to improve products and services and will not disclose this information in a form that personally identifies individuals or organizations.
 
-- 11.2 Government End Users. If the Software and related documentation are supplied to or purchased by or on behalf of a Government, then the Software is deemed to be "commercial software" as that term is used in the acquisition regulation system.
+- 10.2 Government End Users. If the Software and related documentation are supplied to or purchased by or on behalf of a Government, then the Software is deemed to be "commercial software" as that term is used in the acquisition regulation system.
 
-## 12. Third Party Software
+## 11. Third Party Software
 
-- 12.1 Examples included in Software may provide links to third party libraries or code (collectively "Third Party Software") to implement various functions. Third Party Software does not comprise part of the Software. In some cases, access to Third Party Software may be included along with the Software delivery as a convenience for demonstration purposes. Licensee acknowledges:
+- 11.1 Examples included in Software may provide links to third party libraries or code (collectively "Third Party Software") to implement various functions. Third Party Software does not comprise part of the Software. In some cases, access to Third Party Software may be included along with the Software delivery as a convenience for demonstration purposes. Licensee acknowledges:
 
     - (1) That some part of Third Party Software may require additional licensing of copyright and patents from the owners of such, and
 
     - (2) That distribution of any of the Software referencing or including any portion of a Third Party Software may require appropriate licensing from such third parties
 
-## 13. Miscellaneous
+## 12. Miscellaneous
 
-- 13.1 Entire Agreement. This Agreement sets forth our entire agreement with respect to the Software and the subject matter hereof and supersedes all prior and contemporaneous understandings and agreements whether written or oral.
+- 12.1 Entire Agreement. This Agreement sets forth our entire agreement with respect to the Software and the subject matter hereof and supersedes all prior and contemporaneous understandings and agreements whether written or oral.
 
-- 13.2 Amendment. The Company reserves the right, in its sole discretion, to amend this Agreement from time. Amendments are managed as described in [General Provisions](../../openshift-as-a-service/general-provisions.md).
+- 12.2 Amendment. The Company reserves the right, in its sole discretion, to amend this Agreement from time. Amendments are managed as described in [General Provisions](../../openshift-as-a-service/general-provisions.md).
 
-- 13.3 Assignment. You may not assign this Agreement or any of its rights under this Agreement without the prior written consent of The Company and any attempted assignment without such consent shall be void.
+- 12.3 Assignment. You may not assign this Agreement or any of its rights under this Agreement without the prior written consent of The Company and any attempted assignment without such consent shall be void.
 
-- 13.4 Export Compliance. You agree to comply with all applicable laws and regulations, including laws, regulations, orders or other restrictions on export, re-export or redistribution of software.
+- 12.4 Export Compliance. You agree to comply with all applicable laws and regulations, including laws, regulations, orders or other restrictions on export, re-export or redistribution of software.
 
-- 13.5 Indemnification. You agree to defend, indemnify, and hold harmless the Company from and against any lawsuits, claims, losses, damages, fines and expenses (including attorneys' fees and costs) arising out of your use of the Software or breach of this Agreement.
+- 12.5 Indemnification. You agree to defend, indemnify, and hold harmless the Company from and against any lawsuits, claims, losses, damages, fines and expenses (including attorneys' fees and costs) arising out of your use of the Software or breach of this Agreement.
 
-- 13.6 Attorneys' Fees and Costs. The prevailing party in any action to enforce this Agreement will be entitled to recover its attorneys' fees and costs in connection with such action.
+- 12.6 Attorneys' Fees and Costs. The prevailing party in any action to enforce this Agreement will be entitled to recover its attorneys' fees and costs in connection with such action.
 
-- 13.7 Severability. If any provision of this Agreement is held by a court of competent jurisdiction to be invalid, illegal, or unenforceable, the remainder of this Agreement will remain in full force and effect.
+- 12.7 Severability. If any provision of this Agreement is held by a court of competent jurisdiction to be invalid, illegal, or unenforceable, the remainder of this Agreement will remain in full force and effect.
 
-- 13.8 Waiver. Failure or neglect by either party to enforce at any time any of the provisions of this license Agreement shall not be construed or deemed to be a waiver of that party's rights under this Agreement.
+- 12.8 Waiver. Failure or neglect by either party to enforce at any time any of the provisions of this license Agreement shall not be construed or deemed to be a waiver of that party's rights under this Agreement.
 
-- 13.9 Audit. The Company may, at its expense, appoint its own personnel or an independent third party to audit the numbers of installations of the Software in use by you. Any such audit shall be conducted upon thirty (30) days prior notice, during regular business hours and shall not unreasonably interfere with your business activities.
+- 12.9 Audit. The Company may, at its expense, appoint its own personnel or an independent third party to audit the numbers of installations of the Software in use by you. Any such audit shall be conducted upon thirty (30) days prior notice, during regular business hours and shall not unreasonably interfere with your business activities.
 
-- 13.10 Headings. The headings of sections and paragraphs of this Agreement are for convenience of reference only and are not intended to restrict, affect or be of any weight in the interpretation or construction of the provisions of such sections or paragraphs.
+- 12.10 Headings. The headings of sections and paragraphs of this Agreement are for convenience of reference only and are not intended to restrict, affect or be of any weight in the interpretation or construction of the provisions of such sections or paragraphs.
 
-## 14. Contact Information
+## 13. Contact Information
 
-- 14.1 If you have any questions about this EULA, or if you want to contact the Company for any reason, please direct correspondence to [`sales@stakater.com`](mailto:sales@stakater.com).
+- 13.1 If you have any questions about this EULA, or if you want to contact the Company for any reason, please direct correspondence to [`sales@stakater.com`](mailto:sales@stakater.com).
