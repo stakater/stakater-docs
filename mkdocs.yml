@@ -2,6 +2,8 @@ site_name: Stakater App Agility Platform
 docs_dir: docs
 site_url: https://docs.stakater.com/
 repo_url: https://github.com/stakater/StakaterCloudDocs
+edit_uri: blob/main/docs/
+use_directory_urls: false
 theme:
     name: material
     prev_next_buttons_location: none
@@ -28,7 +30,7 @@ extra:
             find what they're searching for. With your consent, you're helping us to
             make our documentation better.
 nav:
-    - SAAP:
+    - Docs Home:
         - Introduction:
             - content/sre/introduction/introduction.md
             - content/sre/introduction/why-sro.md
@@ -39,7 +41,7 @@ nav:
         - SAAP SLA:
             - content/saap-sla/saap-sla.md
         - Resource Requirements:
-            - content/sre/requirements/requirements.md
+            - content/requirements/requirements.md
         - SAAP Onboarding:
             - content/onboarding/onboarding.md
         - OpenShift as a Service:
@@ -154,6 +156,7 @@ nav:
             - content/sre/cluster-configuration/node-configuration.md
         - Multi Tenant Operator:
             - content/sre/multi-tenant-operator/overview.md
+            - content/sre/multi-tenant-operator/eula.md
             - content/sre/multi-tenant-operator/features.md
             - content/sre/multi-tenant-operator/installation.md
             - content/sre/multi-tenant-operator/integration-config.md
@@ -166,6 +169,7 @@ nav:
                 - content/sre/multi-tenant-operator/usecases/volume-limits.md
                 - content/sre/multi-tenant-operator/usecases/template.md
                 - content/sre/multi-tenant-operator/usecases/deploying-templates.md
+                - content/sre/multi-tenant-operator/usecases/custom-roles.md
                 - content/sre/multi-tenant-operator/usecases/mapping-resources.md
                 - content/sre/multi-tenant-operator/usecases/configuring-multitenant-network-isolation.md
                 - content/sre/multi-tenant-operator/usecases/distributing-secrets-using-sealed-secret-template.md

@@ -1,3 +1,9 @@
+::: warning Note
+
+After adding support for custom roles within MTO, this page is only applicable if you use OpenShift and its default `owner`, `edit`, and `view` roles. For more details, see the [IntegrationConfig spec](./integration-config.md)
+
+:::
+
 # Tenant Member Roles
 
 MTO tenant members can have one of following 3 roles:

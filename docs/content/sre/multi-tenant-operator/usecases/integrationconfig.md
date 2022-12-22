@@ -2,9 +2,9 @@
 
 Bill is a cluster admin who can use `IntegrationConfig` to configure how `Multi Tenant Operator (MTO)` manages the cluster.
 
-By default, MTO watches all namespaces and will enforce all the governing policies on them. 
-All namespaces managed by MTO require the `stakater.com/tenant` label. 
-MTO ignores privileged namespaces that are mentioned in the IntegrationConfig, and does not manage them. These namespaces do not require the above-mentioned label. 
+By default, MTO watches all namespaces and will enforce all the governing policies on them.
+All namespaces managed by MTO require the `stakater.com/tenant` label.
+MTO ignores privileged namespaces that are mentioned in the IntegrationConfig, and does not manage them. Therefore, any tenant label on such namespaces will be ignored.
 
 ```bash
 oc create namespace stakater-test
