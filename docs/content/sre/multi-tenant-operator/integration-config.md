@@ -100,11 +100,11 @@ Following are the different components that can be used to configure multi-tenan
 
 ## TenantRoles
 
-TenantRoles are required within the integration config, as they are used to defined what roles will be applied to each tenant namespace. The field allows optional custom roles, that are then used to create RoleBindings for namespaces that match a labelSelector.
+TenantRoles are required within the IntegrationConfig, as they are used to define what roles will be applied to each Tenant namespace. The field allows optional custom roles, that are then used to create RoleBindings for namespaces that match a labelSelector.
 
 ::: warning Note:
 
-If you do not configure roles in any way, then the default OpenShift roles of `owner`, `edit`, and `view` will apply to tenant members. Their details can be found [here](./tenant-roles.html5r)
+If you do not configure roles in any way, then the default OpenShift roles of `owner`, `edit`, and `view` will apply to Tenant members. Their details can be found [here](./tenant-roles.html5r)
 
 ```yaml
 tenantRoles:
@@ -146,7 +146,7 @@ This field contains roles that will be used to create default roleBindings for e
 
 ### Custom
 
-An array of custom roles. Similar to the `default` field, you can mention roles within this field as well. However, the custom roles also require the use of a `labelSelector` for each iteration within the array. The roles mentioned here will only apply to these namespaces that are matched by the labelSelector. If a namespace is matched by 2 different labelSelectors, then both roles will apply to it. Additionally, roles can be skipped within the labelSelector. These missing roles are then inherited from the `default` roles field . For example, if the following custom roles arrangement is used:
+An array of custom roles. Similar to the `default` field, you can mention roles within this field as well. However, the custom roles also require the use of a `labelSelector` for each iteration within the array. The roles mentioned here will only apply to the namespaces that are matched by the labelSelector. If a namespace is matched by 2 different labelSelectors, then both roles will apply to it. Additionally, roles can be skipped within the labelSelector. These missing roles are then inherited from the `default` roles field . For example, if the following custom roles arrangement is used:
 
 ```yaml
 custom:

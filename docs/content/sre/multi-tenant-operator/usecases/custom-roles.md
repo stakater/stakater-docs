@@ -67,7 +67,7 @@ spec:
           - admin
 ```
 
-New Bindings will be created for the tenant owners of `bluesky` and `alpha`, corresponding to the `admin` Role. Bindings for editors and viewer will be inherited from the `default roles`. All other tenant owners will have an `edit` Role bound to them within their namespaces
+New Bindings will be created for the Tenant owners of `bluesky` and `alpha`, corresponding to the `admin` Role. Bindings for editors and viewer will be inherited from the `default roles`. All other Tenant owners will have an `edit` Role bound to them within their namespaces
 
 ## What’s next
 
