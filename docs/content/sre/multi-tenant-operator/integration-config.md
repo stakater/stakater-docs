@@ -104,7 +104,7 @@ TenantRoles are required within the IntegrationConfig, as they are used to defin
 
 ::: warning Note:
 
-If you do not configure roles in any way, then the default OpenShift roles of `owner`, `edit`, and `view` will apply to Tenant members. Their details can be found [here](./tenant-roles.html5r)
+If you do not configure roles in any way, then the default OpenShift roles of `owner`, `edit`, and `view` will apply to Tenant members. Their details can be found [here](./tenant-roles.md)
 
 ```yaml
 tenantRoles:
@@ -142,7 +142,7 @@ tenantRoles:
 
 ### Default
 
-This field contains roles that will be used to create default roleBindings for each namespace that belongs to tenants. These roleBindings are only created for a namespace if that namespaces isn't already matched by the `custom` field below it. Therefore, it is required to have at least one role mentioned within each of its three subfields: `owner`, `editor`, and `viewer`. These 3 subfields also correspond to the member fields of the [Tenant CR](./customresources.html#_2-tenant)
+This field contains roles that will be used to create default roleBindings for each namespace that belongs to tenants. These roleBindings are only created for a namespace if that namespaces isn't already matched by the `custom` field below it. Therefore, it is required to have at least one role mentioned within each of its three subfields: `owner`, `editor`, and `viewer`. These 3 subfields also correspond to the member fields of the [Tenant CR](./customresources.md#_2-tenant)
 
 ### Custom
 

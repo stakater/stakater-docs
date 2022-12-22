@@ -1,6 +1,6 @@
 ::: warning Note
 
-After adding support for custom roles within MTO, this page is only applicable if you use OpenShift and its default `owner`, `edit`, and `view` roles. For more details, see the [IntegrationConfig spec](./integration-config.html)
+After adding support for custom roles within MTO, this page is only applicable if you use OpenShift and its default `owner`, `edit`, and `view` roles. For more details, see the [IntegrationConfig spec](./integration-config.md)
 
 :::
 
