@@ -13,6 +13,8 @@ sidebarDepth: 2
 
 - ## [Deploying Template to Namespace](deploying-templates.md)
 
+- ## [Configuring Tenant Roles](custom-roles.md)
+
 - ## [Configuring Multi-Tenant Isolation with Network Policy Template](configuring-multitenant-network-isolation.md)
 
 - ## [Distributing Secrets Using Sealed Secrets Template](distributing-secrets-using-sealed-secret-template.md)

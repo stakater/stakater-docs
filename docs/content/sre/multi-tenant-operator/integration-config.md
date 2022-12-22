@@ -9,6 +9,37 @@ metadata:
   name: tenant-operator-config
   namespace: stakater-tenant-operator
 spec:
+  tenantRoles:
+    default:
+      owner:
+        clusterRoles:
+          - admin
+      editor:
+        clusterRoles:
+          - edit
+      viewer:
+        clusterRoles:
+          - view
+          - viewer
+    custom:
+    - labelSelector:
+        matchExpressions:
+        - key: stakater.com/kind
+          operator: In
+          values:
+            - build
+        matchLabels:
+          stakater.com/kind: dev
+      owner:
+        clusterRoles:
+          - custom-owner
+      editor:
+        clusterRoles:
+          - custom-editor
+      viewer:
+        clusterRoles:
+          - custom-viewer
+          - custom-view
   openshift:
     project:
       labels:
@@ -67,7 +98,74 @@ spec:
 
 Following are the different components that can be used to configure multi-tenancy in a cluster via Multi Tenant Operator.
 
+## TenantRoles
+
+TenantRoles are required within the IntegrationConfig, as they are used for defining what roles will be applied to each Tenant namespace. The field allows optional custom roles, that are then used to create RoleBindings for namespaces that match a labelSelector.
+
+::: warning Note:
+
+If you do not configure roles in any way, then the default OpenShift roles of `owner`, `edit`, and `view` will apply to Tenant members. Their details can be found [here](./tenant-roles.md)
+
+```yaml
+tenantRoles:
+  default:
+    owner:
+      clusterRoles:
+        - admin
+    editor:
+      clusterRoles:
+        - edit
+    viewer:
+      clusterRoles:
+        - view
+        - viewer
+  custom:
+  - labelSelector:
+      matchExpressions:
+      - key: stakater.com/kind
+        operator: In
+        values:
+          - build
+      matchLabels:
+        stakater.com/kind: dev
+    owner:
+      clusterRoles:
+        - custom-owner
+    editor:
+      clusterRoles:
+        - custom-editor
+    viewer:
+      clusterRoles:
+        - custom-viewer
+        - custom-view
+```
+
+### Default
+
+This field contains roles that will be used to create default roleBindings for each namespace that belongs to tenants. These roleBindings are only created for a namespace if that namespaces isn't already matched by the `custom` field below it. Therefore, it is required to have at least one role mentioned within each of its three subfields: `owner`, `editor`, and `viewer`. These 3 subfields also correspond to the member fields of the [Tenant CR](./customresources.md#_2-tenant)
+
+### Custom
+
+An array of custom roles. Similar to the `default` field, you can mention roles within this field as well. However, the custom roles also require the use of a `labelSelector` for each iteration within the array. The roles mentioned here will only apply to the namespaces that are matched by the labelSelector. If a namespace is matched by 2 different labelSelectors, then both roles will apply to it. Additionally, roles can be skipped within the labelSelector. These missing roles are then inherited from the `default` roles field . For example, if the following custom roles arrangement is used:
+
+```yaml
+custom:
+- labelSelector:
+    matchExpressions:
+    - key: stakater.com/kind
+      operator: In
+      values:
+        - build
+    matchLabels:
+      stakater.com/kind: dev
+  owner:
+    clusterRoles:
+      - custom-owner
+```
+
+Then the `editor` and `viewer` roles will be taken from the `default` roles field, as that is required to have at least one role mentioned.
 ## OpenShift
+
 ``` yaml
 openshift:
   project:
@@ -156,11 +254,11 @@ users:
 
 ### Privileged Namespaces
 
-`privilegedNamespaces:` Contains the list of `namespaces` ignored by MTO. MTO will not manage the `namespaces` in this list. Values in this list are regex patterns. 
-For example: 
+`privilegedNamespaces:` Contains the list of `namespaces` ignored by MTO. MTO will not manage the `namespaces` in this list. Values in this list are regex patterns.
+For example:
 - To ignore the `default` namespace, we can specify `^default$`
 - To ignore all namespaces starting with the `openshift-` prefix, we can specify `^openshift-*`.
-- To ignore any namespace containing `stakater` in its name, we can specify `stakater`. (A constant word given as a regex pattern will match any namespace containing that word.)  
+- To ignore any namespace containing `stakater` in its name, we can specify `stakater`. (A constant word given as a regex pattern will match any namespace containing that word.)
 
 ### Privileged ServiceAccounts
 
