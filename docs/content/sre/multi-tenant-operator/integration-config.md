@@ -100,7 +100,7 @@ Following are the different components that can be used to configure multi-tenan
 
 ## TenantRoles
 
-TenantRoles are required within the IntegrationConfig, as they are used to define what roles will be applied to each Tenant namespace. The field allows optional custom roles, that are then used to create RoleBindings for namespaces that match a labelSelector.
+TenantRoles are required within the IntegrationConfig, as they are used for defining what roles will be applied to each Tenant namespace. The field allows optional custom roles, that are then used to create RoleBindings for namespaces that match a labelSelector.
 
 ::: warning Note:
 
