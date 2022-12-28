@@ -1,12 +1,12 @@
 # Inner vs Outer Loop
 
-![Inner vs Outer Loop](./images/local-development-5.png)
+![Inner vs Outer Loop](./images/local-development-6.png)
 
 The inner loop consists of local coding, building, running, and testing the application—all activities that you, as a developer, can control. The outer loop consists of the larger team processes that your code flows through on its way to the cluster: code reviews, integration tests, security and compliance, and so on. The inner loop could happen mostly on your laptop. The outer loop happens on shared servers and runs in containers, and is often automated with continuous integration/continuous delivery (CI/CD) pipelines. Usually, a code commit to source control is the transition point between the inner and outer loops.
 
 First, let's consider a typical workflow for a developer whose team has adopted Kubernetes. The workflow starts with local development activities and finishes with containers deployed and code running in one or more Kubernetes clusters. To help visualize this flow, you can think of it in terms of an inner loop and an outer loop. Following figure illustrates the interplay of these loops in a Kubernetes development process.
 
-![A flow diagram of the inner and outer loops in a Kubernetes development process](./images/inner-vs-outer-v3.png)
+![A flow diagram of the inner and outer loops in a Kubernetes development process](./images/inner-vs-outer-v4.png)
 
 Notice that, while you code, you are constantly iterating through various development activities: You code, build, deploy locally, and debug—and you keep going until you achieve a degree of feature completeness. At some point, you will be ready to transition from inner to outer, right? Not so quick.
 
