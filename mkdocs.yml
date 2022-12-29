@@ -156,6 +156,7 @@ nav:
             - content/sre/cluster-configuration/node-configuration.md
         - Multi Tenant Operator:
             - content/sre/multi-tenant-operator/overview.md
+            - content/sre/multi-tenant-operator/eula.md
             - content/sre/multi-tenant-operator/features.md
             - content/sre/multi-tenant-operator/installation.md
             - content/sre/multi-tenant-operator/integration-config.md
@@ -168,6 +169,7 @@ nav:
                 - content/sre/multi-tenant-operator/usecases/volume-limits.md
                 - content/sre/multi-tenant-operator/usecases/template.md
                 - content/sre/multi-tenant-operator/usecases/deploying-templates.md
+                - content/sre/multi-tenant-operator/usecases/custom-roles.md
                 - content/sre/multi-tenant-operator/usecases/mapping-resources.md
                 - content/sre/multi-tenant-operator/usecases/configuring-multitenant-network-isolation.md
                 - content/sre/multi-tenant-operator/usecases/distributing-secrets-using-sealed-secret-template.md
