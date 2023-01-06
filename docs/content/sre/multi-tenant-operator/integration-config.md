@@ -102,9 +102,8 @@ Following are the different components that can be used to configure multi-tenan
 
 TenantRoles are required within the IntegrationConfig, as they are used for defining what roles will be applied to each Tenant namespace. The field allows optional custom roles, that are then used to create RoleBindings for namespaces that match a labelSelector.
 
-::: warning Note:
 
-If you do not configure roles in any way, then the default OpenShift roles of `owner`, `edit`, and `view` will apply to Tenant members. Their details can be found [here](./tenant-roles.md)
+> ⚠️ If you do not configure roles in any way, then the default OpenShift roles of `owner`, `edit`, and `view` will apply to Tenant members. Their details can be found [here](./tenant-roles.md)
 
 ```yaml
 tenantRoles:
@@ -279,8 +278,7 @@ namespaceAccessPolicy:
         - adam@stakater.com
 ```
 
-#### :memo: Note
-If you want to use a more complex regex pattern (for the `openshift.privilegedNamespaces` or `openshift.privilegedServiceAccounts` field), it is recommended that you test the regex pattern first -  either locally or using a platform such as https://regex101.com/.
+> ⚠️ If you want to use a more complex regex pattern (for the `openshift.privilegedNamespaces` or `openshift.privilegedServiceAccounts` field), it is recommended that you test the regex pattern first -  either locally or using a platform such as https://regex101.com/.
 
 ## ArgoCD
 

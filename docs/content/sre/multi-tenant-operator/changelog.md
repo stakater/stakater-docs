@@ -1,26 +1,52 @@
 # Changelog
 
+## v0.8.x
+
+**v0.8.1**
+
+- fix: Updated release pipelines
+
+**v0.8.0**
+
+- feat: Allow custom roles for each tenant via label selector, more details in [custom roles document](./usecases/custom-roles.md)
+  - Roles mapping is a required field in [MTO's IntegrationConfig](./integration-config.md). By default, it will always be filled with OpenShift's admin/edit/view roles
+  - Ensure that mentioned roles exist within the cluster
+  - Remove coupling with OpenShift's built-in admin/edit/view roles
+- feat: Removed coupling of ResourceSupervisor and Tenant resources
+  - Added list of namespaces to hibernate within the ResourceSupervisor resource
+  - Ensured that the same namespace cannot be added to two different Resource Supervisors
+  - Moved ResourceSupervisor into a separate pod
+  - Improved logs
+- fix: Remove bug from tenant's common and specific metadata
+- fix: Add missing field to Tenant's conversion webhook
+- fix: Fix panic in ResourceSupervisor sleep functionality due to sending on closed channel
+- chore: Update dependencies
+
 ## v0.7.x
+
+**v0.7.4**
+
+- maintain: Automate certification of new MTO releases on RedHat's Operator Hub
 
 **v0.7.3**
 
-- feat: Updated Tenant CR to provide Tenant level AppProject permissions.
+- feat: Updated Tenant CR to provide Tenant level AppProject permissions
 
 **v0.7.2**
 
-- feat: Add support to map secrets/configmaps from one namespace to other namespaces using TI. Secrets/configmaps will only be mapped if their namespaces belong to same Tenant.
+- feat: Add support to map secrets/configmaps from one namespace to other namespaces using TI. Secrets/configmaps will only be mapped if their namespaces belong to same Tenant
 
 **v0.7.1**
 
-- feat: Add option to keep AppProjects created by Multi Tenant Operator in case Tenant is deleted. By default, AppProjects get deleted.
-- fix: Status now updates after namespaces are created.
+- feat: Add option to keep AppProjects created by Multi Tenant Operator in case Tenant is deleted. By default, AppProjects get deleted
+- fix: Status now updates after namespaces are created
 - maintain: Changes to Helm chart's default behaviour
 
 **v0.7.0**
 
-- feat: Add support to map secrets/configmaps from one namespace to other namespaces using TGI. Resources can be mapped from one Tenant's namespaces to some other Tenant's namespaces.
+- feat: Add support to map secrets/configmaps from one namespace to other namespaces using TGI. Resources can be mapped from one Tenant's namespaces to some other Tenant's namespaces
 - feat: Allow creation of sandboxes that are private to the user
-- feat: Allow creation of namespaces without tenant prefix from within tenant spec.
+- feat: Allow creation of namespaces without tenant prefix from within tenant spec
 - fix: Webhook changes will now be updated without manual intervention
 - maintain: Updated Tenant CR version from v1beta1 to v1beta2. Conversion webhook is added to facilitate transition to new version
   - see [Tenant spec](./customresources.md#_2-tenant) for updated spec
@@ -173,15 +199,12 @@
 - fix: Added missing check for users in a tenant owner's groups in namespace validation webhook
 - fix: General enhancements and improvements
 
-::: warning Known Issues:
-
-- `caBundle` field in validation webhooks is not being populated for newly added webhooks. A temporary fix is to edit the validation webhook configuration manifest without the `caBundle` field added in any webhook, so OpenShift can add it to all fields simultaneously.
-    - Edit the `ValidatingWebhookConfiguration` `stakater-tenant-operator-validating-webhook-configuration` by removing all the `caBundle` fields of all webhooks.
-    - Save the manifest.
-    - Verify that all `caBundle` fields have been populated.
-    - Restart Tenant-Operator pods.
-
-:::
+> ⚠️ Known Issues
+- `caBundle` field in validation webhooks is not being populated for newly added webhooks. A temporary fix is to edit the validation webhook configuration manifest without the `caBundle` field added in any webhook, so OpenShift can add it to all fields simultaneously
+    - Edit the `ValidatingWebhookConfiguration` `stakater-tenant-operator-validating-webhook-configuration` by removing all the `caBundle` fields of all webhooks
+    - Save the manifest
+    - Verify that all `caBundle` fields have been populated
+    - Restart Tenant-Operator pods
 
 **v0.3.21**
 
@@ -197,13 +220,10 @@
 - fix: Fixed config not being updated in namespace webhook when Integration Config is updated
 - fix: Fixed a crash that occurred in case of ArgoCD in Integration Config was not set during deletion of Tenant resource
 
-::: warning Note:
-
-ApiVersion `v1alpha1` of Tenant and Quota custom resources has been deprecated and is scheduled to be removed in the future. The following links contain the updated structure of both resources
-
-- [Quota v1beta1](./customresources.md#_1-quota)
-- [Tenant v1beta1](./customresources.md#_2-tenant)
-:::
+> ⚠️ ApiVersion `v1alpha1` of Tenant and Quota custom resources has been deprecated and is scheduled to be removed in the future. The following links contain the updated structure of both resources
+>
+> - [Quota v1beta1](./customresources.md#_1-quota)
+> - [Tenant v1beta1](./customresources.md#_2-tenant)
 
 **v0.3.18**
 

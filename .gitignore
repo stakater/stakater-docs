@@ -17,3 +17,6 @@ coverage/
 # Typescript build info
 *.tsbuildinfo
 node_modules
+
+# Build files
+site/
