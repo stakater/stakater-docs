@@ -42,11 +42,8 @@ This document contains instructions on installing and configuring Multi Tenant O
 
 ![image](./images/to_installed_successful.png)
 
-::: warning Note:
 
-* MTO will be installed in `multi-tenant-operator` namespace.
-
-:::
+> Note: MTO will be installed in `multi-tenant-operator` namespace.
 
 ### Configuring IntegrationConfig
 
@@ -76,11 +73,7 @@ spec:
 
 For more details and configurations check out [IntegrationConfig](./integration-config.md).
 
-::: warning Note:
-
-* A default IntegrationConfig with the name `tenant-operator-config` will be present in MTO's installed namespace
-
-:::
+> ⚠️ A default IntegrationConfig with the name `tenant-operator-config` will be present in MTO's installed namespace
 
 ### Uninstall
 
@@ -173,11 +166,7 @@ spec:
 
 For more details and configurations check out [IntegrationConfig](./integration-config.md).
 
-::: warning Note:
-
-* A default IntegrationConfig with the name `tenant-operator-config` will be present in MTO's installed namespace
-
-:::
+> ⚠️ A default IntegrationConfig with the name `tenant-operator-config` will be present in MTO's installed namespace
 
 ### Uninstall
 

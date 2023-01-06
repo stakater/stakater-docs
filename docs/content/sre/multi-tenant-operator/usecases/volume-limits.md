@@ -34,7 +34,7 @@ spec:
 EOF
 ```
 
-Now, the combined storage used by all tenant namespaces will not exceed `50Gi`. 
+Now, the combined storage used by all tenant namespaces will not exceed `50Gi`.
 
 ### Adding StorageClass Restrictions for Tenant
 
@@ -71,12 +71,8 @@ spec:
 EOF
 ```
 
-Now, the combined storage provisioned from StorageClass `stakater` used by all tenant namespaces will not exceed `20Gi`. 
+Now, the combined storage provisioned from StorageClass `stakater` used by all tenant namespaces will not exceed `20Gi`.
 
-::: warning Note:
-The `20Gi` limit will only be applied to StorageClass `stakater`. If a tenant member creates a PVC with some other StorageClass, he will not be restricted.
-:::
+> ⚠️ The `20Gi` limit will only be applied to StorageClass `stakater`. If a tenant member creates a PVC with some other StorageClass, he will not be restricted.
 
-::: tip
-More details about `Resource Quota` can be found [here](https://kubernetes.io/docs/concepts/policy/resource-quotas/)
-:::
+> tip: More details about `Resource Quota` can be found [here](https://kubernetes.io/docs/concepts/policy/resource-quotas/)
