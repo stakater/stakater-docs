@@ -1,5 +1,4 @@
 {
-  "aliveStatusCodes": [429, 200, 520],
   "ignorePatterns": [
     {
       "pattern": "^(https://stakater).+"
