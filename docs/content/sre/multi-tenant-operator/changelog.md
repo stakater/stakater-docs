@@ -29,23 +29,23 @@
 
 **v0.7.3**
 
-- feat: Updated Tenant CR to provide Tenant level AppProject permissions.
+- feat: Updated Tenant CR to provide Tenant level AppProject permissions
 
 **v0.7.2**
 
-- feat: Add support to map secrets/configmaps from one namespace to other namespaces using TI. Secrets/configmaps will only be mapped if their namespaces belong to same Tenant.
+- feat: Add support to map secrets/configmaps from one namespace to other namespaces using TI. Secrets/configmaps will only be mapped if their namespaces belong to same Tenant
 
 **v0.7.1**
 
-- feat: Add option to keep AppProjects created by Multi Tenant Operator in case Tenant is deleted. By default, AppProjects get deleted.
-- fix: Status now updates after namespaces are created.
+- feat: Add option to keep AppProjects created by Multi Tenant Operator in case Tenant is deleted. By default, AppProjects get deleted
+- fix: Status now updates after namespaces are created
 - maintain: Changes to Helm chart's default behaviour
 
 **v0.7.0**
 
-- feat: Add support to map secrets/configmaps from one namespace to other namespaces using TGI. Resources can be mapped from one Tenant's namespaces to some other Tenant's namespaces.
+- feat: Add support to map secrets/configmaps from one namespace to other namespaces using TGI. Resources can be mapped from one Tenant's namespaces to some other Tenant's namespaces
 - feat: Allow creation of sandboxes that are private to the user
-- feat: Allow creation of namespaces without tenant prefix from within tenant spec.
+- feat: Allow creation of namespaces without tenant prefix from within tenant spec
 - fix: Webhook changes will now be updated without manual intervention
 - maintain: Updated Tenant CR version from v1beta1 to v1beta2. Conversion webhook is added to facilitate transition to new version
   - see [Tenant spec](./customresources.md#_2-tenant) for updated spec
@@ -199,11 +199,11 @@
 - fix: General enhancements and improvements
 
 > ⚠️ Known Issues
-- `caBundle` field in validation webhooks is not being populated for newly added webhooks. A temporary fix is to edit the validation webhook configuration manifest without the `caBundle` field added in any webhook, so OpenShift can add it to all fields simultaneously.
-    - Edit the `ValidatingWebhookConfiguration` `stakater-tenant-operator-validating-webhook-configuration` by removing all the `caBundle` fields of all webhooks.
-    - Save the manifest.
-    - Verify that all `caBundle` fields have been populated.
-    - Restart Tenant-Operator pods.
+- `caBundle` field in validation webhooks is not being populated for newly added webhooks. A temporary fix is to edit the validation webhook configuration manifest without the `caBundle` field added in any webhook, so OpenShift can add it to all fields simultaneously
+    - Edit the `ValidatingWebhookConfiguration` `stakater-tenant-operator-validating-webhook-configuration` by removing all the `caBundle` fields of all webhooks
+    - Save the manifest
+    - Verify that all `caBundle` fields have been populated
+    - Restart Tenant-Operator pods
 
 **v0.3.21**
 
