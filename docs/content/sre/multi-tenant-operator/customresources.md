@@ -351,13 +351,17 @@ spec:
   hibernation:
     sleepSchedule: 23 * * * *
     wakeSchedule: 26 * * * *
-  tenant: alpha
+  namespaces:
+    - stage
+    - dev
 status:
   currentStatus: running
   nextReconcileTime: '2022-07-07T11:23:00Z'
 ```
 
 The `ResourceSupervisor` is a resource created by MTO in case the [Hibernation](./hibernation.md) feature is enabled. The Resource manages the sleep/wake schedule of the namespaces owned by the tenant, and manages the previous state of any sleeping application. Currently, only StatefulSets and Deployments are put to sleep. Additionally, ArgoCD AppProjects that belong to the tenant have a `deny` SyncWindow added to them.
+
+The `ResourceSupervisor` can be created both via the `Tenant` or manually. For more details, check some of its [use cases](./usecases/hibernation.md)
 
 ## Namespace
 

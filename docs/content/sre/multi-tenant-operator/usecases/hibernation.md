@@ -55,6 +55,10 @@ spec:
   hibernation:
     sleepSchedule: 0 20 * * 1-5
     wakeSchedule: 0 8 * * 1-5
+  namespaces:
+    - build
+    - stage
+    - dev
 status:
   currentStatus: running
   nextReconcileTime: '2022-10-12T20:00:00Z'
@@ -76,6 +80,10 @@ spec:
   hibernation:
     sleepSchedule: 0 20 * * 1-5
     wakeSchedule: 0 8 * * 1-5
+  namespaces:
+    - build
+    - stage
+    - dev
 status:
   currentStatus: sleeping
   nextReconcileTime: '2022-10-13T08:00:00Z'
@@ -106,6 +114,9 @@ spec:
   hibernation:
     sleepSchedule: 0 20 * * 1-5
     wakeSchedule: 0 8 * * 1-5
+  namespaces:
+    - stage
+    - dev
 status:
   currentStatus: sleeping
   nextReconcileTime: '2022-10-13T08:00:00Z'
@@ -115,9 +126,10 @@ status:
       name: example
       replicas: 3
 ```
+
 ## Hibernating namespaces and/or ArgoCD Applications with ResourceSupervisor
 
-Bill, the cluster administrator, wants to hibernate a collection of namespaces and AppProjects belonging to multiple different tenants. He can do so by creating a ResourceSupervisor manually, and specifying in its spec the hibernation schedule, and the namespaces and ArgoCD Applications that need to be hibernated as per the mentioned schedule. 
+Bill, the cluster administrator, wants to hibernate a collection of namespaces and AppProjects belonging to multiple different tenants. He can do so by creating a ResourceSupervisor manually, and specifying in its spec the hibernation schedule, and the namespaces and ArgoCD Applications that need to be hibernated as per the mentioned schedule.
 Bill can also use the same method to hibernate some namespaces and ArgoCD Applications that do not belong to any tenant on his cluster.
 
 The example given below will hibernate the ArgoCD Applications in the 'test-app-project' AppProject; and it will also hibernate the 'ns2' and 'ns4' namespaces.
