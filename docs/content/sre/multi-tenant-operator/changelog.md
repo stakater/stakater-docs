@@ -9,9 +9,9 @@
 **v0.8.0**
 
 - feat: Allow custom roles for each tenant via label selector, more details in [custom roles document](./usecases/custom-roles.md)
-  - Roles mapping is a required field in [MTO's IntegrationConfig](./integration-config.md). By default it will always be filled with Openshift's admin/edit/view roles
+  - Roles mapping is a required field in [MTO's IntegrationConfig](./integration-config.md). By default, it will always be filled with Openshift's admin/edit/view roles
   - Ensure that mentioned roles exist within the cluster
-  - Remove coupling with OpenShift's built in admin/edit/view roles
+  - Remove coupling with OpenShift's built-in admin/edit/view roles
 - feat: Removed coupling of ResourceSupervisor and Tenant resources
   - Added list of namespaces to hibernate within the ResourceSupervisor resource
   - Ensured that the same namespace cannot be added to two different Resource Supervisors
