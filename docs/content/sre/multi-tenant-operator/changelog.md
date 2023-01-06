@@ -19,6 +19,7 @@
   - Improved logs
 - fix: Remove bug from tenant's common and specific metadata
 - fix: Add missing field to Tenant's conversion webhook
+- fix: Fix panic in ResourceSupervisor sleep functionality due to sending on closed channel
 - chore: Update dependencies
 
 ## v0.7.x
