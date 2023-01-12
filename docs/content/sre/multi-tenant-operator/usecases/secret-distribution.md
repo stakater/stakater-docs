@@ -11,6 +11,5 @@ Manually creating those secrets within different namespaces could be challenging
 - Could be error pron
 - Time-consuming
 
-MTO will copy a Secret called `regcred` which exists in the `default` Namespace to
-new Namespaces when they are created. 
+MTO will copy a Secret called `regcred` which exists in the `default` Namespace to new Namespaces when they are created.
 It will also push updates to the copied Secrets and keep the propagated secrets always sync and updated with parent namespaces.
