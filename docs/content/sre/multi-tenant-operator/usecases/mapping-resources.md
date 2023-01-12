@@ -65,7 +65,7 @@ Once the template has been created, Anna creates a `TemplateInstance` in `bluesk
 
 ```yaml
 apiVersion: tenantoperator.stakater.com/v1alpha1
-kind: TemplateGroupInstance
+kind: TemplateInstance
 metadata:
   name: docker-secret-instance
   namespace: bluesky-anna-aurora-sandbox
