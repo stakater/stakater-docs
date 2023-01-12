@@ -3,20 +3,18 @@
 
 Secrets like `registry` credentials often need to exist in multiple Namespaces, so that Pods within different namespaces can have access to those credentials in form of secrets. 
 
-Manually creating those secrets within different namespaces could have the following challenges:
-- keeping record of namespaces where you would want these secrets to be created
-- Creating those secrets manually each time there is new namespace 
-- If the secret changes, will have to update the secret in all descendant namespaces
-- Could be error pron
-- Time-consuming
+Manually creating secrets within different namespaces could lead to challenges, such as:
+- Will have to create secret either manually or via GitOps each time there is a new descendant namespace that needs the secret
+- If we update the parent secret, will have to update the secret in all descendant namespaces
+- This could be time-consuming, and a small mistake while creating or updating the secret could lead to unnecessary debugging
 
-MTO will copy a Secret called `regcred` which exists in the `default` Namespace to new Namespaces when they are created.
+MTO will copy a Secret called `regcred` which exists in the `default` or any other Namespace to new Namespaces when they are created.
 It will also push updates to the copied Secrets and keep the propagated secrets always sync and updated with parent namespaces.
 
 ---
 
-With the help of Multi-Tenant Operator's Template feature we can make this secret distribution experience easily manageable.
-Let's create Template which will hold reference of registry secret(secret name and namespace) 
+With the help of Multi-Tenant Operator's Template feature we can make this secret distribution experience easy.
+We will first create a Template which will have reference of the registry secret.
 
 ```yaml
 apiVersion: tenantoperator.stakater.com/v1alpha1
@@ -31,8 +29,8 @@ resources:
 ```
 
 Now using this Template we can propagate registry secret to different namespaces that has some common set of labels.
-By using this label approach we don't have to maintain list of namespace on which we want to create this secret.
-Will just add one label, say `kind: registry` and whichever namespace will have this label will get this secret.
+By using this label approach we don't have to maintain list of namespaces where we would like this secret to be created.
+For example, will just add one label `kind: registry` and all namespaces with this label will get this secret.
 
 For propagating it on different namespaces dynamically will have to create another resource called `TemplateGroupInstance`.
 `TemplateGroupInstance` will have `Template` and `matchLabel` mapping as shown below:
@@ -51,7 +49,7 @@ spec:
 ```
 
 Afterwards, you will be able to see those secrets would be been mapped in all matching namespaces.
-And, any time there is any new namespace created with this provided set of labels then it will get these secrets too.
+And, any time there is any new namespace created with these set of labels, will get these secrets too.
 
 ```bash
 kubectl get secret registry-secret -n example-ns-1
