@@ -4,7 +4,7 @@
 Secrets like `registry` credentials often need to exist in multiple
 Namespaces, so that Pods within those namespaces can have access to those credentials in form of secrets. 
 
-Manually creating those secrets within different namespaces could be challenging and could have following challenges:
+Manually creating those secrets within different namespaces could be challenging and could have the following challenges:
 - keep record of namespaces where you would want these secrets to be created
 - Create those secrets manually each time there is new demand
 - If the secret changes, will have to update in all descendant namespaces
