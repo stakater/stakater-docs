@@ -1,6 +1,5 @@
 # Propagate Secrets from Parent to Descendant namespaces
 
-
 Secrets like `registry` credentials often need to exist in multiple Namespaces, so that Pods within different namespaces can have access to those credentials in form of secrets. 
 
 Manually creating secrets within different namespaces could lead to challenges, such as:
