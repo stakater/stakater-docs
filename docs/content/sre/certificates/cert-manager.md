@@ -7,15 +7,13 @@ It will ensure certificates are valid and up to date, and attempt to renew certi
 
 Before you start creating Certificates, you will have to first define a `Issuer`(namespace scoped) or `ClusterIssuer`(cluster scoped).
 
-::: warning Note:
-Any secret that is referred by ClusterIssuer would have to be present only in the project `stakater-cert-manager-operator`. So create CA,DNS credentials secrets in this project.
+!!! warning
+    Any secret that is referred by ClusterIssuer would have to be present only in the project `stakater-cert-manager-operator`. So create CA,DNS credentials secrets in this project.
 
-Secret can reside in the same namespace for Issuer
-:::
+    Secret can reside in the same namespace for Issuer
 
-::: tip
-Consider using the cluster's default domain i.e. `*.kubeapp.cloud` for CI/staging environment which are all secured by SAAP by default
-:::
+!!! tip
+    Consider using the cluster's default domain i.e. `*.kubeapp.cloud` for CI/staging environment which are all secured by SAAP by default
 
 ### Defining ClusterIssuer
 
@@ -47,9 +45,8 @@ spec:
 #### DNS01 Challenge
 For DNS01 Challenge you need to first create a secret in `stakater-cert-manager-operator` namespace that should contain the values to alter entries in your DNS provider. Following is an example for configuring AWS's Route53. Check configuration for your provider [here](https://cert-manager.io/v1.7-docs/configuration/acme/dns01/#supported-dns01-providers)
 
-::: tip
- Use Limited access to the account being used for DNS01 Challenge automation 
-:::
+!!! tip
+    Use Limited access to the account being used for DNS01 Challenge automation
 
 ```
 apiVersion: cert-manager.io/v1
@@ -73,12 +70,11 @@ spec:
             key: aws_secret_access_key  
 ```
 
-::: warning Limitations:
+!!! warning
 
-1. Wildcard certificates can only be issued by DNS01 Challenges not with HTTP01 Challenges.
-2. You can only issue 50 certificates per Registered Domain. [See Details here](https://letsencrypt.org/docs/rate-limits/)
-3. If you think you need more certificates for your staging/CI environment consider using a [Staging server](https://letsencrypt.org/docs/staging-environment/). The only downside for this strategy is that browser will not trust the CI/staging environment certificate.
-:::
+    1. Wildcard certificates can only be issued by DNS01 Challenges not with HTTP01 Challenges.
+    2. You can only issue 50 certificates per Registered Domain. [See Details here](https://letsencrypt.org/docs/rate-limits/)
+    3. If you think you need more certificates for your staging/CI environment consider using a [Staging server](https://letsencrypt.org/docs/staging-environment/). The only downside for this strategy is that browser will not trust the CI/staging environment certificate.
 
 ### Generating Certificate
 
