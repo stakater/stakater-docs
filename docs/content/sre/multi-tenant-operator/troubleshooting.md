@@ -10,7 +10,7 @@ If operator upgrade is set to Automatic Approval on OperatorHub, there may be sc
 
 #### Recommendation
 
-:information_source: If upgrade approval is set to manual and you want to skip upgrade of a specific version, then delete the InstallPlan created for that specific version. Operator Lifecycle Manager (OLM) will create the latest available InstallPlan which can be approved then.
+:information_source: If upgrade approval is set to manual, and you want to skip upgrade of a specific version, then delete the InstallPlan created for that specific version. Operator Lifecycle Manager (OLM) will create the latest available InstallPlan which can be approved then.
 
 As OLM does not allow to upgrade or downgrade from a version stuck because of error, the only possible fix is to remove the operator from the cluster. When the operator is uninstalled it removes all of its resources except Custom Resource Definitions (CRDs), so there won't be any data loss. If any CRD has a webhook defined then that webhook should be removed before installing the stable version of the operator.
 
