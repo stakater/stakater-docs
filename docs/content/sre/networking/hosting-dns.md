@@ -44,9 +44,8 @@ See [Cert-manager documentation](../certificates/cert-manager.md#Example-Certifi
 
 These Certificates are generated and can be rotated automatically via Certmanager Operator whenever an Ingress is created with annotation: `cert-manager.io/cluster-issuer: <ISSUER_NAME>`
 
-::: tip
-Consider using the cluster's default domain i.e. `*.kubeapp.cloud` for CI/staging environment which are all secured by SAAP by default
-:::
+!!! tip
+    Consider using the cluster's default domain i.e. `*.kubeapp.cloud` for CI/staging environment which are all secured by SAAP by default
 
 If you are doing GitOps with ArgoCD then you need to create an ArgoCD app like following that will watch cert-manager CRs and deploy them to the cluster:
 

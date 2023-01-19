@@ -10,9 +10,14 @@ If operator upgrade is set to Automatic Approval on OperatorHub, there may be sc
 
 #### Recommendation
 
-:information_source: If upgrade approval is set to manual, and you want to skip upgrade of a specific version, then delete the InstallPlan created for that specific version. Operator Lifecycle Manager (OLM) will create the latest available InstallPlan which can be approved then.
+!!! information
+        If upgrade approval is set to manual, and you want to skip upgrade of a specific version, then delete the InstallPlan created for that specific version. Operator Lifecycle Manager (OLM) will create the latest available InstallPlan which can be approved then.
 
-As OLM does not allow to upgrade or downgrade from a version stuck because of error, the only possible fix is to uninstall the operator from the cluster. When the operator is uninstalled it removes all of its resources except Custom Resource Definitions (CRDs), so there won't be any data loss. If any CRD has a conversion webhook defined then that webhook should be removed before installing the stable version of the operator. This can be achieved via removing the `.spec.conversion` block from the CRD schema.
+As OLM does not allow to upgrade or downgrade from a version stuck because of error, the only possible fix is to uninstall the operator from the cluster.
+When the operator is uninstalled it removes all of its resources i.e., ClusterRoles, ClusterRoleBindings, and Deployments etc., except Custom Resource Definitions (CRDs), so none of the Custom Resources (CRs), Tenants, Templates etc., will be removed from the cluster.
+If any CRD has a conversion webhook defined then that webhook should be removed before installing the stable version of the operator. This can be achieved via removing the `.spec.conversion` block from the CRD schema.
+
+As an example, if you have installed v0.8.0 of Multi Tenant Operator on your cluster, then it'll stuck in an error `error validating existing CRs against new CRD's schema for "integrationconfigs.tenantoperator.stakater.com": error validating custom resource against new schema for IntegrationConfig multi-tenant-operator/tenant-operator-config: [].spec.tenantRoles: Required value`. To resolve this issue, you'll first uninstall the MTO from the cluster. Once you uninstall the MTO, check Tenant CRD which will have a conversion block, which needs to be removed. After removing the conversion block from the Tenant CRD, install the latest available version of MTO from OperatorHub.
 
 ## Permission Issues
 

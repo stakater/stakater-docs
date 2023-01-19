@@ -1,16 +1,14 @@
 # Troubleshooting
 
-::: warning Note
+!!! warning Note
 
 This Troubleshooting Guide is now outdated after the newest changes to Tronador. The Guide will be updated soon.
 
-:::
 
-::: warning Note:
+!!! warning Note:
 
 The guide below is written as a SAAP customer's point of view. If you use Tronador independently, the guide below might not be applicable to you. However, you can still use this guide to get an idea of how the process works.
 
-:::
 
 ## Developer support
 

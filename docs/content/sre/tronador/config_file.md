@@ -60,9 +60,8 @@ value_overrides:
       tag: {{APPLICATION_IMAGE_TAG}}
 ```
 
-::: v-pre
-Their values must also be `{{APPLICATION_IMAGE_NAME}}` and `{{APPLICATION_IMAGE_TAG}}` respectively. These keys will be replaced with values provided from the cluster task in your CI pipeline that creates images after each commit.
-:::
+!!! v-pre
+    Their values must also be `{{APPLICATION_IMAGE_NAME}}` and `{{APPLICATION_IMAGE_TAG}}` respectively. These keys will be replaced with values provided from the cluster task in your CI pipeline that creates images after each commit.
 
 ### `values_from`
 
