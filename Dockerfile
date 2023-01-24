@@ -1,10 +1,4 @@
-FROM python:3.8-alpine
-
-LABEL name="Stakater Cloud Documentation" \
-      maintainer="Stakater <hello@stakater.com>" \
-      vendor="Stakater" \
-      release="1" \
-      summary="Documentation for Stakater Cloud"
+FROM python:3.11-alpine as builder
 
 RUN pip3 install mkdocs-material mkdocs-mermaid2-plugin
 
@@ -18,8 +12,19 @@ COPY --chown=1001:root . .
 # build the docs
 RUN mkdocs build
 
+FROM nginxinc/nginx-unprivileged:1.23-alpine as deploy
+COPY --from=builder $HOME/application/site/ /usr/share/nginx/html/
+COPY default.conf /etc/nginx/conf.d/
+
 # set non-root user
 USER 1001
 
-EXPOSE 8080
-CMD ["python", "-m", "http.server", "8080", "-d", "./site"]
+LABEL name="Stakater Cloud Documentation" \
+      maintainer="Stakater <hello@stakater.com>" \
+      vendor="Stakater" \
+      release="1" \
+      summary="Documentation for Stakater Cloud"
+
+EXPOSE 8080:8080/tcp
+
+CMD ["nginx", "-g", "daemon off;"]
