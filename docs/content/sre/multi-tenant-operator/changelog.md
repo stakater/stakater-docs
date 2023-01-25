@@ -2,6 +2,10 @@
 
 ## v0.8.x
 
+**v0.8.3**
+
+- fix: Reconcile namespaces when the group spec for tenants is changed, so new rolebindings can be created for them
+
 **v0.8.1**
 
 - fix: Updated release pipelines
