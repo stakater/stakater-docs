@@ -1,6 +1,6 @@
-`Version: 8 Nov 2022`
-
 # Composition of the Service
+
+`Version: 30 Jan 2023`
 
 The Managed OpenShift service includes, but is not limited to, the following services:
 
