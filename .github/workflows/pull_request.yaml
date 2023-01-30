@@ -50,7 +50,7 @@ jobs:
         uses: nosborn/github-action-markdown-cli@v3.2.0
         with:
           files: docs/content
-          config_file: .markdownlint.yaml
+          config_file: markdownlint.yaml
   build:
     runs-on: ubuntu-latest
     if: "! contains(toJSON(github.event.commits.*.message), '[skip-ci]')"
