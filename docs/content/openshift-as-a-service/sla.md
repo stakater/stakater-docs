@@ -1,6 +1,6 @@
-`Version: 8 Nov 2022`
-
 # Service Level Agreement (SLA)
+
+`Version: 30 Jan 2023`
 
 This SLA establishes conditions and a method for measuring the level of service at a given time, defines the guaranteed level of service, and sets out penalties for violating the guaranteed level of service.
 
@@ -128,7 +128,7 @@ If the SLA is violated for multiple availability types for the same cluster simu
 
 The following sections from the `SAAP` SLA also applies to the `Managed OpenShift Service` SLA:
 
-- [Excused Downtime](../saap-sla/saap-sla.md#6-excused-downtime)
-- [Monthly Uptime Percentage](../saap-sla/saap-sla.md#7-monthly-uptime-percentage)
-- [Limitations](../saap-sla/saap-sla.md#10-limitations)
-- [SLA Exclusions](../saap-sla/saap-sla.md#13-sla-exclusions)
+* [Excused Downtime](../saap-sla/saap-sla.md#6-excused-downtime)
+* [Monthly Uptime Percentage](../saap-sla/saap-sla.md#7-monthly-uptime-percentage)
+* [Limitations](../saap-sla/saap-sla.md#10-limitations)
+* [SLA Exclusions](../saap-sla/saap-sla.md#13-sla-exclusions)

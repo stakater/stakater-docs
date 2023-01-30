@@ -1,6 +1,6 @@
-`Version: 8 Nov 2022`
-
 # Cost of the Service and Settlement Procedure
+
+`Version: 30 Jan 2023`
 
 A. The reporting period for the Service is one calendar month.
 
