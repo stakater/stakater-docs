@@ -16,7 +16,7 @@ To add new environment in cluster do following steps in GitOps directory:
 - Add space file inside **each** application tenants config directory
   **`<application-tenant>/configs/<env>`**`/space.yaml`
 
-  ```
+  ```yaml
   apiVersion: tenantoperator.stakater.com/v1alpha1
   kind: Space
   metadata:

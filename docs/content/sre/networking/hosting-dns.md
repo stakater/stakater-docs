@@ -3,9 +3,9 @@
 Consider have a domain `custom.domain.com`; and you want to host your application on your own domain instead of the default route provided by SAAP i.e. `<MYAPP_NAME>-<MYAPP_NAMESPACE>.apps.<CLUSTER_NAME>.<CLUSTER_ID>.kubeapp.cloud`. You can follow these steps in order to use your own domain:
 
 1. Configure DNS
-2. Configure TLS Certificates
-3. Create Ingress for your Application
-4. Verify
+1. Configure TLS Certificates
+1. Create Ingress for your Application
+1. Verify
 
 ## 1. Configure DNS
 
@@ -17,17 +17,13 @@ In order to host your application on `custom.domain.com`. You need to point your
 
 Use the following command to get the Public IP address of your cluster:
 
-```
+```sh
 nslookup "*.apps.$(oc get dns -ojsonpath='{.items[0].spec.baseDomain}')" | grep Address | tail -1
 ```
 
 #### Step # 2: Create entry in your DNS Provider
 
 Add `A` entry in your DNS provider to point `custom.domain.com` to the public IP obtained in the previous step.
-
-### Option # 2: ExternalDNS
-
-_TODO_
 
 ## 2. Configure TLS certificate secret
 
@@ -49,7 +45,7 @@ These Certificates are generated and can be rotated automatically via Certmanage
 
 If you are doing GitOps with ArgoCD then you need to create an ArgoCD app like following that will watch cert-manager CRs and deploy them to the cluster:
 
-```
+```yaml
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:

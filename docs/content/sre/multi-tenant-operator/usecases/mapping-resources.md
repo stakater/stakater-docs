@@ -43,7 +43,7 @@ NAME             STATE    AGE
 docker-pull-secret    Active   3m
 ```
 
-# Mapping Resources within Tenant Namespaces via TI
+## Mapping Resources within Tenant Namespaces via TI
 
 Anna is a tenant owner who wants to map a `docker-pull-secret`, present in `bluseky-build` namespace, to `bluesky-anna-aurora-sandbox` namespace.
 

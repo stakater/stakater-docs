@@ -107,7 +107,7 @@ application:
 
 SAAP ships with few generic Tekton pipelines for quick jump start; all those pipelines expect to have Dockerfile in the root of the repository. Dockerfile should handle both build and package part; we typically use multi-stage Dockerfiles with 2 steps; one for build and another for run e.g.
 
-```
+```sh
 ## BUILD
 FROM maven:3.6.3-openjdk-11-slim AS build
 COPY src /usr/src/app/src
@@ -154,14 +154,6 @@ Add webhook to the application repository; you can find the webhook URL in the r
 For GitHub add following to the payload.
 
 ![GitHub](./images/github.png)
-
-### GitLab
-
-*TODO*
-
-### Bitbucket
-
-*TODO*
 
 ## 4. Add files to `gitops-config` repository
 

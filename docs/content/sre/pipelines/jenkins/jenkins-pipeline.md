@@ -7,10 +7,7 @@ Jenkins supports two types of pipelines:
 
 ## Declarative Pipeline
 
-Declarative Pipeline provide a simplified and opinionated syntax on top of Jenkins pipeline sub-systems. It supports the
- pipeline as code concept and makes the pipeline declarative hence easier to read, write and re-use.
-
-### Example
+Declarative Pipeline provide a simplified and opinionated syntax on top of Jenkins pipeline sub-systems. It supports the pipeline as code concept and makes the pipeline declarative hence easier to read, write and re-use:
 
 ```groovy
 pipeline {
@@ -36,11 +33,7 @@ pipeline {
 
 ## Scripted Pipeline
 
-Scripted pipelines were designed more or less as general-purpose domain-specific language built with Groovy. It does not
- come with a fixed structure, and it is up to you how you will define your pipeline logic. The declarative pipeline,
- on the other hand, is more opinionated, and its structure is well-defined.
-
-### Example
+Scripted pipelines were designed more or less as general-purpose domain-specific language built with Groovy. It does not come with a fixed structure, and it is up to you how you will define your pipeline logic. The declarative pipeline, on the other hand, is more opinionated, and its structure is well-defined:
 
  ```groovy
 node {

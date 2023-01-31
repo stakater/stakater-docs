@@ -1,4 +1,4 @@
-### Limiting PersistentVolume for Tenant
+# Limiting PersistentVolume for Tenant
 
 Bill, as a cluster admin, wants to restrict the amount of storage a Tenant can use. For that he'll add the `requests.storage` field to `quota.spec.resourcequota.hard`. If Bill wants to restrict tenant `bluesky` to use only `50Gi` of storage, he'll first create a quota with `requests.storage` field set to `50Gi`.
 
@@ -36,7 +36,7 @@ EOF
 
 Now, the combined storage used by all tenant namespaces will not exceed `50Gi`.
 
-### Adding StorageClass Restrictions for Tenant
+## Adding StorageClass Restrictions for Tenant
 
 Now, Bill, as a cluster admin, wants to make sure that no Tenant can provision more than a fixed amount of storage from a StorageClass. Bill can restrict that using `<storage-class-name>.storageclass.storage.k8s.io/requests.storage` field in `quota.spec.resourcequota.hard` field. If Bill wants to restrict tenant `sigma` to use only `20Gi` of storage from storage class `stakater`, he'll first create a StorageClass `stakater` and then create the relevant Quota with `stakater.storageclass.storage.k8s.io/requests.storage` field set to `20Gi`.
 
@@ -73,6 +73,7 @@ EOF
 
 Now, the combined storage provisioned from StorageClass `stakater` used by all tenant namespaces will not exceed `20Gi`.
 
-> ⚠️ The `20Gi` limit will only be applied to StorageClass `stakater`. If a tenant member creates a PVC with some other StorageClass, he will not be restricted.
+> The `20Gi` limit will only be applied to StorageClass `stakater`. If a tenant member creates a PVC with some other StorageClass, he will not be restricted.
 
-> tip: More details about `Resource Quota` can be found [here](https://kubernetes.io/docs/concepts/policy/resource-quotas/)
+!!! tip
+More details about `Resource Quota` can be found [here](https://kubernetes.io/docs/concepts/policy/resource-quotas/)
