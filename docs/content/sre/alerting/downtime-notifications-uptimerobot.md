@@ -1,16 +1,16 @@
 # External downtime alerting
 
-Stakater App Agility Platform provides downtime notifications for Applications via [IngressMonitorController](https://github.com/stakater/IngressMonitorController) which out of the box integrates with [UptimeRobot](https://uptimerobot.com) and many other services. For this guide we will configure a slack channel for receiving the alerts; but you can configure any medium supported by the service (email, PagerDuty, etc.).
+Stakater App Agility Platform provides downtime notifications for Applications via [IngressMonitorController](https://github.com/stakater/IngressMonitorController) which out of the box integrates with [UptimeRobot](https://uptimerobot.com) and many other services. For this guide we will configure a Slack channel for receiving the alerts; but you can configure any medium supported by the service (email, PagerDuty, etc.).
 
 To configure downtime alerting do following:
 
-1. Configure incoming webhook in slack
-2. Create alert contact on UptimeRobot with webhook
-3. Update IMC configuration
-4. Enable EndpointMonitor in the application
-5. Validate downtime notification
+1. Configure incoming webhook in Slack
+1. Create alert contact on UptimeRobot with webhook
+1. Update IMC configuration
+1. Enable EndpointMonitor in the application
+1. Validate downtime notification
 
-## 1. Configuring incoming webhook in slack
+## 1. Configuring incoming webhook in Slack
 
 - While in your Slack workspace, left-click the name of your workspace, and pick `Administration` > `Manage Apps` from the dropdown Menu.
 - A new browser window should appear in which you can customize your workspace. From here, navigate to `Custom Integrations` and then to `Incoming WebHooks`.

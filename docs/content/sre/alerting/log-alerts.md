@@ -4,16 +4,16 @@ Stakater App Agility Platform provides alerting for applications logs via [Konfi
 
 To configure log alerting do following:
 
-1. Configure the incoming webhook in slack
-2. Configure `FluentdConfigAnnotation` in application Helm chart
+1. Configure the incoming webhook in Slack
+1. Configure `FluentdConfigAnnotation` in application Helm chart
 
-## 1. Configure the incoming webhook in slack
+## 1. Configure the incoming webhook in Slack
 
 !!! note
     Always use Slack bot account to manage incoming webhooks. An integration/app might fail if the user who added it leaves.
 
 - While in your Slack workspace, left-click the name of your workspace, and pick `Administration` > `Manage Apps` from the dropdown Menu.
-- A new browser window should appear in which you can customize your workspace. From here, navigate to browse and then search `Incoming WebHooks` in slack apps.
+- A new browser window should appear in which you can customize your workspace. From here, navigate to browse and then search `Incoming WebHooks` in Slack apps.
 - Now you can configure a new `Incoming WebHook` by clicking the big, green `Add to Slack` button.
 - The first form lets you pick any existing channel or user on your workspace to notify when the WebHook is called. A new channel can also be created here.
 - After picking a channel or user to be notified, click the `Add Incoming WebHooks Integration` Button. The most important part on the next screen is the `WebHook URL`. Make sure you copy this URL and save it
@@ -25,7 +25,7 @@ The configuration to parse/match/send logs can be specified in the [Application 
 
 | Parameter | Description |
 |:---|:---|
-|`.Values.deployment.fluentdConfigAnnotations.notifications.slack`|specify slack *`webhookURL`* and *`channelName`*|
+|`.Values.deployment.fluentdConfigAnnotations.notifications.slack`|specify Slack *`webhookURL`* and *`channelName`*|
 |`.Values.deployment.fluentdConfigAnnotations.key`|specify log field to match the regex|
 |`.Values.deployment.fluentdConfigAnnotations.pattern`|specify regex to be matched|
 

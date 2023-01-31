@@ -79,4 +79,4 @@ By default Application logs are retained for 7 days.
 
 ## Application alerting
 
-Alerts can be sent to slack channels by matching a string against a particular field. e.g. Send an alert to slack if `level`==`ERROR`. These alerts increase operational efficiency. See [Application log alerting](../alerting/log-alerts.md#Application-Logs-Alerting) on how to configure alerts
+Alerts can be sent to Slack channels by matching a string against a particular field. e.g. Send an alert to Slack if `level`==`ERROR`. These alerts increase operational efficiency. See [Application log alerting](../alerting/log-alerts.md#Application-Logs-Alerting) on how to configure alerts

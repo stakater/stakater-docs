@@ -91,7 +91,7 @@ alertmanagerConfig:
             insecureSkipVerify: true
 ```
 
-With this configuration all predefined rules and any new rule which you define should land in the configured slack channel.
+With this configuration all predefined rules and any new rule which you define should land in the configured Slack channel.
 
 **Note:**
 AlertmanagerConfig will add a match with your namespace name by default, which will look like this:
