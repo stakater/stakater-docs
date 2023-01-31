@@ -42,6 +42,7 @@ volumes:
 ~~~
 
 Create a namespace:
+
 ~~~
 apiVersion: v1
 kind: Namespace
@@ -50,6 +51,7 @@ metadata:
 ~~~
 
 Create the Stateful app:
+
 ~~~
 apiVersion: apps/v1
 kind: StatefulSet
@@ -141,6 +143,7 @@ spec:
 ~~~
 
 Create the service for the app:
+
 ~~~
 apiVersion: v1
 kind: Service

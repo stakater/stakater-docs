@@ -114,7 +114,7 @@ This SERVICE LEVEL AGREEMENT ("**SLA**") is by and between **Stakater** and you 
 
 - 10.4 Financial Credits will not entitle Customer to any refund or other payment from Stakater.
 
-- 10.5 Financial Credits may not be transferred or applied to any other account. 
+- 10.5 Financial Credits may not be transferred or applied to any other account.
 
 - 10.6 Customer may not unilaterally offset the fees due from Customer for any performance or availability issues.
 

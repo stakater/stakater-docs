@@ -12,7 +12,6 @@ To configure log alerting do following:
 !!! note
     Always use Slack bot account to manage incoming webhooks. An integration/app might fail if the user who added it leaves.
 
-
 - While in your Slack workspace, left-click the name of your workspace, and pick `Administration` > `Manage Apps` from the dropdown Menu.
 - A new browser window should appear in which you can customize your workspace. From here, navigate to browse and then search `Incoming WebHooks` in slack apps.
 - Now you can configure a new `Incoming WebHook` by clicking the big, green `Add to Slack` button.

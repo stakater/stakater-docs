@@ -45,21 +45,21 @@ kubeseal --controller-name=sealed-secrets --controller-namespace=stakater-sealed
 
 where:
 
-- SECRET_FILE: the name of the yaml file containing the k8s secret
-- SEALED_SECRET: the name of the yaml file that will contain the sealed secret
+* `SECRET_FILE`: the name of the yaml file containing the k8s secret
+* `SEALED_SECRET`: the name of the yaml file that will contain the sealed secret
 
 e.g. to encrypt the above `secret-mysql.yaml` file, you need to run
 
 ## For Dynamic Test Environment
 
-To use secrets in dynamic test environments(for PR environment),you need to seal secret with ```cluster-wide``` scope so that it can be decrypted by any namespace. since PR namespaces are dynamic and tied to the lifecycle of PR,```cluster-wide``` scope make sure that it can be decrypted by dynamic namespaces. Following are the steps to create sealedsecrets in DTE:
-
+To use secrets in dynamic test environments(for PR environment),you need to seal secret with `cluster-wide` scope so that it can be decrypted by any namespace. since PR namespaces are dynamic and tied to the lifecycle of PR,`cluster-wide` scope make sure that it can be decrypted by dynamic namespaces. Following are the steps to create sealedsecrets in DTE:
 
 ```sh
 kubeseal --controller-name=sealed-secrets --controller-namespace=stakater-sealed-secrets --format yaml --scope cluster-wide < secret-mysql.yaml 
 ```
 
-Above command will generate sealedsecret resource output . for example 
+Above command will generate sealedsecret resource output, for example:
+
 ```yaml
 apiVersion: bitnami.com/v1alpha1
 kind: SealedSecret
@@ -80,7 +80,9 @@ spec:
       creationTimestamp: null
       name: mysql-secrets
 ```
+
 you need to add sealedsecret block in Helm values present in `deploy/values.yaml` in your application repository and copy paste key values from generated output
+
 ```yaml
   sealedSecret:
     enabled: true
@@ -94,14 +96,15 @@ you need to add sealedsecret block in Helm values present in `deploy/values.yaml
          USERNAME: AgAkGib0aXLAXjJ9CIIg7HG56TjVU6NqZ8DKfFuMItupYJ6iacQ3aIOETpLKTUBsTFXt4MLHG0SJYDVBmTQ7xinjwbz0iwb6jtTLoI4wlSzoVByTfZMqkvMmqLSOdKXatzfKQl3VwpO/     qJTwPV9iQotPvzpD+tP5bwrZ7/g06kivhBM3A+gj63+j14MGQYAnwoV2OVSsj1aCNi2cR8Og0GWlwvO6bsO1xljud9yy271hVMu/eBToLS/ocu/+m00p/ey7Sdi4J4s8R8n8OqSiYD+QgNMm99dC3m/ BeSAXe7hCna0OnCX9aMMGhNzkD7fD8FX1xB8nN3pp+zNFfVxd0bT0e+CkZREhGtxil8Q9WOv/bmguinkTgBP     +rcCtPUu6AdIxKH3VTPcmoqDCdI7DxzoJ3daGTzruTYD4WATuoYGgeK6nPsQPDutWLqNCfiTW1PvUyfDSqpyaSJp+exc2YqlbK+QVZMRP9gSM91zfHSM2PkfuqQPAA2     +wlgjvyZ44akTvpVnDplxMXvMfJDC3e8bjyHYz1CGYcSeE9iO/OyhK1N+6HWVwHEGwmkboA/b9HnDz/dhTpfiZx2Szmmf1XBUPRshVpArlzrdOlQTXXYvf8FfBBf0whTT6lCLJqs7JORaxYphU   +tmgjCkzUfhKxjPYYrhH4uryizQWr+Wu/Y3mPe23HQ88b/P7WV6qkv1X1LHWXHZK 
 ```
 
-## For Dev Environment:
+## For Dev Environment
 
 To generate sealedsecrets for dev environment, you need to run the following command
 
 ```sh
 kubeseal --controller-name=sealed-secrets --controller-namespace=stakater-sealed-secrets --format yaml  < secret-mysql.yaml 
 ```
-Above command will generate sealedsecret resource output . for example 
+
+Above command will generate sealedsecret resource output, for example:
 
 ```yaml
 apiVersion: bitnami.com/v1alpha1

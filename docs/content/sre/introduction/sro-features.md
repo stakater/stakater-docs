@@ -1,6 +1,7 @@
 # Stakater App Agility Platform Features
 
 ### Fully managed enterprise Kubernetes
+
 - Professionally managed infrastructure
 - Automated deployment of OpenShift clusters
 - Automated scaling configuration
@@ -15,12 +16,14 @@
 - Flexible pricing and consumption. Use existing clouds or purchase a standard cluster through Stakater.
 
 ### Full-service clusters
+
 - World class support
 - Global regional availability
 - End-to-end service including building, installing, upgrading, managing, and maintaining every cluster.
 - High uptime (99.5% uptime SLA and support)
 
 ### Supporting services
+
 - Automated development workflows
 - System service monitoring and log management
 - Identity and access management

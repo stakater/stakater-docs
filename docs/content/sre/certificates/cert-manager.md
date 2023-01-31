@@ -22,9 +22,10 @@ Two types of acme solvers are supported, The Pros and Cons of both strategies ca
 1. [HTTP01 Challenge](https://letsencrypt.org/docs/challenge-types/#http-01-challenge)
 2. [DNS01 Challenge](https://letsencrypt.org/docs/challenge-types/#dns-01-challenge)
 
-
 #### HTTP01 Challenge
+
 For HTTP01 Challenge you just need to specify ingress field:
+
 ```
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
@@ -43,6 +44,7 @@ spec:
 ```
 
 #### DNS01 Challenge
+
 For DNS01 Challenge you need to first create a secret in `stakater-cert-manager-operator` namespace that should contain the values to alter entries in your DNS provider. Following is an example for configuring AWS's Route53. Check configuration for your provider [here](https://cert-manager.io/v1.7-docs/configuration/acme/dns01/#supported-dns01-providers)
 
 !!! tip

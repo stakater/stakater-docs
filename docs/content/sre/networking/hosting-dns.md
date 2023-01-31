@@ -16,6 +16,7 @@ In order to host your application on `custom.domain.com`. You need to point your
 #### Step # 1: Obtain Public IP Address
 
 Use the following command to get the Public IP address of your cluster:
+
 ```
 nslookup "*.apps.$(oc get dns -ojsonpath='{.items[0].spec.baseDomain}')" | grep Address | tail -1
 ```
@@ -28,7 +29,6 @@ Add `A` entry in your DNS provider to point `custom.domain.com` to the public IP
 
 _TODO_
 
-
 ## 2. Configure TLS certificate secret
 
 There are two ways to configure TLS Certificate secret:
@@ -38,7 +38,7 @@ There are two ways to configure TLS Certificate secret:
 
 ### Option # 1: Certmanager Operator
 
-Certmanager Operator let's you automate the certification issuing process via Let's Encrypt CA. 
+Certmanager Operator let's you automate the certification issuing process via Let's Encrypt CA.
 
 See [Cert-manager documentation](../certificates/cert-manager.md#Example-Certificate-Generation-using-Let's-Encrypt) for a working example
 
@@ -92,8 +92,8 @@ metadata:
   namespace: <APP_NAMESPACE>
 type: kubernetes.io/tls
 ```
-This TLS certificate then can be referred in TLS section of the Ingress resource.
 
+This TLS certificate then can be referred in TLS section of the Ingress resource.
 
 ## 3. Create Ingress for your Application
 
@@ -114,6 +114,7 @@ ingress:
     secretName: custom-domain-tls-cert
 ...
 ```
+
 It will take 2-3 min for Certmanager to issue a certificate and upon success, `custom-domain-tls-cert` secret will be populated with the cert values.
 
 ## 4. Verify

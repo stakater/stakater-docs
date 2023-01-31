@@ -132,6 +132,7 @@ spec:
 ### mappings
 
 `mappings` contains an array of repository mappings. Each repository mapping contains the following fields:
+
 - **`repos`**: A list of repositories on whose DTEs the mapping will apply. Make sure to write just the Name of the repository itself, not the URL or Organization name.
 - **`authSecret`**: Name of the Secret required in case of a private repository. If this field is not filled, it will be treated as a public repository.
 - **`imagePullSecret`**: Name of the Secret required to access the image repository where the application's images are hosted, e.g. Nexus or Docker.
@@ -141,11 +142,11 @@ spec:
 `orgLevelSecrets` contains Secrets that are to be used as default Secrets for any repositories that do not have their name mentioned in a mapping. This field can prove useful in case there are a large number of repositories that share the same Secret(s), and it is infeasible to write all of the repository names in a mapping.
 
 `orgLevelSecrets` contains two subfields:
+
 - **`authSecret`**: Name of the Secret required to access a private repository.
 - **`imagePullSecret`**: Name of the Secret required to access the image repository where the application's images are hosted, e.g. Nexus or Docker.
 
 `orgLevelSecrets` and both of its sub-fields are optional.
-
 
 ### secrets
 
@@ -167,6 +168,7 @@ data:
   username: <BASE64>
   password: <BASE64>
 ```
+
 ##### HTTPS Certificate Authority
 
 To provide a Certificate Authority to trust while connecting with a Git repository over HTTPS, the referenced Secret can contain a .data.caFile value.
@@ -202,6 +204,7 @@ stringData:
 ```
 
 ## Points to be considered while applying TronadorConfig
+
 - Tronador and all Environments would throw errors in case any cluster-wide resource is mentioned in the TronadorConfig.
 - If namespace is set in any resource, Tronador will ignore it and only deploy the resource to the relevant namespace (see mappings section above).
 - Tronador will only apply resources from the TronadorConfig CR present in the operator Namespace, and named `tronador-config`.

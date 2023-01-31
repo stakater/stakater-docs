@@ -182,7 +182,7 @@ Inside application tenants folder, there is a separate folder of each applicatio
 
 #### Environments
 
-Inside each application folder, there is a separate folder of each environment where application will gets deployed to. Inside each environment folder there will be actual deployment files. 
+Inside each application folder, there is a separate folder of each environment where application will gets deployed to. Inside each environment folder there will be actual deployment files.
 
 Deployment files can only be vanilla yaml files, Helm chart and Kustomize repository that are supported by ArgoCD.
 

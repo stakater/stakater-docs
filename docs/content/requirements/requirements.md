@@ -20,7 +20,7 @@ Resource requirements for a single SAAP cluster is as follows:
 | Load Balancers <span style="color: red;">*</span> | 3 | 3 |
 | Public IPs      | 2 | 2 |
 
->  <span style="color: red;">*</span> Load Balancers are only required for AWS, Azure and GCP.
+> <span style="color: red;">*</span> Load Balancers are only required for AWS, Azure and GCP.
 
 ### Minimum
 

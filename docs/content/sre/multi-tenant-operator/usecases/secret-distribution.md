@@ -1,8 +1,9 @@
 # Propagate Secrets from Parent to Descendant namespaces
 
-Secrets like `registry` credentials often need to exist in multiple Namespaces, so that Pods within different namespaces can have access to those credentials in form of secrets. 
+Secrets like `registry` credentials often need to exist in multiple Namespaces, so that Pods within different namespaces can have access to those credentials in form of secrets.
 
 Manually creating secrets within different namespaces could lead to challenges, such as:
+
 - Will have to create secret either manually or via GitOps each time there is a new descendant namespace that needs the secret
 - If we update the parent secret, will have to update the secret in all descendant namespaces
 - This could be time-consuming, and a small mistake while creating or updating the secret could lead to unnecessary debugging

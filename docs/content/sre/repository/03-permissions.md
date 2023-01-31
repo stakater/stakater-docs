@@ -4,7 +4,7 @@
 
 We divide the nexus users into 2 groups according to the interaction method:
 
-1. human users and 
+1. human users and
 2. machines users
 
 #### 1. Human Users
@@ -35,6 +35,6 @@ Here is machine users list:
 `mnn-users` are able to access maven2, NuGet and NPM repositories (`mnn` stands for Maven, NuGet and NPM); developers should use these users if they want to connect their package manager with nexus
 
 3. `mnn-ro-user` user has read only permission on repositories.
-4. `mnn-rw-user` user has read&write permission on repositories. 
+4. `mnn-rw-user` user has read&write permission on repositories.
 
 The following local users are created automatically in nexus so you can use it. The credentials are rotated according to the secret management policy automatically. And you can find the passwords for these users in Vault.

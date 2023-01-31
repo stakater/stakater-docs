@@ -16,12 +16,11 @@ To configure a Hibernation Schedule, go to your Cluster Management page where yo
 
 Click on the menu button beside the cluster for which you wish to set a hibernation window and select Manage `Power State`.
 
-
 ![manage_powerstate_1](./imgs/manage-powerstate-1.png)
 
-**Hibernating Schedule** accepts a cron expression which specifies when to power your cluster down. E.g a cron expression of “0 20 * * *” will power your cluster down at 8pm  every day.
+**Hibernating Schedule** accepts a cron expression which specifies when to power your cluster down. E.g a cron expression of “0 20 ** *” will power your cluster down at 8pm  every day.
 
-**Running Schedule** accepts a cron expression which specifies when to power  your cluster up. E.g a cron expression of “0 8 * * *” will power your cluster up at 8am every day.
+**Running Schedule** accepts a cron expression which specifies when to power  your cluster up. E.g a cron expression of “0 8 ** *” will power your cluster up at 8am every day.
 
 **cron Schedule** allows you to enable or disable a cron schedule.
 
@@ -31,9 +30,4 @@ Setting your Power State to Hibernation will immediately power your cluster down
 
 ![manage_poerstate2](./imgs/manage-powerstate2.png)
 
-
 Now that you have implemented your hibernation schedule, your cluster will be offline during cluster hibernation, helping you save on cloud costs for your cluster nodes.
-
-
-
-

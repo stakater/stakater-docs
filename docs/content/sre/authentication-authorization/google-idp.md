@@ -24,9 +24,11 @@ To enable login with Google you first have to create a project and a client in t
 ![client-id-scret](./images/google-client-id-secret.png)
 
 ## Items provided by Stakater Support
+
 - `Redirect URIs`
 
 ## Items to be provided to Stakater Support
+
 - `Client ID`
 - `Secret`
 - `Authorized Domain` Users of this google domain will be able to access the cluster

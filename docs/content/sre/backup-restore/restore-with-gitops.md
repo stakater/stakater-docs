@@ -33,7 +33,7 @@ spec:
   ttl: 2h0m0s
 ~~~
 
-## 3. Disable self heal in ArgoCD:
+## 3. Disable self heal in ArgoCD
 
 Disable self heal in ArgoCD application that is managing PVC so it does not recreate resources from GitOps.
 
@@ -44,7 +44,7 @@ Disable self heal in ArgoCD application that is managing PVC so it does not recr
       selfHeal: false
 ```
 
-## 4. Delete PVC 
+## 4. Delete PVC
 
 Scale down `statefulset` pod so PVC can be deleted
 
@@ -54,7 +54,7 @@ oc scale statefulsets <NAME> --replicas 0
 
 Delete the PVC which you want to restore data so that its created again by Velero.
 
-``` 
+```
 oc delete pvc <PVC-NAME> -n <NAMESPACE> 
 ```
 
@@ -105,7 +105,7 @@ Validate the data exists in the database.
 
 ## 8. Enable self heal again
 
-Enable self heal so ArgoCD start managing resources again. 
+Enable self heal so ArgoCD start managing resources again.
 
 ```
   syncPolicy:

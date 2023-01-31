@@ -14,7 +14,7 @@ There are three types of maintenance for Stakater Agility Platform: upgrades, ba
 
 ### What is the general upgrade process?
 
-Running an upgrade should be a safe process to run and should not disrupt cluster services. The SRE can trigger the upgrade process when new versions are available or CVEs are outstanding. Available updates are tested in a staging environment and then applied to production clusters. Following best practices helps ensure minimal to no downtime. 
+Running an upgrade should be a safe process to run and should not disrupt cluster services. The SRE can trigger the upgrade process when new versions are available or CVEs are outstanding. Available updates are tested in a staging environment and then applied to production clusters. Following best practices helps ensure minimal to no downtime.
 
 Planned maintenance is not pre-scheduled with the customer. Notifications may be sent via email if communication to the customer is required.
 

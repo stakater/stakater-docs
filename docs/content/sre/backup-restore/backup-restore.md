@@ -3,6 +3,7 @@
 Back up and restore applications on Stakater App Agility Platform (AAP)
 
 ## Prerequisite
+
 You need Velero CLI setup, follow the `velero-cli` [doc](./velero-cli.md)
 
 ## Service viewpoint
@@ -15,6 +16,7 @@ Stakater App Agility Platforms divides backups into two:
 2. Platform Tools backups
 
 These Backups are stored on the Cloud Provider under your account.
+
 #### Customer Backups
 
 There are 3 default backup schedules for customers that are deployed with offered Velero tool
@@ -31,21 +33,21 @@ Stakater only takes backups of the managed applications:
 
 | Tool                       | Backup Frequency |   Backup Retention   |
 | -------------------------- | ---------------- | -------------------- |
-| Nexus                      |    Every 24 hrs   |   Last 3 Backup(s)   | 
+| Nexus                      |    Every 24 hrs   |   Last 3 Backup(s)   |
 | Prometheus (Cluster)       |    Every 24 hrs   |   Last 3 Backup(s)   |
 | Prometheus (Applications)  |    Every 24 hrs   |   Last 3 Backup(s)   |
 | Elasticsearch              |    Every 24 hrs   |   Last 3 Backup(s)   |
-| Vault                      |    Every 24 hrs   |   Last 3 Backup(s)   | 
-| SonarQube                  |    Every 24 hrs   |   Last 3 Backup(s)   | 
-| CodeReadyWorkspaces        |    Every 24 hrs   |   Last 3 Backup(s)   | 
-| RHSSO (Keycloak)           |    Every 24 hrs   |   Last 3 Backup(s)   | 
-| ArgoCD                     |    Every 24 hrs   |   Last 3 Backup(s)   | 
+| Vault                      |    Every 24 hrs   |   Last 3 Backup(s)   |
+| SonarQube                  |    Every 24 hrs   |   Last 3 Backup(s)   |
+| CodeReadyWorkspaces        |    Every 24 hrs   |   Last 3 Backup(s)   |
+| RHSSO (Keycloak)           |    Every 24 hrs   |   Last 3 Backup(s)   |
+| ArgoCD                     |    Every 24 hrs   |   Last 3 Backup(s)   |
 
 If you want to change backup frequency/retention times for your specific needs, contact support.
 
 ### Restore
 
-Resources can be restored on demand. Please contact support and specify the following 
+Resources can be restored on demand. Please contact support and specify the following
 
 - Time to restore back to.
 - Namespaces to include/exclude from backup
@@ -64,8 +66,10 @@ Using Schedules and Read-Only Backup Storage Locations & Volume Snapshot Locatio
 
 First things first, Velero needs a BackupStorageLocation where backups can be stored
 These are including the backup destination storage information
+
 - BackupStorageLocation CR
 ex:
+
 ~~~
 apiVersion: velero.io/v1
 kind: BackupStorageLocation
@@ -79,8 +83,10 @@ metadata:
       bucket: *********
     provider: aws
 ~~~
+
 - VolumeSnapshotlocation CR (Not needed when using CSI Plugin for backups)
 ex:
+
 ~~~
 apiVersion: velero.io/v1
 kind: VolumeSnapshotLocation
@@ -92,9 +98,12 @@ metadata:
       region: eu-central-1
     provider: aws
 ~~~
+
 Then schedule the backup by using the backup locations and specifying the various filters for backup target.
+
 - Create Schedule CR
 ex:
+
 ~~~
 apiVersion: velero.io/v1
 kind: Schedule
@@ -121,9 +130,12 @@ metadata:
       volumeSnapshotLocations:
       - default
 ~~~
+
 Or you can specify a single Backup using a backup CR.
+
 - Create a Backup CR
 ex:
+
 ~~~
 apiVersion: velero.io/v1
 kind: Backup
@@ -140,22 +152,27 @@ spec:
   volumeSnapshotLocations:
   - default
 ~~~
+
 ##### Different Schedule Definitions and their meanings
+
 Changing some parameters in Schedule CR, changes the backup behavior
+
 - `snapshotVolumes`: (boolean)
-  - `true` (makes Velero to take native volume snapshots)
-  - `false` (no native Velero snapshots taken)
-  - Not Specify (Defaults to auto behavior define within Velero)
+    - `true` (makes Velero to take native volume snapshots)
+    - `false` (no native Velero snapshots taken)
+    - Not Specify (Defaults to auto behavior define within Velero)
   Note: You don't specify this parameter with Velero CSI plugin
 
 - `includeClusterResources`: (boolean)
-  - `true` (includes all cluster level resource, `snapshotVolumes` needs to be true to take PV snapshots)
-  - `false` (exclude cluster level resources, including PVs. So there will be no snapshots)
+    - `true` (includes all cluster level resource, `snapshotVolumes` needs to be true to take PV snapshots)
+    - `false` (exclude cluster level resources, including PVs. So there will be no snapshots)
 
 - Excluding both `snapshotVolumes` and `includeClusterResources` will have default behavior of taking snapshots for only included namespaces PVs.
 
 #### Backup target Filters
+
 You can use [resource filtering](https://velero.io/docs/main/resource-filtering/) options to backup specific resources. Typical ones are following;
+
 - `labelSelector`: Specify the labels for the backup target resources
    MatchExpression has several operators such as `In`, `NotIn`, `Exists` and `DoesNotExist`.
 - `includeClusterResources`: (boolean) Set true to include cluster level resources like PV etc.
@@ -166,29 +183,35 @@ You can use [resource filtering](https://velero.io/docs/main/resource-filtering/
 **NOTE**: You have to select the resource filters properly. For example, if the target application has cluster-scope resources, then you cannot use `--include-namespaces` only.
 
 #### backup destination
+
 - `snapshotVolumes`: (boolean) Set true for doing volume snapshots
 - `storageLocation`: BackupStorageLocation CR name
 - `volumeSnapshotLocations`: VolumeSnapshotlocation CR name
 
 #### retention policy
+
 - `ttl`: The backup retention period
 
 ### Restore
 
 Restore on the same cluster or the other cluster in the case of cluster broken.
 Update your backup storage location to read-only mode (this prevents backup objects from being created or deleted in the backup storage location during the restore process):
+
 ~~~
 kubectl patch backupstoragelocation <STORAGE LOCATION NAME> \
     --namespace openshift-velero \
     --type merge \
     --patch '{"spec":{"accessMode":"ReadOnly"}}'
 ~~~
+
 Create a restore with your most recent Velero Backup:
+
 ~~~
 velero restore create --from-backup <BACKUP NAME>
 ~~~
 
 When ready, revert your backup storage location to read-write mode:
+
 ~~~
 kubectl patch backupstoragelocation <STORAGE LOCATION NAME> \
    --namespace openshift-velero \
@@ -200,7 +223,9 @@ kubectl patch backupstoragelocation <STORAGE LOCATION NAME> \
 
 If you want to restore specific resources, you can use [resource filtering](https://velero.io/docs/main/resource-filtering/).
 For example, you can restore resources in `web` namespace:
+
 ```
 velero restore create --from-backup <BACKUP NAME> --include-namespaces web --namespace openshift-velero
 ```
+
 **NOTE**: You have to select the resource filters properly. For example, if the target application has cluster-scope resources, then you cannot use `--include-namespaces` only.

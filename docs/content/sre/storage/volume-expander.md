@@ -1,6 +1,6 @@
 # Volume Expansion
 
-Stakater App Agility Platform offers volume expansion to expand volumes when they are running out of space. Volume expansion periodically checks the `kubelet_volume_stats_used_bytes` and `kubelet_volume_stats_capacity_bytes` published by the kubelets to decide when to expand a volume. These metrics are generated only when a volume is mounted to a pod. Also the kubelet takes a minute or two to start generating accurate values for these metrics. 
+Stakater App Agility Platform offers volume expansion to expand volumes when they are running out of space. Volume expansion periodically checks the `kubelet_volume_stats_used_bytes` and `kubelet_volume_stats_capacity_bytes` published by the kubelets to decide when to expand a volume. These metrics are generated only when a volume is mounted to a pod. Also the kubelet takes a minute or two to start generating accurate values for these metrics.
 
 Volume expansion works based on the following annotations to PersistentVolumeClaim resources:
 
@@ -15,6 +15,7 @@ Volume expansion works based on the following annotations to PersistentVolumeCla
 Example:
 
 Consider the example where below annotations configured on persistent volume claim.
+
 ```
 volume-expander-operator.redhat-cop.io/autoexpand: 'true'             # Enables the volume-expansion to watch on this PVC
 volume-expander-operator.redhat-cop.io/expand-threshold-percent: "85" # Volume expansion will expand the volume when 85 percent of storage is consumed
@@ -22,6 +23,3 @@ volume-expander-operator.redhat-cop.io/expand-by-percent: "20"        # Volume e
 volume-expander-operator.redhat-cop.io/polling-frequency: "10m"       # Volume expansion poll the volume metrics after every 10 minutes
 volume-expander-operator.redhat-cop.io/expand-up-to: "1Ti"            # Volume will be expanded no more than 1TB
 ```
-
-
-

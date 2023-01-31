@@ -6,18 +6,18 @@ To onboard a new application you need to make following changes:
 
 1. add Helm files to application repository
 2. add dockerfile to application repository
-3. add webhook to application repository 
+3. add webhook to application repository
 4. add few files to GitOps-config repository
 
 Following are the changes you need to make in order to on-board a new application.
 
 Replace angle brackets with following values in below templates:
 
-  - `<tenant>`: Name of the tenant
-  - `<application>`: Name of git repository of the application
-  - `<env>`:  Environment name
-  - `<gitops-repo>`:  URL of your GitOps repo
-  - `<nexus-repo>`: URL of nexus repository
+- `<tenant>`: Name of the tenant
+- `<application>`: Name of git repository of the application
+- `<env>`:  Environment name
+- `<gitops-repo>`:  URL of your GitOps repo
+- `<nexus-repo>`: URL of nexus repository
 
 ## 1. Add Helm files to application repo
 
@@ -30,7 +30,7 @@ We use [`stakater application`](https://github.com/stakater-charts/application/t
 
 - Chart.yaml
 
-```yaml 
+```yaml
 apiVersion: v2
 name: <application>
 description: A Helm chart for Kubernetes
@@ -157,11 +157,11 @@ For GitHub add following to the payload.
 
 ### GitLab
 
-_TODO_
+*TODO*
 
 ### Bitbucket
 
-_TODO_
+*TODO*
 
 ## 4. Add files to `gitops-config` repository
 

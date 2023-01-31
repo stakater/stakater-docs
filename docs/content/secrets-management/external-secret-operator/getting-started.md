@@ -1,4 +1,4 @@
-# Getting Started with External Secret Operator:
+# Getting Started with External Secret Operator
 
 To use External Secret Operator for your application, you need to perform following steps:
 
@@ -39,14 +39,14 @@ Log in to the Vault by selecting OIDC from **Method** dropdown. In the pop up wi
 Do the following steps to add secret in Vault:
 
 - Click on your TENANT/kv path
-- Click on **Create Secret** button 
+- Click on **Create Secret** button
 - Provide key-value pair to add secret
 
 ![Add Secret](./images/add-secret.png)
 
 ## Configure ExternalSecrets in Helm values
 
-In your `deploy/values.yaml`, enable `externalSecret` and provide details of the secret path in Vault. 
+In your `deploy/values.yaml`, enable `externalSecret` and provide details of the secret path in Vault:
 
 ```yaml
 externalSecret:

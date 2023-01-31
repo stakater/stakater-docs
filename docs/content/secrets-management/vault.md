@@ -1,6 +1,6 @@
 # Vault
 
-Vault is a tool for securely accessing secrets. A secret is anything that you want to tightly control access to, such as API keys, passwords, or certificates. 
+Vault is a tool for securely accessing secrets. A secret is anything that you want to tightly control access to, such as API keys, passwords, or certificates.
 Vault provides a unified interface to any secret, while providing tight access control and recording a detailed audit log.
 
 When you create a secret in Kubernetes it is stored in etcd as plain text, also the secret is accessible to anyone that has access to your cluster. Vault solves this issue by providing a central secret management store that provides an additional layer of security using it's authentication methods. Secrets are only accessible when you provide a corresponding token
@@ -22,11 +22,10 @@ Users included in any tenants can access to the Vault UI using OIDC authenticati
 
 Once login, users can do all actions on the path `TENANT_NAME/*`.
 
-- Enable/disable any kinds of secret engines
+* Enable/disable any kinds of secret engines
+* Create/update/get/list/delete secrets
 
-- Create/update/get/list/delete secrets
-
-**Authentication**
+### Authentication
 
 ![Vault-oidc-login](./images/vault_oidc_login.png)
 
@@ -38,13 +37,13 @@ Once login, users can do all actions on the path `TENANT_NAME/*`.
 
 ![Vault-login_popup](./images/login_popup.png)
 
-**Enable secret engines**
+### Enable secret engines
 
 ![select-secret-engine](./images/select_secret_engine.png)
 
 ![configure-secret-engine](./images/configure_secret_engine.png)
 
-**Create secrets**
+### Create secrets
 
 ![create-secret](./images/create_secret.png)
 
@@ -57,7 +56,6 @@ To use Vault CLI, the token is required. Users can get/renew/revoke the token on
 Once token is fetched, users can use the CLI provided by UI. So there is no need to install Vault CLI.
 
 ![Vault-cli](./images/vault_cli.png)
-
 
 ```bash
 Vault login token=${TOKEN}
@@ -79,7 +77,7 @@ To mount Vault secret in a volume do following:
 
 _TODO_ Is this step required by all three options?
 
-- **Step 1**: Add label in serviceaccount so it can be granted Vault read access to secret path
+* **Step 1**: Add label in serviceaccount so it can be granted Vault read access to secret path
 
      ```bash
       serviceAccount:
@@ -88,7 +86,7 @@ _TODO_ Is this step required by all three options?
           stakater.com/vault-access: "true"
      ```
 
-- **Step 2**: Enable ```SecretProviderClass``` object in Helm values and define key and value path of Vault. For example
+* **Step 2**: Enable ```SecretProviderClass``` object in Helm values and define key and value path of Vault. For example
 
      ```bash
      secretProviderClass:
@@ -99,9 +97,9 @@ _TODO_ Is this step required by all three options?
         - objectName: postgresql-password
           secretPath: gabbar/data/postgres
           secretKey: postgresql-password
-     ``` 
+     ```
 
-- **Step 3**: Define volume in Helm values that use above created ```SecretProviderClass```
+* **Step 3**: Define volume in Helm values that use above created ```SecretProviderClass```
   
      ```bash
      deployment:
@@ -113,8 +111,8 @@ _TODO_ Is this step required by all three options?
              volumeAttributes:
                secretProviderClass: postgres-secret
      ```
-    
-- **Step 4**: Now mount this volume in container
+
+* **Step 4**: Now mount this volume in container
   
      ```bash
      volumeMounts:
@@ -127,7 +125,7 @@ _TODO_ Is this step required by all three options?
 
 To mount Vault secret in an environment variable do following:
 
-- **Step 1**: Enable ```SecretProviderClass``` object in Helm values and define key/value path and secret objects in Vault. For example
+* **Step 1**: Enable ```SecretProviderClass``` object in Helm values and define key/value path and secret objects in Vault. For example
 
      ```bash
      secretProviderClass:
@@ -144,11 +142,11 @@ To mount Vault secret in an environment variable do following:
             objectName: postgresql-password
           secretName: postgres-secret
           type: Opaque 
-     ``` 
-   
-   The value of **secretName** will be the name of Kubernetes secret
+     ```
 
-- **Step 2**: Define volume in Helm values that use above created ```SecretProviderClass```
+   The value of **secretName** will be the name of Kubernetes secret.
+
+* **Step 2**: Define volume in Helm values that use above created ```SecretProviderClass```
   
      ```bash
      deployment:
@@ -161,7 +159,7 @@ To mount Vault secret in an environment variable do following:
                secretProviderClass: postgres-secret
      ```
 
-- **Step 3**: Now mount this volume in container. 
+* **Step 3**: Now mount this volume in container.
   
      ```bash
      volumeMounts:
@@ -172,7 +170,7 @@ To mount Vault secret in an environment variable do following:
   
   Volume mount is required in order to create a Kubernetes secret.
 
-- **Step 4**: This secret can be used as environment variable 
+* **Step 4**: This secret can be used as environment variable
 
      ```bash
      env:
@@ -195,7 +193,7 @@ Kubernetes secret do not support storing or retrieving secret data from external
 
 SAAP comes with fully managed [**External Secrets Operator**](https://github.com/external-secrets/external-secrets/) to integrate with Vault and makes it extremely easy to consume secrets from Vault.
 
-- **Step 1**: Add `tenant-vault-access` template to the tenant
+* **Step 1**: Add `tenant-vault-access` template to the tenant
 
     ```bash
     apiVersion: tenantoperator.stakater.com/v1alpha1
@@ -217,7 +215,7 @@ SAAP comes with fully managed [**External Secrets Operator**](https://github.com
 
 _TODO_ What will this template do? Who owns and manages this template? Is it owned by SAAP?
 
-- **Step 2**: Enable `externalSecret` in your `deploy/values.yaml` and provide details of the secret path in Vault. 
+* **Step 2**: Enable `externalSecret` in your `deploy/values.yaml` and provide details of the secret path in Vault.
 
     ```bash
     externalSecret:

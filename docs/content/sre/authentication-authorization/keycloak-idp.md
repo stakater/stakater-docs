@@ -1,4 +1,4 @@
-# Configuring a Keycloak identity provider 
+# Configuring a Keycloak identity provider
 
 In the realm you want to provide access, create a new Client:
 
@@ -15,8 +15,10 @@ In the realm you want to provide access, create a new Client:
 Now on the newly created `Client`; go to `Credentials` tab and copy the `Secret` mentioned there. That is the secret Stakater team will be needing in order to authenticate your keycloak.
 
 ## Items provided by Stakater Support
+
 - `Redirect URIs`
 
 ## Items to be provided to Stakater Support
+
 - `Client ID`
 - `client Secret`

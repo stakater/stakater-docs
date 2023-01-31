@@ -35,7 +35,7 @@ data:
     password: cGFzc3dvcmQK  # base64 for password
 ```
 
-2. Use StringData with literal values to create Secret
+1. Use StringData with literal values to create Secret
 
 ```yaml
 apiVersion: v1

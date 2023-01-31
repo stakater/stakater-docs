@@ -53,6 +53,7 @@ First get the OpenShift internal docker registry URL and set in HOST variable na
 ```bash
 HOST=image-registry-openshift-image-registry.apps.[CLUSTER-NAME].[CLUSTER-ID].kubeapp.cloud
 ```
+
 NOTE: Ask SCA (SAAP Cluster Admin) or cluster-admin to provide you the OpenShift internal registry route
 
 Then login into docker registry with following command
@@ -92,10 +93,10 @@ helm dependency update
 cd ..
 ```
 
-9) Go through the [Tiltfile](https://github.com/stakater-lab/stakater-nordmart-review/blob/main/Tiltfile) of the application 
+9) Go through the [Tiltfile](https://github.com/stakater-lab/stakater-nordmart-review/blob/main/Tiltfile) of the application
 
 10) Check the `local_resource` section in the Tiltfile
- 
+
 11) Create `tilt_options.json` file
 
 Remove `.template` from the file named `tilt_options.json.template`
@@ -136,7 +137,7 @@ tilt_modules/
 **/tmpcharts
 ```
 
-14) Go through `values-local.yaml` in a `tilt` folder in base application directory. 
+14) Go through `values-local.yaml` in a `tilt` folder in base application directory.
 
 `values-local.yaml` should contain the following content. Make sure that replica count should always be 1.
 
@@ -157,7 +158,7 @@ application:
 
 ![sandbox namespace](./images/sandbox-env-b4-tilt-up.png)
 
-16) Run `tilt up` at base directory 
+16) Run `tilt up` at base directory
 
 ![tilt up](./images/tilt-up.png)
 

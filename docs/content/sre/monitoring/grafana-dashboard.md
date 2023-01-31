@@ -2,13 +2,13 @@
 
 This document explains how to create Grafana Dashboard via GrafanaDashboard CR powered by Grafana operator. In this way there is no need to configure/import it via web UI. Now, developers can ship new dashboards in any namespace and deploy them via GitOps. If Dashboard definition/json is invalid, the dashboard will not appear in Grafana web UI.
 
-## Prerequisite 
+## Prerequisite
 
 - Grafana should be up and running. You should be able to find it under Workload Monitoring category in your Forecastle link.
 
 ## Instructions  
 
-1) Create GrafanaDashboard definition 
+1) Create GrafanaDashboard definition
 
    You can choose any existing namespace. The label `grafanaDashboard: grafana-operator` is required for Grafana Operator to discover the dashboard. The JSON string with the dashboard contents is placed in the “json” section. Check the [official documentation](https://grafana.com/docs/reference/dashboard/#dashboard-json) for details on JSON Model. You can create a dashboard via web UI first, and then export the dashboard json to define a GrafanaDashboard CR (Custom Resource). If the JSON is invalid, the dashboard will not appear in Grafana web UI. Below is a sample GrafanaDashboard CR yaml.
 
@@ -146,16 +146,15 @@ spec:
     }
 ```
 
-2. Apply GrafanaDashbaord CR to your cluster, manually or via GitOps way 
+2. Apply GrafanaDashbaord CR to your cluster, manually or via GitOps way
 
 3. View the dashboard via Grafana web UI
 
    1. Under `stakater-workload-monitoring` project, find the URL to Grafana through Cluster menu [Networking]->[Routes]
    2. Open Grafana web UI, and go to [Dashboards]->[Manage] to view Dashboards management page
       ![Grafana-menu](./images/grafana-menu.png)
-   
+
    3. Your dashboard will be put in a folder named after the namespace that you specified in GrafanaDashboard definition. The following is an example. ![Grafana-dashboards-management](./images/grafana-dashboards-management.png)
-   
 
 ## Application chart
 
@@ -175,4 +174,3 @@ grafanaDashboard:
           ...
         }
 ```
-

@@ -4,11 +4,9 @@
 
 This Troubleshooting Guide is now outdated after the newest changes to Tronador. The Guide will be updated soon.
 
-
 !!! warning Note:
 
 The guide below is written as a SAAP customer's point of view. If you use Tronador independently, the guide below might not be applicable to you. However, you can still use this guide to get an idea of how the process works.
-
 
 ## Developer support
 
@@ -69,11 +67,10 @@ Environment provisioning takes a few minutes to complete, since there is a lot o
 Those secrets can be added using [Tronador Config](./tronador_config.md) by mentioning the resources in the CR, which will deploy those resources in all DTE Namespaces.
 This can also be done by [Multi Tenant Operator's](../multi-tenant-operator/overview.md) [TemplateGroupInstance](../multi-tenant-operator/customresources.md#_5-templategroupinstance) by setting the proper label in your Tronador config file.
 
-
 ## Cluster Admin support
 
 * In case Helm Release keeps failing, you will need to check Helm Operator's logs to get more information about the failure.
-  * If you see constant Helm release failures with the error message `Could not resolve host: github.com` or similar, you might need to change the `dnsConfig` within the template's spec for the Helm Operator's deployment with the following details:
+    * If you see constant Helm release failures with the error message `Could not resolve host: github.com` or similar, you might need to change the `dnsConfig` within the template's spec for the Helm Operator's deployment with the following details:
 
     ```yaml
       dnsPolicy: "ClusterFirst"

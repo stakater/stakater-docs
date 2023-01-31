@@ -12,7 +12,7 @@ This section provides the pre-requisite steps for this workshop
 
 ## Fork Repository
 
-!!! details 
+!!! details
         Go to the following URL and fork the repo
 
         [Stakater-Nordmart-inventory Repository](https://github.com/stakater-lab/stakater-nordmart-inventory) 
@@ -23,7 +23,7 @@ This section provides the pre-requisite steps for this workshop
 
 A Personal Access Token would be required to perform steps in a Tekton Pipeline
 
-!!! details 
+!!! details
         Login to your GitHub account and generate a Personal Access Token via this following URL:
 
         `https://github.com/settings/tokens/new`
@@ -42,7 +42,7 @@ A Personal Access Token would be required to perform steps in a Tekton Pipeline
 
 Save the manifest, will be used going forward, and deploy inventory microservice in your namespace
 
-!!! details 
+!!! details
         1.3.1 Download Manifest
 
         [Inventory Manifest]()
@@ -56,24 +56,24 @@ This section will provide step by step instructions to run a Delivery pipeline u
 
 ## Clone Repository
 
-!!! details 
+!!! details
         Clone the repository
         ```bash
         git clone https://github.com/stakater/stakater-pipeline-library.git
-        ```
+```
         Switch directory:
         ```bash
         cd stakater-pipeline-library/tekton-pipelines/
-        ```
+```
 
-## Apply RBAC (Role Based Access Control) 
+## Apply RBAC (Role Based Access Control)
 
-!!! details 
+!!! details
         Apply necessary RBAC resources for the pipeline
         ```bash
         oc apply -f tekton-builder-rbac.yaml -n <NAMESPACE_NAME>
         oc apply -f tekton-create-webhook-rbac.yaml -n <NAMESPACE_NAME>
-        ```
+```
 
 ## Replace Placeholders
 
@@ -84,7 +84,7 @@ This section will provide step by step instructions to run a Delivery pipeline u
 
 These secrets will be required to access GitHub and container registry during the pipeline
 
-!!! details 
+!!! details
         3.2.1 Provide GitHub Credentials
 
         Configure Tekton pipeline to access GitHub by the secret: `secret-github-credentials.yaml`
@@ -96,39 +96,38 @@ Provide base64 encoded `username`, `email` and `password` of GitHub account in t
 
 !!! tip TIP: Convert text to base64
         ```bash
-        echo -n "YOUR_TEXT" | base64 
-        ```
+        echo -n "YOUR_TEXT" | base64
+```
 
-!!! details 
+!!! details
         3.2.2 Apply Secrets
         Apply Secrets
         ```bash
         oc apply -f secrets/. -n <NAMESPACE_NAME>
-        ```
+```
 
 ## Create Resources, Tasks, Pipelines, Conditions
 
-!!! details 
-        Create `PipelineResource, Task, Pipeline, Conditions` 
+!!! details
+        Create `PipelineResource, Task, Pipeline, Conditions`
         ```bash
         oc apply -f resources/ -n <NAMESPACE_NAME>
         oc apply -f tasks/ -n <NAMESPACE_NAME>
         oc apply -f pipelines/ -n <NAMESPACE_NAME>
         oc apply -f conditions/ -n <NAMESPACE_NAME>
-        ```
+```
 
 ## Run Pipeline
 
-!!! details 
+!!! details
         Run Pipeline via creating a `PipelineRun` resource to trigger the pipeline
         ```bash
         oc apply -f pipelinerun/pipeline-run.yaml -n <NAMESPACE_NAME>
-        ``` 
-
-
+```
 
 ## Verify Pipeline
-!!! details 
+
+!!! details
         Verify the triggered Pipeline from the dashboard on the Left Pane
         `Pipeline Runs` -> `inventory-pipeline`
 
@@ -138,9 +137,9 @@ Provide base64 encoded `username`, `email` and `password` of GitHub account in t
 
 Verify that the new image is available in your registry
 
-
 ## Verify new Tags
-!!! details 
+
+!!! details
         Verify forked repository to new newly pushed tag
 
         ![Forked Repository](./images/stakater-nordmart-inventory-tag.png)

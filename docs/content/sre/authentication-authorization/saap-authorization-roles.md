@@ -11,11 +11,12 @@ Namespaces are divided into two sub-categories:
 
 SAAP Cluster Admin (SCA):
 
-###  Operators Permissions:
+### Operators Permissions
+
 - can view OperatorHub in console
 - can create/view/delete CRs for [curated operators](../authentication-authorization/curated-list-operators.md) e.g.
-  - AMQ Certificate Manager Operator
-  - OpenShift Pipelines Operator
+    - AMQ Certificate Manager Operator
+    - OpenShift Pipelines Operator
 - can install cluster-wide operators from a [curated list](../authentication-authorization/curated-list-operators.md) provided by the OperatorHub. This makes the operator available to all developers on your cluster to create Custom Resources and applications using that Operator.
 - can view installed operators by using the web console/CLI
 - can install operators in customer owned namespace
@@ -23,33 +24,39 @@ SAAP Cluster Admin (SCA):
 - can not install privileged and custom operators cluster-wide
 - can view sealedsecrets custom resource in all namespaces
 
-###  Projects Permissions:
+### Projects Permissions
+
 - can create/update/patch customer owned namespaces
 - can create/view/edit/delete all resources in customer owned namespaces
 - can only view resources in Stakater owned namespaces
 - can not view secrets, configmaps ,jobs and cronjobs in Stakater owned namespaces
 
 ### Storage
+
 - can create/view/edit persistentvolumeclaims,storageclasses and volumesnapshots in the cluster
 - can not delete persistentvolumeclaims,storageclasses and volumesnapshots in the cluster
 
 ### Networking
+
 - can create/view/delete NetworkPolicy objects in customer owned namespaces
 - can view services in all namespaces
 - can view routes and ingresses in all namespaces
 - can view/update DNS resources for DNS Forwarder apigroups in customer owned namespaces
 
 ### Monitoring
+
 - can view console dashboard where metrics are shown for namespaces
 - can view customer owned namespaces status
 - can view events in all namespaces
 
 ### Compute
+
 - can view machines, machinesets, nodes, machine configs, machine config pools, imagestreams
 - can start `anyuid` and `nonroot` SCCs
 - can not delete machines, machinesets, nodes, machine configs, machine config pools, imagestreams
 
-###  User Management
+### User Management
+
 - can view users/groups
 - can view service accounts/roles/role bindings in customer owned namespaces
 - can create/view on UserIdentityMappings
@@ -60,22 +67,26 @@ SAAP Cluster Admin (SCA):
 - can not view service accounts/roles/role bindings in Stakater owned namespaces
 - can not add members to cluster-admin
 
-###  Velero Backups & Restores
+### Velero Backups & Restores
+
 - can view/edit/create/delete Backup and Restores
 - can view/edit/create/delete Schedules for Velero in `openshift-velero` namespace
 
-### Administration:
+### Administration
+
 - can create/edit/delete resource quotas and limits on the cluster
-- can access the reserved ‘saap-cluster-admin’ project on the cluster, which allows for the creation of ServiceAccounts with elevated privileges and gives the ability to update default limits and quotas for projects on the cluster 
+- can access the reserved ‘saap-cluster-admin’ project on the cluster, which allows for the creation of ServiceAccounts with elevated privileges and gives the ability to update default limits and quotas for projects on the cluster
 - saap-cluster-admin service account can create project
 - saap-cluster-admin service account can delete project
 - saap-cluster-admin service account cannot edit/create rolebinding
-- can not create/edit/delete clusterresourcequotas 
+- can not create/edit/delete clusterresourcequotas
 
 Only the mentioned permissions above are present for the role, for any other permission required the user need to raise a case with Stakater Support team.
 
 ## How to request this role from Stakater Support
+
 If any user needs to be given saap-cluster-admin role , they can raise a request with Stakater team to assign the desired role to that user.
 
 ## Items to be provided to Stakater Support
+
 - User Email that needs to be assigned this group

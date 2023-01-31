@@ -8,7 +8,7 @@ The most popular application architecture on the cloud-native platforms such as 
 
 As part of the microservices movement, there is a significant amount of theory and supplemental techniques for creating microservices from scratch or for splitting monoliths into microservices. Most of these practices are based on the Domain Driven Design book by Eric Evans (Addison-Wesley) and the concepts of bounded contexts and aggregates. Bounded contexts deal with large models by dividing them into different components, and aggregates help further to group bounded contexts into modules with defined transaction boundaries. However, in addition to these business domain considerations, for every distributed system—whether it is based on microservices or not—there are also numerous technical concerns around its organization, structure, and runtime behavior.
 
-Containers and container orchestrators such as Kubernetes provide many new primitives and abstractions to address the concerns of distributed applications, and here we discuss the various options to consider when putting a distributed system into Kubernetes. 
+Containers and container orchestrators such as Kubernetes provide many new primitives and abstractions to address the concerns of distributed applications, and here we discuss the various options to consider when putting a distributed system into Kubernetes.
 
 Containers and cloud-native platforms bring tremendous benefits to your distributed applications, but if all you put into containers is rubbish, you will get distributed rubbish at scale. Figure below shows the mixture of the skills required for creating good cloud-native applications.
 
@@ -601,7 +601,7 @@ Considerations for helping to protect access to your app include the following:
 - With tools like OAuth2, OpenID Connect, various SSO servers and standards, as well as a near infinite supply of language-specific authentication and authorization libraries, security should be something that is baked into the application’s development from day one, and not added as a bolt-on project after an application is running in production.
 - Transport Layer Security (TLS). Use TLS to help protect data in transit. You might want to use mutual TLS for your business apps; this is made easier if you use service meshes like Istio on Kubernetes. It's also common for some use cases to create allow lists and deny lists based on IP addresses as an additional layer of security. Transport security also involves protecting your services against DDoS and bot attacks.
 - App and end-user security. Transport security helps provide security for data in transit and establishes trust. But it's a best practice to add app-level security to control access to your app based on who the consumer of the app is. The consumers can be other apps, employees, partners, or your enterprise's end customers. You can enforce security using API keys (for consuming apps), certification-based authentication and authorization, JSON Web Tokens (JWTs) exchange, or Security Assertion Markup Language (SAML).
- 
+
 The security landscape constantly evolves within an enterprise, making it harder for you to code security constructs in your apps
 
 Stakater App Agility Platform offers Keycloak as fully managed IAM solution to cater all the needs.
@@ -733,13 +733,13 @@ Explicit resource allocation for pods. Applications should claim the CPU, memory
 
 **Why?**
 
-Allows Kubernetes to make good scheduling decisions. This allows the scheduler to know the best place to run the application based on resources available. 
+Allows Kubernetes to make good scheduling decisions. This allows the scheduler to know the best place to run the application based on resources available.
 
 When multiple applications are deployed on the same node, if the upper and lower resource limits are not set for an application, resource leakage occurs. As a result, resources cannot be allocated to other applications, and the application monitoring information will be inaccurate.
 
 **How?**
 
-Stakater application Helm chart always sets default requests and limits: https://github.com/stakater-charts/application/blob/master/application/values.yaml#L142 but of course each application can individually override them.
+Stakater application Helm chart always sets default requests and limits: <https://github.com/stakater-charts/application/blob/master/application/values.yaml#L142> but of course each application can individually override them.
 
 ## 23. Alerts
 
@@ -809,7 +809,7 @@ View metrics.
 
 **Why?**
 
-You need to make sense out of the data.	
+You need to make sense out of the data. 
 
 **How?**
 
@@ -841,7 +841,7 @@ If you need data persistence for your application, work with your platform team 
 
 **Why?**
 
-Your application’s container filesystem is considered ephemeral. Meaning it will not move with the workload. This ephemeral storage is typically resource constrained and should not be used for anything more than small write needs, where loss of data is not a concern. 
+Your application’s container filesystem is considered ephemeral. Meaning it will not move with the workload. This ephemeral storage is typically resource constrained and should not be used for anything more than small write needs, where loss of data is not a concern.
 
 **How?**
 
@@ -857,7 +857,7 @@ Write tests at different layer to ensure high quality code.
 
 Most of the text has been copied from these awesome resources; and copyrights belong to them:
 
-- https://www.cdta.org/sites/default/files/awards/beyond_the_12-factor_app_pivotal.pdf
-- https://www.redhat.com/architect/12-factor-app
-- https://12factor.net/
-- https://cloud.google.com/architecture/twelve-factor-app-development-on-gcp
+- <https://www.cdta.org/sites/default/files/awards/beyond_the_12-factor_app_pivotal.pdf>
+- <https://www.redhat.com/architect/12-factor-app>
+- <https://12factor.net/>
+- <https://cloud.google.com/architecture/twelve-factor-app-development-on-gcp>

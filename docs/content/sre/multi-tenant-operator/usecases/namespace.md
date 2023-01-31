@@ -17,7 +17,6 @@ When Anna creates the namespace, MTO assigns Anna and other tenant members the r
 
 As a tenant owner, Anna is able to create namespaces.
 
-
 ## Add Existing Namespaces to Tenant via GitOps
 
 Using GitOps as your preferred development workflow, you can add existing namespaces for your tenants by including the tenant label.
@@ -48,7 +47,7 @@ metadata:
 She can then add the tenant label
 
 ```yaml
-	...
+ ...
   labels:
     stakater.com/tenant: bluesky
 ```
@@ -57,7 +56,7 @@ Now all the users of the `Bluesky` tenant now have access to the existing namesp
 
 Additionally, to remove namespaces from a tenant, simply remove the tenant label from the namespace resource and sync your changes to your cluster.
 
-## Remove Namespaces from your Cluster via GitOps.
+## Remove Namespaces from your Cluster via GitOps
 
  GitOps is a quick and efficient way to automate the management of your K8s resources.
 

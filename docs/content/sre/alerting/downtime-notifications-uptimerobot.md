@@ -10,7 +10,7 @@ To configure downtime alerting do following:
 4. Enable EndpointMonitor in the application
 5. Validate downtime notification
 
-## 1. Configuring incoming webhook in slack 
+## 1. Configuring incoming webhook in slack
 
 - While in your Slack workspace, left-click the name of your workspace, and pick `Administration` > `Manage Apps` from the dropdown Menu.
 - A new browser window should appear in which you can customize your workspace. From here, navigate to `Custom Integrations` and then to `Incoming WebHooks`.
@@ -20,9 +20,10 @@ To configure downtime alerting do following:
 - Near the bottom of this page, you may further customize the Incoming WebHook you just created. Give it a name, description and perhaps a custom icon.
 
 ### Items to be provided to Stakater Support
+
 - `Incoming WebHook URL`
 
-## 2. Create alert contact on UptimeRobot with webhook 
+## 2. Create alert contact on UptimeRobot with webhook
 
 Create alert contact on UptimeRobot
 
