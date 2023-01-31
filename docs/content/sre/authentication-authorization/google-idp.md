@@ -31,4 +31,4 @@ To enable login with Google you first have to create a project and a client in t
 
 * `Client ID`
 * `Secret`
-* `Authorized Domain` Users of this google domain will be able to access the cluster
+* `Authorized Domain` Users of this Google domain will be able to access the cluster
