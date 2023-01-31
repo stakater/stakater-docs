@@ -5,4 +5,4 @@
 - Login to RHACS using the `OpenShift` auth provider option
 - It will login you via Google SSO
 - Automatically you will be granted this role `Analyst`
-- If you would like have another [role](./02-permissions.md); please contact Stakater support
+- If you would like to have another [role](./02-permissions.md); please contact Stakater support
