@@ -16,7 +16,7 @@ Example:
 
 Consider the example where below annotations configured on persistent volume claim.
 
-```
+```yaml
 volume-expander-operator.redhat-cop.io/autoexpand: 'true'             # Enables the volume-expansion to watch on this PVC
 volume-expander-operator.redhat-cop.io/expand-threshold-percent: "85" # Volume expansion will expand the volume when 85 percent of storage is consumed
 volume-expander-operator.redhat-cop.io/expand-by-percent: "20"        # Volume expansion will expand PVC by 20 percent when 85 percent of storage is consumed

@@ -14,53 +14,23 @@ Environment provisioning takes a few minutes to complete, since there is a lot o
 
 * Check your cluster's PipelineRun resource to check its status. If any task fails, you can look at the logs of the failed task to see what went wrong.
 
-<figure>
-  <img
-  src="./images/pipeline-ts.png"
-  alt="pipeline">
-  <figcaption>Pipeline guide</figcaption>
-</figure>
+![Pipeline guide](./images/pipeline-ts.png)
 
-<figure>
-  <img
-  src="./images/pipeline-success.png"
-  alt="pipeline">
-  <figcaption>A successful pipeline run</figcaption>
-</figure>
+![A successful pipeline run](./images/pipeline-success.png)
 
 * View your GitOps repository to verify that the Environment Provisioner CR is pushed to it.
 
-<figure>
-  <img
-  src="./images/gitops.png"
-  alt="pipeline">
-  <figcaption>Environment Provisioner pushed</figcaption>
-</figure>
+![Environment Provisioner pushed](./images/gitops.png)
 
 * Confirm that the Environment Provisioner CR is pushed to your cluster by checking the status of the ArgoCD Application managing its sync.
 
-<figure>
-  <img
-  src="./images/argocd.png"
-  alt="pipeline">
-  <figcaption>Relevant ArgoCD Application synced</figcaption>
-</figure>
+![Relevant ArgoCD Application synced](./images/argocd.png)
 
 * Check the status of the Helm Release to see if it is in a good state.
 
-<figure>
-  <img
-  src="./images/hr-ts.png"
-  alt="pipeline">
-  <figcaption>Verify that HR is created</figcaption>
-</figure>
+![Verify that HR is created](./images/hr-ts.png)
 
-<figure>
-  <img
-  src="./images/hr-status-ts.png"
-  alt="pipeline">
-  <figcaption>Check status</figcaption>
-</figure>
+![Check status](./images/hr-status-ts.png)
 
 * If everything above looks good, then the pods might be in a failing state. Check the pods deployed to your provisioned namespace and view their events to see if there are any failures, and why. Most likely the issue is a lack of imagePullSecrets in the provisioned namespace.
 

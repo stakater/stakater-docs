@@ -4,43 +4,45 @@
 
     `tronador.stakater.com/v1alpha1/EnvironmentProvisioner` has now been deprecated. Please use `tronador.stakater.com/v1alpha2/Environment` instead. See its [relevant docs](./environment.md) for more details.
 
-```yaml
-apiVersion: tronador.stakater.com/v1alpha1
-kind: EnvironmentProvisioner
-metadata:
-  name: stakater-nordmart-promotion-pr-9
-spec:
-  application:
-    release:
-      chart:
-        git: https://github.com/stakater-lab/stakater-nordmart-promotion
-        ref: add-tronador-yaml
-        path: "deploy/"
-        secretRef:
-          name: secret-name
-          namespace: secret-namespace
-      releaseName: add-tronador-yaml
-      valuesFrom:
-        - configMapKeyRef:
-            name: default-values
-            namespace: my-ns
-            key: values.yaml
-            optional: false
-        - secretKeyRef:
-            name: default-values
-            namespace: my-ns
-            key: values.yaml
-            optional: true
-      values:
-        application:
-          deployment:
-            image:
-              tag: "native"
-  namespaceLabels:
-    label: value
-    stakater.com/tenant: alpha
-    owner: stakater
-```
+Example of (deprecated) `EnvironmentProvisioner`:
+
+    ```yaml
+    apiVersion: tronador.stakater.com/v1alpha1
+    kind: EnvironmentProvisioner
+    metadata:
+      name: stakater-nordmart-promotion-pr-9
+    spec:
+      application:
+        release:
+          chart:
+            git: https://github.com/stakater-lab/stakater-nordmart-promotion
+            ref: add-tronador-yaml
+            path: "deploy/"
+            secretRef:
+              name: secret-name
+              namespace: secret-namespace
+          releaseName: add-tronador-yaml
+          valuesFrom:
+            - configMapKeyRef:
+                name: default-values
+                namespace: my-ns
+                key: values.yaml
+                optional: false
+            - secretKeyRef:
+                name: default-values
+                namespace: my-ns
+                key: values.yaml
+                optional: true
+          values:
+            application:
+              deployment:
+                image:
+                  tag: "native"
+      namespaceLabels:
+        label: value
+        stakater.com/tenant: alpha
+        owner: stakater
+    ```
 
 ## `application`
 
