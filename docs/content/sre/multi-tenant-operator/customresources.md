@@ -2,16 +2,11 @@
 
 Multi Tenant Operator defines the following 5 Custom Resources:
 
-1. [Quota](#_1-quota)
-2. [Tenant](#_2-tenant)
-3. [Template](#_3-template)
-4. [TemplateInstance](#_4-templateinstance)
-5. [TemplateGroupInstance](#_5-templategroupinstance)
-6. [ResourceSupervisor](#_6-resourcesupervisor)
+[[toc]]
 
 ## 1. Quota
 
-**Cluster scoped resource**
+Cluster scoped resource:
 
 ```yaml
 apiVersion: tenantoperator.stakater.com/v1beta1
@@ -64,7 +59,7 @@ For more details [Quota.Spec](https://kubernetes.io/docs/concepts/policy/resourc
 
 ## 2. Tenant
 
-**Cluster scoped resource**
+Cluster scoped resource:
 
 The smallest valid Tenant definition is given below (with just one field in its spec):
 
@@ -195,7 +190,7 @@ spec:
 
 ## 3. Template
 
-**Cluster scoped resource**
+Cluster scoped resource:
 
 ```yaml
 apiVersion: tenantoperator.stakater.com/v1alpha1
@@ -277,18 +272,11 @@ Templates are used to initialize Namespaces, share common resources across names
 
 Also you can define custom variables in `Template` and `TemplateInstance` . The parameters defined in `TemplateInstance` are overwritten the values defined in `Template` .
 
-<details open>
-  <summary>Manifest Templates</summary>
-  <p>The easiest option to define a Template is by specifying an array of Kubernetes manifests which should be applied when the Template is being instantiated.</p>
-</details>
-<details open>
-  <summary> Helm Chart Templates</summary>
-  <p>Instead of manifests, a Template can specify a Helm chart that will be installed (using Helm template) when the Template is being instantiated.</p>
-</details>
-<details open>
-  <summary>Resource Mapping Templates</summary>
-  <p>A template can be used to map secrets and configmaps from one tenant's namespace to another tenant's namespace, or within a tenant's namespace.</p>
-</details>
+Manifest Templates: The easiest option to define a Template is by specifying an array of Kubernetes manifests which should be applied when the Template is being instantiated.
+
+Helm Chart Templates: Instead of manifests, a Template can specify a Helm chart that will be installed (using Helm template) when the Template is being instantiated.
+
+Resource Mapping Templates: A template can be used to map secrets and configmaps from one tenant's namespace to another tenant's namespace, or within a tenant's namespace.
 
 ### Mandatory and Optional Templates
 
@@ -296,7 +284,7 @@ Also you can define custom variables in `Template` and `TemplateInstance` . The 
 
 ## 4. TemplateInstance
 
-**Namespace scoped resource**
+Namespace scoped resource:
 
 ```yaml
 apiVersion: tenantoperator.stakater.com/v1alpha1
@@ -314,7 +302,7 @@ Generally, a TemplateInstance is created from a Template and then the TemplateIn
 
 ## 5. TemplateGroupInstance
 
-**Cluster scoped resource**
+Cluster scoped resource:
 
 ```yaml
 apiVersion: tenantoperator.stakater.com/v1alpha1
@@ -333,7 +321,7 @@ TemplateGroupInstance distributes a template across multiple namespaces which ar
 
 ## 6. ResourceSupervisor
 
-**Cluster scoped resource**
+Cluster scoped resource:
 
 ```yaml
 apiVersion: tenantoperator.stakater.com/v1beta1

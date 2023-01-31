@@ -111,10 +111,8 @@ The CPU/memory usage and the events should show the application pods getting sca
 **HPA Events:**
 ![HPA Events](./images/HPA-Events2.png)
 
-# Useful Links
+## Useful Links
 
-- [Autoscaling in OpenShift](https://docs.openshift.com/container-platform/4.4/nodes/pods/nodes-pods-autoscaling.html)
-
-- [Kubernetes Example](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/)
-
-- [How it works](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)
+* [Autoscaling in OpenShift](https://docs.openshift.com/container-platform/4.4/nodes/pods/nodes-pods-autoscaling.html)
+* [Kubernetes Example](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/)
+* [How it works](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)

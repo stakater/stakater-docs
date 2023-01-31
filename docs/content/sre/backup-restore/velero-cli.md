@@ -7,34 +7,34 @@ Download the appropriate release from here <https://github.com/vmware-tanzu/vele
 Note: Below commands are Linux specific
 
 1. Open a command line and change directory to the Velero CLI download.
-2. To unzip the download file:
+1. To unzip the download file:
 
-    ~~~
+    ```sh
     tar -xzf velero-<VERSION>-<PLATFORM>.tar.gz 
     cd velero-<VERSION>-<PLATFORM>/
-    ~~~
+    ```
 
-3. To change the permissions and put the Velero CLI in the system path:
+1. To change the permissions and put the Velero CLI in the system path:
 
-    ~~~
+    ```sh
     chmod +x velero
-    ~~~
+    ```
 
-4. To make the Velero CLI globally available, move the CLI to the system path:
+1. To make the Velero CLI globally available, move the CLI to the system path:
 
-    ~~~
+    ```sh
     cp velero /usr/local/bin/velero
-    ~~~
+    ```
 
-5. Verify the installation:
+1. Verify the installation:
 
-    ~~~
+    ```sh
     velero version
-    ~~~
+    ```
 
     Should see something like:
 
-    ```
+    ```sh
     velero version
 
     Client:

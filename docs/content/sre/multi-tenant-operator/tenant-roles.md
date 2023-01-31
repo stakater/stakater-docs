@@ -1,24 +1,23 @@
+# Tenant Member Roles
 
 > After adding support for custom roles within MTO, this page is only applicable if you use OpenShift and its default `owner`, `edit`, and `view` roles. For more details, see the [IntegrationConfig spec](./integration-config.md)
-
-# Tenant Member Roles
 
 MTO tenant members can have one of following 3 roles:
 
 1. Owner
-2. Editor
-3. Viewer
+1. Editor
+1. Viewer
 
 ## 1. Owner
 
 ![image](./images/tenant-operator-owner-overview.jpg)
-fig 2. Shows how tenant owners manage there tenant using MTO
+fig 2. Shows how tenant owners manage their tenant using MTO
 
-Owner is an admin of a tenant with some restrictions. It has privilege to see all resources in there Tenant with some additional privileges. They can also create new `namespaces`.
+Owner is an admin of a tenant with some restrictions. It has privilege to see all resources in their Tenant with some additional privileges. They can also create new `namespaces`.
 
 *Owners will also inherit roles from `Edit` and `View`.*
 
-#### Access Permissions
+### Access Permissions
 
 * Role and RoleBinding access in `Project` :
     * delete
@@ -28,7 +27,7 @@ Owner is an admin of a tenant with some restrictions. It has privilege to see al
     * update
     * patch
 
-#### Quotas Permissions
+### Quotas Permissions
 
 * LimitRange and ResourceQuota access in `Project`
     * get
@@ -44,7 +43,7 @@ Owner is an admin of a tenant with some restrictions. It has privilege to see al
     * update
     * watch
 
-#### Resources Permissions
+### Resources Permissions
 
 * CRUD access on Template, TemplateInstance and TemplateGroupInstance of MTO custom resources
 * CRUD access on ImageStreamTags in `Project`
@@ -64,11 +63,11 @@ Owner is an admin of a tenant with some restrictions. It has privilege to see al
 ![image](./images/tenant-operator-edit-overview.jpg)
 fig 3. Shows editors role in a tenant using MTO
 
-Edit role will have edit access on there `Projects`, but they wont have access on `Roles` or `RoleBindings`.
+Edit role will have edit access on their `Projects`, but they wont have access on `Roles` or `RoleBindings`.
 
 *Editors will also inherit `View` role.*
 
-#### Access Permissions
+### Access Permissions
 
 * ServiceAccount access in `Project`
     * create
@@ -81,14 +80,14 @@ Edit role will have edit access on there `Projects`, but they wont have access o
     * watch
     * impersonate
 
-#### Quotas Permissions
+### Quotas Permissions
 
 * AppliedClusterResourceQuotas and ResourceQuotaUsages access in `Project`
     * get
     * list
     * watch
 
-#### Builds ,Pods , PVC Permissions
+### Builds ,Pods , PVC Permissions
 
 * Pod, PodDisruptionBudgets and PVC access in `Project`
     * get
@@ -155,7 +154,6 @@ Edit role will have edit access on there `Projects`, but they wont have access o
     * list
     * watch
     * delete
-
 * Subscription and PackageManifest access in `Project`
     * get
     * list
@@ -171,23 +169,23 @@ Edit role will have edit access on there `Projects`, but they wont have access o
 ![image](./images/tenant-operator-view-overview.jpg)
 fig 4. Shows viewers role in a tenant using MTO
 
-Viewer role will only have view access on there `Project`.
+Viewer role will only have view access on their `Project`.
 
-#### Access Permissions
+### Access Permissions
 
 * ServiceAccount access in `Project`
     * get
     * list
     * watch
 
-#### Quotas Permissions
+### Quotas Permissions
 
 * AppliedClusterResourceQuotas access in `Project`
     * get
     * list
     * watch
 
-#### Builds ,Pods , PVC Permissions
+### Builds ,Pods , PVC Permissions
 
 * Pod, PodDisruptionBudget and PVC access in `Project`
     * get
@@ -198,7 +196,7 @@ Viewer role will only have view access on there `Project`.
     * list
     * watch
 
-#### Resources Permissions
+### Resources Permissions
 
 * Get, list, view access on Template, TemplateInstance and TemplateGroupInstance of MTO custom resources
 * Job, CronJob, Task, Trigger and Pipeline access in `Project`

@@ -6,7 +6,7 @@ There are three type of environments for each tenant:
 
 1. Sandbox Environment
 1. CI/CD Environments
-2. Other Environments
+1. Other Environments
 
 ### 1. Sandbox Environment
 
@@ -47,7 +47,7 @@ This guide assumes that application is already [on-boarded](../onboarding/applic
 
 To promote application from one environment to another, you can check the chart version from `Chart.yaml` file from one environment and update version in `Chart.yaml` of next environment:
 
-```
+```yaml
 apiVersion: v2
 dependencies:
   - name: <application-name>
@@ -66,7 +66,7 @@ To promote application from one environment to another, you can check the image 
 
 `<gitops-repo>/<tenant>/<application>/<env-1>/values.yaml`
 
-```
+```yaml
 <application-name>:
   application:
     deployment:
@@ -79,7 +79,7 @@ Pick version `1.0.51` and paste it to next environment
 
 `<gitops-repo>/<tenant>/<application>/<env-2>/values.yaml`
 
-```
+```yaml
 <application-name>:
   application:
     deployment:

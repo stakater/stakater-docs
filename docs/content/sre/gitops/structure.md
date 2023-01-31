@@ -1,6 +1,6 @@
 # GitOps structure
 
-```.
+```sh
 ├── 01-tenant
 │   ├── 01-app
 │   │   ├── 00-env
@@ -118,10 +118,10 @@ The sample configured GitOps directory can be found [here](https://github.com/st
 
 Above structure supports following
 
-- multi cluster
-- multi tenant
-- multi application
-- multi environment
+* multi cluster
+* multi tenant
+* multi application
+* multi environment
 
 ## Tenant Types
 
@@ -134,7 +134,7 @@ Each type of tenant follows different structure.
 
 ## Application Tenant
 
-```
+```sh
 ├── 01-tenant
 │   ├── 01-app
 │   │   ├── 00-env
@@ -197,7 +197,7 @@ Inside config folder there is a folder for each environment. In each environment
 
 Below is the structure of SRE tenant
 
-```
+```sh
 ├── 03-sre
 │   ├── 01-cluster
 │   │   ├── argocd
@@ -227,12 +227,12 @@ In each cluster folder there are config files for particular cluster. It is furt
 
 tenant-operator folder contain custom resources of ```Multi Tenant Operator```. They are following
 
-- quotas: Amount of resource (configmaps, cpus, memory, i.e.) for each tenant that can consume.
-- tenants: Contains file for each team. It contain information of members that are part of tenant.
+* quotas: Amount of resource (configmaps, cpus, memory, i.e.) for each tenant that can consume.
+* tenants: Contains file for each team. It contain information of members that are part of tenant.
 
 #### ArgoCD
 
 This folder is a starting point of all configuration in the cluster. ArgoCD by default is configured to watch this folder. Inside the folder we have following:
 
-- tenant-operator.yaml: Responsible for creating tenants configuration in the cluster
-- Environment(s) Folder: Sub-folder for each environment that is a part of cluster. Environment folders contain ```Application``` CR's that are responsible for bringing up the particular environment.
+* tenant-operator.yaml: Responsible for creating tenants configuration in the cluster
+* Environment(s) Folder: Sub-folder for each environment that is a part of cluster. Environment folders contain ```Application``` CR's that are responsible for bringing up the particular environment.

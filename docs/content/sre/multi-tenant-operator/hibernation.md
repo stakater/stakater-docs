@@ -13,12 +13,16 @@ hibernation:
 
 `spec.hibernation.wakeSchedule` accepts a cron expression indicating the time to wake the workloads in your tenant’s namespaces up.
 
-> Note: both sleep and wake schedules must be specified for your Hibernation schedule to be valid.
+!!! note
+    Both sleep and wake schedules must be specified for your Hibernation schedule to be valid.
 
 Additionally, adding the `hibernation.stakater.com/exclude: 'true'` annotation to a namespace excludes it from hibernating.
-> Note: This is only true for hibernation applied via the Tenant Custom Resource, and does not apply for hibernation done by manually creating a ResourceSupervisor (details about that below).
 
-> Note: This will not wake up an already sleeping namespace before the wake schedule.
+!!! note
+    This is only true for hibernation applied via the Tenant Custom Resource, and does not apply for hibernation done by manually creating a ResourceSupervisor (details about that below).
+
+!!! note
+    This will not wake up an already sleeping namespace before the wake schedule.
 
 ## Resource Supervisor
 

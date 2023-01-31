@@ -50,8 +50,7 @@ If you are using Maven dependencies from nexus repository, make sure to do chang
 ```
 
 !!! note
-
-Before using this file, please make sure to provide values for environment variables i.e. `NEXUS_USERNAME` , `NEXUS_PASSWORD` and `MAVEN_MIRROR_URL`.
+    Before using this file, please make sure to provide values for environment variables i.e. `NEXUS_USERNAME` , `NEXUS_PASSWORD` and `MAVEN_MIRROR_URL`.
 
 For `Mac` or `Linux` users, one can set these environment values in `.bashrc` or `.bash_profile`. These files live under user's home directory. Use `cd ~` to navigate to home directory. If file is missing, you can create it. Follow below steps to add the environment values:
 

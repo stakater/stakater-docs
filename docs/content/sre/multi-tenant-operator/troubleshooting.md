@@ -8,7 +8,7 @@
 
 If operator upgrade is set to Automatic Approval on OperatorHub, there may be scenarios where it gets blocked.
 
-#### Recommendation
+#### Resolution
 
 !!! information
         If upgrade approval is set to manual, and you want to skip upgrade of a specific version, then delete the InstallPlan created for that specific version. Operator Lifecycle Manager (OLM) will create the latest available InstallPlan which can be approved then.
@@ -27,13 +27,13 @@ As an example, if you have installed v0.8.0 of Multi Tenant Operator on your clu
 
 If a user is added to tenant resource, and the user does not exist in RHSSO, then RHSSO is not updated with the user's Vault permission.
 
-Description/steps after which this situation occurs:
+#### Reproduction steps
 
 1. Add a new user to Tenant CR
 2. Attempt to log in to Vault with the added user
-3. Vault denies that the user exists, and signs the user up via RHSSO. User is now created on RHSSO (You may check for the user on RHSSO).
+3. Vault denies that the user exists, and signs the user up via RHSSO. User is now created on RHSSO (you may check for the user on RHSSO).
 
-#### Recommendation
+#### Resolution
 
 If the user does not exist in RHSSO, then MTO does not create the tenant access for Vault in RHSSO.
 

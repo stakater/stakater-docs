@@ -76,4 +76,4 @@ Now, the combined storage provisioned from StorageClass `stakater` used by all t
 > The `20Gi` limit will only be applied to StorageClass `stakater`. If a tenant member creates a PVC with some other StorageClass, he will not be restricted.
 
 !!! tip
-More details about `Resource Quota` can be found [here](https://kubernetes.io/docs/concepts/policy/resource-quotas/)
+    More details about `Resource Quota` can be found [here](https://kubernetes.io/docs/concepts/policy/resource-quotas/)

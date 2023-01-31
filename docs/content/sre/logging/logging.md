@@ -39,7 +39,7 @@ Parsing application logs which are not in `JSON format` can be done as follows:
 
 Consider the following example of a one line event by a java application:
 
-```
+```sh
 2019-11-27 11:04:12.682  INFO 1 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 ```
 
@@ -64,7 +64,7 @@ deployment:
 
 This will be parsed as follows:
 
-```
+```yaml
 time: 2019-11-27 11:04:12.682
 level: INFO
 pid: 1

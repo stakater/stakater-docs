@@ -1,6 +1,6 @@
 # Resource requirements for SAAP installation
 
-><u>**Glossary:**</u>
+> Glossary:
 >
 > **User workloads:** User applications (e-commerce frontend, backend APIs, etc.)
 >
@@ -17,10 +17,11 @@ Resource requirements for a single SAAP cluster is as follows:
 | Storage Block (Gib)| 900 | 1100 |
 | Storage Snapshots (Gib) | 330 | 330 |
 | Storage Buckets | 1 | 1 |
-| Load Balancers <span style="color: red;">*</span> | 3 | 3 |
+| Load Balancers* | 3 | 3 |
 | Public IPs      | 2 | 2 |
 
-> <span style="color: red;">*</span> Load Balancers are only required for AWS, Azure and GCP.
+!!! note
+    * Load Balancers are only required for AWS, Azure and GCP.
 
 ### Minimum
 
@@ -150,7 +151,7 @@ In a SAAP cluster, users run their applications on worker nodes. By default, a S
 
 SAAP uses high performance disks i.e. `SSDs` for storage requirements which includes:
 
-- Boot Volumes (Attached to nodes for OS. See [Resource Requirements](#compute-requirements))
+- Boot Volumes (attached to nodes for OS)
 - Persistent Volumes (Additionally attached volumes for application consumption)
 
 Following are the storage requirements used as Persistent Volumes consumed by `SAAP workloads`:

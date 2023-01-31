@@ -27,19 +27,15 @@ To configure downtime alerting do following:
 
 Create alert contact on UptimeRobot
 
-_TODO Add details with screen shots_
-
 ## 3. Update IMC configuration
 
 Update IngressMonitorController configuration
-
-_TODO Add details with screen shots_
 
 ## 4. Enable EndpointMonitor in the application
 
 Stakater Helm application chart supports [`endpointMonitor`](https://github.com/stakater-charts/application/blob/master/application/values.yaml#L465-L475); just enable it i.e.
 
-```
+```yaml
 endpointMonitor:
   enabled: true
 ```
@@ -48,7 +44,7 @@ endpointMonitor:
 
 Reduce replicas to zero; and you should receive downtime notification!
 
-```
+```yaml
   deployment:
     replicas: 0
 ```

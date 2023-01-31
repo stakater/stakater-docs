@@ -1,20 +1,22 @@
 # Service Level Agreement (SLA)
 
+`Version: 31 Jan 2023`
+
 This SERVICE LEVEL AGREEMENT ("**SLA**") is by and between **Stakater** and you ("**Customer**"). Each a "Party", and together the "Parties".
 
-### 1. Term
+## 1. Term
 
 - 1.1 This SLA is effective from the time the Customer uses the Service and will automatically renew every Service Period, unless a Party gives an at least thirty (30) days’ notice of termination in writing to the other Party.
 
-### 2. The Services
+## 2. The Services
 
 - 2.1 Stakater will provide to the Customer the Services as described in the [Covered Service section](#covered-service).
 
-### 3. Service Period
+## 3. Service Period
 
 - 3.1 A calendar month is counted as a Service Period. When a period is less than one full calendar month, the period from the day the Customer starts to use the Service to the last day of such month will be counted as one Service Period. For example, if the Customer starts to use the Service on November 19, the first Service Period will be from November 19 to November 30.
 
-### 4. Service Level Objectives
+## 4. Service Level Objectives
 
 - 4.1 A Service is deemed available when the Customer, with appropriate hardware and sufficient internet bandwidth, can use the Service ("**Uptime**").
 
@@ -26,7 +28,7 @@ This SERVICE LEVEL AGREEMENT ("**SLA**") is by and between **Stakater** and you 
 
 - 4.5 The **SLO** does not apply to free, free trial, or paying Customers who have cancelled and received refunds; software (other than the Service); beta, test, or demo products; or other services that are not part of the Service. No uptime commitment of any kind shall apply to the foregoing Customers, products, or services.
 
-### 5. Downtime
+## 5. Downtime
 
 - 5.1 "**Downtime Period**" means a period of at least ten (10) consecutive minutes of Downtime. Intermittent Downtime for a period of less than ten (10) minutes or less will not be counted towards any Downtime Periods.
 
@@ -34,7 +36,7 @@ This SERVICE LEVEL AGREEMENT ("**SLA**") is by and between **Stakater** and you 
 
 - 5.3 Downtime is calculated from the time that Stakater confirms the SLA event has occurred, until the time that Stakater resolves the issue and the Service becomes available to the Customer. If two or more SLA events occur simultaneously, the SLA event with the longest duration will be used to determine the total number of minutes for which the service was unavailable.
 
-### 6. Excused Downtime
+## 6. Excused Downtime
 
 - 6.1 Service unavailability shall be excused when due to any of the following ("Excused Downtime"):
 
@@ -76,13 +78,13 @@ This SERVICE LEVEL AGREEMENT ("**SLA**") is by and between **Stakater** and you 
 
 - 6.2 Customer is solely responsible for obtaining appropriate hardware and internet access to use the Service. The Service shall not be deemed unavailable due to Customer’s inadequate or incompatible hardware and internet access.
 
-### 7. Monthly Uptime Percentage
+## 7. Monthly Uptime Percentage
 
 - 7.1 Monthly Uptime Percentage is calculated as follows: 100% times (x) (i) Total number of minutes in a Service Period, minus (ii) the total Downtime Period in a Service Period minus the Excused Downtime; divided by (iii) the Total number of minutes in the Service Period, represented by the following formula:
 
     - 7.1.1 In a Service Period, the Service is not available for 30 minutes, half of which is Excused Downtime. The Uptime Percentage was therefore: 100 x [43,200 Minutes – (30-15)] / 43,200 = 99.9653%.
 
-### 8. Financial Credits Request
+## 8. Financial Credits Request
 
 - 8.1 To request for a Financial Credit, Customer must send an email to Stakater Support with the subject: "**Financial Credit Request**" within thirty (30) days from the time Customer becomes eligible to receive a Financial Credit.
 
@@ -94,11 +96,11 @@ This SERVICE LEVEL AGREEMENT ("**SLA**") is by and between **Stakater** and you 
 
 - 8.5 If Stakater determines that a Financial Credit is owed to Customer, Stakater will apply the Financial Credit to Customer’s next invoice. At Stakater’s discretion, Stakater may issue the Financial Credit to the credit card Customer used to pay for the billing cycle in which the Service did not meet the SLO.
 
-### 9. Maximum Financial Credits
+## 9. Maximum Financial Credits
 
 - 9.1 The total maximum Financial Credits that can be issued by Stakater to Customer for any and all Downtime that occur in a single Service Period will not exceed twenty percent (20%) of the amount due from the Customer for the [Covered Service](#covered-service) for the Service Period.
 
-### 10. Limitations
+## 10. Limitations
 
 - 10.1 Financial Credits will be in the form of a monetary credit applied to future use of the Service and will be applied within sixty (60) days after the Financial Credit was requested. After such times, unused Financial Credits will expire.
 
@@ -122,7 +124,7 @@ This SERVICE LEVEL AGREEMENT ("**SLA**") is by and between **Stakater** and you 
 
 - 10.8 Under no circumstances will any tests performed by Customer, its vendors or partners be recognized by Stakater as a valid measurable criterion of violation length, quality or type for the purposes of establishing a Financial Credit.
 
-### 11. Issues
+## 11. Issues
 
 - 11.1 An "**Issue**" means any event which is not part of the standard operation of the Services and which causes or may reasonably be expected to cause an interruption to, or a reduction in the quality of, the Service.
 
@@ -130,13 +132,13 @@ This SERVICE LEVEL AGREEMENT ("**SLA**") is by and between **Stakater** and you 
 
 - 11.3 Stakater is not responsible for comprehensive monitoring of Customer’s data or use of the Service; this responsibility lies with the Customer. Stakater will review the data or circumstances related to the Issue as reported by the Customer.
 
-### 12. Service Improvements
+## 12. Service Improvements
 
 - 12.1 Stakater will make available to customers new versions, releases, and updates to the Service to solve defects and/or errors, keep the Service up-to-date with market developments, or otherwise improve the Service. Stakater will only support the most recent version of the Service.
 
 - 12.2 New versions, releases, or updates will contain at least the level of functionality as set out in this SLA and as contained in the version or release of the Service previously used by Customer, and will not otherwise negatively impact Customer’s use of the Service. Stakater shall make reasonable efforts to ensure that when performing such actions, the impact on Customer and its customer(s) is limited.
 
-### 13. SLA Exclusions
+## 13. SLA Exclusions
 
 The SLA does not apply to any:
 

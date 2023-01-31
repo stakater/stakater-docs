@@ -26,7 +26,7 @@ Two types of acme solvers are supported, The Pros and Cons of both strategies ca
 
 For HTTP01 Challenge you just need to specify ingress field:
 
-```
+```yaml
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
 metadata:
@@ -50,7 +50,7 @@ For DNS01 Challenge you need to first create a secret in `stakater-cert-manager-
 !!! tip
     Use Limited access to the account being used for DNS01 Challenge automation
 
-```
+```yaml
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
 metadata:
@@ -80,9 +80,9 @@ spec:
 
 ### Generating Certificate
 
-Now that we have a working ClusterIssuer we can issue certificates like below. TLS certificates will be stored in a secret called `certman-generated-tls` in the namespace `myapp-ns`
+Now that we have a working ClusterIssuer we can issue certificates like below. TLS certificates will be stored in a secret called `certman-generated-tls` in the namespace `myapp-ns`:
 
-```
+```yaml
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
