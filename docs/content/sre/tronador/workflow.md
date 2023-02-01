@@ -1,26 +1,16 @@
 # Workflow guide for Tronador
 
 !!! warning Note
+    This Workflow Guide is now outdated after the newest changes to Tronador. The Guide will be updated soon.
 
-This Workflow Guide is now outdated after the newest changes to Tronador. The Guide will be updated soon.
-
-
-!!! warning Note:
-
-The guide below is written as a SAAP customer's point of view. If you use Tronador independently, the guide below might not be applicable to you. However, you can still use this guide to get an idea of how the process works.
-
+!!! warning Note
+    The guide below is written as a SAAP customer's point of view. If you use Tronador independently, the guide below might not be applicable to you. However, you can still use this guide to get an idea of how the process works.
 
 For Tronador to work, you need to add support for it in your Git Repository by adding a [Tronador config file](./config_file.md). Afterwards, a Tekton pipeline needs to be setup with the [Tronador cluster task](./cluster_task.md), and a cluster task that pushes the output EP to your GitOps repository. Test environments should then be created automatically every time a PR is created or updated. The entire Dynamic Test Environment (DTE) creation process is described below.
 
+![Tronador Workflow](./images/workflow.png)
 
-<figure>
-  <img
-  src="./images/workflow.png"
-  alt="pipeline-git">
-  <figcaption>Tronador Workflow</figcaption>
-</figure>
-
-### Tronador config file
+## Tronador config file
 
 The [Tronador config file](./config_file.md) is placed in the GitHub repository and is used to configure the EnvironmentProvisioner CR. Environment Provisioning will only work if the config file exists.
 
@@ -40,49 +30,28 @@ application:
 ```
 
 ### GitHub Event
+
  GitHub (or any other repository management system) events are used to trigger the Tronador pipeline. The pipeline is triggered whenever a PR is opened for a repository that supports Tronador.
 
 ### Tekton Pipeline
 
 The Tekton Pipeline needs to watch your repo where Tronador is configured to be used, and when a PR is created or updated, it will trigger the Tekton pipeline. The pipeline will first create a docker image from the changes in your PR. It will then create an EnvironmentProvisioner CR by using the details in the config file, and replacing its `APPLICATION_IMAGE_NAME` and `APPLICATION_IMAGE_TAG` variables in the config file with the details about the created docker image. Finally it will push the Environment Provisioner to your GitOps repository.
 
-<figure>
-  <img
-  src="./images/pipeline-git.png"
-  alt="pipeline-git">
-  <figcaption>Created docker image</figcaption>
-</figure>
+![Created docker image](./images/pipeline-git.png)
 
-<br>
-
-<figure>
-  <img
-  src="./images/pipeline.png"
-  alt="pipeline">
-  <figcaption>A successful pipeline run</figcaption>
-</figure>
+![A successful pipeline run](./images/pipeline.png)
 
 ### GitOps Repository
 
 A successful pipeline run will create a new Environment Provisioner CR, and push it to your GitOps repository.
 
-<figure>
-  <img
-  src="./images/gitops.png"
-  alt="pipeline">
-  <figcaption>Environment Provisioner pushed</figcaption>
-</figure>
+![Environment Provisioner pushed](./images/gitops.png)
 
 ### ArgoCD push
 
 ArgoCD is a tool that can be used to watch a repo and push the changes to your cluster. In this case, it will push the Environment Provisioner CR from your GitOps repository to your cluster.
 
-<figure>
-  <img
-  src="./images/argocd.png"
-  alt="pipeline">
-  <figcaption>Relevant ArgoCD Application synced</figcaption>
-</figure>
+![Relevant ArgoCD Application synced](./images/argocd.png)
 
 ### Environment Provisioner
 

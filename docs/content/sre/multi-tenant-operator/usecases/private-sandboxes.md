@@ -36,6 +36,7 @@ bluesky-john-aurora-sandbox      Active   5d5h
 ```
 
 However, from the perspective of `Anna`, only their sandbox will be visible
+
 ```bash
 kubectl get namespaces
 NAME                             STATUS   AGE

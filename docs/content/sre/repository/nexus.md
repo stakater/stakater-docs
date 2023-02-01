@@ -15,4 +15,3 @@
 | `https://nexus-repository-openshift-stakater-nexus.<...>.kubeapp.cloud/repository/` | Nexus Maven repository. | This is the nexus Maven repository endpoint, used for Maven apps. |
 
 We also support whitelisting for these endpoints. Please contact support if you want to enable whitelisting for specific IPs.
-

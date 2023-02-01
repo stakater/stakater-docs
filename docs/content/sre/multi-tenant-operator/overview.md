@@ -15,6 +15,7 @@ MTO supports initializing new tenants using GitOps management pattern. Changes c
 The idea of MTO is to use namespaces as independent sandboxes, where tenant applications can run independently of each other. Cluster admins shall configure MTO's custom resources, which then become a self-service system for tenants. This minimizes the efforts of the cluster admins.
 
 MTO enables cluster admins to host multiple tenants in a single OpenShift Cluster, i.e.:
+
 * Share an **OpenShift cluster** with multiple tenants
 * Share **managed applications** with multiple tenants
 * Configure and manage tenants and their sandboxes

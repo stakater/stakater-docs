@@ -1,25 +1,28 @@
 # Creating Application Alerts
 
 ## Overview
+
 There are 2 types of monitoring:
 
 1. Infrastructure monitoring (comes default with OpenShift installation)
 2. Workload monitoring (deployed by Stakater to monitor application workloads)
 
-
 ![Monitoring Diagram](./images/monitoring-diagram.png)
 
 ## Infrastructure Monitoring
+
 1. Prometheus
 2. Grafana
 3. Alertmanager
 
 ## Workload Monitoring
+
 1. Prometheus
 2. Grafana
 3. Alertmanager
 
 ## Creating Application Alerts to Monitor Application workloads
+
 In order to define Prometheus rules to monitor applications on the basis of exposed metrics. You need 3 things:
 
 1. Metrics Exposed by Application endpoints
@@ -80,7 +83,7 @@ spec:
       labels:
         severity: <SEVERITY>
         namespace: < NAME_OF_NAMESPACE >
-```    
+```
 
 Following Example shows Alerts for PersistentVolumes on the metrics scraped from Kubelets
 

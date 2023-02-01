@@ -2,7 +2,7 @@
 
 HashiCorp Vault is an identity-based secret and encryption management system. Vault validates and authorizes a system's clients (users, machines, apps) before providing them access to secrets or stored sensitive data.
 
-# Vault integration in Multi Tenant Operator
+## Vault integration in Multi Tenant Operator
 
 MTO manages tenant authentication via Vault. MTO automatically creates policies and roles that allow the tenant namespace service accounts to **read** secrets at tenant's path in Vault. The name of the role is the same as **namespace** name.
 

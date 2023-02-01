@@ -8,16 +8,21 @@ hibernation:
   sleepSchedule: 23 * * * *
   wakeSchedule: 26 * * * *
 ```
+
 `spec.hibernation.sleepSchedule` accepts a cron expression indicating the time to put the workloads in your tenant’s namespaces to sleep.
 
 `spec.hibernation.wakeSchedule` accepts a cron expression indicating the time to wake the workloads in your tenant’s namespaces up.
 
-> Note: both sleep and wake schedules must be specified for your Hibernation schedule to be valid.
+!!! note
+    Both sleep and wake schedules must be specified for your Hibernation schedule to be valid.
 
-Additionally, adding the `hibernation.stakater.com/exclude: 'true'` annotation to a namespace excludes it from hibernating. 
-> Note: This is only true for hibernation applied via the Tenant Custom Resource, and does not apply for hibernation done by manually creating a ResourceSupervisor (details about that below).
+Additionally, adding the `hibernation.stakater.com/exclude: 'true'` annotation to a namespace excludes it from hibernating.
 
-> Note: This will not wake up an already sleeping namespace before the wake schedule.
+!!! note
+    This is only true for hibernation applied via the Tenant Custom Resource, and does not apply for hibernation done by manually creating a ResourceSupervisor (details about that below).
+
+!!! note
+    This will not wake up an already sleeping namespace before the wake schedule.
 
 ## Resource Supervisor
 
@@ -45,6 +50,7 @@ spec:
     - tenant-ns1
     - tenant-ns2
 ```
+
 > Currently, Hibernation is available only for StatefulSets and Deployments.
 
 ### Manual creation of ResourceSupervisor
@@ -52,13 +58,14 @@ spec:
 Hibernation can also be applied by creating a ResourceSupervisor resource manually.
 The ResourceSupervisor definition will contain the hibernation cron schedule, the names of the namespaces to be hibernated, and the names of the ArgoCD AppProjects whose ArgoCD Applications have to be hibernated (as per the given schedule).
 
-This method can be used to hibernate: 
+This method can be used to hibernate:
+
 - Some specific namespaces and AppProjects in a tenant
 - A set of namespaces and AppProjects belonging to different tenants
 - Namespaces and AppProjects belonging to a tenant that the cluster admin is not a member of
 - Non-tenant namespaces and ArgoCD AppProjects
 
-As an example, the following ResourceSupervisor could be created manually, to apply hibernation explicitly to the 'ns1' and 'ns2' namespaces, and to the 'sample-app-project' AppProject. 
+As an example, the following ResourceSupervisor could be created manually, to apply hibernation explicitly to the 'ns1' and 'ns2' namespaces, and to the 'sample-app-project' AppProject.
 
 ```yaml
 apiVersion: tenantoperator.stakater.com/v1beta1

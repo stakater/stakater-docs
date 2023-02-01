@@ -39,6 +39,7 @@ resources:
 ```
 
 Or by using `Resource Mapping`
+
 ```yaml
 apiVersion: tenantoperator.stakater.com/v1alpha1
 kind: Template

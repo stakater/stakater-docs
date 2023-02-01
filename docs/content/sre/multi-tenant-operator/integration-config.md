@@ -102,7 +102,6 @@ Following are the different components that can be used to configure multi-tenan
 
 TenantRoles are required within the IntegrationConfig, as they are used for defining what roles will be applied to each Tenant namespace. The field allows optional custom roles, that are then used to create RoleBindings for namespaces that match a labelSelector.
 
-
 > ⚠️ If you do not configure roles in any way, then the default OpenShift roles of `owner`, `edit`, and `view` will apply to Tenant members. Their details can be found [here](./tenant-roles.md)
 
 ```yaml
@@ -163,6 +162,7 @@ custom:
 ```
 
 Then the `editor` and `viewer` roles will be taken from the `default` roles field, as that is required to have at least one role mentioned.
+
 ## OpenShift
 
 ``` yaml
@@ -198,6 +198,7 @@ openshift:
 ```
 
 ### Project, group and sandbox
+
 We can use the `openshift.project`, `openshift.group` and `openshift.sandbox` fields to automatically add `labels` and `annotations` to  the **Projects** and **Groups** managed via MTO.
 
 ```yaml
@@ -255,6 +256,7 @@ users:
 
 `privilegedNamespaces:` Contains the list of `namespaces` ignored by MTO. MTO will not manage the `namespaces` in this list. Values in this list are regex patterns.
 For example:
+
 - To ignore the `default` namespace, we can specify `^default$`
 - To ignore all namespaces starting with the `openshift-` prefix, we can specify `^openshift-*`.
 - To ignore any namespace containing `stakater` in its name, we can specify `stakater`. (A constant word given as a regex pattern will match any namespace containing that word.)
@@ -278,7 +280,7 @@ namespaceAccessPolicy:
         - adam@stakater.com
 ```
 
-> ⚠️ If you want to use a more complex regex pattern (for the `openshift.privilegedNamespaces` or `openshift.privilegedServiceAccounts` field), it is recommended that you test the regex pattern first -  either locally or using a platform such as https://regex101.com/.
+> ⚠️ If you want to use a more complex regex pattern (for the `openshift.privilegedNamespaces` or `openshift.privilegedServiceAccounts` field), it is recommended that you test the regex pattern first -  either locally or using a platform such as <https://regex101.com/>.
 
 ## ArgoCD
 
@@ -301,7 +303,7 @@ argocd:
 
 `argocd.namespaceResourceBlacklist` prevents ArgoCD from syncing the listed resources from your GitOps repo.
 
-### ClusterResourceWhitelist:
+### ClusterResourceWhitelist
 
 ```yaml
 argocd:

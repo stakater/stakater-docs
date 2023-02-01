@@ -1,6 +1,6 @@
 # ArgoCD
 
-### Creating ArgoCD AppProjects for your tenant
+## Creating ArgoCD AppProjects for your tenant
 
 Bill wants each tenant to also have their own ArgoCD AppProjects. To make sure this happens correctly, Bill will first specify the namespace where these AppProjects will in the IntegrationConfig:
 
@@ -107,7 +107,7 @@ Users belonging to the Sigma group will now only see applications created by the
 
 ![image](./../images/argocd.png)
 
-### Prevent ArgoCD from syncing certain namespaced resources
+## Prevent ArgoCD from syncing certain namespaced resources
 
 Bill wants tenants to not be able to sync `ResourceQuota` and `LimitRange` resources to their namespaces. To do this correctly, Bill will specify these resources to blacklist in the ArgoCD portion of the Integration Config's Spec:
 
@@ -147,7 +147,7 @@ spec:
   ...
 ```
 
-### Allow ArgoCD to sync certain cluster-wide resources
+## Allow ArgoCD to sync certain cluster-wide resources
 
 Bill now wants tenants to be able to sync the `Environment` cluster scoped resource to the cluster. To do this correctly, Bill will specify the resource to whitelist in the ArgoCD portion of the Integration Config's Spec:
 
@@ -183,9 +183,9 @@ spec:
   ...
 ```
 
-### Override NamespaceResourceBlacklist and/or ClusterResourceWhitelist per Tenant
+## Override NamespaceResourceBlacklist and/or ClusterResourceWhitelist per Tenant
 
-Bill now wants a specific tenant to override the `namespaceResourceBlacklist` and/or `clusterResourceWhitelist` set via Integration Config. Bill will specify these in `argoCD.appProjects` section of Tenant spec. 
+Bill now wants a specific tenant to override the `namespaceResourceBlacklist` and/or `clusterResourceWhitelist` set via Integration Config. Bill will specify these in `argoCD.appProjects` section of Tenant spec.
 
 ```yaml
 apiVersion: tenantoperator.stakater.com/v1beta2

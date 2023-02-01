@@ -23,7 +23,7 @@ You need to define `ServiceMonitor` so, the application metrics can be scrapped.
 | `.Values.serviceMonitor.enabled` | Enable `ServiceMonitor`
 | `.Values.serviceMonitor.endpoints` | Array of endpoints to be scraped by Prometheus
 
-```
+```yaml
 serviceMonitor:
   enabled: true
   endpoints:
@@ -40,15 +40,15 @@ A sample AlertmanagerConfig can be configured in [Application Chart](https://git
 
 | Parameter | Description |
 |:---|:---|
-| .Values.alertmanagerConfig.enabled | Enable alertmanagerConfig for this app (Will be merged in the base config) 
-| .Values.alertmanagerConfig.spec.route | The Alertmanager route definition for alerts matching the resource’s namespace. It will be added to the generated Alertmanager configuration as a first-level route 
+| .Values.alertmanagerConfig.enabled | Enable alertmanagerConfig for this app (Will be merged in the base config)
+| .Values.alertmanagerConfig.spec.route | The Alertmanager route definition for alerts matching the resource’s namespace. It will be added to the generated Alertmanager configuration as a first-level route
 | .Values.alertmanagerConfig.spec.receivers | List of receivers  
 
-We will use Slack as an example here. 
+We will use Slack as an example here.
 
 Step 1: Create a `slack-webhook-config` secret which holds Slack webhook URL
 
-```
+```yaml
 kind: Secret
 apiVersion: v1
 metadata:
@@ -61,7 +61,7 @@ type: Opaque
 
 Step 2: Add a alertmanagerConfig spec to use `slack-webhook-config` secret created above in step 1, you need to replace `<workload-alertmanager-url>` with the link of Workload Alertmanager that you can get from Forecastle.
 
-```
+```yaml
 alertmanagerConfig:
   enabled: true
   spec:
@@ -91,12 +91,12 @@ alertmanagerConfig:
             insecureSkipVerify: true
 ```
 
-With this configuration all predefined rules and any new rule which you define should land in the configured slack channel.
+With this configuration all predefined rules and any new rule which you define should land in the configured Slack channel.
 
 **Note:**
 AlertmanagerConfig will add a match with your namespace name by default, which will look like this:
 
-```
+```yaml
 ...
       match:
         namespace: <your-namespace>
@@ -113,9 +113,10 @@ A sample PrometheusRule can be configured in [Application Chart](https://github.
 
 | Parameter | Description |
 |:---|:---|
-| prometheusRule.enabled | Enable prometheusRule for this app 
-| prometheusRule.spec.groups | PrometheusRules in their groups to be added 
-~~~
+| prometheusRule.enabled | Enable prometheusRule for this app
+| prometheusRule.spec.groups | PrometheusRules in their groups to be added
+
+```yaml
 prometheusRule:
   enabled: true
   groups: []    
@@ -129,4 +130,4 @@ prometheusRule:
       for: 1m
       labels:
         severity: critical 
-~~~
+```

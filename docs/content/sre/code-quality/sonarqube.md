@@ -1,3 +1,0 @@
-# SonarQube
-
-_TBD_

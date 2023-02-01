@@ -17,6 +17,5 @@ A OpenStack account is needed to create and manage cluster on Binero OpenStack. 
   | Floating IPs | 10 |
   | Security Groups | 100 |
   | Security Groups Rules | 1000 |
-  | Ports	 | 5000 |
+  | Ports  | 5000 |
   | Routers | 10 |
-

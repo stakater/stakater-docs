@@ -8,7 +8,7 @@ The most popular application architecture on the cloud-native platforms such as 
 
 As part of the microservices movement, there is a significant amount of theory and supplemental techniques for creating microservices from scratch or for splitting monoliths into microservices. Most of these practices are based on the Domain Driven Design book by Eric Evans (Addison-Wesley) and the concepts of bounded contexts and aggregates. Bounded contexts deal with large models by dividing them into different components, and aggregates help further to group bounded contexts into modules with defined transaction boundaries. However, in addition to these business domain considerations, for every distributed system—whether it is based on microservices or not—there are also numerous technical concerns around its organization, structure, and runtime behavior.
 
-Containers and container orchestrators such as Kubernetes provide many new primitives and abstractions to address the concerns of distributed applications, and here we discuss the various options to consider when putting a distributed system into Kubernetes. 
+Containers and container orchestrators such as Kubernetes provide many new primitives and abstractions to address the concerns of distributed applications, and here we discuss the various options to consider when putting a distributed system into Kubernetes.
 
 Containers and cloud-native platforms bring tremendous benefits to your distributed applications, but if all you put into containers is rubbish, you will get distributed rubbish at scale. Figure below shows the mixture of the skills required for creating good cloud-native applications.
 
@@ -145,7 +145,7 @@ Stakater App Agility Platform offers a fully managed 3Scale API Gateway add-on t
 
 **What?**
 
-#### Design
+### Design
 
 In the world of waterfall application development, we spend an inordinate amount of time designing an application before a single line of code is written. This type of software development life cycle is not well suited to business situations with high uncertainty and high expectations of fast delivery. Agile works better then. Waterfall works better in business situations with high regulation, low uncertainty, clear expectations, and clear timelines.
 
@@ -153,7 +153,7 @@ However, this doesn’t mean that we don’t design at all in Agile. Instead, it
 
 The application developer best understands the application dependencies, and it is during the design phase that arrangements are made to declare dependencies as well as the means by which those dependencies are vendored, or bundled, with the application. In other words, the developer decides what libraries the application is going to use, and how those libraries are eventually going to be bundled into an immutable release.
 
-#### Build
+### Build
 
 The build stage is where a code repository is converted into a versioned, binary artifact. It is during this stage that the dependencies declared during the design phase are fetched and bundled into the build artifact (often just simply called a “build”). In the Java world, a build might be a WAR1 or a JAR file, or it could be a ZIP file or a binary executable for other languages and frameworks.
 
@@ -163,7 +163,7 @@ If you ever find yourself troubleshooting “works on my machine” problems, th
 
 Once you have confidence that your codebase will work anywhere it should, and you no longer fear production releases, you will start to see some of the truly amazing benefits of adopting the cloud-native philosophy, like continuous deployment and releases that happen hours after a commit rather than months.
 
-#### Release
+### Release
 
 In the cloud-native world, the release is typically done by pushing to your cloud environment. The output of the build stage is combined with environment- and app-specific configuration information to produce another immutable artifact, a release.
 
@@ -175,7 +175,7 @@ If something goes wrong, you want the ability to audit what you have released to
 
 There are a million different types of problems that arise from an organization’s inability to reproduce a release as it appeared at one point in the past. By having separate build and release phases, and storing those artifacts, rollback and historical auditing is possible.
 
-#### Run
+### Run
 
 The run phase is also typically done by the cloud provider (although developers need be able to run applications locally). The details vary among providers, but the general pattern is that your application is placed within some kind of container (Docker, Garden, Warden, etc.), and then a process is started to launch your application.
 
@@ -326,7 +326,7 @@ Finally, one of the biggest advantages to treating backing services as bound res
 
 Let’s say one of the databases on which your application relies is not responding. This causes a cascading failure effect and endangers your application. A classic enterprise application would be helpless and at the mercy of the flailing database.
 
-#### Circuit Breakers
+### Circuit Breakers
 
 _There is a pattern supported by libraries and cloud offerings called the circuit breaker that will allow your code to simply stop communicating with misbehaving backing services, providing a fallback or fail-safe path. Since a circuit breaker often resides in the binding area between an application and its backing services, you must first embrace backing services before you can take advantage of circuit breakers._
 
@@ -387,7 +387,7 @@ For apps that run on cloud infrastructure, you should treat them and the underly
 
 Applications respond to SIGTERM correctly.
 
-#### 1. The app doesn't shut down on SIGTERM, but it gracefully terminates connections
+### 1. The app doesn't shut down on SIGTERM, but it gracefully terminates connections
 
 It might take some time before a component such as `kube-proxy` or the Ingress controller is notified of the endpoint changes.
 
@@ -397,11 +397,11 @@ The app should stop accepting new requests on all remaining connections, and clo
 
 If you need a refresher on how endpoints are propagated in your cluster, [read this article on how to handle client requests properly](https://freecontent.manning.com/handling-client-requests-properly-with-kubernetes/).
 
-#### 2. The app still processes incoming requests in the grace period
+### 2. The app still processes incoming requests in the grace period
 
 You might want to consider using the container lifecycle events such as the `preStop` handler to customize what happened before a Pod is deleted.
 
-#### 3. The CMD in the Dockerfile forwards the SIGTERM to the process
+### 3. The CMD in the Dockerfile forwards the SIGTERM to the process
 
 You can be notified when the Pod is about to be terminated by capturing the SIGTERM signal in your app.
 
@@ -417,7 +417,7 @@ Use the SIGTERM signal (when it's available) to initiate a clean shutdown.
 
 The following snippet shows you how you can intercept the SIGTERM signal to close open database connections.
 
-```
+```js
 const express = require('express')
 const dbConnection = require('./db')
 
@@ -460,7 +460,7 @@ An application developed to allow externalized, runtime port binding can act as 
 
 **How?**
 
-```
+```javascript
 const express = require('express')
 const request = require('got')
 
@@ -484,7 +484,7 @@ app.listen(PORT, () => {
 
 Applications should execute as a single, stateless process. We have a strong opinion about the use of administrative and secondary processes, and modern cloud-native applications should each consist of a single, stateless process.
 
-#### A Practical Definition of Stateless
+### A Practical Definition of Stateless
 
 One question that we field on a regular basis stems from confusion around the concept of statelessness. People wonder how they can build a process that maintains no state. After all, every application needs some kind of state, right? Even the simplest of application leaves some bit of data floating around, so how can you ever have a truly stateless process?
 
@@ -494,7 +494,7 @@ To put it as simply as possible, all long-lasting state must be external to the 
 
 As an example, a microservice that exposes functionality for user management must be stateless, so the list of all users is maintained in a backing service (an Oracle or MongoDB database, for instance). For obvious reasons, it would make no sense for a database to be stateless.
 
-#### The Share-Nothing Pattern
+### The Share-Nothing Pattern
 
 Processes often communicate with each other by sharing common resources. Even without considering the move to the cloud, there are a number of benefits to be gained from adopting the Share-Nothing pattern. Firstly, anything shared among processes is a liability that makes all of those processes more brittle. In many high-availability patterns, processes will share data through a wide variety of techniques to elect cluster leaders, to decide on whether a process is a primary or backup, and so on.
 
@@ -504,7 +504,7 @@ It should go without saying, but the filesystem is not a backing service. This m
 
 If processes need to share data, like session state for a group of processes forming a web farm, then that session state should be externalized and made available through a true backing service.
 
-#### Data Caching
+### Data Caching
 
 A common pattern, especially among long-running, container based web applications, is to cache frequently used data during process startup. This book has already mentioned that processes need to start and stop quickly, and taking a long time to fill an in-memory cache violates this principle.
 
@@ -601,7 +601,7 @@ Considerations for helping to protect access to your app include the following:
 - With tools like OAuth2, OpenID Connect, various SSO servers and standards, as well as a near infinite supply of language-specific authentication and authorization libraries, security should be something that is baked into the application’s development from day one, and not added as a bolt-on project after an application is running in production.
 - Transport Layer Security (TLS). Use TLS to help protect data in transit. You might want to use mutual TLS for your business apps; this is made easier if you use service meshes like Istio on Kubernetes. It's also common for some use cases to create allow lists and deny lists based on IP addresses as an additional layer of security. Transport security also involves protecting your services against DDoS and bot attacks.
 - App and end-user security. Transport security helps provide security for data in transit and establishes trust. But it's a best practice to add app-level security to control access to your app based on who the consumer of the app is. The consumers can be other apps, employees, partners, or your enterprise's end customers. You can enforce security using API keys (for consuming apps), certification-based authentication and authorization, JSON Web Tokens (JWTs) exchange, or Security Assertion Markup Language (SAML).
- 
+
 The security landscape constantly evolves within an enterprise, making it harder for you to code security constructs in your apps
 
 Stakater App Agility Platform offers Keycloak as fully managed IAM solution to cater all the needs.
@@ -638,7 +638,7 @@ Maximize robustness with fast startup and graceful shutdown
 
 e.g.
 
-```
+```javascript
 const shutdown = async (signal) => {
    logger.info(`Disconnecting message broker at ${new Date()}`);
    messageBroker.disconnect();
@@ -733,13 +733,13 @@ Explicit resource allocation for pods. Applications should claim the CPU, memory
 
 **Why?**
 
-Allows Kubernetes to make good scheduling decisions. This allows the scheduler to know the best place to run the application based on resources available. 
+Allows Kubernetes to make good scheduling decisions. This allows the scheduler to know the best place to run the application based on resources available.
 
 When multiple applications are deployed on the same node, if the upper and lower resource limits are not set for an application, resource leakage occurs. As a result, resources cannot be allocated to other applications, and the application monitoring information will be inaccurate.
 
 **How?**
 
-Stakater application Helm chart always sets default requests and limits: https://github.com/stakater-charts/application/blob/master/application/values.yaml#L142 but of course each application can individually override them.
+Stakater application Helm chart always sets default requests and limits: <https://github.com/stakater-charts/application/blob/master/application/values.yaml#L142> but of course each application can individually override them.
 
 ## 23. Alerts
 
@@ -809,7 +809,7 @@ View metrics.
 
 **Why?**
 
-You need to make sense out of the data.	
+You need to make sense out of the data.
 
 **How?**
 
@@ -841,7 +841,7 @@ If you need data persistence for your application, work with your platform team 
 
 **Why?**
 
-Your application’s container filesystem is considered ephemeral. Meaning it will not move with the workload. This ephemeral storage is typically resource constrained and should not be used for anything more than small write needs, where loss of data is not a concern. 
+Your application’s container filesystem is considered ephemeral. Meaning it will not move with the workload. This ephemeral storage is typically resource constrained and should not be used for anything more than small write needs, where loss of data is not a concern.
 
 **How?**
 
@@ -853,11 +853,11 @@ Write tests at different layer to ensure high quality code.
 
 ![Testing Strategies](./images/testing.jpg)
 
-# Acknowledgements
+## Acknowledgements
 
 Most of the text has been copied from these awesome resources; and copyrights belong to them:
 
-- https://www.cdta.org/sites/default/files/awards/beyond_the_12-factor_app_pivotal.pdf
-- https://www.redhat.com/architect/12-factor-app
-- https://12factor.net/
-- https://cloud.google.com/architecture/twelve-factor-app-development-on-gcp
+- <https://www.cdta.org/sites/default/files/awards/beyond_the_12-factor_app_pivotal.pdf>
+- <https://www.redhat.com/architect/12-factor-app>
+- <https://12factor.net/>
+- <https://cloud.google.com/architecture/twelve-factor-app-development-on-gcp>

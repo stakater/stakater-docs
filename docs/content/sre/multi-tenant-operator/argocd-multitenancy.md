@@ -2,11 +2,11 @@
 
 ArgoCD is a declarative GitOps tool built to deploy applications to Kubernetes. While the continuous delivery (CD) space is seen by some as crowded these days, ArgoCD does bring some interesting capabilities to the table. Unlike other tools, ArgoCD is lightweight and easy to configure.
 
-# Why ArgoCD?
+## Why ArgoCD?
 
 Application definitions, configurations, and environments should be declarative and version controlled. Application deployment and lifecycle management should be automated, auditable, and easy to understand.
 
-# ArgoCD integration in Multi Tenant Operator
+## ArgoCD integration in Multi Tenant Operator
 
 With Multi Tenant Operator (MTO), cluster admins can configure multi tenancy in their cluster. Now with ArgoCD integration, multi tenancy can be configured in ArgoCD applications and AppProjects.
 
@@ -14,7 +14,7 @@ MTO (if configured to) will create AppProjects for each tenant. The AppProject w
 
 Note that ArgoCD integration in MTO is completely optional.
 
-# Default ArgoCD configuration
+## Default ArgoCD configuration
 
 We have set a default ArgoCD configuration in Multi Tenant Operator that fulfils the following use cases:
 

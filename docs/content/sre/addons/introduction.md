@@ -2,8 +2,8 @@
 
 Here is the list of fully managed addons available on Stakater App Agility Platform
 
-Managed AddOn |	Description
---- | --- 
+Managed AddOn | Description
+--- | ---
 Logging | [ElasticSearch](https://www.elastic.co/), [Fluentd](https://www.fluentd.org/), [Kibana](https://www.elastic.co/kibana/)
 Monitoring | [Grafana](https://github.com/integr8ly/grafana-operator), [Prometheus](https://github.com/coreos/prometheus-operator), [Thanos](https://thanos.io/)
 CI (continuous integration) | [Tekton](https://tekton.dev/)

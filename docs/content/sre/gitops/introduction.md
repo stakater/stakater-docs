@@ -26,7 +26,7 @@ As a software organization, I would like to:
 
 GitOps and DevOps do share some of the same principles and goals. DevOps is about cultural change and providing a way for development teams and operations teams to work together collaboratively.
 
-GitOps gives you tools and a framework to take DevOps practices, like collaboration, CI/CD, and version control, and apply them to infrastructure automation and application deployment. 
+GitOps gives you tools and a framework to take DevOps practices, like collaboration, CI/CD, and version control, and apply them to infrastructure automation and application deployment.
 
 Developers can work in the code repositories they already know, while operations can put the other necessary pieces into place.
 

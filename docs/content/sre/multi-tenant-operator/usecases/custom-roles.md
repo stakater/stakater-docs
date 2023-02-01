@@ -24,7 +24,7 @@ spec:
 
 Once all namespaces reconcile, the old `admin` RoleBindings should get replaced with the `edit` ones for each tenant owner.
 
-# Giving specific permissions to some tenants
+## Giving specific permissions to some tenants
 
 Bill now wants the owners of the tenants `bluesky` and `alpha` to have `admin` permissions over their namespaces. Custom roles feature will allow Bill to do this, by modifying the IntegrationConfig like this:
 

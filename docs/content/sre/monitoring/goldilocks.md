@@ -10,9 +10,7 @@ Goldilocks watches namespaces with the label `goldilocks.fairwinds.com/enabled: 
 
 In order to monitor your namespace via goldilocks, simply add the label `goldilocks.fairwinds.com/enabled:'true'` to your namespace and all the deployments in that namespace would be shown in the goldilocks dashboard.
 
-
 ![Goldilocks Dashboard](./images/goldilocks-dashboard.png)
-
 
 ## Autoscaling
 
@@ -28,7 +26,7 @@ You can set the default behavior for VPA creation using some flags. When specifi
 
 ## Excluding containers
 
-Containers can be excluded for individual deployments by applying a label to deployment. The label value should be a list of comma separated container names. The label value will be combined with any values provided through the `--exclude-containers` argument provided in the dashboard deployment. 
+Containers can be excluded for individual deployments by applying a label to deployment. The label value should be a list of comma separated container names. The label value will be combined with any values provided through the `--exclude-containers` argument provided in the dashboard deployment.
 
 This option can be useful for hiding recommendations for sidecar containers for things like Linkerd and Istio.
 

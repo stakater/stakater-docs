@@ -42,7 +42,6 @@ This document contains instructions on installing and configuring Multi Tenant O
 
 ![image](./images/to_installed_successful.png)
 
-
 > Note: MTO will be installed in `multi-tenant-operator` namespace.
 
 ### Configuring IntegrationConfig

@@ -1,6 +1,6 @@
 # Granting Admin privilege to user for nexus on Keycloak
 
-- Go to routes in `stakater-auth` namespace , open keycloak route , following screen will show up 
+- Go to routes in `stakater-auth` namespace , open keycloak route , following screen will show up
 
   ![Administration Console](./images/keycloak-1.png)
 
@@ -12,7 +12,7 @@
   
   ![Users](./images/keycloak-3.png)
 
-- On Role Mappings screen , select `nexus3` in client roles drop down. 
+- On Role Mappings screen , select `nexus3` in client roles drop down.
   
   ![Role Mappings](./images/keycloak-4.png)
 
