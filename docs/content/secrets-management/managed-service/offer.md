@@ -2,8 +2,8 @@
 
 Stakater secrets management as a service comes with:
 
-* [SLA](../saap-sla/saap-sla.md)
-* [Support](../sre/support/support.md)
+* [SLA](../../saap-sla/saap-sla.md)
+* [Support](../../sre/support/support.md)
 
 ## Fully covered and effortless Vault operations
 
@@ -31,7 +31,7 @@ Vault's audit logs and metrics will be available. Logs will be written to a sepa
 
 ## Namespace multi-tenancy
 
-[Stakater Multi Tenant Operator](../sre/multi-tenant-operator/overview.md) not only provides strong multi-tenancy, but also automatically manages RBAC for tenant secrets through tenant paths and policies.
+[Stakater Multi Tenant Operator](../../sre/multi-tenant-operator/overview.md) not only provides strong multi-tenancy, but also automatically manages RBAC for tenant secrets through tenant paths and policies.
 
 ## Kubernetes integration
 
