@@ -2,6 +2,33 @@
 
 Stakater provisions the Stakater App Agility Platform (SAAP) and takes first application to production in less than four weeks on the cloud of your choice!
 
+## Onboarding - customer data - notes from meeting with `Usama` on 1 Feb
+
+we ask customers if they want logging before provisioning, it is optional
+
+what cloud? "Cloud Provider"
+
+ask for credentials for cloud provider, like Binero account
+
+cluster name? any preference
+
+what IDP? credentials
+
+Spoke cluster installation
+
+Create user, download
+
+Dominator needs permissions to git repo access - optional
+
+Logs and events are in ES in that specific cluster
+account of customer provider - cloud provider - [7 day retention](https://github.com/stakater-ab/saap-addons-charts/blob/main/stakater/openshift-logging-config/values.yaml#L42)
+
+in case they want to forward events to data store they can do that optionally
+
+infra alerts are sent to slack
+
+app alerts are only sent to ES and can optionally be sent to our Slack
+
 ## Week 1 - Provisioning - Free
 
 - Provision SAAP on the cloud of your choice
