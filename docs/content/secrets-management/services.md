@@ -1,5 +1,7 @@
 # Stakater secrets management
 
+Secrets management is a fundamental aspect of complying with security certifications, for example ISO 27001 A.8.1 specifies the need for inventory of assets and ownership of assets.
+
 Stakater offers a number of services for managing secrets in Kubernetes using HashiCorp Vault. The right offer for your needs depends on your current situation.
 
 ## Secrets management assessment
