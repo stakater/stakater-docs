@@ -76,6 +76,7 @@ nav:
         - Applications:
             - content/sre/applications/cloud-native-app.md
             - content/sre/applications/helm.md
+            - content/sre/forecastle/forecastle.md
         - GitOps:
             - content/sre/gitops/introduction.md
             - content/sre/gitops/github.md
@@ -88,8 +89,6 @@ nav:
             - content/sre/onboarding/tenant-onboarding.md
             - content/sre/onboarding/application-onboarding.md
             - content/sre/onboarding/environment-onboarding.md
-            - content/sre/onboarding/cluster-onboarding.md
-            - content/sre/onboarding/quota-onboarding.md
             - content/sre/onboarding/developer-training.md
         - Authentication and Authorization:
             - content/sre/authentication-authorization/google-idp.md
@@ -107,8 +106,10 @@ nav:
         - Artifacts Management:
             - content/sre/repository/01-introduction.md
             - content/sre/repository/06-accessing-repository.md
+            - content/sre/repository/02-repositories.md
             - content/sre/repository/03-permissions.md
             - content/sre/repository/04-routes.md
+            - content/sre/repository/07-maven-setup.md
             - content/sre/repository/08-grant-nexus-admin-keycloak.md
             - content/sre/repository/05-FAQ.md
         - Code Quality:
@@ -148,8 +149,16 @@ nav:
             - content/sre/networking/external-dns.md
         - Secrets Management:
             - content/secrets-management/introduction.md
+            - content/secrets-management/services.md
             - content/secrets-management/sealed-secrets.md
             - content/secrets-management/vault.md
+            - Secrets Management as a Service:
+                - content/secrets-management/managed-service/offer.md
+                - content/secrets-management/managed-service/cluster_config.md
+            - External Secret Operator:
+                - content/secrets-management/external-secret-operator/introduction.md
+                - content/secrets-management/external-secret-operator/getting-started.md
+                - content/secrets-management/external-secret-operator/workflow.md
         - Certificate Management:
             - content/sre/certificates/cert-manager.md
         - Local Development:
@@ -206,6 +215,8 @@ nav:
             - content/sre/tronador/workflow.md
             - content/sre/tronador/troubleshooting.md
             - content/sre/tronador/changelog.md
+        - Release Notes:
+            - content/sre/release-notes/release-notes.md
         - Support:
             - content/sre/support/support.md
         - Frequently Asked Questions:
