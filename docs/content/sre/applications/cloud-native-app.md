@@ -395,7 +395,7 @@ Hence, traffic might still flow to the Pod despite it being marked as terminated
 
 The app should stop accepting new requests on all remaining connections, and close these once the outgoing queue is drained.
 
-If you need a refresher on how endpoints are propagated in your cluster, [read this article on how to handle client requests properly](https://freecontent.manning.com/handling-client-requests-properly-with-kubernetes).
+If you need a refresher on how endpoints are propagated in your cluster, [read this article on how to handle client requests properly](https://freecontent.manning.com/handling-client-requests-properly-with-kubernetes/).
 
 ### 2. The app still processes incoming requests in the grace period
 
