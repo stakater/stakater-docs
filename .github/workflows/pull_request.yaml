@@ -17,6 +17,9 @@ jobs:
         uses: gaurav-nelson/github-action-markdown-link-check@v1
         with:
           config-file: .github/md_config.json
+          use-quiet-mode: 'yes'
+          use-verbose-mode: 'yes'
+          max-depth: 1
   spell_check:
     runs-on: ubuntu-latest
     steps:
