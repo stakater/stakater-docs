@@ -29,11 +29,11 @@ The overall minimum resource requirements are:
 
 | Machine pool role | Minimum size (vCPU x Memory x Storage) | Minimum pool size | vCPU | Total Memory (GiB) | Total Storage (GiB)
 |:---|:---|---:|---:|---:|---:|
-| Master | 4 x 32 x 100 | 3 | 12 | 96 | 300 |
-| Infra | 4 x 16 x 100 | 2 | 8 | 32 | 200 |
-| Monitoring | 4 x 32 x 100 | 1 | 4 | 32 | 100 |
-| Worker | 4 x 16 x 100 | 3 | 12 | 48 | 300 |
-| **Total** | | **9** | **36** | **208** | **900** |
+| Master | 6 x 24 x 120 | 3 | 18 | 72 | 300 |
+| Infra | 4 x 16 x 120 | 2 | 8 | 32 | 200 |
+| Monitoring | 4 x 32 x 120 | 1 | 4 | 32 | 100 |
+| Worker | 4 x 16 x 120 | 3 | 12 | 48 | 300 |
+| **Total** | | **9** | **42** | **184** | **900** |
 
 ### Recommended
 
@@ -41,13 +41,13 @@ The recommended resource requirements are:
 
 | Machine pool role | Minimum size (vCPU x Memory x Storage) | Minimum pool size | vCPU | Total Memory (GiB) | Total Storage (GiB) |
 |:---|:---|---:|---:|---:|---:|
-| Master | 4 x 32 x 100 | 3 | 12 | 96 | 300 |
-| Infra | 4 x 16 x 100 | 2 | 8 | 32 | 200 |
-| Monitoring | 4 x 32 x 100 | 1 | 4 | 32 | 100 |
-| Logging | 4 x 16 x 100 | 1 | 4 | 16 | 100 |
-| Pipeline | 4 x 16 x 100 | 1 | 4 | 16 | 100 |
-| Worker | 4 x 16 x 100 | 3 | 12 | 48 | 300 |
-| **Total** | | **11** | **44** | **240** | **1100** |
+| Master | 6 x 24 x 120 | 3 | 12 | 72 | 300 |
+| Infra | 4 x 16 x 120 | 2 | 8 | 32 | 200 |
+| Monitoring | 4 x 32 x 120 | 1 | 4 | 32 | 100 |
+| Logging | 4 x 16 x 120 | 1 | 4 | 16 | 100 |
+| Pipeline | 4 x 16 x 120 | 1 | 4 | 16 | 100 |
+| Worker | 4 x 16 x 120 | 3 | 12 | 48 | 300 |
+| **Total** | | **11** | **50** | **216** | **1100** |
 
 ## Compute
 
