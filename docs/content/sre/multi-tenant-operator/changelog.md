@@ -4,15 +4,20 @@
 
 ### v0.9.0
 
+- feat: Added console for tenants, templates and integration config
 - feat: Added support for custom realm name for rhsso integration in Integration Config
 - feat: Add multiple status conditions to tenant and TGI for success and failure cases
 - feat: Show error messages with tenant and TGI status
 - fix: Stop reconciliation breaking for tenant and TGI, instead continue and show warnings
 - fix: Disable TGI/TI reconcile if mentioned template is not found.
+- fix: Disable repeated users webhook in tenant
 - enhance: Reduced API calls
 - enhance: General enhancements and improvements
 - chore: Update dependencies
 
+#### Enabling console
+
+- To enable console visit [Installation](./installation.md), and add config to subscription for OperatorHub based installation.
 ## v0.8.x
 
 ### v0.8.3
