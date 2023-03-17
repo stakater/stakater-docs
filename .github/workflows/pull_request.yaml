@@ -11,7 +11,7 @@ jobs:
     with:
       MD_CONFIG: .github/md_config.json
       DOC_SRC: docs/content
-      MD_LINT_CONFIG: markdownlint.yaml
+      MD_LINT_CONFIG: .markdownlint.yaml
   build:
     uses: stakater/.github/.github/workflows/pull_request_container_build.yaml@v0.0.13
     with:
