@@ -9,7 +9,7 @@
 ### v0.9.0
 
 - feat: Added console for tenants, templates and integration config
-- feat: Added support for custom realm name for rhsso integration in Integration Config
+- feat: Added support for custom realm name for RHSSO integration in Integration Config
 - feat: Add multiple status conditions to tenant and TGI for success and failure cases
 - feat: Show error messages with tenant and TGI status
 - fix: Stop reconciliation breaking for tenant and TGI, instead continue and show warnings
