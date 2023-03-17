@@ -18,6 +18,7 @@
 #### Enabling console
 
 - To enable console visit [Installation](./installation.md), and add config to subscription for OperatorHub based installation.
+
 ## v0.8.x
 
 ### v0.8.3
@@ -31,14 +32,14 @@
 ### v0.8.0
 
 - feat: Allow custom roles for each tenant via label selector, more details in [custom roles document](./usecases/custom-roles.md)
-  - Roles mapping is a required field in [MTO's IntegrationConfig](./integration-config.md). By default, it will always be filled with OpenShift's admin/edit/view roles
-  - Ensure that mentioned roles exist within the cluster
-  - Remove coupling with OpenShift's built-in admin/edit/view roles
+    - Roles mapping is a required field in [MTO's IntegrationConfig][def]. By default, it will always be filled with OpenShift's admin/edit/view roles
+    - Ensure that mentioned roles exist within the cluster
+    - Remove coupling with OpenShift's built-in admin/edit/view roles
 - feat: Removed coupling of ResourceSupervisor and Tenant resources
-  - Added list of namespaces to hibernate within the ResourceSupervisor resource
-  - Ensured that the same namespace cannot be added to two different Resource Supervisors
-  - Moved ResourceSupervisor into a separate pod
-  - Improved logs
+    - Added list of namespaces to hibernate within the ResourceSupervisor resource
+    - Ensured that the same namespace cannot be added to two different Resource Supervisors
+    - Moved ResourceSupervisor into a separate pod
+    - Improved logs
 - fix: Remove bug from tenant's common and specific metadata
 - fix: Add missing field to Tenant's conversion webhook
 - fix: Fix panic in ResourceSupervisor sleep functionality due to sending on closed channel
@@ -71,7 +72,7 @@
 - feat: Allow creation of namespaces without tenant prefix from within tenant spec
 - fix: Webhook changes will now be updated without manual intervention
 - maintain: Updated Tenant CR version from v1beta1 to v1beta2. Conversion webhook is added to facilitate transition to new version
-  - see [Tenant spec](./customresources.md#_2-tenant) for updated spec
+    - see [Tenant spec](./customresources.md#_2-tenant) for updated spec
 - enhance: Better automated testing
 
 ## v0.6.x
@@ -201,9 +202,9 @@
 #### Migrating from pervious version
 
 - To migrate to Tenant-Operator:v0.3.25 perform the following steps
-  - Downscale Tenant-Operator deployment by setting the replicas count to 0
-  - Delete TemplateInstances created by TemplateGroupInstance (Naming convention of TemplateInstance created by TemplateGroupInstance is `group-{Template.Name}`)
-  - Update version of Tenant-Operator to v0.3.25 and set the replicas count to 2. After Tenant-Operator pods are up TemplateGroupInstance will create the missing resources
+    - Downscale Tenant-Operator deployment by setting the replicas count to 0
+    - Delete TemplateInstances created by TemplateGroupInstance (Naming convention of TemplateInstance created by TemplateGroupInstance is `group-{Template.Name}`)
+    - Update version of Tenant-Operator to v0.3.25 and set the replicas count to 2. After Tenant-Operator pods are up TemplateGroupInstance will create the missing resources
 
 ### v0.3.24
 
@@ -223,10 +224,10 @@
 > ⚠️ Known Issues
 
 - `caBundle` field in validation webhooks is not being populated for newly added webhooks. A temporary fix is to edit the validation webhook configuration manifest without the `caBundle` field added in any webhook, so OpenShift can add it to all fields simultaneously
-  - Edit the `ValidatingWebhookConfiguration` `stakater-tenant-operator-validating-webhook-configuration` by removing all the `caBundle` fields of all webhooks
-  - Save the manifest
-  - Verify that all `caBundle` fields have been populated
-  - Restart Tenant-Operator pods
+    - Edit the `ValidatingWebhookConfiguration` `stakater-tenant-operator-validating-webhook-configuration` by removing all the `caBundle` fields of all webhooks
+    - Save the manifest
+    - Verify that all `caBundle` fields have been populated
+    - Restart Tenant-Operator pods
 
 ### v0.3.21
 
@@ -336,9 +337,11 @@
 
 ### v0.2.32
 
-- refactor: Restructure integration config spec, more details in [relevant docs](./integration-config.md)
+- refactor: Restructure integration config spec, more details in [relevant docs][def]
 - feat: Allow users to input custom regex in certain fields inside of integration config, more details in [relevant docs](./integration-config.md#openshift)
 
 ### v0.2.31
 
 - feat: Add limit range for `kube-RBAC-proxy`
+
+[def]: ./integration-config.md
