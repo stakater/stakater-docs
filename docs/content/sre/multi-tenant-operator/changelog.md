@@ -2,6 +2,10 @@
 
 ## v0.9.x
 
+### v0.9.1
+
+- fix: Allow namespace controller to reconcile without crashing, if no IC exists
+
 ### v0.9.0
 
 - feat: Added console for tenants, templates and integration config
