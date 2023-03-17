@@ -5,6 +5,7 @@
 ### v0.9.1
 
 - fix: Allow namespace controller to reconcile without crashing, if no IC exists
+- fix: In case a group mentioned in IC doesn't exist, it wont block reconciliation or editing of MTO's manifests
 
 ### v0.9.0
 
