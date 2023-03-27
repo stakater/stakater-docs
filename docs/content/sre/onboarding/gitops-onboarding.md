@@ -1,3 +1,5 @@
+# GitOps Onboarding
+
 Let us set up Stakater Opinionated GitOps Structure.
 
 Stakater's GitOps structure is composed of two repositories; one for deploying infrastructural resources, and one for deploying the application workloads.
@@ -7,7 +9,7 @@ You can name these two repositories anything you want but make sure the names ar
 
 Let's set these two repositories up!!
 
-### Nordmart Infra GitOps Config
+## Nordmart Infra GitOps Config
 
 The cluster scoped infrastructural configurations are deployed through this repository.
 
@@ -105,6 +107,6 @@ If you notice the path, you will realize that this application is pointing to 't
 
 We have set up the basic structure for our infra repository. Let's move on to the apps repository.
 
-# `nordmart-apps-gitops-config`
+## `nordmart-apps-gitops-config`
 
 Single source of truth for declarative workloads to be deployed on cluster.

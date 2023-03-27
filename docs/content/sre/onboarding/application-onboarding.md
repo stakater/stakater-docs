@@ -5,15 +5,15 @@ This guide covers the step-by-step guide to onboard a new project/application/mi
 Changes required in application repository:
 
 1. Add Dockerfile to application repository and push it to nexus
-2. Add Helm Chart to application repository and push it to nexus
-3. Push Docker Image to Nexus Docker.
-4. Push Helm Chart to Nexus Helm
+1. Add Helm Chart to application repository and push it to nexus
+1. Push Docker Image to Nexus Docker.
+1. Push Helm Chart to Nexus Helm
 
 Changes required in `gitops config repository`:
 
-5. Add dev environment in `apps-gitops-config` repository for application
-6. Add application to the dev environment and sync ArgoCD Application
-7. View Application in Cluster
+1. Add dev environment in `apps-gitops-config` repository for application
+1. Add application to the dev environment and sync ArgoCD Application
+1. View Application in Cluster
 
 Replace angle brackets with following values in below templates:
 
@@ -121,9 +121,7 @@ If your application contains dependency charts run the following command in depl
     helm dependency build
     ```
 
-    <p align="center">
-      <img src="./images/helm-dependency-build.png" width="60%" />
-    </p>
+    ![helm-dependency-build](./images/helm-dependency-build.png)
 
 4. Run the following command to see the Kubernetes manifests are being generated successfully and validate whether they match your required configuration.
 
@@ -144,13 +142,12 @@ References to Explore:
 ## 3. Push Docker Image to Nexus
 
 Navigate to the cluster Forecastle and get the Nexus URL. Get and copy the nexus url.
-    <p align="center">
-      <img src="./images/nexus-forecastle.png" width="80%" />
-    </p>
+
+![nexus-forecastle](./images/nexus-forecastle.png)
 
 Replace the placeholders and Run the following command inside application folder.
 
-```
+```sh
 # Buldah Bud Info : https://manpages.ubuntu.com/manpages/impish/man1/buildah-bud.1.html
 buildah bud --format=docker --tls-verify=false --no-cache -f ./Dockerfile -t <nexus-repo-url>/<app-name>:1.0.0 .
 ```
@@ -182,10 +179,9 @@ curl -u "<helm_user>":"<helm_password>" <nexus-repo-url>/repository/helm-charts 
 
 ## 5. Add application chart to `apps-gitops-config`
 
-Navigate to `apps-gitops-config` repository and add a helm chart in path <tenant-name>/<app-name>/dev.
-<p align="center">
-  <img src="./images/app-in-dev-env.png" width="80%" />
-</p>
+Navigate to `apps-gitops-config` repository and add a helm chart in path `<tenant-name>/<app-name>/dev`.
+
+![app-in-dev-env](./images/app-in-dev-env.png)
 
 ```yaml
 # <tenant-name>/<app-name>/dev/Chart.yaml
@@ -210,21 +206,20 @@ version: 1.0.0
 ## 6. View Application in Cluster
 
 Login into ArgoCD UI using Forecastle console. Visit the application against dev environment inside your tenant. Usual naming convention is **tenantName-envName-appName**. Make sure that there aren't any error while deploying during ArgoCD.
-<p align="center">
-  <img src="./images/dev-argocd-app.png" width="80%" />
-</p>
+
+![dev-argocd-app](./images/dev-argocd-app.png)
 
 Visit the OpenShift console to verify the application deployment.
-<p align="center">
-  <img src="./images/review-web-pod.png" width="80%" />
-  <img src="./images/review-web-route.png" width="80%" />
-</p>
-Visit the application url using routes to check if application is working as expected.
-<p align="center">
-  <img src="./images/review-web-ui.png" width="80%" />
-</p>
 
-# Tekton Pipelines for Application CI
+![review-web-pod](./images/review-web-pod.png)
+
+![review-web-route](./images/review-web-route.png)
+
+Visit the application url using routes to check if application is working as expected.
+
+![review-web-ui](./images/review-web-ui.png)
+
+## Tekton Pipelines for Application CI
 
 Changes required in application repository:
 
@@ -232,13 +227,13 @@ Changes required in application repository:
 
 Changes required in `gitops config repository`:
 
-2. Add build environment in `apps-gitops-config` repository for application.
-3. Add preview environment in `apps-gitops-config` repository for application.
-4. Deploy pipelines `stakater-tekton-chart` to build environment of application in `apps-gitops-config`.
-5. Deploy `triggerbindings` for the pipelines.
-6. Trigger Pipeline by sending webhooks to `Eventlistener Route`.
+1. Add build environment in `apps-gitops-config` repository for application.
+1. Add preview environment in `apps-gitops-config` repository for application.
+1. Deploy pipelines `stakater-tekton-chart` to build environment of application in `apps-gitops-config`.
+1. Deploy `triggerbindings` for the pipelines.
+1. Trigger Pipeline by sending webhooks to `Eventlistener Route`.
 
-## 1. Add webhook to application repository
+### 1. Add webhook to application repository
 
 Add webhook to the application repository; you can find the webhook URL in the routes of the `build` namespace; for payload you need to include the `pull requests` and `pushes` with ContentType `application/json`.
 
@@ -248,15 +243,7 @@ For GitHub add following to the payload.
 
 ![GitHub](./images/github.png)
 
-### GitLab
-
-*TODO*
-
-### Bitbucket
-
-*TODO*
-
-## 4. Add files to `gitops config repository`
+### 4. Add files to `gitops config repository`
 
 You need to create application folder inside a tenant. Inside application folder you need to create each environment folder that application will be deployed to. Following folders will be created.
 
@@ -313,6 +300,7 @@ version: 0.1.0
 
 appVersion: 1.0.0
 ```
+
 - `<tenant>/configs/<env>/argocd/<application>.yaml`:
 
 ```yaml
