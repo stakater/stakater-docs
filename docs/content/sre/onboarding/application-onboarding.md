@@ -17,19 +17,19 @@ Changes required in `gitops config repository`:
 
 Replace angle brackets with following values in below templates:
 
-  - `<tenant>`: Name of the tenant
-  - `<application>`: Name of the application
-  - `<env>`:  Environment name
-  - `<gitops-repo>`:  URL of your GitOps repo
-  - `<nexus-repo>`: URL of nexus repository
+- `<tenant>`: Name of the tenant
+- `<application>`: Name of the application
+- `<env>`:  Environment name
+- `<gitops-repo>`:  URL of your GitOps repo
+- `<nexus-repo>`: URL of nexus repository
 
 ## 1. Add **Dockerfile** to application repository
 
-We need a **Dockerfile** for our application present inside our code repo.  Navigate to [**redhat image registry**](https://catalog.redhat.com/software/containers/search) and find a suitable image for the application.
+We need a **Dockerfile** for our application present inside our code repo.  Navigate to [`RedHat image registry`](https://catalog.redhat.com/software/containers/search) and find a suitable image for the application.
 
-Below is a dockerfile for ReactJS application for product reviews. Visit For More Info : https://github.com/stakater-lab/stakater-nordmart-review-ui
+Below is a Dockerfile for a ReactJS application for product reviews. Visit for more info: <https://github.com/stakater-lab/stakater-nordmart-review-ui>
 
-```
+```Dockerfile
 FROM node:14 as builder
 LABEL name="Nordmart review"
 
@@ -57,10 +57,9 @@ CMD ["node", "server.js"]
 Look into the following dockerizing guides for a start.
 | Framework/Language | Reference                                                   |
 |--------------------|-------------------------------------------------------------|
-| NodeJS             | https://nodejs.org/en/docs/guides/nodejs-docker-webapp/     |
-| Django             | https://blog.logrocket.com/dockerizing-django-app/          |
-| General            | https://www.redhat.com/sysadmin/containerizing-applications |
-
+| NodeJS             | <https://nodejs.org/en/docs/guides/nodejs-docker-webapp/>     |
+| Django             | <https://blog.logrocket.com/dockerizing-django-app/>          |
+| General            | <https://www.redhat.com/sysadmin/containerizing-applications> |
 
 ## 2. Add Helm Chart to application repository
 
@@ -68,7 +67,7 @@ In application repo add Helm Chart in ***deploy*** folder at the root of your re
 
 1. A Chart.yaml is YAML file containing information about the chart. We will be using an external helm dependency chart called [Stakater Application Chart](https://github.com/stakater/application). The Helm chart is present in a remote Helm Chart repository
 
-    > More Info : Stakater Application Chart https://github.com/stakater/application
+    > More Info : Stakater Application Chart <https://github.com/stakater/application>
 
     ```yaml
     apiVersion: v2
@@ -81,9 +80,11 @@ In application repo add Helm Chart in ***deploy*** folder at the root of your re
     type: application
     version: 1.0.0
     ```
-2. The values.yaml contains all the application specific **kubenetes resources** (deployments, configmaps, namespaces, secrets, services, route, podautoscalers, rbac) for the particular environment. Configure Helm values as per application needs.
+
+2. The values.yaml contains all the application specific **kubenetes resources** (deployments, configmaps, namespaces, secrets, services, route, podautoscalers, RBAC) for the particular environment. Configure Helm values as per application needs.
 
     Here is a minimal values file defined for an application with deployment,route,service.
+
     ```yaml
     # Name of the dependency chart
     application:
@@ -112,68 +113,81 @@ In application repo add Helm Chart in ***deploy*** folder at the root of your re
           targetPort: http
     ```
 
-3. Make sure to validate the helm chart before commiting it to the repository.
+3. Make sure to validate the helm chart before doing a commit to the repository.
 If your application contains dependency charts run the following command in deploy/ folder to download helm dependencies using **helm dependency build**.
 
-    ```
+    ```sh
     # Download helm dependencies in Chart.yaml
     helm dependency build
     ```
+
     <p align="center">
       <img src="./images/helm-dependency-build.png" width="60%" />
     </p>
 
-4. Run the following command to see the kubernetes manifests are being generated successfully and validate whether they match your required configuration.
-    ```
+4. Run the following command to see the Kubernetes manifests are being generated successfully and validate whether they match your required configuration.
+
+    ```sh
     # Generates the chart against values file provided
     # and write the output to application-output.yaml
     helm template . > application-output.yaml
     ```
-    Open the file to view raw kubernetes manifests seperated by '---' that ll be deployed for your application.
+
+    Open the file to view raw Kubernetes manifests separated by '---' that ll be deployed for your application.
 
 References to Explore:
-- [stakater-nordmart-review](https://github.com/stakater-lab/stakater-nordmart-review/deploy)
-- [stakater-nordmart-review-ui](https://github.com/stakater-lab/stakater-nordmart-review-ui/deploy)
+
+- [`stakater-nordmart-review`](https://github.com/stakater-lab/stakater-nordmart-review/deploy)
+- [`stakater-nordmart-review-ui`](https://github.com/stakater-lab/stakater-nordmart-review-ui/deploy)
 - [All configurations available via Application Chart Values](https://github.com/stakater/application/blob/master/application/values.yaml)
 
 ## 3. Push Docker Image to Nexus
-Navigate to the cluster forecastle and get the Nexus URL. Get and copy the nexus url.
+
+Navigate to the cluster Forecastle and get the Nexus URL. Get and copy the nexus url.
     <p align="center">
       <img src="./images/nexus-forecastle.png" width="80%" />
     </p>
 
 Replace the placeholders and Run the following command inside application folder.
+
 ```
 # Buldah Bud Info : https://manpages.ubuntu.com/manpages/impish/man1/buildah-bud.1.html
 buildah bud --format=docker --tls-verify=false --no-cache -f ./Dockerfile -t <nexus-repo-url>/<app-name>:1.0.0 .
 ```
+
 Lets push the image to nexus docker repo. Make sure to get credentials from Stakater Admin.
-```
+
+```sh
 # Buildah push Info https://manpages.ubuntu.com/manpages/impish/man1/buildah-push.1.html
 buildah push --tls-verify=false --digestfile ./image-digest <nexus-repo-url>/stakater-nordmart-review:snapshot-pr-350-68b5d049 docker://<nexus-repo-url>/
 ```
 
 ## 4. Push Helm Chart to Nexus
+
 After successfully pushing the image to Nexus. We need to package our helm chart and push to Nexus Helm Repo.
 Run the following command to package the helm chart into compressed file.
-```
+
+```sh
 # helm package [CHART_PATH]
 helm package .
 # output : successfully packaged chart and saved it to: /Desktop/Tasks/stakater/stakater-nordmart-review-ui/deploy/stakater-nordmart-review-ui-1.0.0.tgz
 ```
+
 Now lets upload the chart to Nexus Helm Repo using curl.
-```
+
+```sh
 # heml
 curl -u "<helm_user>":"<helm_password>" <nexus-repo-url>/repository/helm-charts --upload-file "stakater-nordmart-review-ui-1.0.0.tgz"
 ```
-## 5. Add application chart to apps-gitops-config
 
-Navigate to apps-gitops-config repository and add a helm chart in path <tenant-name>/<app-name>/dev.
+## 5. Add application chart to `apps-gitops-config`
+
+Navigate to `apps-gitops-config` repository and add a helm chart in path <tenant-name>/<app-name>/dev.
 <p align="center">
   <img src="./images/app-in-dev-env.png" width="80%" />
 </p>
 
-```
+```yaml
 # <tenant-name>/<app-name>/dev/Chart.yaml
 apiVersion: v2
 name: <application-name>
@@ -192,18 +206,20 @@ version: 1.0.0
         repository: <nexus-repo>/<chart-name-in-deploy-folder>
         tag: 1.0.0
 ```
+
 ## 6. View Application in Cluster
-Login into ArgoCD UI using forecastle console. Visit the application against dev environment inside your tenant. Usual naming convention is **tenantName-envName-appName**. Make sure that there arent any error while deploying during ArgoCD.
+
+Login into ArgoCD UI using Forecastle console. Visit the application against dev environment inside your tenant. Usual naming convention is **tenantName-envName-appName**. Make sure that there aren't any error while deploying during ArgoCD.
 <p align="center">
   <img src="./images/dev-argocd-app.png" width="80%" />
 </p>
 
-Visit the Openshift console to verify the application deployment. 
+Visit the OpenShift console to verify the application deployment.
 <p align="center">
   <img src="./images/review-web-pod.png" width="80%" />
   <img src="./images/review-web-route.png" width="80%" />
 </p>
-Visit the application url using routes to check if application is working as expedcted.
+Visit the application url using routes to check if application is working as expected.
 <p align="center">
   <img src="./images/review-web-ui.png" width="80%" />
 </p>
@@ -218,9 +234,10 @@ Changes required in `gitops config repository`:
 
 2. Add build environment in `apps-gitops-config` repository for application.
 3. Add preview environment in `apps-gitops-config` repository for application.
-4. Deploy Pipelines stakater-tekton-chart to build environment of application in `apps-gitops-config`.
-5. Deploy triggerbindings for the pipelines.
-6. Trigger Pipeline by sending webhooks to Eventlistener Route.
+4. Deploy pipelines `stakater-tekton-chart` to build environment of application in `apps-gitops-config`.
+5. Deploy `triggerbindings` for the pipelines.
+6. Trigger Pipeline by sending webhooks to `Eventlistener Route`.
+
 ## 1. Add webhook to application repository
 
 Add webhook to the application repository; you can find the webhook URL in the routes of the `build` namespace; for payload you need to include the `pull requests` and `pushes` with ContentType `application/json`.
@@ -233,11 +250,11 @@ For GitHub add following to the payload.
 
 ### GitLab
 
-_TODO_
+*TODO*
 
 ### Bitbucket
 
-_TODO_
+*TODO*
 
 ## 4. Add files to `gitops config repository`
 
@@ -252,18 +269,13 @@ You need to create application folder inside a tenant. Inside application folder
 
 ### 00-build environment
 
-
 ### 00-preview environment
-
 
 ### 01-dev environment
 
-
 ### 02-stage environment
 
-
 ### 03-prod environment
-
 
 To deploy, you'll need to add Helm chart of your application in **each** environment folder.
 
@@ -273,7 +285,7 @@ Templates for the files:
 
 - `<tenant>/<application>/<env>\values.yaml`:
 
-``` yaml
+```yaml
 <application>:
   application:
     space:
@@ -286,7 +298,7 @@ Templates for the files:
 
 - `<tenant>/<app>/<env>\Chart.yaml`:
 
-``` yaml
+```yaml
 apiVersion: v2
 name: <application>
 description: A Helm chart for Kubernetes
@@ -300,12 +312,10 @@ type: application
 version: 0.1.0
 
 appVersion: 1.0.0
-
 ```
-
 - `<tenant>/configs/<env>/argocd/<application>.yaml`:
 
-``` yaml
+```yaml
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -326,11 +336,13 @@ spec:
       selfHeal: true
 ```
 
-## 4. Deploy Pipelines 
-Deploy Pipelines stakater-tekton-chart to build environment of application in `apps-gitops-config`
-## 5. Deploy TriggerBindings for the pipelines.
-## 6. Trigger Pipeline by sending webhooks to Eventlistener Route.
+## 4. Deploy Pipelines
 
+Deploy Pipelines `stakater-tekton-chart` to build environment of application in `apps-gitops-config`
+
+## 5. Deploy TriggerBindings for the pipelines
+
+## 6. Trigger Pipeline by sending webhooks to `Eventlistener Route`
 
 ## Junkyard
 
