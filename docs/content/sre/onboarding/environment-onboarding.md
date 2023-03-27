@@ -9,13 +9,14 @@ To add new environment in cluster do following steps in GitOps directory:
   **`<application-tenant>/configs/<env>`**`/argocd/`
 
 - Add environment folder in each application directory located in application tenants directory
-     - `<01-tenant>/<01-application>/<env>`
-     - `<01-tenant>/<n-application>/<env>`
-     - `<n-tenant>/<n-application>/<env>`
+    - `<01-tenant>/<01-application>/<env>`
+    - `<01-tenant>/<n-application>/<env>`
+    - `<n-tenant>/<n-application>/<env>`
 
-- Add space file inside **each** application tenants config directory 
+- Add space file inside **each** application tenants config directory
   **`<application-tenant>/configs/<env>`**`/space.yaml`
-  ```
+
+  ```yaml
   apiVersion: tenantoperator.stakater.com/v1alpha1
   kind: Space
   metadata:
@@ -31,8 +32,8 @@ To add new environment in cluster do following steps in GitOps directory:
   ```
 
   Replace angle brackets with following values in above templates:
-  - `<tenant>`: Name of the tenant
-  - `<application-tenant>`: Name of application tenant
-  - `<sre-tenant>`: Name of SRE tenant
-  - `<env>`: Environment name
-  - `<nexus-repo>`: URL of Nexus repository
+    - `<tenant>`: Name of the tenant
+    - `<application-tenant>`: Name of application tenant
+    - `<sre-tenant>`: Name of SRE tenant
+    - `<env>`: Environment name
+    - `<nexus-repo>`: URL of Nexus repository

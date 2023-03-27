@@ -1,6 +1,6 @@
 # Routes
 
-To expose applications in an OpenShift cluster over the internet `routes` are used. Routes expose a service at a 
+To expose applications in an OpenShift cluster over the internet `routes` are used. Routes expose a service at a
 hostname, for example app.example.com, so that external clients can reach the service.
 
 SAAP provides a unique domain with every cluster with the format: `*.apps.<CLUSTER_NAME>.<CLUSTER_ID>.kubeapp.cloud` that is pre-configured with SSL to provide a secure connection.
@@ -42,7 +42,7 @@ spec:
 
 ## Additional route configuration
 
-Additional annotations can be used to configure routes. For example, 
+Additional annotations can be used to configure routes. For example,
 
 - Allow access to only certain whitelisted IPs
 
@@ -52,7 +52,7 @@ Annotate your route with `haproxy.router.openshift.io/ip_whitelist: IP_ADDRESS_1
 
 Annotate your route with `haproxy.router.openshift.io/timeout: 5000ms`
 
-### Example: 
+### Example
 
 ```yaml
 kind: Route

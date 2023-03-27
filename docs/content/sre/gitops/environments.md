@@ -2,12 +2,17 @@
 
 ## Types of environments
 
-There are two type of environments for each tenant:
+There are three type of environments for each tenant:
 
+1. Sandbox Environment
 1. CI/CD Environments
-2. Other Environments
+1. Other Environments
 
-### 1. CI/CD Environments
+### 1. Sandbox Environment
+
+A dedicated namespace in cluster for developer in the cluster for every member of the specific tenant, that will also be preloaded with any selected templates and consume the same pool of resources from the tenants quota creating safe remote dev namespaces that teams can use as scratch namespace for rapid prototyping and development. So, every developer gets a Kubernetes-based cloud development environment that feel like working on localhost.
+
+### 2. CI/CD Environments
 
 There are three CI/CD environments per tenant
 
@@ -25,81 +30,60 @@ Preview environment contains all preview application deployments. As soon as the
 
 Once the PR is merged; the dynamic test environment is automatically deleted and the Helm manifests are pushed to first permanent application environment i.e. `dev` by the CI pipeline.
 
-### 2. Other Environments
+### 3. Other Environments
 
 Other than CI/CD environment there are applications environments like *qa,staging,pre-prod,prod etc*. Application promotion in other environments is done manually by creating a PR to the GitOps repo which includes the:
 
-- bumping of the chart version and 
-- bumping image version in Helm values
+- bumping of the helm chart version in `Chart.yaml` and
+- bumping image tag version in helm values in `values.yaml`
 
 ## Application promotion
 
-To promote application from one environment to another; as mentioned above you will need to bump chart version and image version in that environment. You can do so by picking these versions from previous environment. 
+To promote application from one environment to another; as mentioned above you will need to bump chart version and image tag version in that environment. You can do so by picking these versions from previous environment.
 
-This guide assumes that application is already [on-boarded](https://docs.cloud.stakater.com/content/sre/onboarding/application-onboarding.html) to different environments.
+This guide assumes that application is already [on-boarded](../onboarding/application-onboarding.md) to different environments.
 
 ### 1. Promote chart
 
-To promote chart from first environment, you can check the chart version from ```Chart.lock``` file and update version in ```Chart.yaml``` of next version, for example:
+To promote application from one environment to another, you can check the chart version from `Chart.yaml` file from one environment and update version in `Chart.yaml` of next environment:
 
-`<gitops-repo>/<tenant>/<application>/<first-env>/Chart.lock`
-
-```
-dependencies:
-- name: <application>
-  repository: <nexus-repo>
-  version: 0.0.84
-digest: sha256:d33cb4ad70eecbe66abf4926c28cb18f2acab687a5dbd8a9b6c33758d386d9a2
-generated: "2021-08-23T12:54:14.214409662Z"
-```
-
-pick version ```0.0.84``` from above ```Chart.lock``` and copy it in ``Chart.yaml`` of next environment
-
-`<gitops-repo>/<tenant>/<application>/<next-env>/Chart.yaml`
-
-```
+```yaml
 apiVersion: v2
-name: <application>
-description: A Helm chart for Kubernetes
 dependencies:
-- name: <application>
-  version: "0.0.84"
-  repository: <nexus-repo>
-version: 0.1.0
+  - name: <application-name>
+    repository: <application-chart-repo>
+    version: 1.0.51
+description: A Helm chart for Kubernetes
+name: <application-name>
+version: 1.0.51
 ```
 
-similarly for other environments chart promotion, copy same version to ``Chart.yaml`` of other environments
+pick version `1.0.51` from above `Chart.yaml` and copy it in `Chart.yaml` of next environment
 
 ### 2. Promote image
 
-First environment image is updated automatically by pipeline. In next environments, image is promoted by manually copying version from previous environment to next environment, for example:
+To promote application from one environment to another, you can check the image tag version from `values.yaml` file from one environment and update version in `values.yaml` of next environment:
 
 `<gitops-repo>/<tenant>/<application>/<env-1>/values.yaml`
 
-```
-<application>:
-  application: 
-    space:
-       enabled: false
-    deployment:   
+```yaml
+<application-name>:
+  application:
+    deployment:
       image:
-        repository: <nexus-repo>/<application>
-        tag: 0.0.39
+        repository: <application-docker-repo>
+        tag: 1.0.51
 ```
 
-Pick version ```0.0.39``` and paste it to next environment
+Pick version `1.0.51` and paste it to next environment
 
 `<gitops-repo>/<tenant>/<application>/<env-2>/values.yaml`
 
-```
-<application>:
-  application: 
-    space:
-       enabled: false
-    deployment:   
+```yaml
+<application-name>:
+  application:
+    deployment:
       image:
-        repository: <nexus-repo>/<application>
-        tag: 0.0.39
+        repository: <application-repo>
+        tag: 1.0.50
 ```
-
-Similarly do it for all environments.

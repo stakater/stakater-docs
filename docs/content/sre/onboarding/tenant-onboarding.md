@@ -30,10 +30,11 @@ It will look like following:
 - `/<tenant>/configs/<n-env>/argocd`
 
 Replace angle brackets with following values in below templates:
-  - `<tenant>`: Name of the tenant
-  - `<env>`:  Name of the tenant
-  - `<quota>`: Name of the quota
-  - `<gitops-config>`: GitOps-config repo URL
+
+- `<tenant>`: Name of the tenant
+- `<env>`:  Name of the tenant
+- `<quota>`: Name of the quota
+- `<gitops-config>`: GitOps-config repo URL
 
 Once these folders are created; add following files
 
@@ -66,6 +67,7 @@ Create ArgoCD project and ArgoCD application per environment that will watch fol
 Add this file for **each** environment
 
 - \<sre>/\<cluster>/\<env>/\<tenant>.yaml
+
 ``` yaml
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
@@ -134,4 +136,4 @@ spec:
   quota: <quota>
 ```
 
-For more details please refer [custom-resources](../multi-tenant-operator/customresources.html#_2-tenant)
+For more details please refer [custom-resources](../multi-tenant-operator/customresources.md#_2-tenant)

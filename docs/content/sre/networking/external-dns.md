@@ -1,10 +1,11 @@
 # External DNS
 
-[ExternalDNS](https://github.com/kubernetes-sigs/external-dns) is a Kubernetes addon that configures public DNS servers 
+[ExternalDNS](https://github.com/kubernetes-sigs/external-dns) is a Kubernetes addon that configures public DNS servers
 with information about exposed Kubernetes services to make them discoverable.
 
 This helps us automate the process of adding DNS entries to the corresponding hosting service for DNS domains. Currently,
 it supports the following DNS providers:
+
 - `aws`, `azure`, `cloudflare`, `coredns`, `designate`, `digitalocoean`, `google`, `infoblox`, `rfc2136`, `transip`
 
 ## Walk-through of `external-dns` on AWS
@@ -14,11 +15,11 @@ it supports the following DNS providers:
 - AmazonRoute53FullAccess
 - Route53CreateHostedZone
 
-For details: https://github.com/kubernetes-sigs/external-dns/blob/master/docs/tutorials/aws.md#setting-up-externaldns-for-services-on-aws
+For details: <https://github.com/kubernetes-sigs/external-dns/blob/master/docs/tutorials/aws.md#setting-up-externaldns-for-services-on-aws>
 
 ### 2. Generate Access Keys
 
-### 3. Create a new project 
+### 3. Create a new project
 
 `oc new-project external-dns`
 
@@ -161,7 +162,6 @@ spec:
         memory: 50Mi
         cpu: 10m
 ```
-
 
 NOTE: In it's current state external-dns is not completely functional on OpenShift. Will add an update here as soon as the issue is resolved.
 

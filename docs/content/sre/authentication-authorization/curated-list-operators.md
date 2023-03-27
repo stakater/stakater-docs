@@ -22,10 +22,12 @@ SAAP cluster admins cannot install cluster-wide operator from Operator Hub, allo
 - `twistlockconsoles.charts.helm.k8s.io`
 - `tekton.dev`
 
-## How to request a new operator to be added to Curated List 
+## How to request a new operator to be added to Curated List
+
 If the user requires to install an operator that is not mentioned in the above list , the user can raise a request with Stakater Support.The Stakater team will review and add it to the allowed list
 
 ## Items to be provided to Stakater Support
-- Operator Name 
-- Official Operator repository 
+
+- Operator Name
+- Official Operator repository
 - Detailed description of use case

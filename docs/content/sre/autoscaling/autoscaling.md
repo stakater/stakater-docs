@@ -16,6 +16,7 @@ Containers:
     Memory:  503572Ki
 ...
 ```
+
 ## HorizontalPodAutoscaler
 
 Stakater [Application Chart](https://github.com/stakater-charts/application) uses `autoscaling/v2beta2` API which provides additional metrics other then CPU only to be used as a metrics for autoscaling. These metrics can be CPU, Memory or custom metrics exposed by the application [See here](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/#autoscaling-on-multiple-metrics-and-custom-metrics)
@@ -46,7 +47,6 @@ autoscaling:
         type: Utilization           # Calculate on the basis of Utilization Percentage (in percentage of the requested CPU)
         averageUtilization: 80      # Scale when the average utilization of all pods go above 80%
 ```
-
 
 ## Defining Autoscaling on Memory
 
@@ -101,6 +101,7 @@ You can monitor the Horizontal Pod Auto Scaler from your OpenShift/Kubernetes da
 ```bash
 kubectl describe hpa <hpa-name>
 ```
+
 The CPU/memory usage and the events should show the application pods getting scaled up and down when the load increases or decreases.
 
 **HPA Metrics:**
@@ -110,11 +111,8 @@ The CPU/memory usage and the events should show the application pods getting sca
 **HPA Events:**
 ![HPA Events](./images/HPA-Events2.png)
 
-# Useful Links
+## Useful Links
 
-- [Autoscaling in OpenShift](https://docs.openshift.com/container-platform/4.4/nodes/pods/nodes-pods-autoscaling.html)
-
-- [Kubernetes Example](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/)
-
-- [How it works](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)
-
+* [Autoscaling in OpenShift](https://docs.openshift.com/container-platform/4.4/nodes/pods/nodes-pods-autoscaling.html)
+* [Kubernetes Example](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/)
+* [How it works](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)

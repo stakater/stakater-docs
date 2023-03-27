@@ -1,0 +1,204 @@
+site_name: Stakater App Agility Platform
+docs_dir: docs
+site_url: https://docs.stakater.com/
+repo_url: https://github.com/stakater/StakaterCloudDocs
+edit_uri: blob/main/docs/
+use_directory_urls: false
+theme:
+    name: material
+    prev_next_buttons_location: none
+    logo: assets/images/favicon.svg
+    favicon: assets/images/favicon.svg
+    custom_dir: custom_theme/
+    palette:
+        primary: white
+    features:
+        - navigation.tabs
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+
+extra:
+    analytics:
+        provider: google
+        property: G-TTH1YYW5TX
+    consent:
+        title: Cookie consent
+        actions:
+            - accept
+            - reject
+            - manage
+        description: >-
+            We use cookies to recognize your repeated visits and preferences, as well
+            as to measure the effectiveness of our documentation and whether users
+            find what they're searching for. With your consent, you're helping us to
+            make our documentation better.
+nav:
+    - Docs Home:
+        - Introduction:
+            - content/sre/introduction/introduction.md
+            - content/sre/introduction/why-sro.md
+            - content/sre/introduction/sro-overview.md
+            - content/sre/introduction/sro-features.md
+            - content/sre/introduction/sro-key-differentiators.md
+            - content/sre/introduction/saap-vs-k8s.md
+        - SAAP SLA:
+            - content/saap-sla/saap-sla.md
+        - Resource Requirements:
+            - content/requirements/requirements.md
+        - SAAP Onboarding:
+            - content/onboarding/onboarding.md
+        - OpenShift as a Service:
+            - content/openshift-as-a-service/offer.md
+            - content/openshift-as-a-service/general-provisions.md
+            - content/openshift-as-a-service/service-composition.md
+            - content/openshift-as-a-service/business-hours.md
+            - content/openshift-as-a-service/technical-support.md
+            - content/openshift-as-a-service/updating-clusters.md
+            - content/openshift-as-a-service/sla.md
+            - content/openshift-as-a-service/cost.md
+        - Managed AddOns:
+            - content/sre/addons/introduction.md
+        - Cloud Provider:
+            - content/sre/cloud-provider/introduction.md
+            - content/sre/cloud-provider/azure.md
+            - content/sre/cloud-provider/aws.md
+            - content/sre/cloud-provider/google.md
+            - content/sre/cloud-provider/binero.md
+        - Cluster Management:
+            - content/sre/cluster-management/hibernating-your-cluster.md
+        - Applications:
+            - content/sre/applications/cloud-native-app.md
+            - content/sre/applications/helm.md
+            - content/sre/forecastle/forecastle.md
+        - GitOps:
+            - content/sre/gitops/introduction.md
+            - content/sre/gitops/github.md
+            - content/sre/gitops/gitlab.md
+            - content/sre/gitops/bot-account.md
+            - content/sre/gitops/structure.md
+            - content/sre/gitops/environments.md
+            - content/sre/gitops/faqs.md
+        - Onboarding:
+            - content/sre/onboarding/tenant-onboarding.md
+            - content/sre/onboarding/application-onboarding.md
+            - content/sre/onboarding/environment-onboarding.md
+            - content/sre/onboarding/developer-training.md
+        - Authentication and Authorization:
+            - content/sre/authentication-authorization/google-idp.md
+            - content/sre/authentication-authorization/azure-idp.md
+            - content/sre/authentication-authorization/keycloak-idp.md
+            - content/sre/authentication-authorization/saml-idp.md
+            - content/sre/authentication-authorization/saap-authorization-roles.md
+            - content/sre/authentication-authorization/curated-list-operators.md
+        - Continuous Integration & Deployment (CI&CD):
+            - content/sre/pipelines/introduction.md
+        - ArgoCD:
+            - content/sre/argocd/01-introduction.md
+        - Tekton:
+            - content/sre/tekton/cluster-tasks.md
+        - Artifacts Management:
+            - content/sre/repository/01-introduction.md
+            - content/sre/repository/06-accessing-repository.md
+            - content/sre/repository/02-repositories.md
+            - content/sre/repository/03-permissions.md
+            - content/sre/repository/04-routes.md
+            - content/sre/repository/07-maven-setup.md
+            - content/sre/repository/08-grant-nexus-admin-keycloak.md
+            - content/sre/repository/05-FAQ.md
+        - Code Quality:
+            - content/sre/code-quality/01-introduction.md
+            - content/sre/code-quality/sonarqube-upgrade.md
+        - Logging:
+            - content/sre/logging/logging.md
+            - content/sre/logging/kibana-view-logs.md
+        - Monitoring:
+            - content/sre/monitoring/overview.md
+            - content/sre/monitoring/01-introduction.md
+            - content/sre/monitoring/app-uptime.md
+            - content/sre/monitoring/app-alerts.md
+            - content/sre/monitoring/goldilocks.md
+            - content/sre/monitoring/grafana-dashboard.md
+        - Alerting:
+            - content/sre/alerting/downtime-notifications-uptimerobot.md
+            - content/sre/alerting/workload-application-alerts.md
+            - content/sre/alerting/log-alerts.md
+            - content/sre/alerting/predefined-prometheusrules.md
+        - Autoscaling:
+            - content/sre/autoscaling/autoscaling.md
+        - Storage:
+            - content/sre/storage/volume-expander.md
+        - Backup & Restore:
+            - content/sre/backup-restore/01-introduction.md
+            - content/sre/backup-restore/velero-cli.md
+            - content/sre/backup-restore/backup-restore.md
+            - content/sre/backup-restore/troubleshoot.md
+            - content/sre/backup-restore/cleanup.md
+            - content/sre/backup-restore/stateful-app-example.md
+            - content/sre/backup-restore/restore-with-gitops.md
+            - content/sre/backup-restore/02-limitations.md
+        - Networking:
+            - content/sre/networking/routes.md
+            - content/sre/networking/hosting-dns.md
+            - content/sre/networking/external-dns.md
+        - Secrets Management:
+            - content/secrets-management/introduction.md
+            - content/secrets-management/services.md
+            - content/secrets-management/sealed-secrets.md
+            - content/secrets-management/vault.md
+            - Secrets Management as a Service:
+                - content/secrets-management/managed-service/offer.md
+                - content/secrets-management/managed-service/cluster_config.md
+            - External Secret Operator:
+                - content/secrets-management/external-secret-operator/introduction.md
+                - content/secrets-management/external-secret-operator/getting-started.md
+                - content/secrets-management/external-secret-operator/workflow.md
+        - Certificate Management:
+            - content/sre/certificates/cert-manager.md
+        - Local Development:
+            - content/sre/local-development/inner-loop.md
+            - content/sre/local-development/inner-vs-outer-loop.md
+            - content/sre/local-development/local-development-workflow.md
+            - content/sre/local-development/tilt/step-by-step-guide.md
+        - Security:
+            - content/sre/security/policies/policies.md
+            - content/sre/security/rhacs/01-introduction.md
+            - content/sre/security/rhacs/02-permissions.md
+            - content/sre/security/rhacs/03-accessing-rhacs.md
+        - Cluster Configuration:
+            - content/sre/cluster-configuration/node-configuration.md
+        - Tronador:
+            - content/sre/tronador/overview.md
+            - content/sre/tronador/environment_provisioner.md
+            - content/sre/tronador/environment.md
+            - content/sre/tronador/tronador_config.md
+            - content/sre/tronador/config_file.md
+            - content/sre/tronador/cluster_task.md
+            - content/sre/tronador/workflow.md
+            - content/sre/tronador/troubleshooting.md
+            - content/sre/tronador/changelog.md
+        - Release Notes:
+            - content/sre/release-notes/release-notes.md
+        - Support:
+            - content/sre/support/support.md
+        - Frequently Asked Questions:
+            - content/sre/faq/product.md
+            - content/sre/faq/operations.md
+            - content/sre/faq/purchasing.md
+            - content/sre/faq/customization.md
+            - content/sre/faq/developers.md
+    - Stakater Home: https://www.stakater.com/
+    - SAAP: https://www.stakater.com/saap-kubernetes-openshift
+    - Consultancy: https://www.stakater.com/kubernetes-consultancy
+    - Events: https://www.stakater.com/events
+    - Platform Assessment: https://www.stakater.com/kubernetes-platform-assessment
+    - Careers: https://www.stakater.com/careers
+plugins:
+    - search
+    - mermaid2

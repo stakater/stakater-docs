@@ -1,16 +1,17 @@
 {
+  "aliveStatusCodes": [429, 200, 520], 
   "ignorePatterns": [
     {
-      "pattern": "^(?!http).+"
+      "pattern": "^(https://stakater).+"
     },
     {
-      "pattern": "^(?!https://stakater).+"
+      "pattern": "^(http://nexus).+"
     },
     {
-      "pattern": "^(?!http://nexus).+"
+      "pattern": "^(https://nexus).+"
     },
     {
-      "pattern": "^(?!https://nexus).+"
+      "pattern": "^(https://docs.github.com).+"
     }
   ]
 }

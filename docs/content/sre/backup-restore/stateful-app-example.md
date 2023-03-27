@@ -10,7 +10,7 @@ You will need the following manifest to deploy the sample app.
 
 Security Context Constraints to have proper permissions to your app
 
-~~~
+```yaml
 kind: SecurityContextConstraints
 apiVersion: v1
 allowHostPorts: true
@@ -39,18 +39,20 @@ users:
 - system:serviceaccount:cassandra-app:default
 volumes:
 - '*'
-~~~
+```
 
 Create a namespace:
-~~~
+
+```yaml
 apiVersion: v1
 kind: Namespace
 metadata:
   name: cassandra-app
-~~~
+```
 
 Create the Stateful app:
-~~~
+
+```yaml
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
@@ -138,10 +140,11 @@ spec:
       resources:
         requests:
           storage: 1Gi
-~~~
+```
 
 Create the service for the app:
-~~~
+
+```yaml
 apiVersion: v1
 kind: Service
 metadata:
@@ -153,7 +156,7 @@ spec:
   clusterIP: None
   selector:
     app: cassandra
-~~~
+```
 
 Note: If you see some error or failed app, please try to ensure CASSANDRA_SEEDS value in your stateful app.
 
@@ -161,30 +164,30 @@ Note: If you see some error or failed app, please try to ensure CASSANDRA_SEEDS 
 
 Deploy all the above manifests. Once on a successful deployment, you can check the app status using:
 
-~~~
+```sh
 kubectl exec -it cassandra-0 -n cassandra-app -- nodetool status
-~~~
+```
 
 and you should see something like this:
 
-~~~
+```sh
 Datacenter: Demo-DataCenter
 ===========================
 Status=Up/Down
 |/ State=Normal/Leaving/Joining/Moving
 --  Address       Load       Tokens       Owns (effective)  Host ID                               Rack
 UN  10.130.4.200  150.08 KiB  32           100.0%            2516974e-3065-4acd-9762-f7b740867cd4  Demo-Rack
-~~~
+```
 
 Now we will populate data, run the command to connect into pod:
 
-~~~
+```sh
 kubectl exec -it cassandra-0 -n cassandra-app -- cqlsh
-~~~
+```
 
 Now you should be connected to `cqlsh` utility in the app pod, running the commands to populate data:
 
-~~~
+```sh
 cqlsh> CREATE KEYSPACE demodb WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 3 };
 
 cqlsh> use demodb;
@@ -201,7 +204,7 @@ cqlsh:demodb> select * from emp;
 
 (1 rows)
 cqlsh:demodb> exit
-~~~
+```
 
 If everything goes well, your output should resemble to the one record above.
 
@@ -209,13 +212,13 @@ If everything goes well, your output should resemble to the one record above.
 
 To take Velero backup, use `velero` command:
 
-~~~
+```sh
 velero backup create cassandra-backup --include-namespaces cassandra-app --namespace <VELERO_NAMESAPCE>
-~~~
+```
 
 or you can use Backup CR:
 
-~~~
+```yaml
 apiVersion: velero.io/v1
 kind: Backup
 metadata:
@@ -228,7 +231,7 @@ spec:
   - '*'
   storageLocation: default
   ttl: 2h0m0s
-~~~
+```
 
 Now delete the app namespace `cassandra-app` and this should delete everything in the namespace including deployed app and its Volume.
 
@@ -236,13 +239,13 @@ Now delete the app namespace `cassandra-app` and this should delete everything i
 
 To perform a Velero restore, use `velero` command:
 
-~~~
+```sh
 velero restore create --from-backup cassandra-backup --namespace <VELERO_NAMESAPCE>
-~~~
+```
 
 Or we can use Restore CR to perform a restore:
 
-~~~
+```yaml
 apiVersion: velero.io/v1
 kind: Restore
 metadata:
@@ -259,34 +262,34 @@ spec:
     - resticrepositories.velero.io
   includedNamespaces:
     - '*'
-~~~
+```
 
 After a successful restore, we should be able to see a pod of our app running and should be able to link to its shell. Check the status again:
 
-~~~
+```sh
 kubectl exec -it cassandra-0 -n cassandra-app -- nodetool status
-~~~
+```
 
 and you should see the status as before:
 
-~~~
+```sh
 Datacenter: Demo-DataCenter
 ===========================
 Status=Up/Down
 |/ State=Normal/Leaving/Joining/Moving
 --  Address       Load       Tokens       Owns (effective)  Host ID                               Rack
 UN  10.130.4.200  150.08 KiB  32           100.0%            2516974e-3065-4acd-9762-f7b740867cd4  Demo-Rack
-~~~
+```
 
 We will again exec in the app using:
 
-~~~
+```sh
 kubectl exec -it cassandra-0 -n cassandra -- cqlsh
-~~~
+```
 
 Check for the populated data:
 
-~~~
+```sh
 cqlsh> use demodb;
 
 cqlsh:demodb> select * from emp;
@@ -297,6 +300,6 @@ cqlsh:demodb> select * from emp;
 
 (1 rows)
 cqlsh:demodb> exit
-~~~
+```
 
 With a correct restore, the above data should be same as before.

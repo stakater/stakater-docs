@@ -1,6 +1,6 @@
 # Introduction
 
-[SonarQube](https://www.sonarqube.org/) 
+[SonarQube](https://www.sonarqube.org/)
 
 We offer SonarQube as managed addon to analyze the code's quality.
 

@@ -1,6 +1,6 @@
-`Version: 8 Nov 2022`
-
 # General Provisions
+
+`Version: 30 Jan 2023`
 
 These Terms of the Managed OpenShift Service (elsewhere referred to as the Terms of Service, Terms) define the essence and composition of the "Managed OpenShift" Service (elsewhere referred to as the Service) — a set of technical subscription-based services continuously rendered by Stakater.
 

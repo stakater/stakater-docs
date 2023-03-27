@@ -16,6 +16,7 @@ Following commands are very handy when troubleshooting backup and restore operat
     ```
 
 2. Download Completed Backups:
+
    ```bash
     velero backup download <backup-name> -n <velero-namespace>
    ```

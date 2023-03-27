@@ -2,201 +2,202 @@
 
 In this guide we will deploy an application with tilt and namespace in remote OpenShift cluster
 
-1) Clone this sample repo [Nordmart-review](https://github.com/stakater-lab/stakater-nordmart-review)
+1. Clone this sample repo [Nordmart-review](https://github.com/stakater-lab/stakater-nordmart-review)
 
-2) Install following tools:
+1. Install following tools:
 
-Required for local development:
+    Required for local development:
 
-- `Tilt` v0.22.11 or above
-- `Docker` 20.10.8 or above
-- `Helm` 3 or above
-- `oc` binaries
+    * `Tilt` v0.22.11 or above
+    * `Docker` 20.10.8 or above
+    * `Helm` 3 or above
+    * `oc` binaries
 
-Required by this application:
+    Required by this application:
 
-- `Java` 11
-- `Maven` 3
+    * `Java` 11
+    * `Maven` 3
 
-3) You should have a namespace in remote/local cluster; If you are in SAAP then enable sandbox namespace/project/environment for your tenant; you can read more [here](https://docs.cloud.stakater.com/content/sre/multi-tenant-operator/customresources.html#_1-tenant)
+1. You should have a namespace in remote/local cluster; If you are in SAAP then enable sandbox namespace/project/environment for your tenant; you can read more [here](../../multi-tenant-operator/customresources.md#_1-tenant)
 
-4) Login to cluster
+1. Login to cluster
 
-Login into OpenShift and then copy login command
+    Login into OpenShift and then copy login command
 
-![Copy login command](./images/copy-login-command.png)
+    ![Copy login command](./images/copy-login-command.png)
 
-Then click `Display Token`
+    Then click `Display Token`
 
-![Display Token](./images/display-token.png)
+    ![Display Token](./images/display-token.png)
 
-Then copy the login token
+    Then copy the login token
 
-![Copy login token](./images/copy-login-token.png)
+    ![Copy login token](./images/copy-login-token.png)
 
-And then run this command in the terminal
+    And then run this command in the terminal
 
-```bash
-oc login --token=<TOKEN> --server=<SERVER>
-```
+    ```bash
+    oc login --token=<TOKEN> --server=<SERVER>
+    ```
 
-5) Switch project to sandbox namespace/project/environment
+1. Switch project to sandbox namespace/project/environment
 
-```bash
-oc project <MY-SANDBOX>
-```
+    ```bash
+    oc project <MY-SANDBOX>
+    ```
 
-6) Login to OpenShift internal docker registry
+1. Login to OpenShift internal docker registry
 
-First get the OpenShift internal docker registry URL and set in HOST variable name
+    First get the OpenShift internal docker registry URL and set in HOST variable name
 
-```bash
-HOST=image-registry-openshift-image-registry.apps.[CLUSTER-NAME].[CLUSTER-ID].kubeapp.cloud
-```
-NOTE: Ask SCA (SAAP Cluster Admin) or cluster-admin to provide you the OpenShift internal registry route
+    ```bash
+    HOST=image-registry-openshift-image-registry.apps.[CLUSTER-NAME].[CLUSTER-ID].kubeapp.cloud
+    ```
 
-Then login into docker registry with following command
+    NOTE: Ask SCA (SAAP Cluster Admin) or cluster-admin to provide you the OpenShift internal registry route
 
-```bash
-docker login -u $(oc whoami) -p $(oc whoami -t) $HOST
-```
+    Then login into docker registry with following command
 
-If you get this error `x509: certificate signed by unknown authority` then you need to update your `/etc/docker/daemon.json` file and add the insecure registry
+    ```bash
+    docker login -u $(oc whoami) -p $(oc whoami -t) $HOST
+    ```
 
-```bash
-{
-    "insecure-registries" : [ "HOST" ]
-}
-```
+    If you get this error `x509: certificate signed by unknown authority` then you need to update your `/etc/docker/daemon.json` file and add the insecure registry
 
-7) (Optional) Add Helm chart repos
+    ```bash
+    {
+        "insecure-registries" : [ "HOST" ]
+    }
+    ```
 
-If you reference Helm charts from private registry then you first need to add it
+1. (Optional) Add Helm chart repos
 
-```bash
-cd deploy
+    If you reference Helm charts from private registry then you first need to add it
 
-# Helm credentials can be found in Vault or in a secret in build namespace
-helm repo add stakater-nexus <private repo URL> --username helm-user-name --password ********; 
+    ```bash
+    cd deploy
 
-cd ..
-```
+    # Helm credentials can be found in Vault or in a secret in build namespace
+    helm repo add stakater-nexus <private repo URL> --username helm-user-name --password ********; 
 
-8) Update Helm dependencies
+    cd ..
+    ```
 
-```bash
-cd deploy
+1. Update Helm dependencies
 
-helm dependency update
+    ```bash
+    cd deploy
 
-cd ..
-```
+    helm dependency update
 
-9) Go through the [Tiltfile](https://github.com/stakater-lab/stakater-nordmart-review/blob/main/Tiltfile) of the application 
+    cd ..
+    ```
 
-10) Check the `local_resource` section in the Tiltfile
- 
-11) Create `tilt_options.json` file
+1. Go through the [Tiltfile](https://github.com/stakater-lab/stakater-nordmart-review/blob/main/Tiltfile) of the application
 
-Remove `.template` from the file named `tilt_options.json.template`
+1. Check the `local_resource` section in the Tiltfile
 
-![Create tilt_options.json](./images/tilt-options-json.png)
+1. Create `tilt_options.json` file
 
-And then fill up all three things
+    Remove `.template` from the file named `tilt_options.json.template`
 
-1. `namespace`: your sandbox environment name
-2. `default_registry`: the OpenShift internal registry route (you have set in step # 6 in HOST above) and then add your namespace name after `/`
-3. `allow_k8s_contexts`: given you are logged in the cluster; then run `oc config current-context` to get the value for `allow_k8s_contexts`
+    ![Create tilt_options.json](./images/tilt-options-json.png)
 
-e.g.
+    And then fill up all three things
 
-```json
-{
-    "namespace": "tilt-username-sandbox",
-    "default_registry": "image-registry-openshift-image-registry.apps.[CLUSTER-NAME].[CLUSTER-ID].kubeapp.cloud/tilt-username-sandbox",
-    "allow_k8s_contexts": "tilt-username-sandbox/api-[CLUSTER-NAME]-[CLUSTER-ID]-kubeapp-cloud:6443/user@email.com"
-}
-```
+      1. `namespace`: your sandbox environment name
+      1. `default_registry`: the OpenShift internal registry route (you have set in step # 6 in HOST above) and then add your namespace name after `/`
+      1. `allow_k8s_contexts`: given you are logged in the cluster; then run `oc config current-context` to get the value for `allow_k8s_contexts`
 
-12) Go through the `.gitigore` and check tilt and Helm specific ignores
+          e.g.
 
-```
-# Tilt
-tilt_options.json
-tilt_modules/
+          ```json
+          {
+              "namespace": "tilt-username-sandbox",
+              "default_registry": "image-registry-openshift-image-registry.apps.[CLUSTER-NAME].[CLUSTER-ID].kubeapp.cloud/tilt-username-sandbox",
+              "allow_k8s_contexts": "tilt-username-sandbox/api-[CLUSTER-NAME]-[CLUSTER-ID]-kubeapp-cloud:6443/user@email.com"
+          }
+          ```
 
-# Helm
-/deploy/charts
-```
+1. Go through the `.gitigore` and check tilt and Helm specific ignores
 
-13) Go through `.tiltignore`
+    ```sh
+    # Tilt
+    tilt_options.json
+    tilt_modules/
 
-```
-**/charts
-**/tmpcharts
-```
+    # Helm
+    /deploy/charts
+    ```
 
-14) Go through `values-local.yaml` in a `tilt` folder in base application directory. 
+1. Go through `.tiltignore`
 
-`values-local.yaml` should contain the following content. Make sure that replica count should always be 1.
+    ```sh
+    **/charts
+    **/tmpcharts
+    ```
 
-```yaml
-application:
-    
-  deployment:
-    imagePullSecrets: null
+1. Go through `values-local.yaml` in a `tilt` folder in base application directory.
 
-    # Tilt live update only supports one replica
-    replicas: 1
+    `values-local.yaml` should contain the following content. Make sure that replica count should always be 1.
 
-    image:
-      tag: null
-```
+    ```yaml
+    application:
+        
+      deployment:
+        imagePullSecrets: null
 
-15) Validate this application is not running already
+        # Tilt live update only supports one replica
+        replicas: 1
 
-![sandbox namespace](./images/sandbox-env-b4-tilt-up.png)
+        image:
+          tag: null
+    ```
 
-16) Run `tilt up` at base directory 
+1. Validate this application is not running already
 
-![tilt up](./images/tilt-up.png)
+    ![sandbox namespace](./images/sandbox-env-b4-tilt-up.png)
 
-Open the tilt browser; just hit the space
+1. Run `tilt up` at base directory
 
-![tilt browser](./images/tilt-browser.png)
+    ![tilt up](./images/tilt-up.png)
 
-If everything is green then the application will be deployed in the cluster
+    Open the tilt browser; just hit the space
 
-![sandbox namespace](./images/sandbox-env-after-tilt-up.png)
+    ![tilt browser](./images/tilt-browser.png)
 
-Press space key to view the progress in Tilt web UI. The application should be running in the namespace used in `tilt_options.json` file.
+    If everything is green then the application will be deployed in the cluster
 
-17) Lets browse through some reviews; go to routes
+    ![sandbox namespace](./images/sandbox-env-after-tilt-up.png)
 
-![find route](./images/find-route.png)
+    Press space key to view the progress in Tilt web UI. The application should be running in the namespace used in `tilt_options.json` file.
 
-Click on the review route
+1. Lets browse through some reviews; go to routes
 
-![review-route](./images/review-route.png)
+    ![find route](./images/find-route.png)
 
-In the end of the route add `/api/review/329199`
+    Click on the review route
 
-Review the json output
+    ![review-route](./images/review-route.png)
 
-![product review](./images/product-review-json-b4-change.png)
+    In the end of the route add `/api/review/329199`
 
-18) Lets make one change; we will update the first review text to "Tilt Demo"
+    Review the json output
 
-![update review service](./images/review-service-to-update.png)
+    ![product review](./images/product-review-json-b4-change.png)
 
-Switch back to tilt browser and you will see it has started picking up changes
+1. Lets make one change; we will update the first review text to "Tilt Demo"
 
-![tilt pick up change](./images/tilt-picking-up-change.png)
+    ![update review service](./images/review-service-to-update.png)
 
-Within few seconds the change will be deployed; and you can refresh the route to see the change
+    Switch back to tilt browser and you will see it has started picking up changes
 
-![updated review](./images/product-review-json-after-change.png)
+    ![tilt pick up change](./images/tilt-picking-up-change.png)
 
-Awesome! you made it
+    Within few seconds the change will be deployed; and you can refresh the route to see the change
 
-19) Run `tilt down` to delete the application and related configuration from the namespace
+    ![updated review](./images/product-review-json-after-change.png)
+
+    Awesome! you made it
+
+1. Run `tilt down` to delete the application and related configuration from the namespace

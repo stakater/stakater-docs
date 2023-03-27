@@ -18,7 +18,7 @@ Tronador is a utility designed to provision and manage a dynamic testing environ
 
 ![architecture](./images/architecture.png)
 
-Tronador comes with a CRD and a Tekton cluster task. The CRD, `Environment` , will be used for creating a DTE within your cluster. The Tekton cluster task, `create-environment` , will be used for automatically creating the `Environment` Custom Resource. The task depends on a [Tronador config file](./config_file.html) to be created in your repository, which will be used to create the CR. The `create-environment` task can be used within your own Tekton pipeline, automating the process of creating and deploying the image of your application after changes are made to it. An example of a pipeline doing this would be:
+Tronador comes with a CRD and a Tekton cluster task. The CRD, `Environment` , will be used for creating a DTE within your cluster. The Tekton cluster task, `create-environment` , will be used for automatically creating the `Environment` Custom Resource. The task depends on a [Tronador config file](./config_file.md) to be created in your repository, which will be used to create the CR. The `create-environment` task can be used within your own Tekton pipeline, automating the process of creating and deploying the image of your application after changes are made to it. An example of a pipeline doing this would be:
 
 1. A webhook is created when a PR is opened, and the pipeline containing the `create-environment` task is triggered.
 2. The pipeline will first create an image and push it to your container image registry.
@@ -29,4 +29,5 @@ Tronador comes with a CRD and a Tekton cluster task. The CRD, `Environment` , wi
 7. Tronador will create a test environment for the application, by creating a HelmRelease for your application and external dependencies inside that environment
 
 ## Dependencies
+
 - **flux v2**: Tronador requires the Helm Controller and Source Controller to be installed in your cluster. Both come packaged inside the Flux set of operators, and can be installed via OperatorHub on OpenShift based clusters. The Helm Controller is a Kubernetes operator that manages the lifecycle of Helm releases. The Source Controller is used to manage GitRepository resources, which are referenced in HelmReleases so the Helm Controller can create HelmChart resources. Tronador's `Environment` Custom Resource creates HelmReleases and GitRepositories that are managed by the these operators.

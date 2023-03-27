@@ -59,7 +59,7 @@ Contains the needed details to create a GitRepository object in the cluster. All
 - **ref**: Reference to the branch, tag, semver or commit to clone
 - **timeout**: Optional field to specify a timeout for Git operations like cloning.
 - **URL**: Required field that specifies the HTTP/S or SSH address of the Git repository.
-- **secretRef**: This field will be filled by Tronador using the [TronadorConfig](./tronador_config.html) CR. `secretRef` is used to specify a name reference to a Secret in the same namespace as the GitRepository, containing authentication credentials for the Git repository.
+- **secretRef**: This field will be filled by Tronador using the [TronadorConfig](./tronador_config.md) CR. `secretRef` is used to specify a name reference to a Secret in the same namespace as the GitRepository, containing authentication credentials for the Git repository.
 
 ### `release`
 
@@ -71,7 +71,6 @@ Contains the needed details to create a HelmRelease object in the cluster. All t
 - **`valuesFrom`**: holds references to resources containing Helm values for this HelmRelease, and information about how they should be merged. For more details, see the [Official HelmRelease docs](https://fluxcd.io/legacy/helm-operator/helmrelease-guide/values/).
 - **`values`**: The values that to override within the Helm release. These need to be updated whenever a new image is created for testing. Using the `create-environment` cluster task is recommended for this.
 
-
 ## `namespaceLabels`
 
-Optional field that contains a map of all labels needed to be placed inside the namespace provisioned by the `Environment`. If they are removed from here, they will be removed from the namespace as well. Labels in the namespace that were never in this field will not be affected. A potential use case of this field is to allow compatibility with [Multi Tenant Operator](../multi-tenant-operator/overview.html).
+Optional field that contains a map of all labels needed to be placed inside the namespace provisioned by the `Environment`. If they are removed from here, they will be removed from the namespace as well. Labels in the namespace that were never in this field will not be affected. A potential use case of this field is to allow compatibility with [Multi Tenant Operator](https://docs.stakater.com/mto/index.html).

@@ -1,48 +1,47 @@
 # EnvironmentProvisioner
 
-::: warning Warning
+!!! warning Warning
+    `tronador.stakater.com/v1alpha1/EnvironmentProvisioner` has now been deprecated. Please use `tronador.stakater.com/v1alpha2/Environment` instead. See its [relevant docs](./environment.md) for more details.
 
-`tronador.stakater.com/v1alpha1/EnvironmentProvisioner` has now been deprecated. Please use `tronador.stakater.com/v1alpha2/Environment` instead. See its [relevant docs](./environment.html) for more details.
+Example of (deprecated) `EnvironmentProvisioner`:
 
-:::
-
-```yaml
-apiVersion: tronador.stakater.com/v1alpha1
-kind: EnvironmentProvisioner
-metadata:
-  name: stakater-nordmart-promotion-pr-9
-spec:
-  application:
-    release:
-      chart:
-        git: https://github.com/stakater-lab/stakater-nordmart-promotion
-        ref: add-tronador-yaml
-        path: "deploy/"
-        secretRef:
-          name: secret-name
-          namespace: secret-namespace
-      releaseName: add-tronador-yaml
-      valuesFrom:
-        - configMapKeyRef:
-            name: default-values
-            namespace: my-ns
-            key: values.yaml
-            optional: false
-        - secretKeyRef:
-            name: default-values
-            namespace: my-ns
-            key: values.yaml
-            optional: true
-      values:
-        application:
-          deployment:
-            image:
-              tag: "native"
-  namespaceLabels:
-    label: value
-    stakater.com/tenant: alpha
-    owner: stakater
-```
+    ```yaml
+    apiVersion: tronador.stakater.com/v1alpha1
+    kind: EnvironmentProvisioner
+    metadata:
+      name: stakater-nordmart-promotion-pr-9
+    spec:
+      application:
+        release:
+          chart:
+            git: https://github.com/stakater-lab/stakater-nordmart-promotion
+            ref: add-tronador-yaml
+            path: "deploy/"
+            secretRef:
+              name: secret-name
+              namespace: secret-namespace
+          releaseName: add-tronador-yaml
+          valuesFrom:
+            - configMapKeyRef:
+                name: default-values
+                namespace: my-ns
+                key: values.yaml
+                optional: false
+            - secretKeyRef:
+                name: default-values
+                namespace: my-ns
+                key: values.yaml
+                optional: true
+          values:
+            application:
+              deployment:
+                image:
+                  tag: "native"
+      namespaceLabels:
+        label: value
+        stakater.com/tenant: alpha
+        owner: stakater
+    ```
 
 ## `application`
 
@@ -55,4 +54,4 @@ Values inside the application section are used to create the Helm release that m
 
 ## `namespaceLabels`
 
-Optional field that contains a map of all labels needed to be placed inside the namespace provisioned by the `EnvironmentProvisioner`. If they are removed from here, they will be removed from the namespace as well. Labels in the namespace that were never in this field will not be affected. A potential use case of this field is to allow compatibility with [Multi Tenant Operator](../multi-tenant-operator/overview.html).
+Optional field that contains a map of all labels needed to be placed inside the namespace provisioned by the `EnvironmentProvisioner`. If they are removed from here, they will be removed from the namespace as well. Labels in the namespace that were never in this field will not be affected. A potential use case of this field is to allow compatibility with [Multi Tenant Operator](https://docs.stakater.com/mto/index.html).

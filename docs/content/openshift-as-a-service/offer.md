@@ -1,6 +1,6 @@
-`Version: 8 Nov 2022`
-
 # Offer
+
+`Version: 30 Jan 2023`
 
 In addition to the `Stakater App Agility Platform`, Stakater offers operational and maintenance support for existing OpenShift clusters for flexible time periods. The Stakater Global SRE Team will be responsible for the operational efforts. Contact [`sales@stakater.com`](mailto:sales@stakater.com) for more info.
 
