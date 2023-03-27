@@ -143,7 +143,7 @@ References to Explore:
 
 Navigate to the cluster Forecastle and get the Nexus URL. Get and copy the nexus url.
 
-![nexus-forecastle](./images/nexus-forecastle.png)
+![nexus-Forecastle](./images/nexus-forecastle.png)
 
 Replace the placeholders and Run the following command inside application folder.
 
@@ -207,7 +207,7 @@ version: 1.0.0
 
 Login into ArgoCD UI using Forecastle console. Visit the application against dev environment inside your tenant. Usual naming convention is **tenantName-envName-appName**. Make sure that there aren't any error while deploying during ArgoCD.
 
-![dev-argocd-app](./images/dev-argocd-app.png)
+![dev-ArgoCD-app](./images/dev-argocd-app.png)
 
 Visit the OpenShift console to verify the application deployment.
 
