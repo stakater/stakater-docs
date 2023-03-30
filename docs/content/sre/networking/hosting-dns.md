@@ -71,7 +71,7 @@ spec:
 
 ### Option # 2: Bring Your Own Certificates (BYOC)
 
-Generate TLS certificates of your domain i.e. `custom.domain.com` from your preferred CA and create a secret of the following format (secret can be secured via [SealedSecrets](../../secrets-management/sealed-secrets.md#Secrets-Management-using-Sealed-Secrets-Controller).
+Generate TLS certificates of your domain i.e. `custom.domain.com` from your preferred CA and create a secret of the following format (secret can be secured via [SealedSecrets](https://docs.stakater.com/secrets/sealed-secrets.html).
 
 Replace concealed values with the corresponding base64 encoded certificate values.
 
