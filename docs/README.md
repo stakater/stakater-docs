@@ -1,19 +1,7 @@
----
-home: true
-title: Home
-heroImage: /stakater.svg
-actions:
-  - text: Docs Home
-    link: /content/sre/introduction/introduction.md
-    type: primary
----
-
 <p style="border:1px; border-style:ridge; border-color:#000000; padding: 0em;"></p>
 
 <h1 style="text-align: center;">
-  About SAAP
+  Stakater Cloud Documentation
 </h1>
 
-<p style="text-align: center;">
-  Stakater's App Agility Platform (SAAP) is a group of practices and tools that lets developers take control of and configure the entire cloud development loop. SAAP helps ship and scale containerized software faster and stay online 24x7  across Hybrid Cloud
-</p>
+<p>link to something</p>
