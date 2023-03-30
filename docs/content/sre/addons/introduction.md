@@ -22,7 +22,7 @@ External (downtime) alerting | [Stakater IMC](https://github.com/stakater/Ingres
 Automatic application reload | [Stakater Reloader](https://github.com/stakater/Reloader)
 Developer dashboard - Launchpad to discover applications | [Stakater Forecastle](https://github.com/stakater/Forecastle)
 Multi-tenancy | [Stakater Multi Tenant Operator](https://docs.stakater.com/mto/index.html)
-Feature environments, Preview Environments, Environments-as-a-Service | [Stakater Tronador](../tronador/overview.md)
+Feature environments, Preview Environments, Environments-as-a-Service | [Stakater Tronador](https://docs.stakater.com/tronador/#)
 Clone secrets, configmaps, etc. | Stakater Replicator
 GitOps Application Manager | Stakater Fabrikate
 Management and issuance of TLS certificates | [cert-manager](https://github.com/jetstack/cert-manager)

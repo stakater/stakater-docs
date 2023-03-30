@@ -136,4 +136,4 @@ spec:
   quota: <quota>
 ```
 
-For more details please refer [custom-resources](../multi-tenant-operator/customresources.md#_2-tenant)
+For more details please refer [custom-resources](https://docs.stakater.com/mto/main/customresources.html)

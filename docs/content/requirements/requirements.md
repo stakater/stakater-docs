@@ -67,7 +67,7 @@ At least two infrastructure nodes are required for the SAAP infrastructure workl
 | [Stakater Multi Tenant Operator](https://docs.stakater.com/mto/index.html)  | 600 | 1.20 |
 | [Stakater Konfigurator](https://github.com/stakater/Konfigurator) | 20 | 0.30 |
 | [Stakater Reloader](https://github.com/stakater/Reloader) | 20 | 0.50 |
-| [Stakater Tronador](../sre/tronador/overview.md)  | 100 | 0.20 |
+| [Stakater Tronador](https://docs.stakater.com/tronador/#)  | 100 | 0.20 |
 | [cert-manager](https://github.com/cert-manager/cert-manager)  | 100 | 1.50 |
 | [External Secrets operator](https://github.com/external-secrets/external-secrets) | 50 | 0.30 |
 | [Kubernetes replicator](https://github.com/mittwald/kubernetes-replicator) | 50 | 0.30 |
