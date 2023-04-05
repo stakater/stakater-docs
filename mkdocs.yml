@@ -35,6 +35,7 @@ extra:
             make our documentation better.
 
 nav:
+    - Documentation: https://docs.stakater.com/
     - Stakater Home: https://www.stakater.com/
     - SAAP: https://www.stakater.com/saap-kubernetes-openshift
     - Consultancy: https://www.stakater.com/kubernetes-consultancy
