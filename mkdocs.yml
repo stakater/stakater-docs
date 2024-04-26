@@ -1,47 +1,67 @@
-site_name: Stakater Cloud Documentation
 docs_dir: docs
-site_url: https://docs.stakater.com/
-repo_url: https://github.com/stakater/StakaterCloudDocs
 edit_uri: blob/main/docs/
-use_directory_urls: false
-theme:
-    name: material
-    prev_next_buttons_location: none
-    logo: assets/images/favicon.svg
-    favicon: assets/images/favicon.svg
-    custom_dir: custom_theme/
-    palette:
-        primary: orange
-    features:
-        - navigation.tabs
-
-markdown_extensions:
-  - attr_list
-
 extra:
-    analytics:
-        provider: google
-        property: G-TTH1YYW5TX
-    consent:
-        title: Cookie consent
-        actions:
-            - accept
-            - reject
-            - manage
-        description: >-
-            We use cookies to recognize your repeated visits and preferences, as well
-            as to measure the effectiveness of our documentation and whether users
-            find what they're searching for. With your consent, you're helping us to
-            make our documentation better.
-
+  analytics:
+    property: G-TTH1YYW5TX
+    provider: google
+  consent:
+    actions:
+    - accept
+    - reject
+    - manage
+    description: We use cookies to recognize your repeated visits and preferences,
+      as well as to measure the effectiveness of our documentation and whether users
+      find what they're searching for. With your consent, you're helping us to make
+      our documentation better.
+    title: Cookie consent
+extra_css:
+- stylesheets/extra.css
+markdown_extensions:
+- attr_list
 nav:
-    - Documentation: https://docs.stakater.com/
-    - Stakater Home: https://www.stakater.com/
-    - SAAP: https://www.stakater.com/saap-kubernetes-openshift
-    - Consultancy: https://www.stakater.com/kubernetes-consultancy
-    - Events: https://www.stakater.com/events
-    - Platform Assessment: https://www.stakater.com/kubernetes-platform-assessment
-    - Careers: https://www.stakater.com/careers
-
+- index.md
 plugins:
-    - search
+- search
+- mermaid2
+- glightbox
+repo_url: https://github.com/stakater/StakaterCloudDocs
+site_name: Stakater Cloud Documentation
+site_url: https://docs.stakater.com/
+theme:
+  cloud_security_alliance_logo_dark: assets/images/CSA_dark.png
+  cloud_security_alliance_logo_light: assets/images/CSA_light.png
+  custom_dir: dist/_theme
+  favicon: assets/images/logo-light.png
+  features:
+  - content.code.copy
+  - navigation.tracking
+  - toc.follow
+  - navigation.top
+  font:
+    code: Space Grotex
+    text: Space Grotex
+  hippa_compliant_logo_dark: assets/images/HC_dark.png
+  hippa_compliant_logo_light: assets/images/HC_light.png
+  logo_dark: assets/images/logo-dark.png
+  logo_light: assets/images/logo-light.png
+  name: material
+  palette:
+  - media: (prefers-color-scheme)
+    toggle:
+      icon: material/brightness-auto
+      name: Switch to system preference
+  - accent: custom
+    media: '(prefers-color-scheme: light)'
+    primary: custom
+    scheme: default
+    toggle:
+      icon: material/brightness-7
+      name: Switch to light mode
+  - accent: custom
+    media: '(prefers-color-scheme: dark)'
+    primary: custom
+    scheme: slate
+    toggle:
+      icon: material/brightness-3
+      name: Switch to dark mode
+use_directory_urls: false
