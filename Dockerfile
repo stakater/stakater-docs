@@ -18,7 +18,7 @@ RUN python theme_common/scripts/combine_mkdocs_config_yaml.py theme_common/mkdoc
 RUN mkdocs build
 
 FROM nginxinc/nginx-unprivileged:1.26-alpine as deploy
-COPY --from=builder $HOME/application/site/ /usr/share/nginx/html/landing/
+COPY --from=builder $HOME/application/site/ /usr/share/nginx/html/
 COPY default.conf /etc/nginx/conf.d/
 
 # set non-root user
