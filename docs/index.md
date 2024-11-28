@@ -19,3 +19,13 @@ hide:
 [Reloader](https://docs.stakater.com/reloader/){ .md-button }
 
 [Tronador](https://docs.stakater.com/tronador/){ .md-button }
+
+<h2 style="text-align: center;">Handbooks</h2>
+
+[Employee Handbook](https://employee.stakater.com/){ .md-button }
+
+[Developer Handbook](https://developerhandbook.stakater.com/){ .md-button }
+
+[Stakater Playbook](https://playbook.stakater.com/){ .md-button }
+
+[Stakater Boot Camp](https://bootcamp.stakater.com/){ .md-button }
