@@ -10,7 +10,7 @@ COPY --chown=1001:root . .
 RUN pip3 install -r theme_common/requirements.txt
 
 # Combine Theme Resources
-RUN python theme_common/scripts/combine_theme_resources.py theme_common/resources theme_override/resources dist/_theme
+RUN python theme_common/scripts/combine_theme_resources.py -s theme_common/resources -ov theme_override/resources -o dist/_theme
 # Produce mkdocs file
 RUN python theme_common/scripts/combine_mkdocs_config_yaml.py theme_common/mkdocs.yml theme_override/mkdocs.yml mkdocs.yml
 
