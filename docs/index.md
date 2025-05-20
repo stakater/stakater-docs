@@ -18,6 +18,8 @@ hide:
 
 [Reloader](https://docs.stakater.com/reloader/){ .md-button }
 
+[Reloader Enterprise Package Proxy](https://docs.stakater.com/reloader-enterprise-package-proxy/){ .md-button }
+
 [Tronador](https://docs.stakater.com/tronador/){ .md-button }
 
 <h2 style="text-align: center;">Handbooks</h2>
