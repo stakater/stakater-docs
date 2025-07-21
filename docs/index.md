@@ -6,7 +6,7 @@ hide:
 
 <p style="border:1px; border-style:ridge; border-color:#000000; padding: 0em;"></p>
 
-<h1 style="text-align: center;">Stakater Cloud Documentation</h1>
+<h1 style="text-align: center;">Stakater Documentation</h1>
 
 [Stakater App Agility Platform (SAAP)](https://docs.stakater.com/saap/){ .md-button }
 
@@ -16,9 +16,9 @@ hide:
 
 [Multi Tenant Operator (MTO)](https://docs.stakater.com/mto/){ .md-button }
 
-[Reloader](https://docs.stakater.com/reloader/){ .md-button }
+[Reloader OSS](https://docs.stakater.com/reloader/){ .md-button }
 
-[Reloader Enterprise Package Proxy](https://docs.stakater.com/reloader-enterprise-package-proxy/){ .md-button }
+[Reloader Enterprise](https://docs.stakater.com/reloader-enterprise-package-proxy/){ .md-button }
 
 [Tronador](https://docs.stakater.com/tronador/){ .md-button }
 
