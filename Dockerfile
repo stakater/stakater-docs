@@ -24,11 +24,11 @@ COPY default.conf /etc/nginx/conf.d/
 # set non-root user
 USER 1001
 
-LABEL name="Stakater Cloud Documentation Landing Page" \
+LABEL name="Stakater Documentation Landing Page" \
       maintainer="Stakater <hello@stakater.com>" \
       vendor="Stakater" \
       release="1" \
-      summary="Landing Page for Stakater Cloud Documentation"
+      summary="Landing Page for Stakater Documentation"
 
 EXPOSE 8080:8080/tcp
 
