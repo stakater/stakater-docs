@@ -10,7 +10,7 @@ hide:
 
 [Stakater App Agility Platform (SAAP)](https://docs.stakater.com/saap/){ .md-button }
 
-[Stakater OpenShift as a Service](https://docs.stakater.com/oaas/){ .md-button }
+[Stakater KubeCare+](https://docs.stakater.com/kubecareplus/){ .md-button }
 
 [Stakater Secrets Management](https://docs.stakater.com/secrets/){ .md-button }
 
