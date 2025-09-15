@@ -16,6 +16,8 @@ hide:
 
 [Multi Tenant Operator (MTO)](https://docs.stakater.com/mto/){ .md-button }
 
+[Template Operator](https://docs.stakater.com/template-operator/){ .md-button }
+
 [Reloader OSS](https://docs.stakater.com/reloader/){ .md-button }
 
 [Reloader Enterprise](https://docs.stakater.com/reloader-enterprise-package-proxy/){ .md-button }
