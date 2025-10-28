@@ -18,6 +18,8 @@ hide:
 
 [Template Operator](https://docs.stakater.com/template-operator/){ .md-button }
 
+[Hibernation Operator](https://docs.stakater.com/hibernation-operator/){ .md-button }
+
 [Reloader OSS](https://docs.stakater.com/reloader/){ .md-button }
 
 [Reloader Enterprise](https://docs.stakater.com/reloader-enterprise-package-proxy/){ .md-button }
