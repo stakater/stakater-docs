@@ -8,7 +8,7 @@ hide:
 
 <h1 style="text-align: center;">Stakater Documentation</h1>
 
-[Stakater App Agility Platform (SAAP)](https://docs.stakater.com/saap/){ .md-button }
+[Stakater KubeStack+](https://docs.stakater.com/kubestackplus/){ .md-button }
 
 [Stakater KubeCare+](https://docs.stakater.com/kubecareplus/){ .md-button }
 
