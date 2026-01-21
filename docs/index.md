@@ -12,8 +12,6 @@ hide:
 
 [Reloader Enterprise](https://docs.stakater.com/reloader-enterprise/){ .md-button }
 
-[Stakater Cloud Orchestrator](https://docs.stakater.com/stakater-cloud-orchestrator/){ .md-button }
-
 [Stakater KubeStack+](https://docs.stakater.com/kubestackplus/){ .md-button }
 
 [Stakater KubeCare+](https://docs.stakater.com/kubecareplus/){ .md-button }
@@ -37,4 +35,5 @@ hide:
 [Stakater Playbook](https://playbook.stakater.com/){ .md-button }
 
 [Stakater Boot Camp](https://bootcamp.stakater.com/){ .md-button }
+
 
