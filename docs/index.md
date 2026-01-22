@@ -37,4 +37,3 @@ hide:
 [Stakater Playbook](https://playbook.stakater.com/){ .md-button }
 
 [Stakater Boot Camp](https://bootcamp.stakater.com/){ .md-button }
-
