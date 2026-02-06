@@ -10,7 +10,7 @@ hide:
 
 [Multi Tenant Operator (MTO)](https://docs.stakater.com/mto/){ .md-button }
 
-[Reloader Enterprise](https://docs.stakater.com/reloader-enterprise/){ .md-button }
+[Reloader](https://docs.stakater.com/reloader/){ .md-button }
 
 [Stakater Cloud Orchestrator](https://docs.stakater.com/stakater-cloud-orchestrator/){ .md-button }
 
@@ -23,8 +23,6 @@ hide:
 [Template Operator](https://docs.stakater.com/template-operator/){ .md-button }
 
 [Hibernation Operator](https://docs.stakater.com/hibernation-operator/){ .md-button }
-
-[Reloader OSS](https://docs.stakater.com/reloader/){ .md-button }
 
 [Tronador](https://docs.stakater.com/tronador/){ .md-button }
 
