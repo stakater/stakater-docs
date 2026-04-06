@@ -24,6 +24,8 @@ hide:
 
 [Hibernation Operator](https://docs.stakater.com/hibernation-operator/){ .md-button }
 
+[Dex Config Operator](https://docs.stakater.com/dco/){ .md-button }
+
 [Tronador](https://docs.stakater.com/tronador/){ .md-button }
 
 <h2 style="text-align: center;">Handbooks</h2>
