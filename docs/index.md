@@ -22,6 +22,8 @@ hide:
 
 [Template Operator](https://docs.stakater.com/template-operator/){ .md-button }
 
+[Template Operator v2](https://docs.stakater.com/template-operator-v2/){ .md-button }
+
 [Hibernation Operator](https://docs.stakater.com/hibernation-operator/){ .md-button }
 
 [Dex Config Operator](https://docs.stakater.com/dco/){ .md-button }
